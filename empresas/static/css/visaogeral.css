@@ -4,7 +4,53 @@
     box-sizing: border-box;
 }
 
-.barlogo {
+.barra {
+    height: 60px;
     width: 100%;
-    border: 1px solid #333;
+    background-color: #070049;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.555); /* Adicionado box-shadow na parte inferior */
+    position: relative;
+    z-index: 2;
+}
+
+.barra-lateral {
+    height: 1000px;
+    width: 15%;
+    background-color: #f3f3f3;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+}
+
+.menu {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #636363;
+    margin: 20px 0;
+}
+
+.menu a:hover {
+    color: #070049;
+}
+
+.content {
+    width: 55%;
+    height: 500px;
+    margin: 20px 230px auto;
+    border: 1px solid #999;
+    padding: 20px 0;
+    border-radius: 30px;
+    display: flex;
 }
