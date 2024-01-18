@@ -77,6 +77,9 @@ a:hover{
 /* Main */
 main{
     margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 main .descricao{
@@ -124,10 +127,14 @@ main .secundaria{
 }
 
 .descricao2 #img{
-    width: 300px;
+    width: 450px;
     height: 465px;
     background: no-repeat center;
     background-size: cover;
 }
 
+.descricao2 p, .descricao2 h3{
+    text-align: right;
+}
 
+.descricao2 div
