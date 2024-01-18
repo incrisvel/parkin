@@ -1,16 +1,24 @@
 {% load static %}
 <nav>
     <ul>
-        <li>
+        <li class="open">
             <a href="/" id="logo">PARKIN</a>
-            <p>Dúvidas</p>
-            <p>Sobre</p>
+                <ul class="menu">
+                    <li><a href="#">Sobre</a>
+                        <ul>
+                            <li><a href="#">Contato</a></li>
+                            <li><a href="#">Quem somos?</a></li>
+                            <li><a href="#">Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Dúvidas</a></li>    
+              </ul>
         </li>
-        <li>
+        <li class="open2">
             <div class="pesquisa">
                 <input type="search" placeholder="Buscar estacionamento..." name="busca" id="busca">
                 <label for="busca">
-                    <img src="{% static 'img/procurar.png' %}" style="width: 22px; height: 22px;">
+                    <img src="{% static 'img/procurar.png' %}" style="width: 22px; height: 22px; cursor: pointer;">
                 </label>
             </div>
             <a href="/">Entrar</a>
