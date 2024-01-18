@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>PARKIN</title>
+</head>
+<body>
+    <header>
+        {%block navbar%}
+            {%include 'main/nav.html'%}
+        {%endblock%}
+    </header>
+    <main>
+        <div class="descricao">
+            <div id="principal" style="background-image: url({% static 'img/imagemale.jpg' %})">
+                <h1>PARKIN</h1>
+            </div>
+            <div class="secundaria">
+                <h3>
+                    Bem-vindo ao nosso inovador sistema de gerenciamento de estacionamentos!
+                </h3>
+                <p>
+                    Procure vagas de estacionamento de maneira rápida, eficaz e segura.
+                </p>
+            </div>
+        </div>
+        <div class="descricao2">
+            <div style="background-image: url({% static 'img/imagemale2.jpg' %})" id="img">
+            </div>
+            <div class="secundaria">
+                <h3>
+                    Os usuários podem facilmente localizar estacionamentos cadastrados.
+                </h3>
+                <p>
+                    O sistema permite o cadastro fácil de usuários, tanto clientes quanto proprietários
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
