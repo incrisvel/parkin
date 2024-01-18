@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.barlogo {
+    width: 100%;
+    border: 1px solid #333;
+}

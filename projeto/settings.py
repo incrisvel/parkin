@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'main',
 =======
     'main'
->>>>>>> dev-marco
+    'empresas'
 ]
 
 MIDDLEWARE = [
