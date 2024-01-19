@@ -5,6 +5,7 @@ class Cliente(models.Model):
     sobrenome = models.CharField(max_length=100)
     username = models.CharField(max_length=10, unique=True, null=False, blank=False, primary_key=True, verbose_name="nome de usuário")
     data_nasc = models.DateField(verbose_name="data de nascimento")
+    criacao_conta = models.AutoField()
     
     def __str__(self):
         return self.nome
