@@ -15,7 +15,7 @@ nav {
   width: 100%;
   background-color: #fffffff3;
   top: 0%;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.199);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.678);
 }
 
 ul {
@@ -59,6 +59,7 @@ ul {
 
 .menu li p {
   font-size: 19px;
+  transition: 1s;
 }
 
 .menu li ul {
@@ -69,16 +70,16 @@ ul {
   display: none;
   border: 1px rgba(128, 128, 128, 0.329) solid;
   border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.459);
   height: 60px;
 }
 
-.menu li:hover ul,
-.menu li.over ul {
+.menu li:hover ul, .menu li.over ul {
   display: block;
 }
 
-.menu > li:hover {
-  border: #05021f solid 0.3px;
+.menu > li:hover  p{
+    color: rgba(0, 0, 0, 0.349);
 }
 
 .menu li ul li {
