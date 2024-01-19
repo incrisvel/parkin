@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+  <title>PARKIN</title>
+</head>
+<body>
+  <header style="background-image: url({% static 'img/cadastro.jpg' %})">
+    <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
+  </header>
+  <main>
+      <form action="" method="post">
+        <h1>Cadastrar-se</h1>
+        {% csrf_token %}
+        <div class="import">
+          {{ form.nome }}  
+          <label for="nome">{{ form.nome.label }} </label>   
+        </div>
+        <div class="import">
+          {{ form.email }}  
+          <label for="email">{{ form.email.label }} </label>   
+        </div>
+        <div class="import">
+          {{ form.senha }}  
+          <label for="senha">{{ form.senha.label }} </label>   
+        </div>
+        <div>
+          <input type="checkbox" name="check" id="check">
+          <a href="/"> Termos de consentimento</a>
+        </div>
+        <input type="submit" value="Cadastrar" id="button">
+      </form>
+  </main>
+</body>
+</html>
+<body>

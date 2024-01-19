@@ -42,9 +42,10 @@
 
         </div>
     </main>
-
     <footer>
-        <p>@COPYRIGHT BY PARKIN</p>
+        {%block footer%}
+            {%include 'main/footer.html'%}
+        {%endblock%}
     </footer>
 </body>
 </html>
