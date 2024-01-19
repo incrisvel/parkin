@@ -4,53 +4,154 @@
     box-sizing: border-box;
 }
 
-.barra {
-    height: 60px;
-    width: 100%;
-    background-color: #070049;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.555); /* Adicionado box-shadow na parte inferior */
-    position: relative;
-    z-index: 2;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+@media only screen and (max-width: 1920px) {
+    body {
+        background-color: #070049;
+    }
+    
+    .conteudo {
+        background-color: #fdfdfd;
+        height: 1500px;
+        margin: 50px 100px 5%;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+    
+    .titulo {
+        width: 20%;
+        margin: 40px 0px 0px 320px;
+    }
+    
+    .titulo h1 {
+        font-size: 35px;
+        font-family: 'Montserrat', sans-serif;
+        color: #070049;
+    }
+    
+    .barra-lateral {
+        height: 1500px;
+        width: 17%;
+        background-color: #f3f3f3;
+        position: absolute;
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .barra-lateral h1 {
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 40px 0px 0px 25px;
+        color: #070049
+    }
+    
+    .menu {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu-item {
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu a {
+        font-size: 17px;
+        text-decoration: none;
+        color: #636363;
+        margin: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu a:hover {
+        color: #070049;
+    }
+    
+    img.dashboard-icon {
+        width: 20px;
+        margin-right: 5px;
+    }
+    
+    .grafico {
+        width: 50%;
+        height: 450px;
+        margin: 50px 320px;
+        background-color: #070049;
+        border-radius: 30px;
+    }
 }
 
-.barra-lateral {
-    height: 1000px;
-    width: 15%;
-    background-color: #f3f3f3;
-    display: flex;
-    position: absolute;
-    z-index: 1;
-}
-
-.menu {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.menu a {
-    font-size: 18px;
-    text-decoration: none;
-    color: #636363;
-    margin: 20px 0;
-}
-
-.menu a:hover {
-    color: #070049;
-}
-
-.content {
-    width: 55%;
-    height: 500px;
-    margin: 20px 230px auto;
-    border: 1px solid #999;
-    padding: 20px 0;
-    border-radius: 30px;
-    display: flex;
+@media only screen and (max-width: 1366px) {
+    body {
+        background-color: #070049;
+    }
+    
+    .conteudo {
+        background-color: #fdfdfd;
+        height: 1500px;
+        margin: 50px 100px 5%;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+    
+    .titulo {
+        width: 20%;
+        margin: 40px 0px 0px 270px;
+    }
+    
+    .titulo h1 {
+        font-size: 30px;
+        font-family: 'Montserrat', sans-serif;
+        color: #070049;
+    }
+    
+    .barra-lateral {
+        height: 1500px;
+        width: 20%;
+        background-color: #f3f3f3;
+        position: absolute;
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .barra-lateral h1 {
+        font-size: 18px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 40px 0px 0px 20px;
+        color: #070049
+    }
+    
+    .menu {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu a {
+        font-size: 15px;
+        text-decoration: none;
+        color: #636363;
+        margin: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .menu a:hover {
+        color: #070049;
+    }
+    
+    .grafico {
+        width: 50%;
+        height: 350px;
+        margin: 30px 270px;
+        background-color: #070049;
+        border-radius: 30px;
+    }
 }

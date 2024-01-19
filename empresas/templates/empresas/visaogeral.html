@@ -10,21 +10,39 @@
     <title>Visão Geral</title>
 </head>
 <body>
-        <div class="barra">
-        </div>
+    <div class="conteudo">
 
         <div class="barra-lateral">
+            <h1>Meu Estacionamento</h1>
             <div class="menu">
-                <a href="/visaogeral">Visão Geral</a>
-                <a href="/visaogeral">Meu estacionamento</a>
-                <a href="/visaogeral">Informações</a>
-                <a href="/visaogeral">Tempo Real</a>
-                <a href="/visaogeral">Meu cadastro</a>
+                <div class="menu-item">
+                    <img src="{% static 'img/dashboard.png' %}" class="dashboard-icon">
+                    <a href="/visaogeral">Visão Geral</a>
+                </div>
+                <div class="menu-item">
+                    <img src="{% static 'img/info.png' %}" class="dashboard-icon">
+                    <a href="/visaogeral">Informações</a>
+                </div>
+                <div class="menu-item">
+                    <img src="{% static 'img/relogio.png' %}" class="dashboard-icon">
+                    <a href="/visaogeral">Tempo Real</a>
+                </div>
+                <div class="menu-item">
+                    <img src="{% static 'img/cadastro.png' %}" class="dashboard-icon">
+                    <a href="/visaogeral">Meu Cadastro</a>
+                </div>
             </div>
         </div>
 
-        <div class="content">
-            
+        <div class="titulo">
+            <h1>
+                Visão Geral
+            </h1>
+        </div> 
+
+        <div class="grafico">
+
         </div>
+    </div>
 </body>
 </html>
