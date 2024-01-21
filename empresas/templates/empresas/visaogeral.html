@@ -52,14 +52,50 @@
             <img src="{% static 'img/grafico.png' %}" class="grafico">
         </div>
 
-        <div class="conteudo2">
-            <div class="bloco-estacionamento">
-
-                <img src="{% static 'img/estacionamento1.jpg' %}" class="estacionamento">
+        <div class="container">
+            <div class="side">
+                <h3>Seu Resultado</h3>
+                <div class="circle">
+                    <h1>76</h1>
+                    <p>de 100</p>
+                </div>
+                <h3>Muito Bom</h3>
+                <p>Seu mês anterior foi de 63%</p>
             </div>
-            <h1>Estacionamento Shopping Neumarkt</h1>
-            <p>Localização: </p>
-        </div>    
+            <div class="side">
+                <h3>Resumo Semanal</h3>
+                <ul>
+                    <li>
+                        <div>
+                            <img src="{% static 'img/icon-reaction.svg' %}" alt="">
+                            <span>Estacionamentos</span>
+                        </div>
+                        <span>5</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="{% static 'img/icon-memory.svg' %}" alt="">
+                            <span>Clientes Diários</span>
+                        </div>
+                        <span>623</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="{% static 'img/icon-verbal.svg' %}" alt="">
+                            <span>Tempo Médio</span>
+                        </div>
+                        <span>20min</span>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="{% static 'img/icon-visual.svg' %}" alt="">
+                            <span>Crescimetno</span>
+                        </div>
+                        <span>23%</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
