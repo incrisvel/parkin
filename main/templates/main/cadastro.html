@@ -16,16 +16,28 @@
         <h1>Cadastrar-se</h1>
         {% csrf_token %}
         <div class="import">
-          {{ form.nome }}  
-          <label for="nome">{{ form.nome.label }} </label>   
+          <input type="text" name="nome" id="nome" required>
+          <label for="nome">Nome</label>   
         </div>
         <div class="import">
-          {{ form.email }}  
-          <label for="email">{{ form.email.label }} </label>   
+          <input type="text" name="email" id="email" required>
+          <label for="email">Email</label>   
         </div>
         <div class="import">
-          {{ form.senha }}  
-          <label for="senha">{{ form.senha.label }} </label>   
+          <input type="password" name="senha" id="senha" required>
+          <label for="senha">Senha</label>   
+        </div>
+        <div class="import">
+          <input type="password" name="confirme" id="confirme" required>
+          <label for="confirme">Confirme sua senha</label>   
+        </div>
+        <div class="notimport">
+          <label class="data">Data de nascimento</label>
+          <input type="date" name="data" id="data" required>
+        </div>
+        <div class="import">
+          <input type="text" name="cpf" required>
+          <label for="cpf">CPF</label>
         </div>
         <div>
           <input type="checkbox" name="check" id="check">

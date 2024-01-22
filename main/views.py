@@ -1,19 +1,13 @@
 from django.shortcuts import render
-from .forms import Cadastro
 
 def index(request):
     return render(request,'main/index.html')
 
 def cadastro(request):
     if request.method == 'POST':
-        form = Cadastro(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-    else:
-        form = Cadastro()
-    context = {
-        'form':form
-    }
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        confirme = request.POST.get('confirme')
+        data = request.POST.get('data')
             
-    return render(request, 'main/cadastro.html', context)
+    return render(request, 'main/cadastro.html')

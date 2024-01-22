@@ -83,8 +83,8 @@ ul {
   display: block;
 }
 
-.menu > li:hover  p{
-    color: rgba(0, 0, 0, 0.349);
+.menu > li:hover{
+  border: 1px solid black;
 }
 
 .menu li ul li {
@@ -166,11 +166,11 @@ main {
 main .descricao {
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 70%;
 }
 
 #principal {
-  width: 50%;
+  width: 40%;
   height: 465px;
   background: no-repeat center;
   background-size: cover;
@@ -206,7 +206,7 @@ main .secundaria {
   align-items: center;
   flex-direction: row-reverse;
   margin-top: 80px;
-  width: 90%;
+  width: 70%;
 }
 
 .descricao2 p,
