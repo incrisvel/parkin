@@ -60,20 +60,19 @@ ul {
   text-decoration: none;
   padding: 5px 10px;
   display: block;
-  cursor: pointer;
 }
 
 .menu li p {
   font-size: 19px;
+  cursor: default;
 }
 
 .menu li ul {
   position: absolute;
-  top: 35px;
+  top: 45px;
   left: -2px;
-  background-color: #f5f3f3;
+  background-color: #b9b9b9;
   display: none;
-  border: 1px rgba(128, 128, 128, 0.13) solid;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.459);
   height: 100px;
@@ -83,18 +82,31 @@ ul {
   display: block;
 }
 
-p#sobre:hover, a#logo:hover, a#entra:hover{
+a#logo:hover, a#entra:hover{
   color: #00000042;
 }
 
-p#sobre:hover{
-  border: 1px solid rgba(0, 0, 0, 0.466);
-  border-radius: 5px;
+li.dd{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.menu > li img{
+  width: 20px;
+  transform:rotate(360deg);
 }
 
 .menu li ul li {
   display: block;
   width: 150px;
+}
+
+img#triangulo{
+  top: -15px;
+  position: absolute;
+  left: 87px;
+  z-index: -1;
 }
 
 a.submenu {
