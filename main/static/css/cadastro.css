@@ -47,66 +47,65 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 700px;
-
+    height: 800px;
 }
 
 form{
-    background-color: white;
+    background-color:rgba(255, 255, 255, 0.123);
     padding: 30px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
 }
 
+form h1{
+    color: #ffffff;
+}
+
+form div{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
 label{
     position: absolute;
-    color: white;
-    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    transition: 250ms;
     margin-top: 10px;
-    transition: 200ms;
 }
-
-div.notimport{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-label.data{
-    position: relative;
-    margin-left: 0px;
-    margin-top: 0px;
-    color: #000000;
-}
-
-
 
 form .import{
     display: flex;
     align-items: flex-start;
-    margin-top: 10px;
+    border-radius: 10px;
+}
+
+div.import img{
+    position: absolute;
+    margin-top: 12px;
+    width: 15px;
 }
 
 form input{
     width: 400px;
     height: 30px;
-    background-color: #05021f;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
+    padding: 5px 20px;
+    background-color: transparent;
+    outline: none;
+    color: #ffffff;
+    border-top: 0px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    border-right: 0px;
+    border-left: 0px;
+    font-size: 18px;
 }
 
 form input:focus + label, form input:valid + label{
     font-size: 10px;
     margin: 0;
-}
-
-form div{
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
+    transform: translateY(-5px);
 }
 
 #check{
@@ -115,21 +114,43 @@ form div{
 
 div a{
     margin-left: 5px;
+    color: white;
 }
 
 #button{
     margin-top: 10px;
-    width: 200px;
-    height: 30px;
+    width: 100%;
+    height: 50px;
     cursor: pointer;
     font-size: 18px;
     background-color: #000000;
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
     transition: 1s;
 }
 
 #button:hover{
     background-color: #00000086;
+}
+
+div.entrar p{
+    color: #ffffff;
+}
+
+/* Fim Main */
+
+/* Footer */
+
+footer {
+    background-color: #ffffffd7;
+    color: #000000;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+footer p {
+    padding: 30px;
 }

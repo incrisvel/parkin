@@ -5,6 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+  <script>
+    function mascara_cpf() {
+      var cpf = document.getElementById('cpf')
+      if (cpf.value.length === 3 || cpf.value.length === 7){
+        cpf.value += '.'
+      }
+      else if(cpf.value.length === 11){
+        cpf.value += '-'
+      }
+    }
+    function mascara_data() {
+      var data = document.getElementById('data')
+      if (data.value.length === 2 || data.value.length === 5){
+        data.value += '/'
+      }
+    }
+  </script>
   <title>PARKIN</title>
 </head>
 <body>
@@ -16,36 +33,51 @@
         <h1>Cadastrar-se</h1>
         {% csrf_token %}
         <div class="import">
+          <img src="{% static 'img/user.png' %}">
           <input type="text" name="nome" id="nome" required>
           <label for="nome">Nome</label>   
         </div>
         <div class="import">
+          <img src="{% static 'img/email.png' %}">
           <input type="text" name="email" id="email" required>
           <label for="email">Email</label>   
         </div>
         <div class="import">
+          <img src="{% static 'img/key.png' %}">
           <input type="password" name="senha" id="senha" required>
           <label for="senha">Senha</label>   
         </div>
         <div class="import">
+          <img src="{% static 'img/key.png' %}">
           <input type="password" name="confirme" id="confirme" required>
           <label for="confirme">Confirme sua senha</label>   
         </div>
-        <div class="notimport">
-          <label class="data">Data de nascimento</label>
-          <input type="date" name="data" id="data" required>
+        <div class="import">
+          <img src="{% static 'img/wallet.png' %}">
+          <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()" required>
+          <label for="cpf">CPF</label>
         </div>
         <div class="import">
-          <input type="text" name="cpf" required>
-          <label for="cpf">CPF</label>
+          <img src="{% static 'img/calendar.png' %}">
+          <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
+          <label class="data">Data de nascimento</label>
         </div>
         <div>
           <input type="checkbox" name="check" id="check">
           <a href="/"> Termos de consentimento</a>
         </div>
+        <div class="entrar">
+          <p>Já possui uma conta?</p>
+          <a href="/entrar">Entrar</a>
+        </div>
         <input type="submit" value="Cadastrar" id="button">
       </form>
   </main>
+  <footer>
+    {%block footer%}
+      {%include 'main/footer.html'%}
+    {%endblock%}
+  </footer>
 </body>
 </html>
 <body>

@@ -49,6 +49,7 @@ ul {
 .menu li {
   position: relative;
   float: left;
+  padding: 0px 5px;
 }
 
 .menu > li {
@@ -64,27 +65,31 @@ ul {
 
 .menu li p {
   font-size: 19px;
-  transition: 1s;
 }
 
 .menu li ul {
   position: absolute;
-  top: 32px;
+  top: 35px;
   left: -2px;
   background-color: #f5f3f3;
   display: none;
-  border: 1px rgba(128, 128, 128, 0.329) solid;
+  border: 1px rgba(128, 128, 128, 0.13) solid;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.459);
-  height: 60px;
+  height: 100px;
 }
 
 .menu li:hover ul, .menu li.over ul {
   display: block;
 }
 
-.menu > li:hover{
-  border: 1px solid black;
+p#sobre:hover, a#logo:hover, a#entra:hover{
+  color: #00000042;
+}
+
+p#sobre:hover{
+  border: 1px solid rgba(0, 0, 0, 0.466);
+  border-radius: 5px;
 }
 
 .menu li ul li {
@@ -93,10 +98,10 @@ ul {
 }
 
 a.submenu {
-  font-size: 15px;
+  font-size: 17px;
 }
 
-a {
+a{
   text-decoration: none;
   color: rgb(0, 0, 0);
   font-size: 18px;
@@ -104,8 +109,20 @@ a {
   transition: 1s;
 }
 
-a:hover {
-  color: rgba(0, 0, 0, 0.349);
+a.submenu::after{
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #000000;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  transition: 0.5s;
+}
+
+a.submenu:hover::after {
+  width: 100%;
+  color: #000000;
 }
 
 #logo {
@@ -166,11 +183,11 @@ main {
 main .descricao {
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 90%;
 }
 
 #principal {
-  width: 40%;
+  width: 30%;
   height: 465px;
   background: no-repeat center;
   background-size: cover;
@@ -199,6 +216,7 @@ div h3 {
 
 main .secundaria {
   padding: 20px;
+  width: 90%;
 }
 
 .descricao2 {
@@ -206,7 +224,7 @@ main .secundaria {
   align-items: center;
   flex-direction: row-reverse;
   margin-top: 80px;
-  width: 70%;
+  width: 90%;
 }
 
 .descricao2 p,
