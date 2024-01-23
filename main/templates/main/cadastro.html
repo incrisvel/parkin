@@ -15,11 +15,29 @@
         cpf.value += '-'
       }
     }
+
     function mascara_data() {
       var data = document.getElementById('data')
       if (data.value.length === 2 || data.value.length === 5){
         data.value += '/'
       }
+    }
+
+    document.getElementById('tabpadrao').click();
+
+    function abrirtab(event, IdTab){
+      var conteudos = document.getElementsByClassName('conteudo');
+      for(var i = 0; i < conteudos.length; i++){
+        conteudos[i].style.display = 'none';
+      }
+
+      var tabs = document.getElementsByClassName('tabs-button');
+      for(var i = 0; i < tabs.length; i++){
+        tabs[i].className = tabs[i].className.replace('ativo', '');
+      }    
+         
+      document.getElementById(IdTab).style.display = 'block';
+      event.currentTarget.className +=  ' ativo';
     }
   </script>
   <title>PARKIN</title>
@@ -31,46 +49,92 @@
   <main>
       <form action="" method="post">
         <h1>Cadastrar-se</h1>
-        {% csrf_token %}
-        <div class="import">
-          <img src="{% static 'img/user.png' %}">
-          <input type="text" name="nome" id="nome" required>
-          <label for="nome">Nome</label>   
+        <div class="botoes">
+          <button id="tabpadrao" class="tabs-button" onclick="abrirtab(event, 'usuario')">Usuário</button>
+          <button class="tabs-button" onclick="abrirtab(event, 'empresa')">Empresa</button>
         </div>
-        <div class="import">
-          <img src="{% static 'img/email.png' %}">
-          <input type="text" name="email" id="email" required>
-          <label for="email">Email</label>   
+        <div class="conteudo" id="usuario">
+          <div class="import">
+            <img src="{% static 'img/user.png' %}">
+            <input type="text" name="nome" id="nome" required>
+            <label for="nome">Nome</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/email.png' %}">
+            <input type="text" name="email" id="email" required>
+            <label for="email">Email</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            <input type="password" name="senha" id="senha" required>
+            <label for="senha">Senha</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            <input type="password" name="confirme" id="confirme" required>
+            <label for="confirme">Confirme sua senha</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/wallet.png' %}">
+            <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()" required>
+            <label for="cpf">CPF</label>
+          </div>
+          <div class="import">
+            <img src="{% static 'img/calendar.png' %}">
+            <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
+            <label class="data">Data de nascimento</label>
+          </div>
+          <div>
+            <input type="checkbox" name="check" id="check">
+            <a href="/"> Termos de consentimento</a>
+          </div>
+          <div class="entrar">
+            <p>Já possui uma conta?</p>
+            <a href="/entrar">Entrar</a>
+          </div>
+          <input type="submit" value="Cadastrar" id="button">
         </div>
-        <div class="import">
-          <img src="{% static 'img/key.png' %}">
-          <input type="password" name="senha" id="senha" required>
-          <label for="senha">Senha</label>   
+        <div class="conteudo" id="empresa">
+          <div class="import">
+            <img src="{% static 'img/user.png' %}">
+            <input type="text" name="nome" id="nome" required>
+            <label for="nome">Nome</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/email.png' %}">
+            <input type="text" name="email" id="email" required>
+            <label for="email">Email</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            <input type="password" name="senha" id="senha" required>
+            <label for="senha">Senha</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            <input type="password" name="confirme" id="confirme" required>
+            <label for="confirme">Confirme sua senha</label>   
+          </div>
+          <div class="import">
+            <img src="{% static 'img/wallet.png' %}">
+            <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()" required>
+            <label for="cpf">CPF</label>
+          </div>
+          <div class="import">
+            <img src="{% static 'img/calendar.png' %}">
+            <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
+            <label class="data">Data de nascimento</label>
+          </div>
+          <div>
+            <input type="checkbox" name="check" id="check">
+            <a href="/"> Termos de consentimento</a>
+          </div>
+          <div class="entrar">
+            <p>Já possui uma conta?</p>
+            <a href="/entrar">Entrar</a>
+          </div>
+          <input type="submit" value="Cadastrar" id="button">
         </div>
-        <div class="import">
-          <img src="{% static 'img/key.png' %}">
-          <input type="password" name="confirme" id="confirme" required>
-          <label for="confirme">Confirme sua senha</label>   
-        </div>
-        <div class="import">
-          <img src="{% static 'img/wallet.png' %}">
-          <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()" required>
-          <label for="cpf">CPF</label>
-        </div>
-        <div class="import">
-          <img src="{% static 'img/calendar.png' %}">
-          <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
-          <label class="data">Data de nascimento</label>
-        </div>
-        <div>
-          <input type="checkbox" name="check" id="check">
-          <a href="/"> Termos de consentimento</a>
-        </div>
-        <div class="entrar">
-          <p>Já possui uma conta?</p>
-          <a href="/entrar">Entrar</a>
-        </div>
-        <input type="submit" value="Cadastrar" id="button">
       </form>
   </main>
   <footer>

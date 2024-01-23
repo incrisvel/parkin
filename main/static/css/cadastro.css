@@ -47,7 +47,7 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 800px;
+    height: 850px;
 }
 
 form{
@@ -62,7 +62,37 @@ form h1{
     color: #ffffff;
 }
 
-form div{
+form .botoes{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.botoes button{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 11px 12px 0px rgba(0,0,0,0.75);
+    transition: 1s;
+}
+
+.botoes button:hover{
+    background-color: #ffffff42;
+}
+
+.botoes button.ativo{
+    background-color: #ffffff42;
+}
+
+.conteudo{
+    display: none;
+}
+
+form div div{
     display: flex;
     margin-top: 20px;
     align-items: center;
