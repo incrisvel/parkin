@@ -21,3 +21,7 @@ Ryan configurou o banco de dados e a página de visualização da empresa. Arthu
 ## 22/01/2024
 
 Ana e Bianca foram adicionadas à equipe.
+
+## 24/01/2024
+
+Foi iniciada a apresentação da equipe, tendo Ana, Arthur e Marco começado o PowerPoint e Ryan, a logo. Bianca e Cristina continuaram a estruturação das models e a organização de recursos para a Mostra.
