@@ -23,35 +23,35 @@
             {% csrf_token %} 
             <div class="import">
               <img src="{% static 'img/user.png' %}">
-              <input type="text" name="nome" id="nome" required>
-              <label for="nome">Nome *</label>   
+              {{ form.nome }}
+              <label for="nome">{{ form.nome.label }}</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/email.png' %}">
-              <input type="text" name="email" id="email" required>
-              <label for="email">Email *</label>   
+              {{ form.email }}
+              <label for="email">{{ form.email.label }}</label>   
             </div>
             {% if senha == confirme %}
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
-                <input type="password" name="senha" id="senha" required>
-                <label for="senha">Senha *</label>   
+                {{ form.senha }}
+                <label for="senha">{{ form.senha.label }}</label>   
               </div>
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
-                <input type="password" name="confirme" id="confirme" required>
-                <label for="confirme">Confirme sua senha *</label>   
+                {{ form.confirme }}
+                <label for="confirme">{{ form.confirme.label }}</label>   
               </div>
             {% else %}
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
-                <input type="password" name="senha" id="senha" required style="background-color: rgba(255, 0, 0, 0.311);">
-                <label for="senha">Senha *</label>   
+                {{ form.senha }}
+                <label for="senha">{{ form.senha.label }}</label>   
               </div>
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
-                <input type="password" name="confirme" id="confirme" required style="background-color: rgba(255, 0, 0, 0.311);">
-                <label for="confirme">Confirme sua senha *</label>   
+                {{ form.confirme }}
+                <label for="confirme">{{ form.confirme.label }}</label>   
               </div>
             {%endif%}
             <div class="import">
@@ -66,18 +66,18 @@
             </div>
             <div class="import">
               <img src="{% static 'img/celular.png' %}">
-              <input type="text" name="cell" id="cell"  required>
+              <input type="text" name="cell" id="cell"  onkeyup="mascara_number()" required>
               <label class="cell">Telefone</label>
             </div>
             {% if check == None %}
               <div style="background-color: rgba(255, 0, 0, 0.2);">
-                <input type="checkbox" name="check" id="check">
-                <a href="/" style="color: red;"> Termos de consentimento</a>
+                {{ forms.checkbox }}
+                <a href="/" style="color: red;">Termos de consentimento</a>
               </div>
             {% else %}
               <div>
-                <input type="checkbox" name="check" id="check">
-                <a href="/">  Termos de consentimento</a>
+                {{ forms.checkbox }}
+                <a href="/">Termos de consentimento</a>
               </div>
             {%endif%}
             <div class="entrar">
@@ -92,23 +92,23 @@
             {% csrf_token %} 
             <div class="import">
               <img src="{% static 'img/user.png' %}">
-              <input type="text" name="nome" id="nome" required>
-              <label for="nome">Nome da empresa</label>   
+              {{ form.nome }}
+              <label for="nome">{{ form.nome.label }}</label>
             </div>
             <div class="import">
               <img src="{% static 'img/email.png' %}">
-              <input type="text" name="email" id="email" required>
-              <label for="email">Email *</label>   
+              {{ form.email }}
+              <label for="email">{{ form.email.label }}</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/key.png' %}">
-              <input type="password" name="senha" id="senha" required>
-              <label for="senha">Senha *</label>   
+              {{ form.senha }}
+              <label for="senha">{{ form.senha.label }}</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/key.png' %}">
-              <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha *</label>   
+              {{ form.confirme }}
+              <label for="confirme">{{ form.confirme.label }}</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/wallet.png' %}">
@@ -170,6 +170,16 @@
       var data = document.getElementById('data')
       if (data.value.length === 2 || data.value.length === 5){
         data.value += '/'
+      }
+    }
+
+    function mascara_number(){
+      var num = document.getElementById('cell')
+      if (num.value.length === 0){
+        num.value += '('
+      }
+      else if(num.value.length === 3){
+        num.value += ')'
       }
     }
 
