@@ -24,40 +24,40 @@
             <div class="import">
               <img src="{% static 'img/user.png' %}">
               <input type="text" name="nome" id="nome" required>
-              <label for="nome">Nome</label>   
+              <label for="nome">Nome *</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/email.png' %}">
               <input type="text" name="email" id="email" required>
-              <label for="email">Email</label>   
+              <label for="email">Email *</label>   
             </div>
             {% if senha == confirme %}
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
                 <input type="password" name="senha" id="senha" required>
-                <label for="senha">Senha</label>   
+                <label for="senha">Senha *</label>   
               </div>
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
                 <input type="password" name="confirme" id="confirme" required>
-                <label for="confirme">Confirme sua senha</label>   
+                <label for="confirme">Confirme sua senha *</label>   
               </div>
             {% else %}
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
                 <input type="password" name="senha" id="senha" required style="background-color: rgba(255, 0, 0, 0.311);">
-                <label for="senha">Senha</label>   
+                <label for="senha">Senha *</label>   
               </div>
               <div class="import">
                 <img src="{% static 'img/key.png' %}">
                 <input type="password" name="confirme" id="confirme" required style="background-color: rgba(255, 0, 0, 0.311);">
-                <label for="confirme">Confirme sua senha</label>   
+                <label for="confirme">Confirme sua senha *</label>   
               </div>
             {%endif%}
             <div class="import">
               <img src="{% static 'img/wallet.png' %}">
               <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()"  required>
-              <label for="cpf">CPF</label>
+              <label for="cpf">CPF *</label>
             </div>
             <div class="import">
               <img src="{% static 'img/calendar.png' %}">
@@ -69,10 +69,17 @@
               <input type="text" name="cell" id="cell"  required>
               <label class="cell">Telefone</label>
             </div>
-            <div>
-              <input type="checkbox" name="check" id="check">
-              <a href="/"> Termos de consentimento</a>
-            </div>
+            {% if check == None %}
+              <div style="background-color: rgba(255, 0, 0, 0.2);">
+                <input type="checkbox" name="check" id="check">
+                <a href="/" style="color: red;"> Termos de consentimento</a>
+              </div>
+            {% else %}
+              <div>
+                <input type="checkbox" name="check" id="check">
+                <a href="/">  Termos de consentimento</a>
+              </div>
+            {%endif%}
             <div class="entrar">
               <p>Já possui uma conta?</p>
               <a href="/entrar">Entrar</a>
@@ -91,27 +98,27 @@
             <div class="import">
               <img src="{% static 'img/email.png' %}">
               <input type="text" name="email" id="email" required>
-              <label for="email">Email</label>   
+              <label for="email">Email *</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/key.png' %}">
               <input type="password" name="senha" id="senha" required>
-              <label for="senha">Senha</label>   
+              <label for="senha">Senha *</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/key.png' %}">
               <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha</label>   
+              <label for="confirme">Confirme a senha *</label>   
             </div>
             <div class="import">
               <img src="{% static 'img/wallet.png' %}">
               <input type="text" name="cnpj" id="cnpj" maxlength="18" onkeyup="mascara_cnpj()" required>
-              <label for="cpf">CNPJ</label>
+              <label for="cpf">CNPJ *</label>
             </div>
             {% if check == None %}
-              <div style="background-color: red;">
+              <div style="background-color: rgba(255, 0, 0, 0.2);">
                 <input type="checkbox" name="check" id="check">
-                <a href="/"> Termos de consentimento</a>
+                <a href="/" style="color: red;"> Termos de consentimento</a>
               </div>
             {% else %}
               <div>
