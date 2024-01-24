@@ -50,7 +50,7 @@ main{
     margin-top: 100px;
 }
 
-form{
+div.centro{
     background-color:rgba(255, 255, 255, 0.123);
     padding: 30px;
     display: flex;
@@ -58,11 +58,11 @@ form{
     border-radius: 5px;
 }
 
-form h1{
+div.centro h1{
     color: #ffffff;
 }
 
-form .botoes{
+div.centro .botoes{
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
@@ -92,7 +92,7 @@ form .botoes{
     display: none;
 }
 
-form div div{
+div.centro div div{
     display: flex;
     margin-top: 20px;
     align-items: center;
@@ -103,7 +103,6 @@ label{
     color: rgb(255, 255, 255);
     margin-left: 20px;
     transition: 250ms;
-    margin-top: 10px;
 }
 
 form .import{
@@ -114,7 +113,6 @@ form .import{
 
 div.import img{
     position: absolute;
-    margin-top: 12px;
     width: 15px;
 }
 
@@ -129,13 +127,21 @@ form input{
     border-bottom: 2px solid rgb(255, 255, 255);
     border-right: 0px;
     border-left: 0px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 form input:focus + label, form input:valid + label{
-    font-size: 10px;
+    font-size: 8px;
     margin: 0;
-    transform: translateY(-5px);
+    transform: translateY(-15px);
+}
+
+input:-webkit-autofill {    
+    -webkit-text-fill-color: rgb(0, 0, 0) !important;
+}
+
+input:-webkit-autofill + label{    
+    -webkit-text-fill-color: rgb(0, 0, 0) !important;
 }
 
 #check{

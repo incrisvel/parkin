@@ -12,95 +12,121 @@
     <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
   </header>
   <main>
-      <form action="" method="post">
+      <div class="centro">
         <h1>Cadastrar-se</h1>
         <div class="botoes">
-          <button id="tabPadrao" class="tabs-button" onclick="abrirtab(event, 'usuario')">Usuário</button>
+          <button id="tabPadrao" class="tabs-button" onclick="abrirtab(event, 'usuario')">Clientes</button>
           <button class="tabs-button" onclick="abrirtab(event, 'empresa')">Empresa</button>
         </div>
         <div class="conteudo" id="usuario">
-          <div class="import">
-            <img src="{% static 'img/user.png' %}">
-            <input type="text" name="nome" id="nome" required>
-            <label for="nome">Nome</label>   
+          <form action="" method="post">
+            {% csrf_token %} 
+            <div class="import">
+              <img src="{% static 'img/user.png' %}">
+              <input type="text" name="nome" id="nome" required>
+              <label for="nome">Nome</label>   
+            </div>
+            <div class="import">
+              <img src="{% static 'img/email.png' %}">
+              <input type="text" name="email" id="email" required>
+              <label for="email">Email</label>   
+            </div>
+            {% if senha == confirme %}
+              <div class="import">
+                <img src="{% static 'img/key.png' %}">
+                <input type="password" name="senha" id="senha" required>
+                <label for="senha">Senha</label>   
+              </div>
+              <div class="import">
+                <img src="{% static 'img/key.png' %}">
+                <input type="password" name="confirme" id="confirme" required>
+                <label for="confirme">Confirme sua senha</label>   
+              </div>
+            {% else %}
+              <div class="import">
+                <img src="{% static 'img/key.png' %}">
+                <input type="password" name="senha" id="senha" required style="background-color: rgba(255, 0, 0, 0.311);">
+                <label for="senha">Senha</label>   
+              </div>
+              <div class="import">
+                <img src="{% static 'img/key.png' %}">
+                <input type="password" name="confirme" id="confirme" required style="background-color: rgba(255, 0, 0, 0.311);">
+                <label for="confirme">Confirme sua senha</label>   
+              </div>
+            {%endif%}
+            <div class="import">
+              <img src="{% static 'img/wallet.png' %}">
+              <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()"  required>
+              <label for="cpf">CPF</label>
+            </div>
+            <div class="import">
+              <img src="{% static 'img/calendar.png' %}">
+              <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
+              <label class="data">Data de nascimento</label>
+            </div>
+            <div class="import">
+              <img src="{% static 'img/celular.png' %}">
+              <input type="text" name="cell" id="cell"  required>
+              <label class="cell">Telefone</label>
+            </div>
+            <div>
+              <input type="checkbox" name="check" id="check">
+              <a href="/"> Termos de consentimento</a>
+            </div>
+            <div class="entrar">
+              <p>Já possui uma conta?</p>
+              <a href="/entrar">Entrar</a>
+            </div>
+            <input type="submit" value="Cadastrar" id="button" >
           </div>
-          <div class="import">
-            <img src="{% static 'img/email.png' %}">
-            <input type="text" name="email" id="email" required>
-            <label for="email">Email</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/key.png' %}">
-            <input type="password" name="senha" id="senha" required>
-            <label for="senha">Senha</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/key.png' %}">
-            <input type="password" name="confirme" id="confirme" required>
-            <label for="confirme">Confirme sua senha</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/wallet.png' %}">
-            <input type="text" name="cpf" id="cpf" maxlength="14" onkeyup="mascara_cpf()"  required>
-            <label for="cpf">CPF</label>
-          </div>
-          <div class="import">
-            <img src="{% static 'img/calendar.png' %}">
-            <input type="text" name="data" id="data" maxlength="10" onkeyup="mascara_data()" required>
-            <label class="data">Data de nascimento</label>
-          </div>
-          <div class="import">
-            <img src="{% static 'img/celular.png' %}">
-            <input type="text" name="cell" id="cell"  required>
-            <label class="cell">Telefone</label>
-          </div>
-          <div>
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          <div class="entrar">
-            <p>Já possui uma conta?</p>
-            <a href="/entrar">Entrar</a>
-          </div>
-          <input type="submit" value="Cadastrar" id="button">
-        </div>
+        </form>
         <div class="conteudo" id="empresa">
-          <div class="import">
-            <img src="{% static 'img/user.png' %}">
-            <input type="text" name="nome" id="nome" required>
-            <label for="nome">Nome da empresa</label>   
+          <form action="" method="post">
+            {% csrf_token %} 
+            <div class="import">
+              <img src="{% static 'img/user.png' %}">
+              <input type="text" name="nome" id="nome" required>
+              <label for="nome">Nome da empresa</label>   
+            </div>
+            <div class="import">
+              <img src="{% static 'img/email.png' %}">
+              <input type="text" name="email" id="email" required>
+              <label for="email">Email</label>   
+            </div>
+            <div class="import">
+              <img src="{% static 'img/key.png' %}">
+              <input type="password" name="senha" id="senha" required>
+              <label for="senha">Senha</label>   
+            </div>
+            <div class="import">
+              <img src="{% static 'img/key.png' %}">
+              <input type="password" name="confirme" id="confirme" required>
+              <label for="confirme">Confirme a senha</label>   
+            </div>
+            <div class="import">
+              <img src="{% static 'img/wallet.png' %}">
+              <input type="text" name="cnpj" id="cnpj" maxlength="18" onkeyup="mascara_cnpj()" required>
+              <label for="cpf">CNPJ</label>
+            </div>
+            {% if check == None %}
+              <div style="background-color: red;">
+                <input type="checkbox" name="check" id="check">
+                <a href="/"> Termos de consentimento</a>
+              </div>
+            {% else %}
+              <div>
+                <input type="checkbox" name="check" id="check">
+                <a href="/"> Termos de consentimento</a>
+              </div>
+            {%endif%}
+            <div class="entrar">
+              <p>Já possui uma conta?</p>
+              <a href="/entrar">Entrar</a>
+            </div>
+            <input type="submit" value="Cadastrar" id="button">
           </div>
-          <div class="import">
-            <img src="{% static 'img/email.png' %}">
-            <input type="text" name="email" id="email" required>
-            <label for="email">Email</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/key.png' %}">
-            <input type="password" name="senha" id="senha" required>
-            <label for="senha">Senha</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/key.png' %}">
-            <input type="password" name="confirme" id="confirme" required>
-            <label for="confirme">Confirme a senha</label>   
-          </div>
-          <div class="import">
-            <img src="{% static 'img/wallet.png' %}">
-            <input type="text" name="cnpj" id="cnpj" maxlength="18" onkeyup="mascara_cnpj()" required>
-            <label for="cpf">CNPJ</label>
-          </div>
-          <div>
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          <div class="entrar">
-            <p>Já possui uma conta?</p>
-            <a href="/entrar">Entrar</a>
-          </div>
-          <input type="submit" value="Cadastrar" id="button">
-        </div>
-      </form>
+        </form>
+      </div>
   </main>
   <footer>
     {%block footer%}
