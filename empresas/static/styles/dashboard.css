@@ -331,7 +331,7 @@
     
     .content2 {
         position: absolute;
-        width: 1235px;
+        width: 1091px;
         height: 1199px;
         right: 0;
         opacity: 0.9;
@@ -576,19 +576,20 @@
     .text {
         width: fit-content;
         height: 90px;
-        font-size: 20px;
+        margin-top: 10px;
+        font-size: 17px;
     }
     
     .circle-icon {
         position: absolute;
-        right: 30px;
+        right: 54px;
     }
     
     .parks-icon {
         position: absolute;
         width: 35px;
         margin-top: 21px;
-        margin-right: 39px;
+        margin-right: 63px;
         transform: translate(0, -40%);
         right: 0;
 
@@ -598,7 +599,7 @@
         position: absolute;
         width: 35px;
         margin-top: 27px;
-        margin-right: 39px;
+        margin-right: 63px;
         transform: translate(0, -40%);
         right: 0;
     }
@@ -607,7 +608,7 @@
         position: absolute;
         width: 35px;
         margin-top: 28px;
-        margin-right: 39px;
+        margin-right: 63px;
         transform: translate(0, -40%);
         right: 0;
 
@@ -617,7 +618,7 @@
         position: absolute;
         width: 35px;
         margin-top: 21px;
-        margin-right: 39px;
+        margin-right: 63px;
         transform: translate(0, -40%);
         right: 0;
     }

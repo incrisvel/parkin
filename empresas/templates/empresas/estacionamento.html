@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Estacionamentos</title>
+    <title>Meus Resumos</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/estacionamento.css' %}">
 </head>
 <body>
     <header>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="summary">
                     <li>
-                        <a href="">
+                        <a href="/resumos">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
@@ -87,14 +87,14 @@
                         </a>
                     </li>
                 </div>
-                <div class="menu-side-bar">
+                <div class="park">
                     <li>
-                        <a href="/estacionamento">
-                            <img src="{% static 'assets/icons/park-icon.svg' %}" alt="Estacionamentos" class="park-icon">
+                        <a href="">
+                            <img src="{% static 'assets/icons/park-icon2.svg' %}" alt="Estacionamentos" class="park-icon2">
                         </a>
                     </li>
                     <li>
-                        <a href="/estacionamento">
+                        <a href="">
                             <p>Estacionamento</p>
                         </a>
                     </li>
@@ -141,14 +141,14 @@
                 <li>
                     <p class="p2">Configurações</p>
                 </li>
-                <div class="signup2">
+                <div class="menu-side-bar">
                     <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/signup2-icon2.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
+                        <a href="/cadastro">
+                            <img src="{% static 'assets/icons/signup2-icon.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/cadastro">
                             <p>Cadastro do Estacionamento</p>
                         </a>
                     </li>

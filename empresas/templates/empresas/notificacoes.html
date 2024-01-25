@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Estacionamentos</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/notificacao.css' %}">
 </head>
 <body>
     <header>
@@ -63,9 +63,9 @@
     <div class="content1">
         <nav class="side-bar">
             <ul>
-                <div class="dashboard">
+                <div class="menu-side-bar">
                     <li>
-                        <a href="/dashboard">
+                        <a href=/dashboard"">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
@@ -75,9 +75,9 @@
                         </a>
                     </li>
                 </div>
-                <div class="summary">
+                <div class="menu-side-bar">
                     <li>
-                        <a href="">
+                        <a href="/resumos">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
@@ -99,10 +99,10 @@
                         </a>
                     </li>
                 </div>
-                <div class="menu-side-bar">
+                <div class="notificacao">
                     <li>
                         <a href="/notificacoes">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
+                            <img src="{% static 'assets/icons/notification-icon2.svg' %}" alt="Meus Resumos" class="notificacao-icon2">
                         </a>
                     </li>
                     <li>
@@ -141,14 +141,14 @@
                 <li>
                     <p class="p2">Configurações</p>
                 </li>
-                <div class="signup2">
+                <div class="menu-side-bar">
                     <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/signup2-icon2.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
+                        <a href="/cadastro">
+                            <img src="{% static 'assets/icons/signup2-icon.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/cadastro">
                             <p>Cadastro do Estacionamento</p>
                         </a>
                     </li>

@@ -8,3 +8,9 @@ def resumos(request):
 
 def cadastro(request):
     return render(request,'empresas/cadastro.html')
+
+def estacionamento(request):
+    return render(request,'empresas/estacionamento.html')
+
+def notificacao(request):
+    return render(request,'empresas/notificacoes.html')
