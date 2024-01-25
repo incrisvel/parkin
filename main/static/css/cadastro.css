@@ -68,7 +68,7 @@ div.centro .botoes{
     margin-top: 10px;
 }
 
-.botoes button{
+.botoes a{
     width: 200px;
     height: 30px;
     font-size: 20px;
@@ -80,16 +80,12 @@ div.centro .botoes{
     transition: 1s;
 }
 
-.botoes button:hover{
+.botoes a:hover{
     background-color: #ffffff42;
 }
 
-.botoes button.ativo{
+.botoes a.ativo{
     background-color: #ffffff42;
-}
-
-.conteudo{
-    display: none;
 }
 
 div.centro div div{
