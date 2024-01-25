@@ -1,20 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-class User(AbstractUser):
-    username = None
-    email = models.EmailField(verbose_name='e-mail', unique = True)
-    senha = models.
-    is_active = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=timezone.now)
-    user_type = models.PositiveSmallIntegerField(choices=user_constants.USER_TYPE_CHOICES)
-    
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
-    
-    def __str__(self):
-      return "{}".format(self.email)
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=50,blank=False, null=False)
