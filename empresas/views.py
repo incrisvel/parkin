@@ -14,3 +14,9 @@ def estacionamento(request):
 
 def notificacao(request):
     return render(request,'empresas/notificacoes.html')
+
+def help(request):
+    return render(request,'empresas/help.html')
+
+def comofunciona(request):
+    return render(request,'empresas/comofunciona.html')

@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Cadastro - Estacionamentos</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
-    <link rel="stylesheet" href="{% static '/styles/notificacao.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/help.css' %}">
 </head>
 <body>
     <header>
@@ -63,9 +63,9 @@
     <div class="content1">
         <nav class="side-bar">
             <ul>
-                <div class="menu-side-bar">
+                <div class="dashboard">
                     <li>
-                        <a href=/dashboard>
+                        <a href="/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
@@ -75,9 +75,9 @@
                         </a>
                     </li>
                 </div>
-                <div class="menu-side-bar">
+                <div class="summary">
                     <li>
-                        <a href="/resumos">
+                        <a href="">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
@@ -99,10 +99,10 @@
                         </a>
                     </li>
                 </div>
-                <div class="notificacao">
+                <div class="menu-side-bar">
                     <li>
                         <a href="/notificacoes">
-                            <img src="{% static 'assets/icons/notification-icon2.svg' %}" alt="Meus Resumos" class="notificacao-icon2">
+                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
                         </a>
                     </li>
                     <li>
@@ -114,10 +114,10 @@
                 <li>
                     <p class="p1">Outras Informações</p>
                 </li>
-                <div class="menu-side-bar">
+                <div class="help">
                     <li>
                         <a href="/ajuda">
-                            <img src="{% static 'assets/icons/help-icon.svg' %}" alt="Icone de Ajuda" class="help-icon">
+                            <img src="{% static 'assets/icons/help-icon2.svg' %}" alt="Icone de Ajuda" class="help-icon">
                         </a>
                     </li>
                     <li>
