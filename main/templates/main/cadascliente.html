@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
   <title>PARKIN</title>
 </head>
+
 <body>
   <header style="background-image: url({% static 'img/cadastro.jpg' %})">
     <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
@@ -16,8 +17,8 @@
     <div class="centro">
       <h1>Cadastrar-se</h1>
       <div class="botoes">
-        <a href="/cadastrar/cliente/">Clientes</a>
-        <a href="empresa/" class="ativo">Empresa</a>
+        <a href="cliente/" class="ativo">Clientes</a>
+        <a href="/cadastrar/empresa/">Empresa</a>
       </div>
       <div class="conteudo" id="empresa">
         <form action="" method="post">
@@ -53,38 +54,44 @@
               <label for="confirme">{{ form.confirme.label }}</label>
             </div>
           {%else%}
-            <div class="import">
-              <img src="{% static 'img/key.png' %}">
-              {{ form.senha }}
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-              <img src="{% static 'img/key.png' %}">
-              {{ form.confirme }}
-              <label for="confirme">{{ form.confirme.label }}</label>
-              <span>senha incorreta</span>
-            </div>
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            {{ form.senha }}
+            <label for="senha">{{ form.senha.label }}</label>
+          </div>
+          <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <img src="{% static 'img/key.png' %}">
+            {{ form.confirme }}
+            <label for="confirme">{{ form.confirme.label }}</label>
+            <span>senha incorreta</span>
+          </div>
           {%endif%}
-          {% if cnpj == 14 %}
+          {% if cpf == 11 %}
             <div class="import">
               <img src="{% static 'img/wallet.png' %}">
-              {{ form.cnpj }}
-              <label for="cnpj">{{ form.cnpj.label }}</label>
+              {{ form.cpf }}
+              <label for="cpf">{{ form.cpf.label }}</label>
             </div>
           {%else%}
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
               <img src="{% static 'img/wallet.png' %}">
-              {{ form.cnpj }}
-              <label for="cnpj">{{ form.cnpj.label }}</label>
+              {{ form.cpf }}
+              <label for="cpf">{{ form.cpf.label }}</label>
+              <span>cpf inválido</span>
             </div>
           {%endif%}
+          <div class="import">
+            <img src="{% static 'img/calendar.png' %}">
+            <label for="datadenascimento" id="data">{{ form.datadenascimento.label }}</label>
+            {{ form.datadenascimento }}
+          </div>
           {% if check == None %}
           <div class="check" style="background-color: rgba(255, 0, 0, 0.466 );">
             <input type="checkbox" name="check" id="check">
             <a href="/" style="color: rgb(255, 255, 255);"> Termos de consentimento</a>
           </div>
           {% else %}
-          <div class="check" >
+          <div class="check">
             <input type="checkbox" name="check" id="check">
             <a href="/"> Termos de consentimento</a>
           </div>
@@ -103,6 +110,9 @@
       {%include 'main/footer.html'%}
     {%endblock%}
   </footer>
+  <script>
+    document.getElementById('id_telefone')
+  </script>
 </body>
 
 </html>

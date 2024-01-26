@@ -3,18 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  background-color: #05021f;
-  font-family: 'Montserrat', sans-serif;
+    background-color: #05021f;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Header */
 
-header{
+header {
     background: no-repeat center;
     background-size: cover;
     height: 150px;
@@ -25,11 +25,11 @@ header{
 
 }
 
-header h1{
+header h1 {
     color: #ffffffd7;
     position: absolute;
     top: 100px;
-    background-color:#000000e0;
+    background-color: #000000e0;
     border-radius: 5px;
     padding: 10px;
     font-size: 37px;
@@ -42,7 +42,7 @@ header h1{
 
 /* Main */
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,25 +50,28 @@ main{
     margin-top: 100px;
 }
 
-div.centro{
-    background-color:#ffffff20;
+div.centro {
+    background-color: #ffffff20;
     padding: 30px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
 }
 
-div.centro h1{
+div.centro h1 {
     color: #ffffff;
 }
 
-div.centro .botoes{
+div.centro .botoes {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
 }
 
-.botoes a{
+.botoes a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 30px;
     font-size: 20px;
@@ -76,43 +79,43 @@ div.centro .botoes{
     color: #ffffff;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 11px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 11px 12px 0px rgba(0, 0, 0, 0.75);
     transition: 1s;
+    text-decoration: none;
 }
 
-.botoes a:hover{
+.botoes a:hover {
     background-color: #ffffff42;
 }
 
-.botoes a.ativo{
+.botoes a.ativo {
     background-color: #ffffff42;
 }
 
-div.centro div div{
+div.centro div div {
     display: flex;
-    margin-top: 20px;
+    margin-top: 25px;
     align-items: center;
 }
 
-label{
+label {
     position: absolute;
     color: rgb(255, 255, 255);
     margin-left: 20px;
     transition: 250ms;
 }
 
-form .import{
+form .import {
     display: flex;
     align-items: flex-start;
-    border-radius: 10px;
 }
 
-div.import img{
+div.import img {
     position: absolute;
     width: 15px;
 }
 
-form input{
+form input {
     width: 400px;
     height: 30px;
     padding: 5px 20px;
@@ -126,30 +129,72 @@ form input{
     font-size: 16px;
 }
 
-form input:focus + label, form input:valid + label{
+form input:focus+label,
+form input:valid+label {
     font-size: 8px;
     margin: 0;
     transform: translateY(-15px);
 }
 
-input:-webkit-autofill {    
+span {
+    position: absolute;
+    color: #ffffff;
+    margin-top: 50px;
+    font-size: 12px ;
+    background-color: rgb(138, 18, 32);
+    padding: 1px 5px;
+}
+
+input:-webkit-autofill {
     -webkit-text-fill-color: rgb(0, 0, 0) !important;
 }
 
-input:-webkit-autofill + label{    
+input:-webkit-autofill+label {
     -webkit-text-fill-color: rgb(0, 0, 0) !important;
 }
 
-#check{
+label#data {
+    position: relative;
+}
+
+select {
+    margin-left: 20px;
+}
+
+#id_datadenascimento_day,
+#id_datadenascimento_month,
+#id_datadenascimento_year {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
+div.check{
+    padding: 2px;
+}
+
+#check {
     width: 20px;
 }
 
-div a{
+div.entrar a,
+div.check a {
     margin-left: 5px;
     color: white;
 }
 
-#button{
+#button {
     margin-top: 10px;
     width: 100%;
     height: 50px;
@@ -160,13 +205,14 @@ div a{
     color: rgb(0, 0, 0);
     border-radius: 20px;
     transition: 1s;
+
 }
 
-#button:hover{
+#button:hover {
     background-color: #ffffff86;
 }
 
-div.entrar p{
+div.entrar p {
     color: #ffffff;
 }
 
@@ -175,7 +221,7 @@ div.entrar p{
 /* Footer */
 
 footer {
-    background-color:#ffffff;
+    background-color: #ffffff;
     color: #000000;
     margin-top: 20px;
     display: flex;

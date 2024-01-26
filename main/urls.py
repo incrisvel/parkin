@@ -1,9 +1,9 @@
-from django.contrib import admin
-from django.urls import path, include
-from .views import index, cadastro
+from django.urls import path
+from .views import index, cadastrocliente, cadastrocempresa
 
 urlpatterns = [
     path('', index, name='index'),
-    path('cadastrar/', cadastro, name='cadastro')
+    path('cadastrar/cliente/', cadastrocliente, name='cadastrocliente'),
+    path('cadastrar/empresa/', cadastrocempresa, name='cadastroempresa')
 ]
 
