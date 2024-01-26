@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'empresas',
     'clientes',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +80,8 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'park_db',
-        'USER': 'parkin',
-        'PASSWORD': 'p4rk1nH0',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

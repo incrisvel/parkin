@@ -1,11 +1,14 @@
 from django.db import models
+from main.models import Usuario
+from empresas.models import Estacionamento
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class Cliente(models.Model):
-    nome = models.CharField(max_length=50,blank=False, null=False)
-    sobrenome = models.CharField(max_length=100)
-    username = models.CharField(max_length=10, unique=True, null=False, blank=False, primary_key=True, verbose_name='nome de usuário')
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=150, blank=False, null=False)
+    sobrenome = models.CharField(max_length=150, blank=False)
     data_nasc = models.DateField(verbose_name='data de nascimento')
-    criacao_conta = models.AutoField()
     
     def __str__(self):
         return self.nome
@@ -14,25 +17,27 @@ class Cliente(models.Model):
         ordering = ['nome']
         
         
-class Avaliacao (models.Model):
-    usuario = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='usuario_avaliador', verbose_name='Avaliador')
-    livro = models.ForeignKey(
-        Livro, on_delete=models.CASCADE, related_name='livro_avaliado', verbose_name='Livro avaliado')
-    dissertacao = models.CharField(max_length=1000, null=True, verbose_name='Dissertação')
-    data_envio = models.DateTimeField(auto_now_add=True, verbose_name='Data de envio')
+class Avaliacao(models.Model):
+    avaliador = models.ForeignKey(
+      Cliente, 
+      on_delete=models.CASCADE, 
+      related_name='cliente_avaliador', 
+      verbose_name='avaliador')
+    avaliado = models.ForeignKey(
+      Estacionamento,
+      on_delete=models.CASCADE, 
+      related_name='estacionamento_avaliado', 
+      verbose_name='avaliado')
+    critica = models.CharField(max_length=1000, null=True, verbose_name='crítica')
+    data_envio = models.DateTimeField(auto_now_add=True, verbose_name='data de envio')
     nota = models.DecimalField(max_digits=3, decimal_places=1, validators=[
                                MinValueValidator(0), MaxValueValidator(10)])
 
     def __str__(self):
-        return f'Avaliação de {self.usuario} para {self.livro.titulo}'
-    
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.livro.nota_media
+        return f'Avaliação de {self.avaliador} para {self.avaliado}'
         
     class Meta:
         ordering = ['data_envio']
-        
         verbose_name ='avaliação de usuários'
         verbose_name_plural = 'avaliações de usuários'
+        
