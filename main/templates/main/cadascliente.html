@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+  <title>PARKIN</title>
+</head>
+
+<body>
+  <header style="background-image: url({% static 'img/cadastro.jpg' %})">
+    <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
+  </header>
+  <main>
+    <div class="centro">
+      <h1>Cadastrar-se</h1>
+      <div class="botoes">
+        <a href="cliente/" class="ativo">Clientes</a>
+        <a href="/cadastrar/empresa/">Empresa</a>
+      </div>
+      <div class="conteudo" id="empresa">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="import">
+            <img src="{% static 'img/user.png' %}">
+            {{ form.nome }}
+            <label for="nome">{{ form.nome.label }}</label>
+          </div>
+          {% if email_apparence == True %}
+            <div class="import">
+              <img src="{% static 'img/email.png' %}">
+              {{ form.email }}
+              <label for="email">{{ form.email.label }}</label>
+            </div>
+          {%else%}
+            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+              <img src="{% static 'img/email.png' %}">
+              {{ form.email }}
+              <label for="email">{{ form.email.label }}</label>
+              <span>email inválido</span>
+            </div>
+          {%endif%}
+          {% if senha == confirme %}
+            <div class="import">
+              <img src="{% static 'img/key.png' %}">
+              {{ form.senha }}
+              <label for="senha">{{ form.senha.label }}</label>
+            </div>
+            <div class="import">
+              <img src="{% static 'img/key.png' %}">
+              {{ form.confirme }}
+              <label for="confirme">{{ form.confirme.label }}</label>
+            </div>
+          {%else%}
+          <div class="import">
+            <img src="{% static 'img/key.png' %}">
+            {{ form.senha }}
+            <label for="senha">{{ form.senha.label }}</label>
+          </div>
+          <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <img src="{% static 'img/key.png' %}">
+            {{ form.confirme }}
+            <label for="confirme">{{ form.confirme.label }}</label>
+            <span>senha incorreta</span>
+          </div>
+          {%endif%}
+          {% if cpf == 11 %}
+            <div class="import">
+              <img src="{% static 'img/wallet.png' %}">
+              {{ form.cpf }}
+              <label for="cpf">{{ form.cpf.label }}</label>
+            </div>
+          {%else%}
+            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+              <img src="{% static 'img/wallet.png' %}">
+              {{ form.cpf }}
+              <label for="cpf">{{ form.cpf.label }}</label>
+              <span>cpf inválido</span>
+            </div>
+          {%endif%}
+          <div class="import">
+            <img src="{% static 'img/calendar.png' %}">
+            <label for="datadenascimento" id="data">{{ form.datadenascimento.label }}</label>
+            {{ form.datadenascimento }}
+          </div>
+          {% if check == None %}
+          <div class="check" style="background-color: rgba(255, 0, 0, 0.466 );">
+            <input type="checkbox" name="check" id="check">
+            <a href="/" style="color: rgb(255, 255, 255);"> Termos de consentimento</a>
+          </div>
+          {% else %}
+          <div class="check">
+            <input type="checkbox" name="check" id="check">
+            <a href="/"> Termos de consentimento</a>
+          </div>
+          {%endif%}
+          <div class="entrar">
+            <p>Já possui uma conta?</p>
+            <a href="/entrar">Entrar</a>
+          </div>
+          <input type="submit" value="Cadastrar" id="button">
+      </div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    {%block footer%}
+      {%include 'main/footer.html'%}
+    {%endblock%}
+  </footer>
+</body>
+
+</html>
+
+<body>

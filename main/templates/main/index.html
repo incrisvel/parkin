@@ -16,11 +16,11 @@
     </header>
     <main>
         <div class="descricao">
-                <h1>PARKIN</h1>
+            <div id="principal" style="background-image: url({% static 'img/imagemale.jpg' %})">
             </div>
             <div class="secundaria">
                 <h3>
-                    Bem-vindo ao nosso inovador sistema de gerenciamento de estacionamentos!
+                    Bem-vindo ao nosso sistema de gerenciamento de estacionamentos!
                 </h3>
                 <p>
                     Procure vagas de estacionamento de maneira rápida, eficaz e segura.
@@ -28,19 +28,25 @@
             </div>
         </div>
         <div class="descricao2">
+            <div style="background-image: url({% static 'img/imagemale2.jpg' %})" id="principal">
             </div>
             <div class="secundaria">
                 <h3>
                     Os usuários podem facilmente localizar estacionamentos cadastrados.
                 </h3>
                 <p>
-                    O sistema permite o cadastro fácil de usuários, tanto clientes quanto proprietários
+                    Com cadastro fácil de usuários, tanto clientes quanto proprietários.
                 </p>
             </div>
         </div>
+        <div>
+
+        </div>
     </main>
     <footer>
-
+        {%block footer%}
+            {%include 'main/footer.html'%}
+        {%endblock%}
     </footer>
 </body>
 </html>

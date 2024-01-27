@@ -1,12 +1,30 @@
+{% load static %}
 <nav>
     <ul>
-        <li>
+        <li class="open">
             <a href="/" id="logo">PARKIN</a>
+                <ul class="menu">
+                    <li class="dd">
+                        <p id="sobre">Sobre</p>
+                        <img src="{% static 'img/down-arrow.png' %}">
+                        <ul>
+                            <img src="{% static 'img/plain-triangle.png' %}" id="triangulo">
+                            <li><a href="#" class="submenu">Contato</a></li>
+                            <li><a href="#" class="submenu">Quem somos?</a></li>
+                            <li><a href="#" class="submenu">Dúvidas</a></li>  
+                        </ul>
+                    </li>
+                </ul>
         </li>
-        <li>
-            <input type="search" placeholder="Buscar estacionamento" name="busca" id="busca">
-            <a href="/">Entrar</a>
-            <a href="/" id="registrar">Registrar-se</a>
+        <li class="open2">
+            <div class="pesquisa">
+                <input type="search" placeholder="Buscar estacionamento..." name="busca" id="busca">
+                <label for="busca">
+                    <img src="{% static 'img/procurar.png' %}" style="width: 22px; height: 22px; cursor: pointer;">
+                </label>
+            </div>
+            <a href="/" id="entra">Entrar</a>
+            <a href="/cadastrar/cliente" id="registrar">Registrar-se</a>
         </li>
     </ul>
 </nav>
