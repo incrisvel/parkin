@@ -52,11 +52,10 @@ def entrarcliente(request):
         if form.is_valid():
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            redirect ('/')
     else:
-        form = Entrar(initial={'email' : mail, 'senha' : senha})
-        context = {
-            'form' : form,
-            'email_apparence' : email_apparence
-        }
+        form = Entrar(initial={'email' : mail})
+    context = {
+        'form' : form,
+        'email_apparence' : email_apparence
+    }
     return render(request,'clientes/entrar.html', context)
