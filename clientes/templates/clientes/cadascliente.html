@@ -40,7 +40,7 @@
               <span>email inválido</span>
             </div>
           {%endif%}
-          {% if senha == confirme or senha_apparence == True %}
+          {% if senha == confirme %}
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               {{ form.senha }} 
@@ -96,11 +96,11 @@
           {%endif%}
           <div class="entrar">
             <p>Já possui uma conta?</p>
-            <a href="/entrar">Entrar</a>
+            <a href="/clientes/entrar/">Entrar</a>
           </div>
           <input type="submit" value="Cadastrar" id="button">
+        </form>
       </div>
-      </form>
     </div>
   </main>
   <footer>

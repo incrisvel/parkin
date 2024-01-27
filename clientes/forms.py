@@ -9,3 +9,4 @@ class Clientes(forms.Form):
     confirme = forms.CharField(label='Confirme a senha', widget=forms.PasswordInput)
     cpf = forms.CharField(label='CPF', max_length=11)
     datadenascimento = forms.DateField(label = 'Data de nascimento', widget=forms.SelectDateWidget(years=lista))
+

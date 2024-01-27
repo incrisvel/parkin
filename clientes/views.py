@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import Clientes
+from main.forms import Entrar
 from main.views import enviar_email
 
 def cadastrocliente(request):
@@ -41,3 +42,21 @@ def cadastrocliente(request):
     }
 
     return render(request, 'clientes/cadascliente.html', context)
+
+def entrarcliente(request):
+    email_apparence = True 
+    mail = ''
+    senha = ''
+    if request.method == 'POST':
+        form = Entrar(request.POST)
+        if form.is_valid():
+            mail = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+            redirect ('/')
+    else:
+        form = Entrar(initial={'email' : mail, 'senha' : senha})
+        context = {
+            'form' : form,
+            'email_apparence' : email_apparence
+        }
+    return render(request,'clientes/entrar.html', context)

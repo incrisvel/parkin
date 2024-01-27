@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import Empresas
+from main.forms import Entrar
 from main.views import enviar_email
 
 def cadastrocempresa(request):
@@ -39,6 +40,24 @@ def cadastrocempresa(request):
     }
 
     return render(request, 'empresas/cadasempresa.html', context)
+
+def entrarempresa(request):
+    email_apparence = True 
+    mail = ''
+    senha = ''
+    if request.method == 'POST':
+        form = Entrar(request.POST)
+        if form.is_valid():
+            mail = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+            redirect ('/')
+    else:
+        form = Entrar(initial={'email' : mail, 'senha' : senha})
+        context = {
+            'form' : form,
+            'email_apparence' : email_apparence
+        }
+    return render(request,'empresas/entrar.html', context)
 
 def dashboard(request):
     return render(request,'empresas/dashboard.html')
