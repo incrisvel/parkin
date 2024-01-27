@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.urls import path, include
-from .views import index
+from django.urls import path
+from .views import cadastrocliente
 
 urlpatterns = [
-    path('', index, name='index')
+    path('cadastrar/', cadastrocliente, name='cadastrocliente'),
+    
 ]
 

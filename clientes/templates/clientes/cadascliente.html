@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/cadastroprincipal.css' %}">
   <title>PARKIN</title>
 </head>
-
 <body>
-  <header style="background-image: url({% static 'img/cadastro.jpg' %})">
+  <header style="background-image: url({% static 'assets/img/cadastro.jpg' %})">
     <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
   </header>
   <main>
     <div class="centro">
       <h1>Cadastrar-se</h1>
       <div class="botoes">
-        <a href="cliente/" class="ativo">Clientes</a>
-        <a href="/cadastrar/empresa/">Empresa</a>
+        <a href="/clientes/cadastrar/" class="ativo">Clientes</a>
+        <a href="/empresas/cadastrar/">Empresa</a>
       </div>
       <div class="conteudo" id="empresa">
         <form action="" method="post">
           {% csrf_token %}
           <div class="import">
-            <img src="{% static 'img/user.png' %}">
+            <img src="{% static 'assets/img/user.png' %}">
             {{ form.nome }}
             <label for="nome">{{ form.nome.label }}</label>
           </div>
           {% if email_apparence == True %}
             <div class="import">
-              <img src="{% static 'img/email.png' %}">
+              <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
             </div>
           {%else%}
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-              <img src="{% static 'img/email.png' %}">
+              <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
               <span>email inválido</span>
             </div>
           {%endif%}
-          {% if senha == confirme %}
+          {% if senha == confirme or senha_apparence == True %}
             <div class="import">
-              <img src="{% static 'img/key.png' %}">
-              {{ form.senha }}
+              <img src="{% static 'assets/img/key.png' %}">
+              {{ form.senha }} 
               <label for="senha">{{ form.senha.label }}</label>
             </div>
             <div class="import">
-              <img src="{% static 'img/key.png' %}">
+              <img src="{% static 'assets/img/key.png' %}">
               {{ form.confirme }}
               <label for="confirme">{{ form.confirme.label }}</label>
             </div>
           {%else%}
           <div class="import">
-            <img src="{% static 'img/key.png' %}">
+            <img src="{% static 'assets/img/key.png' %}">
             {{ form.senha }}
             <label for="senha">{{ form.senha.label }}</label>
           </div>
           <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-            <img src="{% static 'img/key.png' %}">
+            <img src="{% static 'assets/img/key.png' %}">
             {{ form.confirme }}
             <label for="confirme">{{ form.confirme.label }}</label>
             <span>senha incorreta</span>
@@ -68,20 +66,20 @@
           {%endif%}
           {% if cpf == 11 %}
             <div class="import">
-              <img src="{% static 'img/wallet.png' %}">
+              <img src="{% static 'assets/img/wallet.png' %}">
               {{ form.cpf }}
               <label for="cpf">{{ form.cpf.label }}</label>
             </div>
           {%else%}
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-              <img src="{% static 'img/wallet.png' %}">
+              <img src="{% static 'assets/img/wallet.png' %}">
               {{ form.cpf }}
               <label for="cpf">{{ form.cpf.label }}</label>
               <span>cpf inválido</span>
             </div>
           {%endif%}
           <div class="import">
-            <img src="{% static 'img/calendar.png' %}">
+            <img src="{% static 'assets/img/calendar.png' %}">
             <label for="datadenascimento" id="data">{{ form.datadenascimento.label }}</label>
             {{ form.datadenascimento }}
           </div>

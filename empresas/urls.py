@@ -1,6 +1,5 @@
-from django.contrib import admin
 from django.urls import path
-from .views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona
+from .views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa
 
 urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
@@ -9,5 +8,7 @@ urlpatterns = [
     path('estacionamento/', estacionamento, name='estacionamento'),
     path('notificacoes/', notificacao, name='notificacoes'),
     path('ajuda/', help, name='ajuda'),
-    path('comofunciona/', comofunciona, name='comofunciona')
+    path('comofunciona/', comofunciona, name='comofunciona'),
+    path('cadastrar/', cadastrocempresa, name='cadastrarempresa'),
+
 ]
