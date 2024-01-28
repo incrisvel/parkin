@@ -1,0 +1,630 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
+@media only screen and (min-width: 1440px) {
+
+    body {
+        background-color: #F5F6FA;
+    }
+
+    header {
+        background-color: #fff;
+        width: 100%;
+        height: 68px;
+        top: 0;
+        position: sticky;
+        z-index: 1;
+        padding: 12px 0;
+        box-shadow: 0px 1px 4px 0px rgba(21, 34, 50, 0.08);
+    }
+    .content1 {
+        position: absolute;
+        width: auto;
+    }
+
+    .content2 {
+        position: absolute;
+        width: 1810px;
+        height: 1199px;
+        right: 0;
+        opacity: 0.9;
+    }
+
+    header nav ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    header nav ul .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+        opacity: 0.9;
+
+    }
+
+    header nav ul .logo li h1 {
+        color: #000;
+        font-size: 21.7px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 31px;
+    }
+
+    header nav ul .logo li .logo-icon {
+        margin-right: 10px;
+    }
+
+    header nav ul .search {
+        display: flex;
+        align-items: center;
+        margin-left: 75px;
+        gap: 8px;
+    }
+
+    header nav ul .search li .search-text {
+        color: #5A607F;
+        border: none;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    header nav ul .notification{
+        position: absolute;
+        display: flex;
+        margin-top: 3px;
+        right: 233px;
+    }
+
+    header nav ul .user{
+        width: 185px;
+        height: 36px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 28px;
+    }
+
+    header nav ul .user li h1{
+        color: #5A607F;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-left: 8px;
+        line-height: 20px;
+    }
+
+    header nav ul .user li .user-img{
+        width: 39px;
+        height: 39px;
+        border-radius: 9999px;
+    }
+
+    header nav ul .user li .seta-icon{
+        width: 24px;
+        height: 24px;
+        margin-top: 3px;
+        margin-left: 20px;
+    }
+
+    header nav ul li {
+        min-width: fit-content;
+        min-height: fit-content;
+        cursor: pointer;
+    }
+
+    .side-bar {
+        width: 260px;
+        height: 1197px;
+        background: #F5F6FA;
+        padding: 16px;
+        box-shadow: -1px 0px 0px 0px #D7DBEC inset;
+    }
+
+    .side-bar .dashboard {
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        width: 218px;
+        height: 44px;
+        border-radius: 10px;
+        background: #1E5EFF;
+    }
+
+    .side-bar .dashboard .dashboard-icon{
+        margin-left: 16px;
+    }
+
+    .side-bar .dashboard p{
+        color: #fff;
+        margin-left: 16px;
+    }
+
+    .side-bar .menu-side-bar {
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        width: 218px;
+        height: 44px;
+    }
+
+    .side-bar .menu-side-bar p{
+        color: #5A607F;
+        margin-left: 16px;
+    }
+
+    .side-bar .menu-side-bar .summary-icon{
+        margin-left: 16px;
+    }
+
+    .side-bar li .p1 {
+        color: #A1A7C4;
+        font-size: 12px;
+        margin-bottom: 12px;
+        margin-top: 28px;
+        margin-left: 17px;
+    }
+
+    .side-bar li .p2 {
+        color: #A1A7C4;
+        font-size: 12px;
+        margin-bottom: 12px;
+        margin-top: 28px;
+        margin-left: 17px;
+    }
+
+    .side-bar .menu-side-bar .park-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .update-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .signup-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .signup2-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .help-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .help2-icon{
+        margin-left: 16px;
+    }
+
+    .side-bar .menu-side-bar .notification-icon{
+        margin-left: 16px;
+    }
+
+    .content2 ul li h1 {
+        margin-top: 30px;
+        margin-left: 40px;
+        font-size: 28px;
+    }
+
+    .content2 .infos {
+        height: 186px;    
+        margin: 30px 41px auto;
+        background-color: #fff;
+        border-radius: 15px;
+        border: 3px solid #D7DBEC;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    .content2 .infos .details1 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+
+    .content2 .infos .details2 {
+        width: 25%;
+        height: 100%;
+    }
+
+    .content2 .infos .details3 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+
+    .content2 .infos .details4 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+
+    .content2 .infos .details2 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+    .content2 .infos .details3 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+    .content2 .infos .details4 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+
+    .info {
+        display: flex;
+        width: 330px;
+        height: 90px;
+        margin-left: 50px;
+        margin-top: 45px;
+        font-size: 20px;
+    }
+
+    .text {
+        width: 330px;
+        height: 90px;
+        font-size: 20px;
+    }
+
+    .circle {
+        position: absolute;
+        right: 0;
+    }
+
+    .parks-icon {
+        position: absolute;
+        margin-top: 20px;
+        width: 40px;
+        transform: translate(267px);
+    }
+
+    .available-icon {
+        position: absolute;
+        margin-top: 25px;
+        width: 37px;
+        transform: translate(267px);
+    }
+
+    .nopark-icon {
+        position: absolute;
+        margin-top: 25px;
+        width: 37px;
+        transform: translate(267px);
+    }
+
+    .time-icon {
+        position: absolute;
+        margin-top: 21px;
+        width: 43px;
+        transform: translate(266px);
+    }
+}
+
+
+@media only screen and (min-width: 1366px) {
+    body {
+        background-color: #F5F6FA;
+    }
+    
+    header {
+        background-color: #fff;
+        width: 100%;
+        height: 68px;
+        top: 0;
+        position: sticky;
+        z-index: 1;
+        padding: 12px 0;
+        box-shadow: 0px 1px 4px 0px rgba(21, 34, 50, 0.08);
+    }
+    .content1 {
+        position: absolute;
+        width: auto;
+    }
+    
+    .content2 {
+        position: absolute;
+        width: 1091px;
+        height: 1199px;
+        right: 0;
+        opacity: 0.9;
+    }
+    
+    header nav ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    header nav ul .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+        opacity: 0.9;
+    
+    }
+    
+    header nav ul .logo li h1 {
+        color: #000;
+        font-size: 21.7px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 31px;
+    }
+    
+    header nav ul .logo li .logo-icon {
+        margin-right: 10px;
+    }
+    
+    header nav ul .search {
+        display: flex;
+        align-items: center;
+        margin-left: 75px;
+        gap: 8px;
+    }
+    
+    header nav ul .search li .search-text {
+        color: #5A607F;
+        border: none;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    
+    header nav ul .notification{
+        position: absolute;
+        display: flex;
+        margin-top: 3px;
+        right: 233px;
+    }
+    
+    header nav ul .user{
+        width: 185px;
+        height: 36px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 28px;
+    }
+    
+    header nav ul .user li h1{
+        color: #5A607F;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-left: 8px;
+        line-height: 20px;
+    }
+    
+    header nav ul .user li .user-img{
+        width: 39px;
+        height: 39px;
+        border-radius: 9999px;
+    }
+    
+    header nav ul .user li .seta-icon{
+        width: 24px;
+        height: 24px;
+        margin-top: 3px;
+        margin-left: 20px;
+    }
+    
+    header nav ul li {
+        min-width: fit-content;
+        min-height: fit-content;
+        cursor: pointer;
+    }
+    
+    .side-bar {
+        width: 260px;
+        height: 1197px;
+        background: #F5F6FA;
+        padding: 16px;
+        box-shadow: -1px 0px 0px 0px #D7DBEC inset;
+    }
+    
+    .side-bar .notificacao {
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        width: 218px;
+        height: 44px;
+        border-radius: 10px;
+        background: #1E5EFF;
+    }
+    
+    .side-bar .notificacao .notificacao-icon2{
+        margin-left: 16px;
+    }
+    
+    .side-bar .notificacao p{
+        color: #fff;
+        margin-left: 16px;
+    }
+    
+    .side-bar .menu-side-bar {
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        width: 218px;
+        height: 44px;
+    }
+    
+    .side-bar .menu-side-bar p{
+        color: #5A607F;
+        margin-left: 16px;
+    }
+    
+    .side-bar .menu-side-bar .summary-icon{
+        margin-left: 16px;
+    }
+
+    .side-bar .menu-side-bar .dashboard-icon{
+              margin-left: 16px;
+          }
+    
+    .side-bar li .p1 {
+        color: #A1A7C4;
+        font-size: 12px;
+        margin-bottom: 12px;
+        margin-top: 28px;
+        margin-left: 17px;
+    }
+    
+    .side-bar li .p2 {
+        color: #A1A7C4;
+        font-size: 12px;
+        margin-bottom: 12px;
+        margin-top: 28px;
+        margin-left: 17px;
+    }
+    
+    .side-bar .menu-side-bar .park-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .update-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .signup-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .signup2-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .help-icon{
+        margin-left: 16px;
+    }
+    .side-bar .menu-side-bar .help2-icon{
+        margin-left: 16px;
+    }
+    
+    .side-bar .menu-side-bar .notification-icon{
+        margin-left: 16px;
+    }
+    
+    .content2 ul li h1 {
+        margin-top: 30px;
+        margin-left: 40px;
+        font-size: 28px;
+    }
+    
+    .content2 .infos {
+        position: relative;
+        height: 186px;    
+        margin: 30px 41px auto;
+        background-color: #fff;
+        border-radius: 15px;
+        border: 3px solid #D7DBEC;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+    }
+    
+    .content2 .infos .details1 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+    
+    .content2 .infos .details2 {
+        width: 25%;
+        height: 100%;
+    }
+    
+    .content2 .infos .details3 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+    
+    .content2 .infos .details4 {
+        width: 25%;
+        height: 100%;
+        border: 0px 1px 0 0 solid #D7DBEC;
+    }
+    
+    .content2 .infos .details2 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+    .content2 .infos .details3 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+    .content2 .infos .details4 .rentangulo{
+        width: 1px;
+        height: 100%;
+        border: 1px solid #D7DBEC;
+    }
+    
+    .info {
+        position: absolute;
+        align-items: center;
+        display: flex;
+        width: 260px;
+        margin-left: 30px;
+        margin-top: 45px;
+        font-size: 20px;
+    }
+    
+    .text {
+        width: fit-content;
+        height: 90px;
+        margin-top: 10px;
+        font-size: 17px;
+    }
+    
+    .circle-icon {
+        position: absolute;
+        right: 54px;
+    }
+    
+    .parks-icon {
+        position: absolute;
+        width: 35px;
+        margin-top: 21px;
+        margin-right: 63px;
+        transform: translate(0, -40%);
+        right: 0;
+
+    }
+    
+    .available-icon {
+        position: absolute;
+        width: 35px;
+        margin-top: 27px;
+        margin-right: 63px;
+        transform: translate(0, -40%);
+        right: 0;
+    }
+    
+    .nopark-icon {
+        position: absolute;
+        width: 35px;
+        margin-top: 28px;
+        margin-right: 63px;
+        transform: translate(0, -40%);
+        right: 0;
+
+    }
+    
+    .time-icon {
+        position: absolute;
+        width: 35px;
+        margin-top: 21px;
+        margin-right: 63px;
+        transform: translate(0, -40%);
+        right: 0;
+    }
+    
+}
