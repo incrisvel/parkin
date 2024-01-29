@@ -25,6 +25,8 @@ def enviar_email(mail):
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     print('email enviado')
 
+def contato(request):
+    return render (request, "main/nos.html")
 
 
 

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>PARKIN</title>
+</head>
+<body>
+    <header>
+        {%block navbar%}
+            {%include 'main/nav.html'%}
+        {%endblock%}
+    </header>
+    <main>
+        <h1>Nosso time é composto por profissionais comprometidos com a excelência, unidos pela visão de criar um impacto positivo nas cidades que habitamos. Combinamos nossa expertise em desenvolvimento de software, gestão de projetos e tecnologias emergentes para trazer o PARKIN à vida.</h1>
+    </main>
+    <footer>
+        {%block footer%}
+            {%include 'main/footer.html'%}
+        {%endblock%}
+    </footer>
+</body>
+</html>

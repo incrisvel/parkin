@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index
+from .views import index, contato
 from empresas.views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa
 
 urlpatterns = [
@@ -13,5 +13,6 @@ urlpatterns = [
     path('comofunciona/', comofunciona, name='comofunciona'),
     path('cadastrar/', cadastrocempresa, name='cadastrarempresa'),
     path('entrar/', entrarempresa, name='entrarempresa'),
+    path('nos/',contato, name = "contato" )
 ]
 
