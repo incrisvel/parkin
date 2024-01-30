@@ -49,8 +49,8 @@
             </div>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              {{ form.confirme }}
-              <label for="confirme">{{ form.confirme.label }}</label>
+              <input type="password" name="confirme" id="confirme" required>
+              <label for="confirme">Confirme a senha</label>
             </div>
           {%else%}
             <div class="import">
@@ -60,8 +60,8 @@
             </div>
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
               <img src="{% static 'assets/img/key.png' %}">
-              {{ form.confirme }}
-              <label for="confirme">{{ form.confirme.label }}</label>
+              <input type="password" name="confirme" id="confirme" required>
+              <label for="confirme">Confirme a senha</label>
               <span>senha incorreta</span>
             </div>
           {%endif%}

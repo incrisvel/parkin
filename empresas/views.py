@@ -16,8 +16,9 @@ def cadastrocempresa(request):
             nome = form.cleaned_data['nome']
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            confirme = form.cleaned_data['confirme']
+            confirme = request.POST.get('confirme')
             cnpj = form.cleaned_data['cnpj']
+            check = request.POST.get('check')
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
                 if email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com' and senha == confirme and check != 'None' and len(cnpj) == 14:

@@ -1,9 +1,6 @@
 from django import forms
 from .models import Cliente
 
-lista = list(range(2006, 1900, -1))
-
-
 class Usuario(forms.ModelForm):
     class Meta:
         model = Cliente

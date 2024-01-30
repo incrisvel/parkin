@@ -2,13 +2,13 @@ from django.db import models
 from main.models import Usuario
 
 class Estacionamento(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    nome_fantasia = models.CharField(max_length=200, blank=False, null=False)
+    nome_fantasia = models.CharField(max_length=200, blank=False, null=False  verbose_name = 'Nome')
     razao_social = models.CharField(max_length=200, blank=False, null=False)
     cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False)
+    senha = models.CharField(max_length=200, default = '')
 
     def __str__(self):
-        return f"{self.nome} - CNPJ: {self.cnpj}"
+        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
     
     
 class Endereco(models.Model):
