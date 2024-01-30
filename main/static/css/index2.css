@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #05021f;
+  background-color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -200,13 +200,28 @@ main h3 {
   margin-right: 500px;
   margin-top: 0;
 }
+main div {
+    align-items: center;
+    background-color: #08092a;
+    height: 100px;
+    padding: 80px;
+    justify-content:center;
+    border: 2px solid white;
+    color: orange;
+    justify-items:center;
+}
 main div.segundo{
-  color: white;
-  margin: 100px;
-  width: 630px;
+  width: 100%;
   justify-content: center;
-  margin-left: 500px;
-  margin-right: 0;
+  margin-top: 7cm;
+  justify-items: center;
+  left: 4cm;
+ 
+  
+}
+main div.primeiro{
+    margin: 0;
+    width: 100%;
   
 }
 
