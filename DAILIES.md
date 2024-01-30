@@ -30,6 +30,12 @@ Foi iniciada a apresentação da equipe, tendo Ana, Arthur e Marco começado o P
 
 A equipe criou e apresentou o modelo .ppt do projeto para a turma.
 
-## 26/01/2024
+## 27/01/2024
 
-Cristina fez os modelos do banco de dados.
+Ana, Cristina e Marco reuniram-se virtualmente para discutir o andamento do projeto e o cronograma da equipe.
+
+## 29/01/2024
+
+Marco trabalhou na integração do banco de dados, feito por Cristina, com os formulários nos templates. Arthur e Bianca organizaram os produtos necessários para a apresentação do projeto. Ana e Ryan verificaram e testaram o banco de dados.
+
+## 30/01/2024
