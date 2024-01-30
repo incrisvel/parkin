@@ -25,6 +25,7 @@ def enviar_email(mail):
 
 
 def a(request):
-    return render(request, 'main/email.html')
+    return render(request, 'main/grafico.html')
+
 
 
