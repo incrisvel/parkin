@@ -7,32 +7,33 @@
             font-family: Arial, Helvetica, sans-serif; 
         }
         div.email{
-            border:1px solid rgba(128, 128, 128, 0.582);
-            background-color:#80808000; 
+            border:1px solid #08092a;
+            background-color:#ffffff00; 
             text-align:center;
             padding: 40px 20px;
             font-size: 15px;
             border-radius: 10px; 
             width: 400px;
-            color: black;
+            color: #08092afd;
         }
         h1#tituloemail{
-            border-bottom:1px solid rgba(128, 128, 128, 0.288);
+            border-bottom:1px solid #08092a71;
             padding: 0px 0px 10px 0px;
-            color: #000000;
+            color: #08092a71;
             margin-top: 0;
         }
         a#cadas{
-            background-color: #0e6aa7; 
+            background-color: rgb(255, 145, 47); 
             transition: 1s; 
             text-decoration: none; 
-            color: rgb(255, 255, 255); 
+            color: rgb(0, 0, 0); 
             border-radius: 5px; 
             padding:10px 25px;
             margin-top: 5px;
         }
         a#cadas:hover{
-            background-color: #0e6aa77a; 
+            background-color: rgba(255, 144, 47, 0.603); 
+            color: rgba(0, 0, 0, 0.541); 
         }
     </style>
 </head>
@@ -46,14 +47,14 @@
                         <td align="center" style="width: 100%;">
                         <div class="email">
                             <img src="{% static 'img/Logo.png' %}" style="width:150px">
-                            <h1 id="tituloemail" style="margin-top: 20px;">Validação do cadastro ParkIN</h1>
+                            <h1 id="tituloemail" style="margin-top: 20px; color: #08092a;">Validação do cadastro ParkIN</h1>
                             <div style="padding: 0px 0px 30px 0px;">
                                 <p class="pemail" style="margin: 0;">Clique no botão abaixo para validar sua conta no ParkIN.</p>
                                 <p class="pemail" style="margin: 0; margin-top: 5px;">Caso não seja você ignore este email!</p>
                             </div>
                             <a href="http:/127.0.0.1:8000/" id="cadas">Cadastre-se</a>
                         </div>
-                        <p style="font-size: 14px; color: #0000006c;">@PARKIN este email foi enviado para a sua confirmação em nosso site.</p>
+                        <p style="font-size: 14px; color: #00000096;">@PARKIN este email foi enviado para a sua confirmação em nosso site.</p>
                         </td>
                     </tr>
                 </tbody>
