@@ -14,9 +14,9 @@ def cadastrocliente(request):
             nome = form.cleaned_data['nome']
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            confirme = request.POST.get('confirme')
             data = form.cleaned_data['data_nasc']
             check = request.POST.get('check')
+            confirme = request.POST.get('confirme')
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
                 print(senha, confirme)

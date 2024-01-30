@@ -29,7 +29,7 @@ ul {
   align-items: center;
   list-style: none;
   height: 100px;
-  padding: 10px 25px;
+  padding: 10px 20px;
 }
 
 .open {
@@ -89,7 +89,6 @@ a#logo:hover, a#entra:hover{
 li.dd{
   display: flex;
   align-items: center;
-  padding: 10px;
 }
 
 .menu > li img{

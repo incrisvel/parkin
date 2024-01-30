@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>  
     <style type="text/css">
@@ -44,7 +45,8 @@
                     <tr>
                         <td align="center" style="width: 100%;">
                         <div class="email">
-                            <h1 id="tituloemail">Validação do cadastro ParkIN</h1>
+                            <img src="{% static 'img/Logo.png' %}" style="width:150px">
+                            <h1 id="tituloemail" style="margin-top: 20px;">Validação do cadastro ParkIN</h1>
                             <div style="padding: 0px 0px 30px 0px;">
                                 <p class="pemail" style="margin: 0;">Clique no botão abaixo para validar sua conta no ParkIN.</p>
                                 <p class="pemail" style="margin: 0; margin-top: 5px;">Caso não seja você ignore este email!</p>
