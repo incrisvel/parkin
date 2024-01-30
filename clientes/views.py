@@ -19,6 +19,7 @@ def cadastrocliente(request):
             check = request.POST.get('check')
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
+                print(senha, confirme)
                 if email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com' and check != 'None' and senha == confirme:
                     enviar_email(mail)
                     form.save()
