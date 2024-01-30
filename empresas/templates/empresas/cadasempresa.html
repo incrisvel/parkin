@@ -9,8 +9,8 @@
   <title>PARKIN</title>
 </head>
 <body>
-  <header style="background-image: url({% static 'assets/img/cadastro.jpg' %})">
-    <h1>Facilite sua busca por estacionamentos no seu dia-a-dia</h1>
+  <header>
+    <a href="/"><img src="{% static 'img/Logo.png' %}"></a>
   </header>
   <main>
     <div class="centro">
@@ -24,22 +24,24 @@
           {% csrf_token %}
           <div class="import">
             <img src="{% static 'assets/img/user.png' %}">
-            {{ form.nome }}
-            <label for="nome">{{ form.nome.label }}</label>
+            {{ form.nome_fantasia }}
+            <label for="nome">{{ form.nome_fantasia.label }}</label>
           </div>
+          {{ form.nome_fantasia.errors }}
           {% if email_apparence == True %}
             <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
             </div>
+            {{ form.email.errors }}
           {%else%}
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
-              <span>email inválido</span>
             </div>
+            <span>email inválido</span>
           {%endif%}
           {% if senha == confirme %}
             <div class="import">
@@ -49,8 +51,8 @@
             </div>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              {{ form.confirme }}
-              <label for="confirme">{{ form.confirme.label }}</label>
+              <input type="password" name="confirme" id="confirme" required>
+              <label for="confirme">Confirme a senha</label>
             </div>
           {%else%}
             <div class="import">
@@ -58,30 +60,37 @@
               {{ form.senha }}
               <label for="senha">{{ form.senha.label }}</label>
             </div>
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              {{ form.confirme }}
-              <label for="confirme">{{ form.confirme.label }}</label>
-              <span>senha incorreta</span>
+              <input type="password" name="confirme" id="confirme" required>
+              <label for="confirme">Confirme a senha</label>
             </div>
+            <span>senha incorreta</span>
           {%endif%}
+          <div class="import">
+            <img src="{% static 'assets/img/respons.png' %}">
+            {{ form.razao_social }}
+            <label for="senha">{{ form.razao_social.label }}</label>
+          </div>
           {% if cnpj == 14 %}
             <div class="import">
               <img src="{% static 'assets/img/wallet.png' %}">
               {{ form.cnpj }}
               <label for="cnpj">{{ form.cnpj.label }}</label>
             </div>
+            {{ form.cnpj.errors }}
           {%else%}
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <div class="import">
               <img src="{% static 'assets/img/wallet.png' %}">
               {{ form.cnpj }}
               <label for="cnpj">{{ form.cnpj.label }}</label>
             </div>
+            <span>CNPJ incorreto</span>
           {%endif%}
           {% if check == None %}
           <div class="check" style="background-color: rgba(255, 0, 0, 0.466 );">
             <input type="checkbox" name="check" id="check">
-            <a href="/" style="color: rgb(255, 255, 255);"> Termos de consentimento</a>
+            <a href="/"> Termos de consentimento</a>
           </div>
           {% else %}
           <div class="check" >

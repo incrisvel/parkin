@@ -1,18 +1,16 @@
 from django.shortcuts import render, redirect
 import smtplib
 import email.message
+from django.template.loader import render_to_string
 
 def index(request):
     return render(request,'main/index.html')
 
 def enviar_email(mail):
-    corpo_email = """
-    <p>Paragrafo1</p>
-    <p>Paragrafo2</p>
-    """
+    corpo_email = render_to_string('main/email.html')
 
     msg = email.message.Message()
-    msg['Subject'] = 'Validação do email'
+    msg['Subject'] = 'Validação do email ParkIn'
     msg['From'] = 'parkin2123@gmail.com'
     msg['To'] = mail
     password = 'vqybrhoxtqlbltnw'
@@ -25,6 +23,9 @@ def enviar_email(mail):
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     print('email enviado')
 
+
+def a(request):
+    return render(request, 'main/email.html')
 
 
 

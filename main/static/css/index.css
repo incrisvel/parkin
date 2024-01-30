@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #05021f;
+  background-color: #F5F6FA;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -20,7 +20,7 @@ nav {
   width: 100%;
   background-color: #fffffff3;
   top: 0%;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.678);
+  box-shadow: 3x 3px 3px rgba(0, 0, 0, 0.678);
 }
 
 ul {
@@ -29,7 +29,7 @@ ul {
   align-items: center;
   list-style: none;
   height: 100px;
-  padding: 10px 25px;
+  padding: 10px 20px;
 }
 
 .open {
@@ -69,12 +69,11 @@ ul {
 
 .menu li ul {
   position: absolute;
-  top: 45px;
-  left: -2px;
-  background-color: #b9b9b9;
+  top: 30px;
+  left: -11px;
+  background-color: rgba(255, 144, 47, 0.959);
   display: none;
   border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.459);
   height: 100px;
 }
 
@@ -83,13 +82,12 @@ ul {
 }
 
 a#logo:hover, a#entra:hover{
-  color: #00000042;
+  color:  rgba(8, 9, 44, 0.329);
 }
 
 li.dd{
   display: flex;
   align-items: center;
-  padding: 10px;
 }
 
 .menu > li img{
@@ -103,7 +101,7 @@ li.dd{
 }
 
 img#triangulo{
-  top: -15px;
+  top: -10px;
   position: absolute;
   left: 87px;
   z-index: -1;
@@ -115,7 +113,7 @@ a.submenu {
 
 a{
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: rgb(8, 9, 44);
   font-size: 18px;
   padding: 10px;
   transition: 1s;
@@ -125,7 +123,7 @@ a.submenu::after{
   content: "";
   width: 0%;
   height: 1px;
-  background-color: #000000;
+  background-color: rgb(8, 9, 44);
   position: absolute;
   bottom:0;
   left: 0;
@@ -134,7 +132,7 @@ a.submenu::after{
 
 a.submenu:hover::after {
   width: 100%;
-  color: #000000;
+  color: rgb(8, 9, 44);
 }
 
 #logo {
@@ -143,18 +141,18 @@ a.submenu:hover::after {
 }
 
 #registrar {
-  border: solid 1px rgb(0, 0, 0);
+  border: solid 1px rgb(8, 9, 44);
   border-radius: 5px;
   transition: 1s;
 }
 
 #registrar:hover {
-  background-color: #000000;
+  background-color: rgb(8, 9, 44);
   color: #ffffffff;
 }
 
 .pesquisa {
-  background-color: #05021f;
+  background-color: rgb(8, 9, 44);
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
@@ -164,7 +162,7 @@ a.submenu:hover::after {
 }
 
 #busca {
-  background-color: #05021f;
+  background-color: rgb(8, 9, 44);
   border-radius: 5px;
   height: 30px;
   width: 200px;
@@ -179,14 +177,14 @@ a.submenu:hover::after {
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.644);
+  color: rgba(255, 255, 255, 0.884);
 }
 
 /* Fim Barra de Navegação */
 
 /* Main */
 main {
-  margin-top: 180px;
+  margin-top: 150px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -205,24 +203,14 @@ main .descricao {
   background-size: cover;
 }
 
-main div h1 {
-  color: white;
-  font-size: 80px;
-  background-color: rgba(0, 0, 0, 0.911);
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 5px;
-
-}
-
 main div p {
-  color: rgba(255, 255, 255, 0.603);
+  color: rgb(255, 145, 47);
   font-size: 22px;
   margin-top: 10px;
 }
 
 div h3 {
-  color: white;
+  color: rgb(255, 145, 47);
   font-size: 40px;
 }
 
@@ -235,8 +223,10 @@ main .secundaria {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  margin-top: 80px;
+  margin-top: 50px;
   width: 90%;
+  border-top: 1px solid rgba(0, 0, 0, 0.11);
+  padding: 40px 0px 0px 0px;
 }
 
 .descricao2 p,
@@ -249,11 +239,12 @@ main .secundaria {
 /* Footer */
 
 footer {
-  background-color: #ffffffd7;
-  color: #000000;
+  background-color: #ffffffff;
+  color: #08092a;
   margin-top: 50px;
   display: flex;
   justify-content: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.11);
 }
 
 footer p {
