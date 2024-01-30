@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Usuario
 from main.forms import Entrar
 from main.views import enviar_email
-from .models import Usuario
+
 
 def cadastrocliente(request):
     check = 'on'
