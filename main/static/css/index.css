@@ -190,58 +190,25 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  
 }
-
-main .descricao {
-  display: flex;
-  align-items: center;
-  width: 90%;
+main h3 {
+  margin: 100px;
+  width: 630px;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 500px;
+  margin-top: 0;
 }
-
-#principal {
-  width: 30%;
-  height: 465px;
-  background: no-repeat center;
-  background-size: cover;
-}
-
-main div h1 {
+main div.segundo{
   color: white;
-  font-size: 80px;
-  background-color: rgba(0, 0, 0, 0.911);
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 5px;
-
-}
-
-main div p {
-  color: rgba(255, 255, 255, 0.603);
-  font-size: 22px;
-  margin-top: 10px;
-}
-
-div h3 {
-  color: white;
-  font-size: 40px;
-}
-
-main .secundaria {
-  padding: 20px;
-  width: 90%;
-}
-
-.descricao2 {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  margin-top: 80px;
-  width: 90%;
-}
-
-.descricao2 p,
-.descricao2 h3 {
-  text-align: right;
+  margin: 100px;
+  width: 630px;
+  justify-content: center;
+  margin-left: 500px;
+  margin-right: 0;
+  justify-content: right;
+  
 }
 
 /* Fim Main */
@@ -254,6 +221,11 @@ footer {
   margin-top: 50px;
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: 100;
+  width: 100%;
+
+
 }
 
 footer p {
