@@ -108,6 +108,7 @@ label {
 form .import {
     display: flex;
     align-items: flex-start;
+    max-width: 450px;
 }
 
 div.import img {
@@ -161,20 +162,19 @@ select {
     margin-left: 20px;
 }
 
-#id_datadenascimento_day,
-#id_datadenascimento_month,
-#id_datadenascimento_year {
+#id_data_nasc {
     background-color: transparent;
     color: #ffffff;
-    border: none;
+    width: 207px;
+    margin-left: 10px;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 
 }
 
-input[type=number] {
+input[type=date] {
     -moz-appearance: textfield;
     appearance: textfield;
 

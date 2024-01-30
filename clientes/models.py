@@ -3,11 +3,10 @@ from main.models import Usuario
 from empresas.models import Estacionamento
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-
 class Cliente(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=150, blank=False, null=False)
-    sobrenome = models.CharField(max_length=150, blank=False)
+    nome = models.CharField(max_length=150)
+    email = models.CharField(max_length=150, default='')
+    senha = models.CharField(max_length=150, default='')
     data_nasc = models.DateField(verbose_name='data de nascimento')
     
     def __str__(self):

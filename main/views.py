@@ -7,8 +7,10 @@ def index(request):
 
 def enviar_email(mail):
     corpo_email = """
+    
     <p>Paragrafo1</p>
     <p>Paragrafo2</p>
+    <button type='submit'>Cadastre-se</button>
     """
 
     msg = email.message.Message()
