@@ -2,6 +2,7 @@ from django import forms
 from .models import Cliente
 
 class Usuario(forms.ModelForm):
+    senha = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Cliente
         fields = "__all__"

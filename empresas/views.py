@@ -12,17 +12,22 @@ def cadastrocempresa(request):
     if request.method == 'POST':
         form = Empresas(request.POST)
         check = request.POST.get('check')
+        print(form.errors)
         if form.is_valid():
-            nome = form.cleaned_data['nome']
+            nome = form.cleaned_data['nome_fantasia']
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
             confirme = request.POST.get('confirme')
+            razao = form.cleaned_data['razao_social']
             cnpj = form.cleaned_data['cnpj']
             check = request.POST.get('check')
+            print(nome, mail, senha, confirme, cnpj, check)
+            print('a')
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
-                if email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com' and senha == confirme and check != 'None' and len(cnpj) == 14:
+                if senha == confirme and check != None and len(cnpj) == 14 and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
                     enviar_email(mail)
+                    form.save()
                     return redirect('/')
                 elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
                     email_apparence = False

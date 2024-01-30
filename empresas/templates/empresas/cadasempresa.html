@@ -24,8 +24,8 @@
           {% csrf_token %}
           <div class="import">
             <img src="{% static 'assets/img/user.png' %}">
-            {{ form.nome }}
-            <label for="nome">{{ form.nome.label }}</label>
+            {{ form.nome_fantasia }}
+            <label for="nome">{{ form.nome_fantasia.label }}</label>
           </div>
           {% if email_apparence == True %}
             <div class="import">
@@ -65,6 +65,11 @@
               <span>senha incorreta</span>
             </div>
           {%endif%}
+          <div class="import">
+            <img src="{% static 'assets/img/key.png' %}">
+            {{ form.razao_social }}
+            <label for="senha">{{ form.razao_social.label }}</label>
+          </div>
           {% if cnpj == 14 %}
             <div class="import">
               <img src="{% static 'assets/img/wallet.png' %}">
