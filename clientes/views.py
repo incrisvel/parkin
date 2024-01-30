@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Usuario
 from main.forms import Entrar
 from main.views import enviar_email
-from django.contrib.auth.hashers import make_password, check_password
-from .models import Cliente
-from django.core.exceptions import ValidationError
+
 
 def cadastrocliente(request):
     check = 'on'
@@ -55,20 +53,6 @@ def entrarcliente(request):
         if form.is_valid():
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            try:
-                cliente = Cliente.objects.get(email=mail)
-            except Cliente.DoesNotExist:
-                return render(request, '/a', {'erro': 'Usuário não encontrado'})
-
-            if not check_password(senha, cliente.senha):
-                return render(request, 'main/email.html', {'erro': 'Senha incorreta'})
-
-            # Se a validação passar, você pode redirecionar para a página de sucesso ou fazer outras ações
-            # Exemplo de redirecionamento:
-            return redirect('/')
-
-        return render(request, '/')
-            
     else:
         form = Entrar(initial={'email' : mail})
     context = {
