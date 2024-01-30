@@ -56,10 +56,10 @@ def entrarempresa(request):
             senha = form.cleaned_data['senha']
     else:
         form = Entrar(initial={'email' : mail})
-        context = {
-            'form' : form,
-            'email_apparence' : email_apparence
-        }
+    context = {
+        'form' : form,
+        'email_apparence' : email_apparence
+    }
     return render(request,'empresas/entrar.html', context)
 
 def dashboard(request):
