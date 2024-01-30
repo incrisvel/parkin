@@ -78,9 +78,10 @@
             </div>
           {%else%}
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-              <img src="{% static 'assets/img/wallet.png' %}">
+              <img src="{% static 'assets/img/respons.png' %}">
               {{ form.cnpj }}
               <label for="cnpj">{{ form.cnpj.label }}</label>
+              <span>CNPJ incorreto</span>
             </div>
           {%endif%}
           {% if check == None %}

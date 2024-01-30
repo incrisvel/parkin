@@ -139,11 +139,10 @@ form input:valid+label {
 
 span {
     position: absolute;
-    color: #ffffff;
-    margin-top: 50px;
+    color: #ff0000;
+    margin-top: 55px;
     font-size: 12px ;
-    background-color: #24223b;
-    padding: 1px 5px;
+    background-color: transparent;
 }
 
 input:-webkit-autofill {
