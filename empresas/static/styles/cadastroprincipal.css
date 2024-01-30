@@ -130,8 +130,7 @@ form input:valid+label {
 span {
     position: absolute;
     color: #ff0000;
-    margin-top: 55px;
-    font-size: 12px ;
+    font-size: 15px ;
     background-color: transparent;
 }
 
@@ -167,6 +166,13 @@ input[type=date] {
     -moz-appearance: textfield;
     appearance: textfield;
 
+}
+
+li{
+    list-style: none;
+    color: #ff0000;
+    position: absolute;
+    font-size: 15px;
 }
 
 div.check{

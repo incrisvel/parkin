@@ -4,8 +4,8 @@ from empresas.models import Estacionamento
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Cliente(models.Model):
-    nome = models.CharField(max_length=150)
-    email = models.CharField(max_length=150, default='')
+    nome = models.CharField(max_length=150, unique = True)
+    email = models.CharField(max_length=150, unique = True, default='')
     senha = models.CharField(max_length=150, default='')
     data_nasc = models.DateField(verbose_name='data de nascimento')
     

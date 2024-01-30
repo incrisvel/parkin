@@ -21,8 +21,6 @@ def cadastrocempresa(request):
             razao = form.cleaned_data['razao_social']
             cnpj = form.cleaned_data['cnpj']
             check = request.POST.get('check')
-            print(nome, mail, senha, confirme, cnpj, check)
-            print('a')
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
                 if senha == confirme and check != None and len(cnpj) == 14 and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
@@ -33,7 +31,7 @@ def cadastrocempresa(request):
                     email_apparence = False
             else:
                 email_apparence = False
-                Empresas(initial={'nome':nome, 'email': mail, 'cnpj':cnpj})
+                Empresas(initial={'nome':nome, 'email': mail, 'razao_social': razao, 'cnpj':cnpj})
     else:
         form = Empresas()
     context = {
@@ -56,9 +54,8 @@ def entrarempresa(request):
         if form.is_valid():
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            redirect ('/')
     else:
-        form = Entrar(initial={'email' : mail, 'senha' : senha})
+        form = Entrar(initial={'email' : mail})
         context = {
             'form' : form,
             'email_apparence' : email_apparence

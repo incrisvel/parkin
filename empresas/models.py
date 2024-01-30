@@ -1,9 +1,10 @@
 from django.db import models
 from main.models import Usuario
+from django import forms
 
 class Estacionamento(models.Model):
-    nome_fantasia = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Nome')
-    email = models.CharField(max_length=200, blank=False, null=False, default = '')
+    nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
+    email = models.CharField(max_length=200, blank=False, unique = True, null=False, default = '')
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
     senha = models.CharField(max_length=200, default = '')
     cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')

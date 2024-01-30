@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Usuario
 from main.forms import Entrar
 from main.views import enviar_email
+from .models import Usuario
 
 def cadastrocliente(request):
     check = 'on'
@@ -10,6 +11,7 @@ def cadastrocliente(request):
     email_apparence = True
     if request.method == 'POST':
         form = Usuario(request.POST)
+        print(form.errors)
         if form.is_valid():
             nome = form.cleaned_data['nome']
             mail = form.cleaned_data['email']
@@ -47,6 +49,7 @@ def entrarcliente(request):
     senha = ''
     if request.method == 'POST':
         form = Entrar(request.POST)
+        print(form.errors)
         if form.is_valid():
             mail = form.cleaned_data['email']
             senha = form.cleaned_data['senha']

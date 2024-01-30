@@ -26,19 +26,21 @@
             {{ form.nome }}
             <label for="nome">{{ form.nome.label }}</label>
           </div>
+          {{ form.nome.errors }}
           {% if email_apparence == True %}
             <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
             </div>
+            {{ form.email.errors }}
           {%else%}
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
-              <span>email inválido</span>
             </div>
+          <span>email inválido</span>
           {%endif%}
           {% if senha == confirme %}
             <div class="import">
@@ -57,12 +59,12 @@
               {{ form.senha }}
               <label for="senha">{{ form.senha.label }}</label>
             </div>
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
+            <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="password" name="confirme" id="confirme" required>
               <label for="confirme">Confirme a senha</label>
-              <span>senha incorreta</span>
             </div>
+            <span>senha incorreta</span>
           {%endif%}
           <div class="import">
             <img src="{% static 'assets/img/calendar.png' %}">
