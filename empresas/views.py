@@ -47,20 +47,20 @@ def cadastrocempresa(request):
 
 def entrarempresa(request):
     email_apparence = True 
-    mail = ''
+    email = ''
     senha = ''
     if request.method == 'POST':
         form = Entrar(request.POST)
+        print('a')
+        print(form.errors)
         if form.is_valid():
-            mail = form.cleaned_data['email']
+            email = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
+            return redirect('/')
     else:
-        form = Entrar(initial={'email' : mail})
-    context = {
-        'form' : form,
-        'email_apparence' : email_apparence
-    }
-    return render(request,'empresas/entrar.html', context)
+        form = Entrar(initial={'email' : email}) 
+
+    return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
 
 def dashboard(request):
     return render(request,'empresas/dashboard.html')

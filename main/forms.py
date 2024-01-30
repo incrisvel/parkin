@@ -8,7 +8,6 @@ class Entrar(forms.Form):
         cleaned_data = super().clean()
         email = cleaned_data.get('email')
         senha = cleaned_data.get('senha')
-    
         if email and senha:
             try:
                 cliente = Cliente.objects.get(email=email, senha=senha)

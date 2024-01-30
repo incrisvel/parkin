@@ -27,7 +27,7 @@
               {{ form.email }}
               <label for="email">{{ form.email.label }}</label>
             </div>
-            {{ form.email.error }}
+            {{ form.error }}
           {%else%}
             <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
               <img src="{% static 'assets/img/email.png' %}">
@@ -41,7 +41,7 @@
               {{ form.senha }} 
               <label for="senha">{{ form.senha.label }}</label>
             </div>
-            {{ form.senha.error }}
+            {{ form.error }}
           <div class="entrar">
             <p>Não possui uma conta?</p>
             <a href="/clientes/cadastrar">Cadastrar-se</a>

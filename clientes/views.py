@@ -48,7 +48,7 @@ def cadastrocliente(request):
 
 def entrarcliente(request):
     email_apparence = True 
-    mail = ''
+    email = ''
     senha = ''
     if request.method == 'POST':
         form = Entrar(request.POST)
@@ -59,6 +59,6 @@ def entrarcliente(request):
             senha = form.cleaned_data['senha']
             return redirect('/')
     else:
-        form = Entrar(initial={'email' : mail}) 
+        form = Entrar(initial={'email' : email}) 
 
     return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
