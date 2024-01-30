@@ -1,14 +1,16 @@
 from django.db import models
 from main.models import Usuario
+from django import forms
 
 class Estacionamento(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    nome_fantasia = models.CharField(max_length=200, blank=False, null=False)
-    razao_social = models.CharField(max_length=200, blank=False, null=False)
-    cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False)
+    nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
+    email = models.CharField(max_length=200, blank=False, unique = True, null=False, default = '')
+    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
+    senha = models.CharField(max_length=200, default = '')
+    cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')
 
     def __str__(self):
-        return f"{self.nome} - CNPJ: {self.cnpj}"
+        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
     
     
 class Endereco(models.Model):
