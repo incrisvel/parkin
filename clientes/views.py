@@ -27,7 +27,7 @@ def cadastrocliente(request):
                     email_apparence = False
             else:
                 email_apparence = False
-                Usuario(initial={'nome':nome, 'email': mail, 'cpf':cpf, 'data':data})
+                Usuario(initial={'nome':nome, 'email': mail, 'data':data})
     else:       
         form = Usuario()
 
