@@ -8,18 +8,17 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/incrisvel/parkin">
+    <img src="https://github.com/incrisvel/parkin/assets/126690920/43ff7b21-4419-4623-9f79-7c0cef32e028" alt="Logo" width="300" height="180">
   </a>
-
-  <h3 align="center">ParkIn</h3>
+  
 
   <p align="center">
     <br />
     <a href="https://github.com/incrisvel/parkin.git"><strong>Explore »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Demo</a>
+    <a href="https://github.com/incrisvel/parkin">Demo</a>
     ·
     <a href="https://github.com/incrisvel/parkin/issues">Reportar bug</a>
     ·
