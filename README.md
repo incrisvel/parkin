@@ -58,7 +58,6 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailies](DAILIES.md).
 
 Breve introdução.
 
@@ -68,15 +67,25 @@ Diferenciais:
 * Diferencial 3
 
 
+Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailies](DAILIES.md).
+
+
 <p align="right"><a href="#readme-top">Início</a></p>
 
 
 
-### Ferramentas e recursos
+### Ferramentas
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Recursos utilizados no desenvolvimento:
 
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Python][Python.com]][Python-url]
+* [![Django][Django.com]][Django-url]
+* [![HTML5][HTML5.com]][HTML5-url]
+* [![CSS3][CSS3.com]][CSS3-url]
+* [![Javascript][Javascript.com]][Javascript-url]
+* [![Trello][Trello.com]][Trello-url]
+* [![Figma][Figma.com]][Figma-url]
+* [![Canva][Canva.com]][Canva-url]
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -84,12 +93,11 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Para ter uma cópia local siga estes passos simples.
 
 ### Pré-requisitos
 
-This is an example of how to list things you need to use the software and how to install them.
+Listar itens necessários para usar o software e como instalá-los.
 * npm
   ```sh
   npm install npm@latest -g
@@ -97,20 +105,18 @@ This is an example of how to list things you need to use the software and how to
 
 ### Instalação
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone o repositório
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/incrisvel/parkin.git
    ```
-3. Install NPM packages
+2. Instale as bibliotecas
    ```sh
-   npm install
+   pip install -r requirements.txt
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Inicialize o banco de dados
+   ```sh
+   python manage.py makemigrations
+   python manage.py migrate
    ```
 
 <p align="right"><a href="#readme-top">Início</a></p>
@@ -119,9 +125,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Exemplos de como o projeto pode ser usado. Capturas de tela, demos, exemplos de código.
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -129,15 +133,15 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
+- [ ] 
+- [ ] Add back to top links
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+Veja a página [open issues](https://github.com/incrisvel/parkin/issues) para uma lista de features sugeridas.
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -145,13 +149,12 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 ## Contribuir
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contribuições são essenciais para a comunidade open source. Quaisquer contribuições são **altamente apreciadas**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Se você tem uma sugestão que melhoraria este projeto, crie um pull request. Não esqueça de dar uma estrela! Obrigado!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+1. Forke o repositório
+2. Crie uma branch de sua Feature (`git checkout -b feature/FeatureLegal`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
@@ -170,19 +173,23 @@ Este projeto é licenciado sob a GNU GENERAL PUBLIC LICENSE. Veja a [licença](L
 
 ## Contato
 
-Arthur, Cristina, Marco Aurélio e Ryan. 
 
 Entre em contato com a equipe em parkin2123@gmail.com.
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Autores do projeto:
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+- [![Ana Alice Rodrigues][AAR.com]][AAR-url]
+- [![Arthur Henrique Erhardt][AHE.com]][AHE-url]
+- [![Bianca Lanser Peres][BLP.com]][BLP-url] 
+- [![Cristina Siewert Jansen][CSJ.com]][CSJ-url] 
+- [![Marco Aurélio Ribeiro Martins][MARM.com]][MARM-url]
+- [![Ryan Wessling da Silva][RWS.com]][RWS-url]
+
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/incrisvel/parkin.svg?style=for-the-badge
 [contributors-url]: https://github.com/incrisvel/parkin/graphs/contributors
 [stars-shield]: https://img.shields.io/github/stars/incrisvel/parkin.svg?style=for-the-badge
@@ -192,5 +199,32 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 [product-screenshot]: images/screenshot.png
 
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
+[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com 
+[Canva.com]: https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white
+[Canva-url]: https://www.canva.com 
+[Django.com]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green
+[Django-url]: https://www.djangoproject.com/
+[HTML5.com]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://html.com
+[CSS3.com]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://www.w3.org/TR/CSS/#css
+[Javascript.com]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[Javascript-url]: https://ecma-international.org/publications-and-standards/standards/ecma-262/
+[Python.com]: https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
+[Python-url]: https://www.python.org/
+[Trello.com]: https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white
+[Trello-url]: https://trello.com
+
+[AAR.com]: https://img.shields.io/badge/Ana_Alice_Rodrigues-blue?style=for-the-badge
+[AAR-url]: https://linktr.ee/anaeanali5
+[AHE.com]: https://img.shields.io/badge/Arthur_Henrique_Erhardt-grey?style=for-the-badge
+[AHE-url]: https://linktr.ee/arthurerhardt
+[BLP.com]: https://img.shields.io/badge/Bianca_Lanser_Peres-yellow?style=for-the-badge
+[BLP-url]: https://linktr.ee/bia_peres
+[CSJ.com]: https://img.shields.io/badge/Cristina_Siewert_Jansen-blue?style=for-the-badge
+[CSJ-url]: https://linktr.ee/cristinasj
+[MARM.com]: https://img.shields.io/badge/Marco_Aur%C3%A9lio_Ribeiro_Martins-grey?style=for-the-badge
+[MARM-url]: https://linktr.ee/marco.arm
+[RWS.com]: https://img.shields.io/badge/Ryan_Wessling_da_Silva-yellow?style=for-the-badge
+[RWS-url]: https://linktr.ee/ryanwds101
