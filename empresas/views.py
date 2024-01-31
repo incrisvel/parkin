@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import Empresas
-from main.forms import Entrar
+from main.forms import EntrarEstacionamento
 from main.views import enviar_email
+from .models import Estacionamento
+from django.urls import reverse
 
 def cadastrocempresa(request):
     check = 'on'
@@ -26,7 +28,7 @@ def cadastrocempresa(request):
                 if senha == confirme and check != None and len(cnpj) == 14 and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
                     enviar_email(mail)
                     form.save()
-                    return redirect('/')
+                    return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
                 elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
                     email_apparence = False
             else:
@@ -49,18 +51,26 @@ def entrarempresa(request):
     email_apparence = True 
     email = ''
     senha = ''
+    form = EntrarEstacionamento()  # Inicializa form fora do bloco de código do método POST
     if request.method == 'POST':
-        form = Entrar(request.POST)
+        form = EntrarEstacionamento(request.POST)
         print('a')
         print(form.errors)
         if form.is_valid():
             email = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            return redirect('/')
+            try:
+                empresa = Estacionamento.objects.get(email=email, senha=senha)
+                nome = empresa.nome_fantasia
+                razao_social = empresa.razao_social 
+                # Redireciona para o dashboard com parâmetros de consulta na URL
+                return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
+            except Estacionamento.DoesNotExist:
+                form.add_error(None, 'Email ou senha incorretos!')
     else:
-        form = Entrar(initial={'email' : email}) 
+        form = EntrarEstacionamento(initial={'email' : email}) 
 
-    return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
+    return render(request, 'empresas/entrar.html', {'form':form, 'email_apparence': email_apparence})
 
 def dashboard(request):
     return render(request,'empresas/dashboard.html')

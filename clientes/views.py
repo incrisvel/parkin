@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import Usuario
-from main.forms import Entrar
+from main.forms import EntrarCliente
 from main.views import enviar_email
 from .models import Cliente
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
 
 
 def cadastrocliente(request):
@@ -51,14 +49,13 @@ def entrarcliente(request):
     email = ''
     senha = ''
     if request.method == 'POST':
-        form = Entrar(request.POST)
-        print('a')
+        form = EntrarCliente(request.POST)
         print(form.errors)
         if form.is_valid():
             email = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
-            return redirect('/')
+            return redirect('/inicial')
     else:
-        form = Entrar(initial={'email' : email}) 
+        form = EntrarCliente(initial={'email' : email}) 
 
     return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
