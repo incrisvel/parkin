@@ -48,7 +48,6 @@ def cadastrocempresa(request):
     return render(request, 'empresas/cadasempresa.html', context)
 
 def entrarempresa(request):
-    email_apparence = True 
     email = ''
     senha = ''
     form = EntrarEstacionamento()  # Inicializa form fora do bloco de código do método POST
@@ -62,7 +61,6 @@ def entrarempresa(request):
             try:
                 empresa = Estacionamento.objects.get(email=email, senha=senha)
                 nome = empresa.nome_fantasia
-                razao_social = empresa.razao_social 
                 # Redireciona para o dashboard com parâmetros de consulta na URL
                 return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
             except Estacionamento.DoesNotExist:
@@ -70,7 +68,7 @@ def entrarempresa(request):
     else:
         form = EntrarEstacionamento(initial={'email' : email}) 
 
-    return render(request, 'empresas/entrar.html', {'form':form, 'email_apparence': email_apparence})
+    return render(request, 'empresas/entrar.html', {'form':form})
 
 def dashboard(request):
     return render(request,'empresas/dashboard.html')
