@@ -203,26 +203,28 @@ main h3 {
 main div {
     align-items: center;
     background-color: #08092a;
-    height: 100px;
-    padding: 80px;
+    height: 200px;
+    padding: 20px;
     justify-content:center;
     border: 2px solid white;
     color: orange;
     justify-items:center;
+    width: 90%;
+    
+    
 }
 main div.segundo{
-  width: 100%;
-  justify-content: center;
   margin-top: 7cm;
-  justify-items: center;
-  left: 4cm;
- 
+  text-align: justify;
+  align-content: space-between;
+  text-align: end ;
   
+
+  
+
 }
 main div.primeiro{
-    margin: 0;
-    width: 100%;
-  
+    margin: 0;  
 }
 
 /* Fim Main */
