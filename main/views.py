@@ -13,7 +13,7 @@ def enviar_email(mail):
     msg['Subject'] = 'Validação do email ParkIn'
     msg['From'] = 'parkin2123@gmail.com'
     msg['To'] = mail
-    password = 'vqybrhoxtqlbltnw'
+    password = 'acozatwlaflsvqdh'
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
 
