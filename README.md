@@ -1,17 +1,15 @@
-# ParkIn
-
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Stars][stars-shield]][stars-url]
 [![GPL License][license-shield]][license-url]
-
+<a name="readme-top"></a>
 
 <br />
 <div align="center">
   <a href="https://github.com/incrisvel/parkin">
-    <img src="https://github.com/incrisvel/parkin/assets/126690920/43ff7b21-4419-4623-9f79-7c0cef32e028" alt="Logo" width="300" height="180">
+    <img src="main/static/img/logo_branca.png" alt="Logo" width="300" height="180" >
   </a>
   
+
 
   <p align="center">
     <br />
@@ -27,33 +25,32 @@
 </div>
 
 <details>
-  <summary>Sumário - Índice</summary>
+  <summary>Índice</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#sobre-o-projeto">Sobre o projeto</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#ferramentas">Ferramentas</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#uso">Uso</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#contribuir">Contribuir</a></li>
+    <li><a href="#licença">Licença</a></li>
+    <li><a href="#contato">Contato</a></li>
   </ol>
 </details>
 
 
 
-## Sobre o Projeto
+## Sobre o projeto
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -69,7 +66,7 @@ Diferenciais:
 Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailies](DAILIES.md).
 
 
-<p align="right"><a href="#readme-top">Início</a></p>
+<p align="right"><a href=Logo>Início</a></p>
 
 
 
@@ -132,7 +129,6 @@ Exemplos de como o projeto pode ser usado. Capturas de tela, demos, exemplos de 
 
 ## Roadmap
 
-- [ ] 
 - [ ] Add back to top links
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme

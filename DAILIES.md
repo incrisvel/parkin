@@ -39,3 +39,9 @@ Ana, Cristina e Marco reuniram-se virtualmente para discutir o andamento do proj
 Marco trabalhou na integração do banco de dados, feito por Cristina, com os formulários nos templates. Arthur e Bianca organizaram os produtos necessários para a apresentação do projeto. Ana e Ryan verificaram e testaram o banco de dados.
 
 ## 30/01/2024
+
+Foi verificado o funcionamento do cadastro e login de usuários (autenticação).
+
+## 31/01/2024
+
+A equipe preparou a apresentação e Ryan renovou a tela de login.
