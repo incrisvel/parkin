@@ -1,0 +1,83 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #F5F6FA;
+
+}
+
+.centro {
+    position: relative;
+    border: 1px solid #111;
+    border-radius: 40px;
+    width: 70%;
+    height: 500px;
+    margin: auto;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.conteudo-esq {
+    position: absolute;
+    border: 1px solid #111;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(10deg, #FFCC00, #FFD52B, #FFDE59 70%);
+    color: #fff;
+}
+
+.titulo-esq {
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 100px;
+    margin-top: 190px;
+}
+
+.titulo-esq h1{
+    padding: 5px;
+}
+.titulo-esq p{
+    padding: 5px;
+}
+
+button {
+    background-color: #fff;
+    width: 100px;
+    height: 25px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 5px;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.conteudo-dir {
+    position: absolute;
+    border: 1px solid #ec0000;
+    width: 40%;
+    height: 100%;
+    right: 0;
+}
+
+.login-dir {
+    width: 80%;
+    height: 80%;
+    margin: 50px auto;
+    border: 1px solid #111;
+}
+
+.login-dir img{
+    width: 20px;
+    border: none;
+}
+
+.import {
+    border: 1px solid #111;
+    padding: 30px;
+}
+
+
