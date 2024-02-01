@@ -9,18 +9,17 @@ body {
 
 .centro {
     position: relative;
-    border: 1px solid #111;
-    border-radius: 40px;
+    border-radius: 25px;
     width: 70%;
-    height: 500px;
+    height: 600px;
     margin: auto;
     margin-top: 70px;
     overflow: hidden;
+    box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
 }
 
 .conteudo-esq {
     position: absolute;
-    border: 1px solid #111;
     width: 60%;
     height: 100%;
     background: linear-gradient(10deg, #FFCC00, #FFD52B, #FFDE59 70%);
@@ -32,7 +31,7 @@ body {
     color: #fff;
     font-size: 14px;
     margin-left: 100px;
-    margin-top: 190px;
+    margin-top: 235px;
 }
 
 .titulo-esq h1{
@@ -57,17 +56,16 @@ button {
 
 .conteudo-dir {
     position: absolute;
-    border: 1px solid #ec0000;
     width: 40%;
     height: 100%;
     right: 0;
+    background-color: #fff;
 }
 
 .login-dir {
     width: 80%;
     height: 80%;
     margin: 50px auto;
-    border: 1px solid #111;
 }
 
 .login-dir img{
@@ -76,8 +74,52 @@ button {
 }
 
 .import {
-    border: 1px solid #111;
     padding: 30px;
 }
+
+.detalhes-img {
+    display: block;
+    margin-top: 380px;
+    margin-left: -50px;
+}
+
+.titulo-cliente {
+    padding: 25px;
+    text-align: center;
+}
+
+.titulo-cliente h1{ 
+    color: #333;
+    font-size: 28px;
+}
+
+#button {
+    background-color: #FFD52B;
+    margin: auto;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.import1 {
+    margin: auto;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 5px;
+    border: 1px solid #eee;
+    color: #eee;
+    cursor: pointer;}
+
+.import3 {
+    border: 1px solid #111;
+
+}   
 
 

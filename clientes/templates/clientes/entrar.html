@@ -23,37 +23,38 @@
           <p>Seu lugar é aqui. Fácil e rápido!</p>
           <button class="saibamais">Saiba Mais</button>
         </div>
-
-
-        
+        <img class="detalhes-img" src="{% static 'assets/img/detalhes.png' %}">
       </div>
 
       <div class="conteudo-dir">
+        <div class="titulo-cliente">
+          <h1>Cliente</h1>
+        </div>
         <div class="login-dir">
           <form action="" method="post">
             {% csrf_token %}
               {% if email_apparence == True %}
-              <div class="import">
-                <img src="{% static 'assets/img/email.png' %}">
-                {{ form.email }}
-                <label for="email">{{ form.email.label }}</label>
-              {%else%}
-            </div>
-              <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-                <img src="{% static 'assets/img/email.png' %}">
-                {{ form.email }}
-                <label for="email">{{ form.email.label }}</label>
-                <span>email inválido</span>
-              </div>
+                <div class="import1">
+                  <img src="{% static 'assets/img/email.png' %}">
+                  {{ form.email }}
+                  <label for="email">{{ form.email.label }}</label>
+                </div>
+                {%else%}
+                <div class="import2" style="background-color: rgba(255, 0, 0, 0.466);">
+                  <img src="{% static 'assets/img/email.png' %}">
+                  {{ form.email }}
+                  <label for="email">{{ form.email.label }}</label>
+                  <span>email inválido</span>
+                </div>
             {%endif%}
             {% if senha == confirme  %}
-              <div class="import">
+              <div class="import3">
                 <img src="{% static 'assets/img/key.png' %}">
                 {{ form.senha }} 
                 <label for="senha">{{ form.senha.label }}</label>
               </div>
             {%else%}
-            <div class="import">
+            <div class="import4">
               <img src="{% static 'assets/img/key.png' %}">
               {{ form.senha }}
               <label for="senha">{{ form.senha.label }}</label>
