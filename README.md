@@ -1,12 +1,14 @@
+<h4 id="readme-top">
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Stars][stars-shield]][stars-url]
 [![GPL License][license-shield]][license-url]
-<a name="readme-top"></a>
+
 
 <br />
 <div align="center">
   <a href="https://github.com/incrisvel/parkin">
-    <img src="main/static/img/logo_branca.png" alt="Logo" width="300" height="180" >
+    <img src="main/static/img/logo_branca.png" alt="Logo" width="200" height="180" >
   </a>
   
 
@@ -66,7 +68,7 @@ Diferenciais:
 Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailies](DAILIES.md).
 
 
-<p align="right"><a href=Logo>Início</a></p>
+<p align="right"><a href="#readme-top">Início</a></p>
 
 
 
@@ -144,15 +146,15 @@ Veja a página [open issues](https://github.com/incrisvel/parkin/issues) para um
 
 ## Contribuir
 
-Contribuições são essenciais para a comunidade open source. Quaisquer contribuições são **altamente apreciadas**.
+Contribuições são essenciais para a comunidade open source. **Todas as contribuições são altamente apreciadas.**
 
-Se você tem uma sugestão que melhoraria este projeto, crie um pull request. Não esqueça de dar uma estrela! Obrigado!
+Se você tem uma sugestão que poderia melhorar este projeto, por favor, crie um pull request. Não se esqueça de nos dar uma estrela! Obrigado!
 
-1. Forke o repositório
-2. Crie uma branch de sua Feature (`git checkout -b feature/FeatureLegal`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+  1.  Faça um fork do repositório
+  2.  Crie uma branch para sua feature  (`git checkout -b feature/FeatureLegal`)
+  3.  Faça commits das suas mudanças  (`git commit -m 'Adiciona FeatureLegal'`)
+  4.  Faça push para a branch  (`git push origin feature/FeatureLegal`)
+  5.  Abra um pull request
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
