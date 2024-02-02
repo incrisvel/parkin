@@ -35,13 +35,13 @@
             {% csrf_token %}
               {% if email_apparence == True %}
                 <div class="import1">
-                  <img src="{% static 'assets/img/email.png' %}">
+                  <img src="{% static 'assets/icons/email.svg' %}">
                   {{ form.email }}
-                  <label for="email">{{ form.email.label }}</label>
+                  <label class="email" for="email">{{ form.email.label }}</label>
                 </div>
                 {%else%}
                 <div class="import2" style="background-color: rgba(255, 0, 0, 0.466);">
-                  <img src="{% static 'assets/img/email.png' %}">
+                  <img src="{% static 'assets/icons/email.svg' %}">
                   {{ form.email }}
                   <label for="email">{{ form.email.label }}</label>
                   <span>email inválido</span>
@@ -49,13 +49,13 @@
             {%endif%}
             {% if senha == confirme  %}
               <div class="import3">
-                <img src="{% static 'assets/img/key.png' %}">
+                <img src="{% static 'assets/icons/senha.svg' %}">
                 {{ form.senha }} 
                 <label for="senha">{{ form.senha.label }}</label>
               </div>
             {%else%}
             <div class="import4">
-              <img src="{% static 'assets/img/key.png' %}">
+              <img src="{% static 'assets/icons/senha.svg' %}">
               {{ form.senha }}
               <label for="senha">{{ form.senha.label }}</label>
             </div>

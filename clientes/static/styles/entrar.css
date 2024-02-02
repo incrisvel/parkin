@@ -63,9 +63,14 @@ button {
 }
 
 .login-dir {
+    position: absolute;
+    margin-left: 20px;
     width: 80%;
-    height: 80%;
-    margin: 50px auto;
+    height: 70%;
+    border: 1px solid #111;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .login-dir img{
@@ -95,31 +100,41 @@ button {
 
 #button {
     background-color: #FFD52B;
-    margin: auto;
+    bottom: 0;
     width: 220px;
     height: 43px;
     border-radius: 20px;
-    margin-top: 15px;
-    margin-left: 5px;
     border: none;
     color: #fff;
     cursor: pointer;
 }
 
 .import1 {
-    margin: auto;
     width: 220px;
     height: 43px;
     border-radius: 20px;
-    margin-top: 15px;
-    margin-left: 5px;
     border: 1px solid #eee;
     color: #eee;
-    cursor: pointer;}
+    cursor: pointer;
+    margin: auto;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+}
 
 .import3 {
-    border: 1px solid #111;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    color: #eee;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 20px;
+}
 
-}   
-
-
+form {
+    justify-content: center;
+}
