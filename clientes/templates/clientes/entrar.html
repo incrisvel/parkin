@@ -12,11 +12,6 @@
 <body>
   <main>
     <div class="centro">
-      {% comment %} <h1>Entrar</h1>
-      <div class="botoes">
-        <a href="/clientes/entrar/" class="ativo">Clientes</a>
-        <a href="/empresas/entrar/">Empresa</a>
-      </div> {% endcomment %}
       <div class="conteudo-esq">
         <div class="titulo-esq">
           <h1>Entrar</h1>
@@ -32,40 +27,57 @@
         </div>
         <div class="login-dir">
           <form action="" method="post">
-            {% csrf_token %}
-              {% if email_apparence == True %}
-                <div class="import1">
-                  <img src="{% static 'assets/icons/email.svg' %}">
-                  {{ form.email }}
-                  <label class="email" for="email">{{ form.email.label }}</label>
-                </div>
-                {%else%}
-                <div class="import2" style="background-color: rgba(255, 0, 0, 0.466);">
-                  <img src="{% static 'assets/icons/email.svg' %}">
-                  {{ form.email }}
-                  <label for="email">{{ form.email.label }}</label>
-                  <span>email inválido</span>
-                </div>
-            {%endif%}
-            {% if senha == confirme  %}
-              <div class="import3">
-                <img src="{% static 'assets/icons/senha.svg' %}">
-                {{ form.senha }} 
-                <label for="senha">{{ form.senha.label }}</label>
+            <div class="login">
+              <div class="titulos">
+                <h1>Entrar</h1>
+                <p>Bem vindo de Volta!</p>
               </div>
-            {%else%}
-            <div class="import4">
-              <img src="{% static 'assets/icons/senha.svg' %}">
-              {{ form.senha }}
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            {%endif%}
-            <div class="entrar">
-              <p>Não possui uma conta?</p>
-              <a href="/clientes/cadastrar">Cadastrar-se</a>
-            </div>
-            <input type="submit" value="Entrar" id="button">
-          </form>
+              {% csrf_token %}
+                {% if email_apparence == True %}
+                  <div class="import1">
+                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                    <div class="form">
+                      {{ form.email }}
+                    </div>
+                  </div>
+                  {%else%}
+                  <div class="import2" style="background-color: rgba(255, 0, 0, 0.466);">
+                    <img src="{% static 'assets/icons/email.svg' %}">
+                    <div class="form">
+                      {{ form.email }}
+                    </div>
+                    <label for="email">{{ form.email.label }}</label>
+                    <span>email inválido</span>
+                  </div>
+              {%endif%}
+              {% if senha == confirme  %}
+                <div class="import3">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    {{ form.senha }}
+                  </div>
+                </div>
+              {%else%}
+              <div class="import4">
+                <img src="{% static 'assets/icons/senha.svg' %}">
+                <div class="form">
+                  {{ form.senha }}
+                </div>
+              </div>
+              {%endif%}
+              <div class="botao">
+                <input type="submit" value="Entrar" id="button">
+                <div class="entrar">
+                  <p>Não possui uma conta?</p>
+                  <a href="/clientes/cadastrar">Cadastrar-se</a>
+                </div>
+              </div>
+              <!-- <div class="botoes">
+                <div class="b-estacionamento">
+                  <a href="/empresas/entrar" class="ativo">Estacionamentos</a>
+                </div>
+              </div> -->
+            </form>
         </div>
       </div>
     </div>

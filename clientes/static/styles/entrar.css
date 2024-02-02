@@ -13,7 +13,7 @@ body {
     width: 70%;
     height: 600px;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 50px;
     overflow: hidden;
     box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
 }
@@ -44,13 +44,18 @@ body {
 button {
     background-color: #fff;
     width: 100px;
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
     margin-top: 15px;
     margin-left: 5px;
     border: none;
     color: #333;
     cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #eee
 }
 
 
@@ -64,13 +69,9 @@ button {
 
 .login-dir {
     position: absolute;
-    margin-left: 20px;
+    margin-left: 30px;
     width: 80%;
     height: 70%;
-    border: 1px solid #111;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
 
 .login-dir img{
@@ -78,13 +79,9 @@ button {
     border: none;
 }
 
-.import {
-    padding: 30px;
-}
-
 .detalhes-img {
     display: block;
-    margin-top: 380px;
+    margin-top: 400px;
     margin-left: -50px;
 }
 
@@ -98,6 +95,10 @@ button {
     font-size: 28px;
 }
 
+.botao {
+    text-align: center;
+}
+
 #button {
     background-color: #FFD52B;
     bottom: 0;
@@ -109,32 +110,149 @@ button {
     cursor: pointer;
 }
 
+#button:hover {
+    background-color: #FFDE59;
+}
+
 .import1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
     width: 220px;
     height: 43px;
     border-radius: 20px;
     border: 1px solid #eee;
     color: #eee;
-    cursor: pointer;
     margin: auto;
-    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
-label {
-    display: block;
+.import1, .import3, input::placeholder {
+    color: #3333335d;
+}
+
+.import2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    color: #eee;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .import3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
     width: 220px;
     height: 43px;
     border-radius: 20px;
     border: 1px solid #eee;
     color: #eee;
-    cursor: pointer;
     margin: auto;
-    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
-form {
+.import4 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    color: #eee;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.email {
+    position: absolute;
+}
+
+.form {
+    width: auto;
+    margin: auto;
+}
+
+.email-img {
+    margin-left: 15px;
+}
+
+input, textarea {
+    border: none;
+    outline: none;
+}
+
+.senha-img {
+    margin-left: 15px;
+}
+
+.login {
+    margin-top: 80px;
+    top: 50%;
+}
+
+.entrar {
+    margin: 10px;
+}
+
+.entrar p{
+    color: #3333335d;
+}
+
+.entrar a{
+    color: #ffd52bb4;
+}
+
+.entrar a:hover{
+    color: #221d09;
+}
+
+.titulos h1{
+    color: #333;
+}
+
+
+.titulos {
+    margin-bottom: 20px;
+    position: relative;
+    left: 43px;
+    font-size: 14px;
+    color: #333;
+}
+
+.botoes {
+    display: flex;
+    margin: auto;
+    width: auto;
+    color: #333;
+    text-align: center;
+    align-items: center;
     justify-content: center;
+}
+
+
+.ativo  {
+    background-color: #ffffff;
+    width: 180px;
+    margin-top: 80px;
+    border-radius: 5px;
+    display: block;
+    color: #221d09;
+    border: 1px solid #333;
+    bottom: 0;
+}
+
+.ativo:hover {
+    color: #ffd52bb4;
+
 }
