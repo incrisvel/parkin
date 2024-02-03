@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco</title>
+    <link rel="stylesheet" href="fale_com_nosco.css">
+    <!-- Adicione a linha abaixo para incluir Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styles/fale_com_nosco.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Fale Conosco</h2>
+    <form action="#" method="post" id="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" maxlength="500" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+
+        <!-- Ícones de Redes Sociais -->
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- Adicione o ícone do WhatsApp e o link do número -->
+            <a href="https://wa.me/seu_numero_de_telefone" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
