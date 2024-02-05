@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #F5F6FA;
+    background-color: #ffd52b11;
 
 }
 
@@ -234,25 +234,48 @@ input, textarea {
     display: flex;
     margin: auto;
     width: auto;
-    color: #333;
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin-top: 130px;
 }
 
-
-.ativo  {
-    background-color: #ffffff;
-    width: 180px;
-    margin-top: 80px;
-    border-radius: 5px;
-    display: block;
-    color: #221d09;
-    border: 1px solid #333;
-    bottom: 0;
+.ativo {
+    font-size: 13px;
+    color: #ffd52b86;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
 }
-
+  
+.ativo:focus,
 .ativo:hover {
-    color: #ffd52bb4;
-
+    color: #FFDE59;
+}
+  
+.ativo:focus:after,
+.ativo:hover:after {
+    width: 100%;
+    left: 0%;
+}
+  
+.ativo:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #FFDE59;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
 }
