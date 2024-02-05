@@ -206,3 +206,7 @@ header nav ul li {
 .side-bar .menu-side-bar .notification-icon{
     margin-left: 16px;
 }
+
+header nav ul .logo li .logo-img {
+    width: 50px;
+}

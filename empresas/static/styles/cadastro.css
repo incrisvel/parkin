@@ -46,8 +46,8 @@ header nav ul .logo li h1 {
     line-height: 31px;
 }
 
-header nav ul .logo li .logo-icon {
-    margin-right: 10px;
+header nav ul .logo li .logo-img {
+    width: 50px;
 }
 
 header nav ul .search {
@@ -311,3 +311,4 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+

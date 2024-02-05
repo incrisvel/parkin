@@ -359,8 +359,8 @@
         line-height: 31px;
     }
     
-    header nav ul .logo li .logo-icon {
-        margin-right: 10px;
+    header nav ul .logo li .logo-img {
+        width: 50px;
     }
     
     header nav ul .search {
