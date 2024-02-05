@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+    'geoposition',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +110,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'main.Usuario'
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 15,
+    'maxZoom': 18,
+}
