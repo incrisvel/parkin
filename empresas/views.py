@@ -6,6 +6,8 @@ from .models import Estacionamento
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_protect
 
+nome = ''
+
 @csrf_protect
 def cadastrocempresa(request):
     check = 'on'
@@ -28,7 +30,6 @@ def cadastrocempresa(request):
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
                 if senha == confirme and check != None and len(cnpj) == 14 and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    enviar_email(mail)
                     form.save()
                     return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
                 elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
@@ -52,6 +53,7 @@ def cadastrocempresa(request):
 
 @csrf_protect
 def entrarempresa(request):
+    global nome
     email = ''
     senha = ''
     form = EntrarEstacionamento()  # Inicializa form fora do bloco de código do método POST
@@ -76,31 +78,31 @@ def entrarempresa(request):
 
 @csrf_protect
 def dashboard(request):
-    return render(request,'empresas/dashboard.html')
+    return render(request,'empresas/dashboard.html', {'nome':nome})
 
 @csrf_protect
 def resumos(request):
-    return render(request,'empresas/resumos.html')
+    return render(request,'empresas/resumos.html', {'nome':nome})
 
 @csrf_protect
 def cadastro(request):
-    return render(request,'empresas/cadastro.html')
+    return render(request,'empresas/cadastro.html', {'nome':nome})
 
 @csrf_protect
 def estacionamento(request):
-    return render(request,'empresas/estacionamento.html')
+    return render(request,'empresas/estacionamento.html', {'nome':nome})
 
 @csrf_protect
 def notificacao(request):
-    return render(request,'empresas/notificacoes.html')
+    return render(request,'empresas/notificacoes.html', {'nome':nome})
 
 @csrf_protect
 def help(request):
-    return render(request,'empresas/help.html')
+    return render(request,'empresas/help.html', {'nome':nome})
 
 @csrf_protect
 def comofunciona(request):
-    return render(request,'empresas/comofunciona.html')
+    return render(request,'empresas/comofunciona.html', {'nome':nome})
 
 @csrf_protect
 def cadastroestacionamento(request):
@@ -108,4 +110,4 @@ def cadastroestacionamento(request):
 
 @csrf_protect
 def faleconosco(request):
-    return render(request, 'empresas/fale_conosco.html')
+    return render(request, 'empresas/fale_conosco.html', {'nome':nome})

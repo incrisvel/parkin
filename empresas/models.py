@@ -33,11 +33,10 @@ class PerfilLocal(models.Model):
     ]
     local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
     dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos', default='')
-    hora_abre = models.TimeField(default='00:00:00')
+    hora_abre = models.TimeField( default='00:00:00')
     hora_fecha = models.TimeField(default='00:00:00')
-    vagas_total = models.PositiveSmallIntegerField(default='')
-    vagas_pref = models.PositiveSmallIntegerField(default='')
-    vagas_cob = models.PositiveSmallIntegerField(default='')
-    vagas_disp = models.PositiveSmallIntegerField(default='')
-    descricao = models.CharField(max_length=1000, null=True, verbose_name='sobre', default='')
+    vagas_total = models.PositiveSmallIntegerField(default='0')
+    vagas_pref = models.PositiveSmallIntegerField(default='0')
+    vagas_cob = models.PositiveSmallIntegerField(default='0')
+    vagas_disp = models.PositiveSmallIntegerField(default='0')
     
