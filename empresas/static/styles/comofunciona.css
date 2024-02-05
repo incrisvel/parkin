@@ -24,6 +24,14 @@ header {
     width: auto;
 }
 
+.content2 {
+    position: absolute;
+    width: 1091px;
+    height: 1199px;
+    right: 0;
+    opacity: 0.9;
+}
+
 header nav ul {
     width: 100%;
     display: flex;
@@ -222,4 +230,127 @@ header nav ul li {
 
 .side-bar .menu-side-bar .notification-icon{
     margin-left: 16px;
+}
+
+.content2 .first-content {
+    margin-top: 50px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.content2 .first-content ul li {
+    width: 50%;
+}
+
+.content2 .first-content ul li h1{
+    color: #1E5EFF;
+    margin-bottom: 30px;
+    font-size: 40px
+}
+
+.content2 .first-content ul li p{
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.content2 .first-content .park1-img {
+    position: absolute;
+    width: 500px;
+    margin-right: 60px;
+    right: 0;
+}
+
+.content2 .second-content {
+    margin-top: 50px;
+    height: 310px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.content2 .second-content .dashboard1-img{
+    position: absolute;
+    width: 320px;
+    left: 100px;
+}
+
+.content2 .second-content ul {
+    position: absolute;
+    right: 70px;
+    width: 50%;
+}
+
+.content2 .second-content ul li h2{
+    color: #1E5EFF;
+    margin-bottom: 20px;
+    font-size: 30px
+}
+
+.content2 .second-content ul li p{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.seta1-img {
+    position: absolute;
+    width: 30px;
+    margin: auto;
+    margin-top: 355px;
+    transform: rotate(-90deg);
+}
+
+.seta2-img {
+    position: absolute;
+    width: 30px;
+    margin: auto;
+    margin-top: 1000px;
+    transform: rotate(-90deg);
+}
+
+.content2 .third-content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin: 80px auto;
+
+}
+
+.content2 .third-content ul{
+    border: 1px solid #D7DBEC;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    height: 250px;
+    margin-top: 40px;
+    box-shadow: 0px 1px 4px 0px rgba(21, 34, 50, 0.219);
+
+}
+
+.content2 .third-content ul li{
+    border: 0.5px solid #D7DBEC;
+    padding: 20px;
+    width: 100%;
+}
+
+.content2 .third-content ul li h3{
+    color: #1E5EFF;
+    margin-top: 20px;
+}
+
+.content2 .third-content ul li p{
+    margin-top: 20px;
+}
+
+.content2 .third-content h2{
+    color: #1E5EFF;
 }

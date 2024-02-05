@@ -517,8 +517,8 @@
         height: 186px;    
         margin: 30px 41px auto;
         background-color: #fff;
-        border-radius: 15px;
-        border: 3px solid #D7DBEC;
+        border-radius: 10px;
+        border: 2px solid #D7DBEC;
         display: flex;
         overflow: hidden;
         align-items: center;

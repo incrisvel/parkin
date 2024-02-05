@@ -90,3 +90,9 @@ def help(request):
 
 def comofunciona(request):
     return render(request,'empresas/comofunciona.html')
+
+def cadastroestacionamento(request):
+    return render(request, 'empresas/cadastro_estacionamento.html')
+
+def faleconosco(request):
+    return render(request, 'empresas/fale_conosco.html')
