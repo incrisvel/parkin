@@ -4,7 +4,9 @@ from main.forms import EntrarEstacionamento
 from main.views import enviar_email
 from .models import Estacionamento
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_protect
 
+@csrf_protect
 def cadastrocempresa(request):
     check = 'on'
     senha = ''
@@ -45,8 +47,10 @@ def cadastrocempresa(request):
         'email_apparence' : email_apparence,
     }
 
+
     return render(request, 'empresas/cadasempresa.html', context)
 
+@csrf_protect
 def entrarempresa(request):
     email = ''
     senha = ''
@@ -70,29 +74,38 @@ def entrarempresa(request):
 
     return render(request, 'empresas/entrar.html', {'form':form})
 
+@csrf_protect
 def dashboard(request):
     return render(request,'empresas/dashboard.html')
 
+@csrf_protect
 def resumos(request):
     return render(request,'empresas/resumos.html')
 
+@csrf_protect
 def cadastro(request):
     return render(request,'empresas/cadastro.html')
 
+@csrf_protect
 def estacionamento(request):
     return render(request,'empresas/estacionamento.html')
 
+@csrf_protect
 def notificacao(request):
     return render(request,'empresas/notificacoes.html')
 
+@csrf_protect
 def help(request):
     return render(request,'empresas/help.html')
 
+@csrf_protect
 def comofunciona(request):
     return render(request,'empresas/comofunciona.html')
 
+@csrf_protect
 def cadastroestacionamento(request):
     return render(request, 'empresas/cadastro_estacionamento.html')
 
+@csrf_protect
 def faleconosco(request):
     return render(request, 'empresas/fale_conosco.html')

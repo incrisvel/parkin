@@ -3,8 +3,10 @@ from .forms import Usuario
 from main.forms import EntrarCliente
 from main.views import enviar_email
 from .models import Cliente
+from django.views.decorators.csrf import csrf_protect
 
 
+@csrf_protect
 def cadastrocliente(request):
     check = 'on'
     senha = ''
@@ -44,6 +46,7 @@ def cadastrocliente(request):
 
     return render(request, 'clientes/cadascliente.html', context)
 
+@csrf_protect
 def entrarcliente(request):
     email_apparence = True 
     email = ''
