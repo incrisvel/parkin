@@ -1,51 +1,62 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <title>PARKIN</title>
+    <title>Início</title>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/index.css' %}">
 </head>
 <body>
     <header>
-        {%block navbar%}
-            {%include 'main/nav.html'%}
-        {%endblock%}
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/empresas/dashboard">
+                            <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h1>Início</h1>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <div class="descricao">
-            <div id="principal" style="background-image: url({% static 'img/imagemale.jpg' %})">
-            </div>
-            <div class="secundaria">
-                <h3>
-                    Bem-vindo ao nosso sistema de gerenciamento de estacionamentos!
-                </h3>
-                <p>
-                    Procure vagas de estacionamento de maneira rápida, eficaz e segura.
-                </p>
-                <div style="position: absolute; width: 100%; height: 200px; background-color: rgb(8, 9, 44); top: 300px; left: 0; z-index: -1;"></div>
-            </div>
-        </div>
-        <div class="descricao2">
-            <div style="background-image: url({% static 'img/imagemale2.jpg' %})" id="principal">
-            </div>
-            <div class="secundaria">
-                <h3 style="color: rgb(8, 9, 44);">
-                    Os usuários podem facilmente localizar estacionamentos cadastrados.
-                </h3>
-                <p style="color: rgb(8, 9, 44);">
-                    Com cadastro fácil de usuários, tanto clientes quanto proprietários.
-                </p>
-                <div style="position: absolute; width: 100%; height: 200px; background-color: rgb(255, 145, 47); top: 860px; left: 0; z-index: -1;"></div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        {%block footer%}
-            {%include 'main/footer.html'%}
-        {%endblock%}
-    </footer>
 </body>
 </html>
