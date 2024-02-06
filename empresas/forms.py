@@ -27,12 +27,10 @@ class Empresas(forms.ModelForm):
         return cnpj
     
 class Perfil(forms.ModelForm):
-    hora_abre = forms.TimeField(widget = forms.TimeInput (format='%H:%M'))
     class Meta:
         model = PerfilLocal
         fields = "__all__"
         widgets = {
-            'dias_abertos' : forms.CheckboxSelectMultiple,
-            'coberto' : forms.CheckboxInput,
-
+            'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
+            'hora_fecha': forms.TimeInput(attrs={'type': 'time'})
         }

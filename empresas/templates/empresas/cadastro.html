@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Estacionamentos</title>
+    <title>PARKIN</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
 </head>
@@ -167,18 +167,21 @@
 
                     <div class="checkbox-container">
                         <label for="vagaCoberta"> Coberta:</label>
-                        {{form.coberto|time:"H:i"}}
+                        {{form.coberto}}
                     </div>
 
                 </div>
 
                 <label>Horarios:</label>
-                {{form.hora_abre}}
+                <div style="display: flex;">Abre às:{{form.hora_abre}}</div>
+                <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
 
                 <label>Dias Abertos:</label>
+                {% for a in form.dias_abertos %}
                 <div class="checkbox-group">
-                    {{form.dias_abertos}}
+                    <input type="checkbox" value='{{a}}'/>{{a}}
                 </div>
+                {% endfor %}
         
                 <!-- Campo de descrição -->
                 <label for="descricao">Descrição:</label>
@@ -197,6 +200,19 @@
                 <label for="cep">CEP:</label>
                 <input type="text" id="cep" name="cep" required>
         
+                {{form.vagas_total.label}}
+                {{form.vagas_total}}
+
+                {{form.vagas_pref.label}}
+                {{form.vagas_pref}}
+
+                {{form.vagas_cob.label}}
+                {{form.vagas_cob}}
+
+                {{form.vagas_disp.label}}
+                {{form.vagas_disp}}
+
+                
                 <input type="submit" id="submitBtn" value="Cadastrar">
             </form>
         </div>

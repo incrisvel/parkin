@@ -33,13 +33,12 @@ class PerfilLocal(models.Model):
         ('sabado', 'Sábado'),
         ('domingo', 'Domingo'),
     ]
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
-    dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos', default = 1)
-    coberto = models.CharField(max_length=1, verbose_name='dias abertos', default=None)
+    dias_abertos =  models.CharField(max_length = 10, choices=DIAS_CHOICES, default = 1)
+    coberto = models.BooleanField(verbose_name='coberto', default=None)
     valor = models.FloatField(default=0)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
-    hora_abre = models.TimeField(default=now, blank = True)
-    hora_fecha = models.TimeField()
+    hora_abre = models.TimeField(default='', blank = True)
+    hora_fecha = models.TimeField(default='', blank = True)
     vagas_total = models.PositiveSmallIntegerField()
     vagas_pref = models.PositiveSmallIntegerField()
     vagas_cob = models.PositiveSmallIntegerField()

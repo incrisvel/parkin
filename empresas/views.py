@@ -91,7 +91,9 @@ def cadastro(request):
         print(form.errors)
         if form.is_valid():
             dias_abertos = form.cleaned_data['dias_abertos']
-            print(dias_abertos)
+            hora_abre = form.cleaned_data['hora_abre']
+            print(dias_abertos, hora_abre)
+
     else:
         form = Perfil()
     return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form})
