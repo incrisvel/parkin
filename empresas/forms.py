@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estacionamento
+from .models import Estacionamento, PerfilLocal
 
 class Empresas(forms.ModelForm):
     senha = forms.CharField(widget=forms.PasswordInput)
@@ -25,3 +25,14 @@ class Empresas(forms.ModelForm):
             print("CNPJ já cadastrado")
             raise forms.ValidationError('CNPJ já cadastrado!')
         return cnpj
+    
+class Perfil(forms.ModelForm):
+    hora_abre = forms.TimeField(widget = forms.TimeInput (format='%H:%M'))
+    class Meta:
+        model = PerfilLocal
+        fields = "__all__"
+        widgets = {
+            'dias_abertos' : forms.CheckboxSelectMultiple,
+            'coberto' : forms.CheckboxInput,
+
+        }

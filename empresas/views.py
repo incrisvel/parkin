@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import Empresas
+from .forms import Empresas, Perfil
 from main.forms import EntrarEstacionamento
 from main.views import enviar_email
-from .models import Estacionamento
+from .models import Estacionamento, PerfilLocal
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_protect
 
@@ -86,7 +86,15 @@ def resumos(request):
 
 @csrf_protect
 def cadastro(request):
-    return render(request,'empresas/cadastro.html', {'nome':nome})
+    if request.method == 'POST':
+        form = Perfil(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            dias_abertos = form.cleaned_data['dias_abertos']
+            print(dias_abertos)
+    else:
+        form = Perfil()
+    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form})
 
 @csrf_protect
 def estacionamento(request):
@@ -103,10 +111,6 @@ def help(request):
 @csrf_protect
 def comofunciona(request):
     return render(request,'empresas/comofunciona.html', {'nome':nome})
-
-@csrf_protect
-def cadastroestacionamento(request):
-    return render(request, 'empresas/cadastro_estacionamento.html')
 
 @csrf_protect
 def faleconosco(request):

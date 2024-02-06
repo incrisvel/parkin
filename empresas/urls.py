@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa, cadastroestacionamento, faleconosco
+from .views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa, faleconosco
 
 urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
@@ -11,7 +11,6 @@ urlpatterns = [
     path('comofunciona/', comofunciona, name='comofunciona'),
     path('cadastrar/', cadastrocempresa, name='cadastrarempresa'),
     path('entrar/', entrarempresa, name='entrarempresa'),
-    path('cadastroestacionamento/', cadastroestacionamento, name='cadastro_estacionamento'),
     path('faleconosco/', faleconosco, name='faleconosco'),
 
 ]

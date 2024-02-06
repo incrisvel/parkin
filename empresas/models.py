@@ -1,12 +1,14 @@
 from django.db import models
 from main.models import Usuario
 from django import forms
+from django.utils.timezone import now
+
 
 class Estacionamento(models.Model):
     nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
-    email = models.CharField(max_length=200, blank=False, unique = True, null=False, default = '')
+    email = models.CharField(max_length=200, blank=False, unique = True, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
-    senha = models.CharField(max_length=200, default = '')
+    senha = models.CharField(max_length=200)
     cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')
 
     def __str__(self):
@@ -32,11 +34,14 @@ class PerfilLocal(models.Model):
         ('domingo', 'Domingo'),
     ]
     local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
-    dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos', default='')
-    hora_abre = models.TimeField( default='00:00:00')
-    hora_fecha = models.TimeField(default='00:00:00')
-    vagas_total = models.PositiveSmallIntegerField(default='0')
-    vagas_pref = models.PositiveSmallIntegerField(default='0')
-    vagas_cob = models.PositiveSmallIntegerField(default='0')
-    vagas_disp = models.PositiveSmallIntegerField(default='0')
+    dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos', default = 1)
+    coberto = models.CharField(max_length=1, verbose_name='dias abertos', default=None)
+    valor = models.FloatField(default=0)
+    descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
+    hora_abre = models.TimeField(default=now, blank = True)
+    hora_fecha = models.TimeField()
+    vagas_total = models.PositiveSmallIntegerField()
+    vagas_pref = models.PositiveSmallIntegerField()
+    vagas_cob = models.PositiveSmallIntegerField()
+    vagas_disp = models.PositiveSmallIntegerField()
     
