@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import Empresas, Perfil
+from .forms import Empresas, Perfil, Estacio
 from main.forms import EntrarEstacionamento
 from main.views import enviar_email
-from .models import Estacionamento, PerfilLocal
+from .models import Estacionamento, PerfilLocal, Endereco
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_protect
 
@@ -59,7 +59,6 @@ def entrarempresa(request):
     form = EntrarEstacionamento()  # Inicializa form fora do bloco de código do método POST
     if request.method == 'POST':
         form = EntrarEstacionamento(request.POST)
-        print('a')
         print(form.errors)
         if form.is_valid():
             email = form.cleaned_data['email']
@@ -88,15 +87,19 @@ def resumos(request):
 def cadastro(request):
     if request.method == 'POST':
         form = Perfil(request.POST)
+        form2 = Estacio(request.POST)
         print(form.errors)
-        if form.is_valid():
+        print(form2.errors)
+        if form.is_valid() and form2.is_valid:
             dias_abertos = form.cleaned_data['dias_abertos']
             hora_abre = form.cleaned_data['hora_abre']
             print(dias_abertos, hora_abre)
-
-    else:
+            form.save()
+            form2.save()
+    else:   
         form = Perfil()
-    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form})
+        form2 = Estacio()
+    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2})
 
 @csrf_protect
 def estacionamento(request):

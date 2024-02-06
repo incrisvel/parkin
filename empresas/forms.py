@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estacionamento, PerfilLocal
+from .models import Estacionamento, PerfilLocal, Endereco
 
 class Empresas(forms.ModelForm):
     senha = forms.CharField(widget=forms.PasswordInput)
@@ -32,5 +32,11 @@ class Perfil(forms.ModelForm):
         fields = "__all__"
         widgets = {
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
-            'hora_fecha': forms.TimeInput(attrs={'type': 'time'})
+            'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
+            'dias_abertos' : forms.MultipleChoiceField
         }
+
+class Estacio(forms.ModelForm):
+    class Meta:
+        model = Endereco
+        fields = "__all__"

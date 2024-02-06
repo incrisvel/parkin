@@ -177,28 +177,29 @@
                 <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
 
                 <label>Dias Abertos:</label>
-                {% for a in form.dias_abertos %}
                 <div class="checkbox-group">
-                    <input type="checkbox" value='{{a}}'/>{{a}}
+                    {{form.dias_abertos}}
                 </div>
-                {% endfor %}
         
                 <!-- Campo de descrição -->
                 <label for="descricao">Descrição:</label>
                 {{form.descricao}}
         
+                <label for="logradouro">Endereço:</label>
+                {{form2.local}}
+
                 <!-- Campos para endereço -->
                 <label for="logradouro">Logradouro:</label>
-                <input type="text" id="logradouro" name="logradouro" required>
+                {{form2.logradouro}}
         
                 <label for="numero">Número:</label>
-                <input type="text" id="numero" name="numero" required>
+                {{form2.numero}}
         
                 <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro" name="bairro" required>
+                {{form2.bairro}}
         
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" required>
+                {{form2.cep}}
         
                 {{form.vagas_total.label}}
                 {{form.vagas_total}}

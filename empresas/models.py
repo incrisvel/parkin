@@ -16,7 +16,7 @@ class Estacionamento(models.Model):
     
     
 class Endereco(models.Model):
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
+    local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
     logradouro = models.CharField(max_length=200, blank=False, null=False)
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
@@ -34,7 +34,7 @@ class PerfilLocal(models.Model):
         ('domingo', 'Domingo'),
     ]
     dias_abertos =  models.CharField(max_length = 10, choices=DIAS_CHOICES, default = 1)
-    coberto = models.BooleanField(verbose_name='coberto', default=None)
+    coberto = models.BooleanField(default=None)
     valor = models.FloatField(default=0)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
     hora_abre = models.TimeField(default='', blank = True)
