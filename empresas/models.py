@@ -22,17 +22,8 @@ class Endereco(models.Model):
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
 
-class Opcao(models.Model):
-    nome = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.nome
-
-class Selecao(models.Model):
-    opcoes = models.ManyToManyField(Opcao)
-
     
-class PerfilLocal(models.Model):
+class Perfillocal(models.Model):
     DIAS_CHOICES = [
         ('segunda', 'Segunda-feira'),
         ('terca', 'Terça-feira'),
@@ -42,7 +33,7 @@ class PerfilLocal(models.Model):
         ('sabado', 'Sábado'),
         ('domingo', 'Domingo'),
     ]
-    dias_abertos =  models.CharField(max_length = 10, choices=DIAS_CHOICES)
+    dias_abertos =  models.CharField(max_length = 20, choices=DIAS_CHOICES)
     coberto = models.BooleanField(default=None)
     valor = models.FloatField(default=0)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
