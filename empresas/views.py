@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import Empresas, Perfil, Estacio, Opcoes
+from django.contrib.auth.decorators import login_required
+from .forms import Empresas, Perfil, Estacio
 from main.forms import EntrarEstacionamento
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
@@ -54,28 +55,19 @@ def cadastrocempresa(request):
 @csrf_protect
 def entrarempresa(request):
     global nome
-    email = ''
-    senha = ''
-    form = EntrarEstacionamento()  # Inicializa form fora do bloco de código do método POST
-    if request.method == 'POST':
-        form = EntrarEstacionamento(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            try:
-                empresa = Estacionamento.objects.get(email=email, senha=senha)
-                nome = empresa.nome_fantasia
-                # Redireciona para o dashboard com parâmetros de consulta na URL
-                return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
-            except Estacionamento.DoesNotExist:
-                form.add_error(None, 'Email ou senha incorretos!')
-    else:
-        form = EntrarEstacionamento(initial={'email' : email}) 
+    email = request.POST.get('email')
+    senha = request.POST.get('password')
+    print(senha, email)
+    try:
+        empresa = Estacionamento.objects.get(email=email, senha=senha)
+        nome = empresa.nome_fantasia
+        # Redireciona para o dashboard com parâmetros de consulta na URL
+        return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
+    except Estacionamento.DoesNotExist:
+        error = 'email ou senha não existem'
+    return render(request, 'empresas/entrar.html')
 
-    return render(request, 'empresas/entrar.html', {'form':form})
-
-@csrf_protect
+@login_required
 def dashboard(request):
     return render(request,'empresas/dashboard.html', {'nome':nome})
 
@@ -84,26 +76,23 @@ def resumos(request):
     return render(request,'empresas/resumos.html', {'nome':nome})
 
 @csrf_protect
+@login_required
 def cadastro(request):
     if request.method == 'POST':
         form = Perfil(request.POST)
         form2 = Estacio(request.POST)
-        form3 = Opcoes(request.POST)
         print(form.errors)
         print(form2.errors)
-        print(form3.errors)
-        if form.is_valid() and form2.is_valid() and form3.is_valid:
+        if form.is_valid() and form2.is_valid():
             dias_abertos = form.cleaned_data['dias_abertos']
             hora_abre = form.cleaned_data['hora_abre']
             print(dias_abertos, hora_abre)
             form.save()
             form2.save()
-            form3.save()
     else:   
         form = Perfil()
         form2 = Estacio()
-        form3 = Opcoes()
-    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2, 'form3':form3})
+    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2})
 
 @csrf_protect
 def estacionamento(request):
