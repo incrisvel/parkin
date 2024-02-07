@@ -5,8 +5,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=150, unique = True)
-    email = models.CharField(max_length=150, unique = True, default='')
-    senha = models.CharField(max_length=150, default='')
+    email = models.CharField(max_length=150, unique = True)
+    senha = models.CharField(max_length=150)
     data_nasc = models.DateField(verbose_name='data de nascimento')
     
     def __str__(self):

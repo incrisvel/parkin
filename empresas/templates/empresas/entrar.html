@@ -1,67 +1,67 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'styles/cadastroprincipal.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/entrar-empresas.css' %}">
   <title>PARKIN</title>
 </head>
 <body>
-  <header>
-    <a href="/"><img src="{% static 'img/Logo.png' %}"></a>
-  </header>
   <main>
     <div class="centro">
-      <h1>Entrar</h1>
-      <div class="botoes">
-        <a href="/clientes/entrar/">Clientes</a>
-        <a href="/empresas/entrar/" class="ativo">Empresa</a>
+      <div class="conteudo-esq">
+        <div class="titulo-esq">
+          <h1>Entrar</h1>
+          <p>Seu lugar é aqui. Fácil e rápido!</p>
+          <button class="saibamais">Saiba Mais</button>
+        </div>
+        <img class="detalhes-img" src="{% static 'assets/img/detalhes1.png' %}">
       </div>
-      <div class="conteudo">
-        <form action="" method="post">
-          {% csrf_token %}
-          {% if email_apparence == True %}
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-            </div>
-          {%else%}
-            <div class="import" style="background-color: rgba(255, 0, 0, 0.466);">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-              <span>email inválido</span>
-            </div>
-          {%endif%}
-          {% if senha == confirme  %}
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              {{ form.senha }} 
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-          {%else%}
-          <div class="import">
-            <img src="{% static 'assets/img/key.png' %}">
-            {{ form.senha }}
-            <label for="senha">{{ form.senha.label }}</label>
-          </div>
-          {%endif%}
-          <div class="entrar">
-            <p>Não possui uma conta?</p>
-            <a href="/empresas/cadastrar">Cadastrar-se</a>
-          </div>
-          <input type="submit" value="Entrar" id="button">
-        </form>
+
+      <div class="conteudo-dir">
+        <div class="titulo-cliente">
+          <h1>Estacionamento</h1>
+        </div>
+        <div class="login-dir">
+          <form action="" method="post">
+            <div class="login">
+              <div class="titulos">
+                <h1>Entrar</h1>
+                <p>Bem vindo de Volta!</p>
+              </div>
+              {% csrf_token %}
+                  <div class="import1">
+                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                    <div class="form">
+                      {{ form.email }}
+                    </div>
+                  </div>
+                <div class="import3">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    {{ form.senha }}
+                  </div>
+                </div>
+              <div class="botao">
+                <input type="submit" value="Entrar" id="button">
+                <div class="entrar">
+                  <p>Não possui uma conta?</p>
+                  <a href="/empresas/cadastrar">Cadastrar-se</a>
+                </div>
+              </div>
+              <div class="botoes">
+                <div class="b-estacionamento">
+                  <a href="/clientes/entrar" class="ativo">Cliente</a>
+                </div>
+              </div>
+            </form>
+        </div>
       </div>
     </div>
   </main>
-  <footer style="margin-top: 25px;">
-    {%block footer%}
-      {%include 'main/footer.html'%}
-    {%endblock%}
-  </footer>
 </body>
 
 </html>

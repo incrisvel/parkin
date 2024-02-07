@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import Usuario
-from main.forms import Entrar
+from main.forms import EntrarCliente
 from main.views import enviar_email
+from .models import Cliente
+from django.views.decorators.csrf import csrf_protect
 
 
+@csrf_protect
 def cadastrocliente(request):
     check = 'on'
     senha = ''
@@ -22,7 +25,6 @@ def cadastrocliente(request):
             if mail.find('@') >= 1:
                 email_formatado = mail.split('@')
                 if senha == confirme and check != None and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    enviar_email(mail)
                     form.save()
                     return redirect('/')
                 elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
@@ -43,20 +45,19 @@ def cadastrocliente(request):
 
     return render(request, 'clientes/cadascliente.html', context)
 
+@csrf_protect
 def entrarcliente(request):
     email_apparence = True 
-    mail = ''
+    email = ''
     senha = ''
     if request.method == 'POST':
-        form = Entrar(request.POST)
+        form = EntrarCliente(request.POST)
         print(form.errors)
         if form.is_valid():
-            mail = form.cleaned_data['email']
+            email = form.cleaned_data['email']
             senha = form.cleaned_data['senha']
+            return redirect('/inicial')
     else:
-        form = Entrar(initial={'email' : mail})
-    context = {
-        'form' : form,
-        'email_apparence' : email_apparence
-    }
-    return render(request,'clientes/entrar.html', context)
+        form = EntrarCliente(initial={'email' : email}) 
+
+    return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
