@@ -10,11 +10,11 @@ body {
 }
 
 header {
-  background-color: #eee;
+  background-color: #FFDE59;
   width: 100%;
   height: 60px;
   top: 0;
-  position: sticky;
+  position: relative;
   z-index: 1;
   padding: 12px 0;
   align-items: center;
@@ -22,27 +22,130 @@ header {
 }
 
 nav {
-  border: 1px solid rgb(255, 2, 65);
   width: 90%;
+  height: 35px;
   margin: auto;
 }
 
 .navbar {
-  display: block;
-  position: relative;
   display: flex;
   justify-content: center;
+  margin-right: 40px;
 }
 
 .logo {
   display: block;
   position: absolute;
-  border: 1px solid #555;
   width: 190px;
   display: flex;
   align-items: center;
+  bottom: 8px;
 }
 
 .logo-img {
   width: 50px;
+}
+
+ul .navbar li {
+  margin-left: 50px;
+  margin-top: 8px;
+}
+
+ul .navbar li a {
+  font-size: 15px;
+  color: #08092a;
+}
+
+.l-c {
+  position: absolute;
+  display: flex;
+  right: 100px;
+  margin-top: 8px;
+}
+
+.l-c .login li a{
+  margin-right: 30px;
+  color: #08092a;
+}
+
+.l-c .cadastro{
+  color: #08092a;
+}
+
+.l-c .cadastro li a {
+  padding: 8px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #08092a;
+}
+
+.conteudo1 {
+  width: 100%;
+  height: 500px;
+  background-color: #FFDE59;
+}
+
+.conteudo1 .text-banner {
+  position: absolute;
+  width: 60%;
+  height: 450px;
+}
+
+.conteudo1 .text-banner ul li h1{
+  font-size: 45px;
+  color: #4D4D4D;
+  margin-top: 130px;
+  margin-left: 150px;
+}
+
+.conteudo1 .text-banner ul li h2{
+  font-size: 45px;
+  margin-left: 150px;
+  color: #08092a;
+}
+
+.conteudo1 .text-banner ul li p{
+  font-size: 13px;
+  margin-top: 20px;
+  margin-left: 150px;
+  color: #717171;
+}
+
+
+.conteudo1 .banner {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 450px;
+  align-items: center;
+}
+
+.conteudo1 .banner .banner-img {
+  display: block;
+  margin: auto;
+  width: 350px;
+  margin-top: 50px;
+}
+
+.botao {
+  position: absolute;
+  margin-left: 150px;
+  padding: 1.1em 2em;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #08092a;
+  border: none;
+  border-radius: 45px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+}
+
+.botao:hover {
+  color: #fff;
+  transform: translateY(-7px);
 }

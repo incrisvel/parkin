@@ -15,7 +15,7 @@
             <ul>
                 <div class="logo">
                     <li>
-                        <a href="/empresas/dashboard">
+                        <a href="/">
                             <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
                         </a>
                     </li>
@@ -23,40 +23,73 @@
                         <h1>ParkIn</h1>
                     </li>
                 </div>
+                <div class="l-c">
+                    <div class="login">
+                        <li>
+                            <a href="/clientes/entrar/">
+                                Entrar
+                            </a>
+                        </li>
+                    </div>
+                    <div class="cadastro">
+                        <li>
+                            <a href="/clientes/cadastrar/">
+                                Cadastrar-se
+                            </a>
+                        </li>
+                    </div>
+                </div>
                 <div class="navbar">
                     <li>
                         <a href="">
-                            <h1>Início</h1>
+                            Início
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <h1>Início</h1>
+                            Estacionamentos
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <h1>Início</h1>
+                            Quem Somos
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <h1>Início</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>Início</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>Início</h1>
+                            Contato
                         </a>
                     </li>
                 </div>
             </ul>
         </nav>
     </header>
+    <div class="conteudo1">
+        <div class="text-banner">
+            <ul>
+                <li>
+                    <h1>Encontre o seu lugar</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h2>Fácil e rápido!</h2>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>Aqui você encontrará as melhores funcionalidades, tanto para motoristas quanto para empresas</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a class="botao" href="/empresas/dashboard">Saiba Mais</a>
+                </li>
+            </ul>
+        </div>
+        <div class="banner">
+            <img src="{% static 'assets/img/banner1.png' %}" alt="Banner" class="banner-img">
+        </div>
+    </div>
 </body>
 </html>
