@@ -1,10 +1,9 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from . import views
-from .views import navegar
+from mapa.views import MapaView
+
+app_name = 'mapa'
 
 urlpatterns = [
-
-    path('', navegar,name='/mapa'),
-
-    ]
+    path('', MapaView.as_view()),
+]

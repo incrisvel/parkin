@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import dashboard, resumos, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa
 
+app_name = 'empresas'
+
 urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('resumos/', resumos, name='resumos'),

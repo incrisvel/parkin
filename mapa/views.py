@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.base import (
+    TemplateView,
+)
 
-
-def navegar(request):
-    return render(request,'mapa/navegar.html')
+class MapaView(TemplateView):
+    template_name = "mapa/navegar.html"
