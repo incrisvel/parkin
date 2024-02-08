@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+    'mapa',
 ]
 
 MIDDLEWARE = [
