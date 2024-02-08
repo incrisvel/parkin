@@ -45,3 +45,19 @@ Foi verificado o funcionamento do cadastro e login de usuários (autenticação)
 ## 31/01/2024
 
 A equipe preparou a apresentação e Ryan renovou a tela de login.
+
+## 01/02/2024
+
+Os integrantes reescreveram seu pitch pessoal.
+
+## 05/02/2024
+
+Foram traçadas novas metas para entregar no projeto, dadas as datas finais.
+
+## 06/02/2024
+
+A equipe ensaiou e cronometrou a apresentação.
+
+## 07/02/2024
+
+A equipe ensaiou e cronometrou a apresentação.
