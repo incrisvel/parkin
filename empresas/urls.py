@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import resumos,  dashboard, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa, faleconosco
+from .views import resumos,  dashboard, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa, faleconosco, fazer_logout
 from django.contrib.auth import views as auth_views
 
 
@@ -12,6 +12,8 @@ urlpatterns = [
     path('ajuda/', help, name='ajuda'),
     path('comofunciona/', comofunciona, name='comofunciona'),
     path('cadastrar/', cadastrocempresa, name='cadastrarempresa'),
-    path('entrar/', auth_views.LoginView.as_view(template_name='empresas/entrar.html'), name='entrarempresa'),
+    path('entrar/', entrarempresa, name='entrarempresa'),
     path('faleconosco/', faleconosco, name='faleconosco'),
+    path('logout/', fazer_logout, name='logout'),
+
 ]

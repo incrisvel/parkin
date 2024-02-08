@@ -1,82 +1,75 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .forms import Empresas, Perfil, Estacio
-from main.forms import EntrarEstacionamento
+from django.contrib.auth.decorators import login_required, permission_required
+from .forms import Perfil, Estacio
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_protect
+from clientes.models import Cliente
 
 nome = ''
 
 @csrf_protect
 def cadastrocempresa(request):
-    check = 'on'
-    senha = ''
-    confirme = ''
-    email_apparence = True
-    cnpj = '00000000000000'
     if request.method == 'POST':
-        form = Empresas(request.POST)
-        check = request.POST.get('check')
-        print(form.errors)
-        if form.is_valid():
-            nome = form.cleaned_data['nome_fantasia']
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            confirme = request.POST.get('confirme')
-            razao = form.cleaned_data['razao_social']
-            cnpj = form.cleaned_data['cnpj']
+        try:
+            usuario_aux = Estacionamento.objects.get(email=request.POST.get('email'))
+            if usuario_aux:
+                return redirect('/empresas/cadastrar')
+
+        except Estacionamento.DoesNotExist:
             check = request.POST.get('check')
-            if mail.find('@') >= 1:
-                email_formatado = mail.split('@')
-                if senha == confirme and check != None and len(cnpj) == 14 and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    form.save()
-                    return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
-                elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
-                    email_apparence = False
-            else:
-                email_apparence = False
-                Empresas(initial={'nome':nome, 'email': mail, 'razao_social': razao, 'cnpj':cnpj})
-    else:
-        form = Empresas()
-    context = {
-        'form' : form,
-        'check' : check,
-        'senha' : senha,
-        'confirme' : confirme,
-        'cnpj' : len(cnpj),
-        'email_apparence' : email_apparence,
-    }
-
-
-    return render(request, 'empresas/cadasempresa.html', context)
+            nome_fantasia = request.POST.get('nome')
+            razao_social = request.POST.get('razao')
+            email = request.POST.get('email')
+            senha = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            cnpj = request.POST.get('cnpj')
+            if senha == confirme and check == 'on':
+                empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=senha, razao_social=razao_social, cnpj=cnpj)
+                empresa.save()
+                return redirect('/empresa/entrar')
+    return render(request, 'empresas/cadasempresa.html')
 
 @csrf_protect
 def entrarempresa(request):
     global nome
-    email = request.POST.get('email')
-    senha = request.POST.get('password')
-    print(senha, email)
-    try:
-        empresa = Estacionamento.objects.get(email=email, senha=senha)
-        nome = empresa.nome_fantasia
-        # Redireciona para o dashboard com parâmetros de consulta na URL
-        return redirect(reverse('dashboard') + f'?nome_fantasia={nome}&')
-    except Estacionamento.DoesNotExist:
-        error = 'email ou senha não existem'
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        usuario_aux = Estacionamento.objects.filter(email=email).first()
+        if usuario_aux is not None:
+            usuario = authenticate(email=usuario_aux.email, password=senha)
+            if usuario is not None:
+                login(request, usuario)
+                print('Autenticado')
+                return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
+        print('Não autenticado')
+        return redirect('/empresas/entrar')
     return render(request, 'empresas/entrar.html')
 
-@login_required
+@login_required(login_url='/empresas/entrar')
 def dashboard(request):
-    return render(request,'empresas/dashboard.html', {'nome':nome})
+    try:
+        estacionamento = Estacionamento.objects.get(email=request.user)
+        if estacionamento.cnpj:
+            return render(request, 'empresas/dashboard.html', {'nome': estacionamento.nome_fantasia})
+        else:
+            return redirect('/')
+    except Estacionamento.DoesNotExist:
+        return redirect('/')
 
-@csrf_protect
+
+def fazer_logout(request):
+    logout(request)
+    return redirect('/empresas/entrar')
+
+@login_required(login_url='/empresas/entrar')
 def resumos(request):
     return render(request,'empresas/resumos.html', {'nome':nome})
 
-@csrf_protect
-@login_required
+@login_required(login_url='/empresas/entrar')
 def cadastro(request):
     if request.method == 'POST':
         form = Perfil(request.POST)
@@ -94,22 +87,22 @@ def cadastro(request):
         form2 = Estacio()
     return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2})
 
-@csrf_protect
+@login_required(login_url='/empresas/entrar')
 def estacionamento(request):
     return render(request,'empresas/estacionamento.html', {'nome':nome})
 
-@csrf_protect
+@login_required(login_url='/empresas/entrar')
 def notificacao(request):
     return render(request,'empresas/notificacoes.html', {'nome':nome})
 
-@csrf_protect
+@login_required(login_url='/empresas/entrar')
 def help(request):
     return render(request,'empresas/help.html', {'nome':nome})
 
-@csrf_protect
+@login_required(login_url='/empresas/entrar')
 def comofunciona(request):
     return render(request,'empresas/comofunciona.html', {'nome':nome})
 
-@csrf_protect
+@login_required(login_url='/empresas/entrar')
 def faleconosco(request):
     return render(request, 'empresas/fale_conosco.html', {'nome':nome})

@@ -1,10 +1,9 @@
 from django.contrib import admin
 from .models import Usuario, Feedback
 from clientes.models import Cliente, Avaliacao
-from empresas.models import Estacionamento, Endereco, PerfilLocal, Opcao
+from empresas.models import Estacionamento, Endereco, PerfilLocal
 from django.contrib.auth.admin import UserAdmin
 
-admin.site.register(Opcao)
 
 @admin.register(Usuario)
 class Administrador(UserAdmin):

@@ -2,18 +2,32 @@ from django.db import models
 from main.models import Usuario
 from empresas.models import Estacionamento
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
+
+class ClienteManager(BaseUserManager):
+    def create_user(self, username, email, password):
+        if not email:
+            raise ValueError('O campo de e-mail é obrigatório')
+        cliente = self.model(
+            username=username,
+            email=email,
+            password=make_password(password),
+        )
+        cliente.save()
+        return cliente
 
 class Cliente(models.Model):
-    nome = models.CharField(max_length=150, unique = True)
+    username = models.CharField(max_length=150, unique = True)
     email = models.CharField(max_length=150, unique = True)
-    senha = models.CharField(max_length=150)
-    data_nasc = models.DateField(verbose_name='data de nascimento')
+    password = models.CharField(max_length=150)
     
-    def __str__(self):
-        return self.nome
-    
+    objects = ClienteManager()
+
+    USERNAME_FIELD = 'nome'
+
     class Meta:
-        ordering = ['nome']
+        ordering = ['username']
         
         
 class Avaliacao(models.Model):
