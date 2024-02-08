@@ -7,6 +7,7 @@
 
 body {
   background-color: #ffffff;
+  height: 2000px;
 }
 
 header {
@@ -59,7 +60,7 @@ ul .navbar li a {
 .l-c {
   position: absolute;
   display: flex;
-  right: 100px;
+  right: 80px;
   margin-top: 8px;
 }
 
@@ -93,7 +94,7 @@ ul .navbar li a {
 
 .conteudo1 .text-banner ul li h1{
   font-size: 45px;
-  color: #4D4D4D;
+  color: #333;
   margin-top: 130px;
   margin-left: 150px;
 }
@@ -138,7 +139,7 @@ ul .navbar li a {
   color: #fff;
   background-color: #08092a;
   border: none;
-  border-radius: 45px;
+  border-radius: 10px;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
@@ -146,6 +147,143 @@ ul .navbar li a {
 }
 
 .botao:hover {
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.conteudo2 {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.conteudo2 .text1 h1{
+  color: #333;
+  font-size: 30px;
+}
+
+.conteudo2 .text1 p{
+  margin-top: 10px;
+  color: #717171;
+  font-size: 14px;
+}
+
+.conteudo2 .clientes-img {
+  width: 1100px;
+  margin-top: 20px;
+}
+
+.conteudo2 .text2 h1{
+  color: #333;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.conteudo2 .text2 p{
+  margin-top: 10px;
+  color: #717171;
+  font-size: 14px;
+}
+
+.text-flex {
+  margin-top: 30px;
+  justify-content: center;
+  display: flex;
+}
+
+.info1 {
+  margin: 0px 100px 0px 100px;
+  width: 300px;
+}
+
+.info1 h2{
+  color: #333;
+  margin-top: 10px;
+}
+
+.info1 p{
+  color: #717171;
+}
+
+.info2 {
+  margin: 0px 100px 0px 100px;
+  width: 300px;
+}
+
+.info2 h2{
+  color: #333;
+  margin-top: 10px;
+}
+
+.info2 p{
+  color: #717171;
+}
+
+.info3 {
+  margin: 0px 100px 0px 100px;
+  width: 300px;
+}
+
+.info3 h2{
+  color: #333;
+  margin-top: 10px;
+}
+
+.info3 p{
+  color: #717171;
+}
+
+.text-flex1 {
+  display: flex;
+  position: relative;
+  height: 400px;
+  margin: auto;
+  width: 80%;
+}
+
+.pessoas1-img {
+  margin-top: 50px;
+  width: 400px;
+  position: absolute;
+  left: -40px;
+}
+
+.p-text {
+  width: 60%;
+  margin-top: 120px;
+  position: absolute;
+  right: 20px;
+}
+
+.p-text h1{
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.p-text p{
+  color: #717171;
+}
+
+.botao1 {
+  position: absolute;
+  padding: 1.1em 2em;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #08092a;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-top: 40px;
+}
+
+.botao1:hover {
   color: #fff;
   transform: translateY(-7px);
 }
