@@ -43,7 +43,7 @@
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#implementações">Implementações</a></li>
     <li><a href="#contribuir">Contribuir</a></li>
     <li><a href="#licença">Licença</a></li>
     <li><a href="#contato">Contato</a></li>
@@ -56,14 +56,14 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
+ParkIn é uma iniciativa dedicada a revolucionar a maneira como as pessoas encontram e utilizam estacionamentos urbanos. 
 
-Breve introdução.
+Proporciona uma experiência personalizada para os usuários, além de uma plataforma robusta e intuitiva de gestão aos proprietários. 
 
-Diferenciais:
-* Diferencial 1
-* Diferencial 2
-* Diferencial 3
-
+Alguns diferenciais oferecidos:
+* Vagas em tempo real
+* Monitoramento simplificado
+* Segurança de dados
 
 Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailies](DAILIES.md).
 
@@ -76,14 +76,37 @@ Em desenvolvimento ativo desde 16/01/2024. O progresso foi registrado em [dailie
 
 Recursos utilizados no desenvolvimento:
 
-* [![Python][Python.com]][Python-url]
-* [![Django][Django.com]][Django-url]
-* [![HTML5][HTML5.com]][HTML5-url]
-* [![CSS3][CSS3.com]][CSS3-url]
-* [![Javascript][Javascript.com]][Javascript-url]
-* [![Trello][Trello.com]][Trello-url]
-* [![Figma][Figma.com]][Figma-url]
-* [![Canva][Canva.com]][Canva-url]
+
+- Linguagens
+
+    [![Python][Python.com]][Python-url]
+    [![HTML5][HTML5.com]][HTML5-url]
+    [![CSS3][CSS3.com]][CSS3-url]
+    [![Javascript][Javascript.com]][Javascript-url]
+
+- Frameworks/bibliotecas
+
+    [![Django][Django.com]][Django-url]
+    [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
+- Controle de versão
+
+    [![Git][Git.com]][Git-url]
+    [![Github][Github.com]][Github-url]
+
+- Banco de dados
+
+    [![SQLite][SQLite.com]][SQLite-url]
+
+- IDE
+
+    [![VSCode][VSCode.com]][VSCode-url]
+
+- Design e organização
+
+    [![Trello][Trello.com]][Trello-url]
+    [![Figma][Figma.com]][Figma-url]
+    [![Canva][Canva.com]][Canva-url]
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -129,14 +152,16 @@ Exemplos de como o projeto pode ser usado. Capturas de tela, demos, exemplos de 
 
 
 
-## Roadmap
+## Implementações
 
-- [ ] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+Uma lista das implementações a serem incorporadas:
+
+- [ ] Instalação de sensores
+- [ ] Avaliação dos usuários
+- [ ] Registro de atividade
+- [ ] Validação
+    - [ ] CNPJ
+    - [ ] e-mail
 
 Veja a página [open issues](https://github.com/incrisvel/parkin/issues) para uma lista de features sugeridas.
 
@@ -201,17 +226,27 @@ Autores do projeto:
 [Canva.com]: https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white
 [Canva-url]: https://www.canva.com 
 [Django.com]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green
-[Django-url]: https://www.djangoproject.com/
+[Django-url]: https://www.djangoproject.com
 [HTML5.com]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML5-url]: https://html.com
 [CSS3.com]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [CSS3-url]: https://www.w3.org/TR/CSS/#css
 [Javascript.com]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
-[Javascript-url]: https://ecma-international.org/publications-and-standards/standards/ecma-262/
+[Javascript-url]: https://ecma-international.org/publications-and-standards/standards/ecma-262
 [Python.com]: https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
-[Python-url]: https://www.python.org/
+[Python-url]: https://www.python.org
 [Trello.com]: https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white
 [Trello-url]: https://trello.com
+[SQLite.com]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+[SQLite-url]: https://www.sqlite.org/index.html
+[Bootstrap.com]: https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[VSCode.com]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[VSCode-url]: https://code.visualstudio.com
+[Git.com]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white
+[Git-url]: https://git-scm.com
+[Github.com]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+[Github-url]: https://github.com
 
 [AAR.com]: https://img.shields.io/badge/Ana_Alice_Rodrigues-blue?style=for-the-badge
 [AAR-url]: https://linktr.ee/anaeanali5
