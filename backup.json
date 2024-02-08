@@ -607,8 +607,7 @@
         "fields": {
             "nome": "parkin",
             "email": "parkin2123@gmail.com",
-            "senha": "a",
-            "data_nasc": "2024-01-02"
+            "senha": "a"
         }
     }
 ]

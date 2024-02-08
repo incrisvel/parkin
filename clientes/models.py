@@ -6,29 +6,31 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 
 class ClienteManager(BaseUserManager):
-    def create_user(self, username, email, password):
+    def create_user(self, nome, email, senha):
         if not email:
             raise ValueError('O campo de e-mail é obrigatório')
         cliente = self.model(
-            username=username,
+            nome=nome,
             email=email,
-            password=make_password(password),
+            senha=make_password(senha),
         )
         cliente.save()
         return cliente
 
 class Cliente(models.Model):
-    username = models.CharField(max_length=150, unique = True)
+    nome = models.CharField(max_length=150, unique = True)
     email = models.CharField(max_length=150, unique = True)
-    password = models.CharField(max_length=150)
+    senha = models.CharField(max_length=150)
     
     objects = ClienteManager()
 
     USERNAME_FIELD = 'nome'
 
     class Meta:
-        ordering = ['username']
-        
+        ordering = ['nome']
+    
+    def __str__(self):
+        return self.nome 
         
 class Avaliacao(models.Model):
     avaliador = models.ForeignKey(

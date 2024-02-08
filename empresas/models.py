@@ -6,24 +6,25 @@ from django.utils import timezone
 
 
 class EstacionamentoManager(BaseUserManager):
-    def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
+    def create_user(self, nome_fantasia, email, razao_social, senha, cnpj):
         if not email:
             raise ValueError('O campo de e-mail é obrigatório')
         estacionamento = self.model(
             nome_fantasia=nome_fantasia,
             email=email,
             razao_social=razao_social,
-            password=make_password(password),
+            senha=make_password(senha),
             cnpj=cnpj,
         )
         estacionamento.save()
         return estacionamento
 
+
 class Estacionamento(AbstractBaseUser):
     nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
     email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
-    password = models.CharField(max_length=200)  
+    senha = models.CharField(max_length=200, default = '')  
     cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
     last_login = models.DateTimeField(default=timezone.now)  
 
@@ -32,7 +33,7 @@ class Estacionamento(AbstractBaseUser):
     USERNAME_FIELD = 'nome_fantasia'
 
     def __str__(self):
-        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
+        return self.nome_fantasia
     
 
 
