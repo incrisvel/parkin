@@ -2,15 +2,17 @@ from django.shortcuts import render, redirect
 from .forms import Empresas
 from main.forms import Entrar
 from main.views import enviar_email
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout
 
 def cadastrocempresa(request):
-    check = 'on'
+    check = 'on' # inicializa variáveis com valor padrão
     senha = ''
     confirme = ''
     email_apparence = True
     cnpj = '00000000000000'
-    if request.method == 'POST':
-        form = Empresas(request.POST)
+    if request.method == 'POST': # verifica se o formulário foi submetido
+        form = Empresas(request.POST) # cria um  formulário Empresas com os dados do POST
         check = request.POST.get('check')
         print(form.errors)
         if form.is_valid():
@@ -52,7 +54,7 @@ def entrarempresa(request):
     if request.method == 'POST':
         form = Entrar(request.POST)
         if form.is_valid():
-            mail = form.cleaned_data['email']
+            mail = form.cleaned_data['email'] # armazena dados do form em variáveis locais
             senha = form.cleaned_data['senha']
     else:
         form = Entrar(initial={'email' : mail})
