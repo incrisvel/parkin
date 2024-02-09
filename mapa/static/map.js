@@ -8,4 +8,3 @@ const layer = L.tileLayer(url, {
 const map = L.map("map", {
   layers: [layer],
 });
-map.fitWorld();

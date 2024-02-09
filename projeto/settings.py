@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'empresas',
     'clientes',
     'mapa',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mapa': {
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'NAME': BASE_DIR / 'mapa_db.sqlite3',
     }
 }
 
