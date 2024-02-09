@@ -14,6 +14,8 @@ def logado():
     global login
     if loginemp == False:
         login = False
+    elif loginemp == None:
+        login = False
     login = True
 
 @csrf_protect
