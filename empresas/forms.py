@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estacionamento, PerfilLocal, Endereco, Selecao
+from .models import Estacionamento, PerfilLocal, Endereco
 
 class Empresas(forms.ModelForm):
     senha = forms.CharField(widget=forms.PasswordInput)
@@ -28,7 +28,7 @@ class Empresas(forms.ModelForm):
     
 class Perfil(forms.ModelForm):
     class Meta:
-        model = Perfillocal
+        model = PerfilLocal
         fields = "__all__"
         widgets = {
             'valor': forms.FloatField(attrs={'placeholder': 'R$'}),
