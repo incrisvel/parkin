@@ -1,20 +1,42 @@
 from django.db import models
 from main.models import Usuario
-from django import forms
-from django.utils.timezone import now
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
+from django.utils import timezone
 
 
-class Estacionamento(models.Model):
-    nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
-    email = models.CharField(max_length=200, blank=False, unique = True, null=False)
-    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
-    senha = models.CharField(max_length=200)
-    cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')
+class EstacionamentoManager(BaseUserManager):
+    def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
+        if not email:
+            raise ValueError('O campo de e-mail é obrigatório')
+        estacionamento = self.model(
+            nome_fantasia=nome_fantasia,
+            email=email,
+            razao_social=razao_social,
+            password=make_password(password),
+            cnpj=cnpj,
+        )
+        estacionamento.save()
+        return estacionamento
+
+
+class Estacionamento(AbstractBaseUser):
+    nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
+    email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
+    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
+    password = models.CharField(max_length=200, default = '')  
+    cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
+    last_login = models.DateTimeField(default=timezone.now)  
+
+    objects = EstacionamentoManager()
+
+    USERNAME_FIELD = 'nome_fantasia'
 
     def __str__(self):
-        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
+        return self.nome_fantasia
     
-    
+
+
 class Endereco(models.Model):
     local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
@@ -23,7 +45,7 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=10, verbose_name='CEP')
 
     
-class Perfillocal(models.Model):
+class PerfilLocal(models.Model):
     DIAS_CHOICES = [
         ('segunda', 'Segunda-feira'),
         ('terca', 'Terça-feira'),
@@ -33,7 +55,7 @@ class Perfillocal(models.Model):
         ('sabado', 'Sábado'),
         ('domingo', 'Domingo'),
     ]
-    dias_abertos =  models.CharField(max_length = 20, choices=DIAS_CHOICES)
+    dias_abertos =  models.CharField(max_length = 10, choices=DIAS_CHOICES)
     coberto = models.BooleanField(default=None)
     valor = models.FloatField(default=0)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')

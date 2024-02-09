@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estacionamento, Perfillocal, Endereco
+from .models import Estacionamento, PerfilLocal, Endereco, Selecao
 
 class Empresas(forms.ModelForm):
     senha = forms.CharField(widget=forms.PasswordInput)
@@ -34,7 +34,6 @@ class Perfil(forms.ModelForm):
             'valor': forms.FloatField(attrs={'placeholder': 'R$'}),
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
             'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
-            'dias_abertos': forms.CheckboxSelectMultiple(attrs={'required': False})        
             }
 
 class Estacio(forms.ModelForm):

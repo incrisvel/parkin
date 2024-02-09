@@ -1,63 +1,44 @@
 from django.shortcuts import render, redirect
-from .forms import Usuario
-from main.forms import EntrarCliente
 from main.views import enviar_email
 from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
-
+from main.models import Usuario
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 
 @csrf_protect
 def cadastrocliente(request):
-    check = 'on'
-    senha = ''
-    confirme = ''
-    email_apparence = True
     if request.method == 'POST':
-        form = Usuario(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            nome = form.cleaned_data['nome']
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            data = form.cleaned_data['data_nasc']
+        try:
+            usuario_aux = Cliente.objects.get(email=request.POST.get('email'))
+            if usuario_aux:
+                return redirect('/')
+        except Cliente.DoesNotExist:
             check = request.POST.get('check')
-            confirme = request.POST.get('confirme')
-            if mail.find('@') >= 1:
-                email_formatado = mail.split('@')
-                if senha == confirme and check != None and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    form.save()
-                    return redirect('/')
-                elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
-                    email_apparence = False
-            else:
-                email_apparence = False
-                Usuario(initial={'nome':nome, 'email': mail, 'data':data})
-    else:       
-        form = Usuario()
-
-    context = {
-        'form' : form,
-        'check' : check,
-        'senha' : senha,
-        'confirme' : confirme,
-        'email_apparence' : email_apparence,
-    }
-
-    return render(request, 'clientes/cadascliente.html', context)
+            nome_usuario = request.POST.get('nome')
+            email = request.POST.get('email')
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            data = request.POST.get('data')
+            if password == confirme and check == 'on':
+                novoUsuario = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                novoUsuario.save()
+                return redirect('/clientes/entrar')
+    return render(request, 'clientes/cadascliente.html')
 
 @csrf_protect
 def entrarcliente(request):
-    email_apparence = True 
-    email = ''
-    senha = ''
     if request.method == 'POST':
-        form = EntrarCliente(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            return redirect('/inicial')
-    else:
-        form = EntrarCliente(initial={'email' : email}) 
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
 
-    return render(request, 'clientes/entrar.html', {'form':form, 'email_apparence': email_apparence})
+        usuario_aux = Cliente.objects.filter(email=email).first()
+        if email == usuario_aux.email and check_password(senha, usuario_aux.password):
+            login(request, usuario_aux)
+            print('Autenticado')
+            return redirect('/')
+
+        print('Não autenticado')
+        return redirect('/clientes/entrar')
+
+    return render(request, 'clientes/entrar.html')

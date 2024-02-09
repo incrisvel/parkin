@@ -589,26 +589,5 @@
             "groups": [],
             "user_permissions": []
         }
-    },
-    {
-        "model": "empresas.estacionamento",
-        "pk": 1,
-        "fields": {
-            "nome_fantasia": "a",
-            "email": "marcomartins051@gmail.com",
-            "razao_social": "a",
-            "senha": "a",
-            "cnpj": "04191650065065"
-        }
-    },
-    {
-        "model": "clientes.cliente",
-        "pk": 4,
-        "fields": {
-            "nome": "parkin",
-            "email": "parkin2123@gmail.com",
-            "senha": "a",
-            "data_nasc": "2024-01-02"
-        }
     }
 ]
