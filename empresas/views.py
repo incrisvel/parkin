@@ -8,15 +8,15 @@ from django.views.decorators.csrf import csrf_protect
 from clientes.models import Cliente
 from django.contrib.auth.hashers import check_password
 
-nome = ''
+login = False
+loginemp = False
 
 def logado():
     global login
     if loginemp == False:
-        login = False
-    elif loginemp == None:
-        login = False
+        return login == False
     login = True
+    return login 
 
 @csrf_protect
 def cadastrocempresa(request):
@@ -49,7 +49,7 @@ def entrarempresa(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         usuario_aux = Estacionamento.objects.filter(email=email).first()
-        if email == usuario_aux.email and check_password(senha, usuario_aux.password):
+        if usuario_aux is not None and check_password(senha, usuario_aux.password):
             loginemp = True
             print('Autenticado')
             return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
@@ -65,13 +65,15 @@ def dashboard(request):
         return redirect('/empresas/entrar')
 
 def fazer_logout(request):
-    loginemp == False
+    global loginemp
+    loginemp = False
+    logado()
     return redirect('/empresas/entrar')
 
 def resumos(request):
     logado()
     if login == True:
-        return render(request,'empresas/resumos.html', {'nome':nome})
+        return render(request,'empresas/resumos.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
@@ -89,14 +91,14 @@ def cadastro(request):
         else:   
             form = Perfil()
             form2 = Estacio()
-        return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2})
+        return render(request,'empresas/cadastro.html', {'nome':usuario_aux.nome_fantasia, 'form':form, 'form2' : form2})
     else:
         return redirect('/empresas/entrar')
 
 def estacionamento(request):
     logado()
     if login == True:
-        return render(request,'empresas/estacionamento.html', {'nome':nome})
+        return render(request,'empresas/estacionamento.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
@@ -104,27 +106,27 @@ def estacionamento(request):
 def notificacao(request):
     logado()
     if login == True:
-        return render(request,'empresas/notificacoes.html', {'nome':nome})
+        return render(request,'empresas/notificacoes.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
 def help(request):
     logado()
     if login == True:
-        return render(request,'empresas/help.html', {'nome':nome})
+        return render(request,'empresas/help.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
 def comofunciona(request):
     logado()
     if login == True:
-        return render(request,'empresas/comofunciona.html', {'nome':nome})
+        return render(request,'empresas/comofunciona.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
 def faleconosco(request):
     logado()
     if login == True:
-        return render(request, 'empresas/fale_conosco.html', {'nome':nome})
+        return render(request, 'empresas/fale_conosco.html', {'nome':usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')

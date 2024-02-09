@@ -21,8 +21,8 @@ class ClienteManager(BaseUserManager):
         return cliente
 
 class Cliente(AbstractBaseUser):
-    nome = models.CharField(max_length=150, unique=True)
-    email = models.CharField(max_length=150, unique=True)
+    nome = models.CharField(max_length=150)
+    email = models.CharField(max_length=150)
     password = models.CharField(max_length=150)
     data_nascimento = models.DateField(null=True, blank=True)
     last_login = models.DateTimeField(default=timezone.now)  

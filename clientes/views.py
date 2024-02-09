@@ -3,16 +3,23 @@ from main.views import enviar_email
 from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
 from main.models import Usuario
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login
 from django.contrib.auth.hashers import check_password
 
 @csrf_protect
 def cadastrocliente(request):
+    erro_senha = ''
+    erro_email = ''
+    erro_nome = ''
+    erro_check = ''
+
     if request.method == 'POST':
         try:
-            usuario_aux = Cliente.objects.get(email=request.POST.get('email'))
-            if usuario_aux:
-                return redirect('/')
+            usuario_aux = Cliente.objects.get(email=request.POST.get('email'), nome = request.POST.get('nome'))
+            if usuario_aux.email:
+                erro_email = 'Esse email já existe!'
+            if usuario_aux.nome:
+                erro_nome = 'Esse nome já existe'
         except Cliente.DoesNotExist:
             check = request.POST.get('check')
             nome_usuario = request.POST.get('nome')
@@ -24,7 +31,11 @@ def cadastrocliente(request):
                 novoUsuario = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
                 novoUsuario.save()
                 return redirect('/clientes/entrar')
-    return render(request, 'clientes/cadascliente.html')
+            if password != confirme:
+                erro_senha = 'senha não corresponde'
+            if check != 'on':
+                erro_check = 'Aceite os termos para avançar'        
+    return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_nome':erro_nome, 'erro_check':erro_check})
 
 @csrf_protect
 def entrarcliente(request):
