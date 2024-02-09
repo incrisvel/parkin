@@ -8,7 +8,6 @@ class Perfil(forms.ModelForm):
         widgets = {
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
             'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
-            'dias_abertos': forms.CheckboxSelectMultiple(attrs={'required': False})        
             }
 
 class Estacio(forms.ModelForm):

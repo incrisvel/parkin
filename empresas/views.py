@@ -8,8 +8,13 @@ from django.views.decorators.csrf import csrf_protect
 from clientes.models import Cliente
 from django.contrib.auth.hashers import check_password
 
-login = False
 nome = ''
+
+def logado():
+    global login
+    if loginemp == False:
+        login = False
+    login = True
 
 @csrf_protect
 def cadastrocempresa(request):
@@ -32,17 +37,18 @@ def cadastrocempresa(request):
                 empresa.save()
                 usuario_aux = Estacionamento.objects.filter(email=email).first()
                 return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
+            return redirect('/empresas/cadastrar')
     return render(request, 'empresas/cadasempresa.html')
 
 @csrf_protect
 def entrarempresa(request):
-    global usuario_aux, login
+    global usuario_aux, loginemp
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         usuario_aux = Estacionamento.objects.filter(email=email).first()
         if email == usuario_aux.email and check_password(senha, usuario_aux.password):
-            login = True
+            loginemp = True
             print('Autenticado')
             return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
         print('Não autenticado')
@@ -50,23 +56,25 @@ def entrarempresa(request):
     return render(request, 'empresas/entrar.html')
 
 def dashboard(request):
+    logado()
     if login == True:
         return render(request, 'empresas/dashboard.html', {'nome': usuario_aux.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
-
 def fazer_logout(request):
-    login == False
+    loginemp == False
     return redirect('/empresas/entrar')
 
 def resumos(request):
+    logado()
     if login == True:
         return render(request,'empresas/resumos.html', {'nome':nome})
     else:
         return redirect('/empresas/entrar')
 
 def cadastro(request):
+    logado()
     if login == True:
         if request.method == 'POST':
             form = Perfil(request.POST)
@@ -74,9 +82,6 @@ def cadastro(request):
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():
-                dias_abertos = form.cleaned_data['dias_abertos']
-                hora_abre = form.cleaned_data['hora_abre']
-                print(dias_abertos, hora_abre)
                 form.save()
                 form2.save()
         else:   
@@ -87,6 +92,7 @@ def cadastro(request):
         return redirect('/empresas/entrar')
 
 def estacionamento(request):
+    logado()
     if login == True:
         return render(request,'empresas/estacionamento.html', {'nome':nome})
     else:
@@ -94,24 +100,28 @@ def estacionamento(request):
 
 
 def notificacao(request):
+    logado()
     if login == True:
         return render(request,'empresas/notificacoes.html', {'nome':nome})
     else:
         return redirect('/empresas/entrar')
 
 def help(request):
+    logado()
     if login == True:
         return render(request,'empresas/help.html', {'nome':nome})
     else:
         return redirect('/empresas/entrar')
 
 def comofunciona(request):
+    logado()
     if login == True:
         return render(request,'empresas/comofunciona.html', {'nome':nome})
     else:
         return redirect('/empresas/entrar')
 
 def faleconosco(request):
+    logado()
     if login == True:
         return render(request, 'empresas/fale_conosco.html', {'nome':nome})
     else:

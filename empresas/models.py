@@ -27,12 +27,6 @@ class Estacionamento(AbstractBaseUser):
     password = models.CharField(max_length=200, default = '')  
     cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
     last_login = models.DateTimeField(default=timezone.now)  
-    usuario = models.ForeignKey(
-        Usuario,
-        on_delete=models.CASCADE,
-        choices=Usuario.Tipo.choices,
-        default = 3,
-    )
 
     objects = EstacionamentoManager()
 
@@ -52,16 +46,14 @@ class Endereco(models.Model):
 
     
 class PerfilLocal(models.Model):
-    DIAS_CHOICES = [
-        ('segunda', 'Segunda-feira'),
-        ('terca', 'Terça-feira'),
-        ('quarta', 'Quarta-feira'),
-        ('quinta', 'Quinta-feira'),
-        ('sexta', 'Sexta-feira'),
-        ('sabado', 'Sábado'),
-        ('domingo', 'Domingo'),
-    ]
-    dias_abertos =  models.CharField(max_length = 10, choices=DIAS_CHOICES)
+    segunda = models.BooleanField(default=False)
+    terca = models.BooleanField(default=False)
+    quarta = models.BooleanField(default=False)
+    quinta = models.BooleanField(default=False)
+    sexta = models.BooleanField(default=False)
+    sabado = models.BooleanField(default=False)
+    domingo = models.BooleanField(default=False)
+    
     coberto = models.BooleanField(default=None)
     valor = models.FloatField(default=0)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
