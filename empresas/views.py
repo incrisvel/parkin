@@ -2,31 +2,25 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 from .forms import Perfil, Estacio
 from main.views import enviar_email
-from .models import Estacionamento, PerfilLocal, Endereco
-from django.urls import reverse
-from django.views.decorators.csrf import csrf_protect
-from clientes.models import Cliente
-from django.contrib.auth.hashers import check_password
-
-login = False
-loginemp = False
-
-def logado():
-    global login
-    if loginemp == False:
-        return login == False
-    login = True
-    return login 
 
 @csrf_protect
 def cadastrocempresa(request):
+    check = 'on'
+    senha = ''
+    confirme = ''
+    email_apparence = True
+    cnpj = '00000000000000'
     if request.method == 'POST':
-        try:
-            usuario_aux = Estacionamento.objects.get(email=request.POST.get('email'))
-            if usuario_aux:
-                return redirect('/empresas/cadastrar')
-
-        except Estacionamento.DoesNotExist:
+        form = Empresas(request.POST)
+        check = request.POST.get('check')
+        print(form.errors)
+        if form.is_valid():
+            nome = form.cleaned_data['nome_fantasia']
+            mail = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+            confirme = request.POST.get('confirme')
+            razao = form.cleaned_data['razao_social']
+            cnpj = form.cleaned_data['cnpj']
             check = request.POST.get('check')
             nome_fantasia = request.POST.get('nome')
             razao_social = request.POST.get('razao')
@@ -46,16 +40,17 @@ def cadastrocempresa(request):
 def entrarempresa(request):
     global usuario_aux, loginemp
     if request.method == 'POST':
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        usuario_aux = Estacionamento.objects.filter(email=email).first()
-        if usuario_aux is not None and check_password(senha, usuario_aux.password):
-            loginemp = True
-            print('Autenticado')
-            return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
-        print('Não autenticado')
-        return redirect('/empresas/entrar')
-    return render(request, 'empresas/entrar.html')
+        form = Entrar(request.POST)
+        if form.is_valid():
+            mail = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+    else:
+        form = Entrar(initial={'email' : mail})
+        context = {
+            'form' : form,
+            'email_apparence' : email_apparence
+        }
+    return render(request,'empresas/entrar.html', context)
 
 def dashboard(request):
     logado()
