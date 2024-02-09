@@ -4,23 +4,28 @@ from empresas.models import Estacionamento
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from django.utils import timezone
+
 
 class ClienteManager(BaseUserManager):
-    def create_user(self, nome, email, senha):
+    def create_user(self, nome, email, password, data_nascimento):
         if not email:
             raise ValueError('O campo de e-mail é obrigatório')
         cliente = self.model(
             nome=nome,
             email=email,
-            senha=make_password(senha),
+            password=make_password(password),
+            data_nascimento=data_nascimento
         )
         cliente.save()
         return cliente
 
-class Cliente(models.Model):
-    nome = models.CharField(max_length=150, unique = True)
-    email = models.CharField(max_length=150, unique = True)
-    senha = models.CharField(max_length=150)
+class Cliente(AbstractBaseUser):
+    nome = models.CharField(max_length=150, unique=True)
+    email = models.CharField(max_length=150, unique=True)
+    password = models.CharField(max_length=150)
+    data_nascimento = models.DateField(null=True, blank=True)
+    last_login = models.DateTimeField(default=timezone.now)  
     
     objects = ClienteManager()
 

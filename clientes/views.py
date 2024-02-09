@@ -4,6 +4,7 @@ from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
 from main.models import Usuario
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 
 @csrf_protect
 def cadastrocliente(request):
@@ -11,17 +12,16 @@ def cadastrocliente(request):
         try:
             usuario_aux = Cliente.objects.get(email=request.POST.get('email'))
             if usuario_aux:
-                return render(request, 'clientes/inicialcliente.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
-
+                return redirect('/')
         except Cliente.DoesNotExist:
-            tipo = 'CLIENTE'
             check = request.POST.get('check')
             nome_usuario = request.POST.get('nome')
             email = request.POST.get('email')
-            senha = request.POST.get('senha')
+            password = request.POST.get('senha')
             confirme = request.POST.get('senha2')
-            if senha == confirme and check == 'on':
-                novoUsuario = Cliente.objects.create_user(username=nome_usuario, email=email, password=senha)
+            data = request.POST.get('data')
+            if password == confirme and check == 'on':
+                novoUsuario = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
                 novoUsuario.save()
                 return redirect('/clientes/entrar')
     return render(request, 'clientes/cadascliente.html')
@@ -33,13 +33,11 @@ def entrarcliente(request):
         senha = request.POST.get('senha')
 
         usuario_aux = Cliente.objects.filter(email=email).first()
-        if usuario_aux is not None:
-            usuario = authenticate(email=usuario_aux.email, password=senha)
-            if usuario is not None:
-                login(request, usuario)
-                print('Autenticado')
-                return redirect('/')
-        
+        if email == usuario_aux.email and check_password(senha, usuario_aux.password):
+            login(request, usuario_aux)
+            print('Autenticado')
+            return redirect('/')
+
         print('Não autenticado')
         return redirect('/clientes/entrar')
 

@@ -34,7 +34,7 @@ class Usuario(AbstractUser):
   objects = UsuarioManager()
  
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['tipo']
+  REQUIRED_FIELDS = ['tipo'], ['email']
     
   def __str__(self):
     return "{}".format(self.email)
