@@ -19,7 +19,6 @@ class EstacionamentoManager(BaseUserManager):
         estacionamento.save()
         return estacionamento
 
-
 class Estacionamento(AbstractBaseUser):
     nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
     email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
@@ -30,12 +29,11 @@ class Estacionamento(AbstractBaseUser):
 
     objects = EstacionamentoManager()
 
-    USERNAME_FIELD = 'nome_fantasia'
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
         return self.nome_fantasia
     
-
 
 class Endereco(models.Model):
     local = models.CharField(max_length=200, blank=False, null=False)
@@ -46,6 +44,8 @@ class Endereco(models.Model):
 
     
 class PerfilLocal(models.Model):
+    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
+
     segunda = models.BooleanField(default=False)
     terca = models.BooleanField(default=False)
     quarta = models.BooleanField(default=False)

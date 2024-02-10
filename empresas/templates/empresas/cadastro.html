@@ -250,6 +250,15 @@
                 <input type="submit" id="submitBtn" value="Cadastrar">
             </form>
         </div>
+        <div>
+            {% for local in locais %}
+            {{local.valor}}
+            {{local.vagas}}
+            {{local.descricao}}
+            {{local.hora_abre}}
+            {{local.hora_fecha}}
+            {%endfor%}
+        </div>
     </div>
 </body>
 </html>

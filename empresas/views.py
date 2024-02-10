@@ -8,11 +8,11 @@ from django.views.decorators.csrf import csrf_protect
 from clientes.models import Cliente
 from django.contrib.auth.hashers import check_password
 
-login = False
 loginemp = False
 
 def logado():
     global login
+    login = False
     if loginemp == False:
         return login == False
     login = True
@@ -20,6 +20,7 @@ def logado():
 
 @csrf_protect
 def cadastrocempresa(request):
+    global loginemp
     if request.method == 'POST':
         try:
             usuario_aux = Estacionamento.objects.get(email=request.POST.get('email'))
@@ -37,6 +38,7 @@ def cadastrocempresa(request):
             if password == confirme and check == 'on':
                 empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=password, razao_social=razao_social, cnpj=cnpj)
                 empresa.save()
+                loginemp = True
                 usuario_aux = Estacionamento.objects.filter(email=email).first()
                 return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
             return redirect('/empresas/cadastrar')
@@ -83,15 +85,22 @@ def cadastro(request):
         if request.method == 'POST':
             form = Perfil(request.POST)
             form2 = Estacio(request.POST)
+            form.proprietarios = request.user
+            print(request.user)
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():
-                form.save()
-                form2.save()
+                perfil = form.save(commit=False)  
+                perfil.proprietarios = usuario_aux.email  
+                perfil.save() 
+                form2.save() 
+                locais = PerfilLocal.objects.filter(proprietarios=usuario_aux.email)
+            return redirect('/empresas/cadastro')
         else:   
+            locais = PerfilLocal.objects.filter(proprietarios=usuario_aux.email)
             form = Perfil()
             form2 = Estacio()
-        return render(request,'empresas/cadastro.html', {'nome':usuario_aux.nome_fantasia, 'form':form, 'form2' : form2})
+        return render(request,'empresas/cadastro.html', {'nome':usuario_aux.nome_fantasia, 'form':form, 'form2' : form2, 'locais':locais})
     else:
         return redirect('/empresas/entrar')
 
