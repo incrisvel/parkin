@@ -4,6 +4,7 @@ from clientes.models import Cliente, Avaliacao
 from empresas.models import Estacionamento, Endereco, PerfilLocal
 from django.contrib.auth.admin import UserAdmin
 
+
 @admin.register(Usuario)
 class Administrador(UserAdmin):
     fieldsets = (

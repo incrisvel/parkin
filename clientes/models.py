@@ -2,20 +2,49 @@ from django.db import models
 from main.models import Usuario
 from empresas.models import Estacionamento
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-class Cliente(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=150, unique = True)
-    email = models.CharField(max_length=150, unique = True, default='')
-    senha = models.CharField(max_length=150, default='')
-    data_nasc = models.DateField(verbose_name='data de nascimento')
+
+class ClienteManager(BaseUserManager):
+    def create_user(self, nome, email, password, data_nascimento):
+        if not email:
+            raise ValueError('O campo de e-mail é obrigatório.')
+        
+        novo_usuario = Usuario.objects.create(
+            tipo=Usuario.Tipo.CLIENTE,
+            email=email,
+            password=make_password(password)
+        ) 
+        cliente = self.model(
+            nome=nome,
+            email=email,
+            password=make_password(password),
+            data_nascimento=data_nascimento,
+            usuario=novo_usuario
+        )
+        cliente.save()     
+        return cliente
+
+class Cliente(AbstractBaseUser):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='cliente')
+    nome = models.CharField(max_length=150)
+    email = models.CharField(max_length=150)
+    password = models.CharField(max_length=200, default = '')  
+    data_nascimento = models.DateField(null=True, blank=True)
     
-    def __str__(self):
-        return self.nome
-    
+    objects = ClienteManager()
+
+    USERNAME_FIELD = 'nome'
+
     class Meta:
         ordering = ['nome']
-        
+    
+    def __str__(self):
+        return self.nome 
+    
         
 class Avaliacao(models.Model):
     avaliador = models.ForeignKey(

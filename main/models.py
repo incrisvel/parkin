@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-
+from django.utils import timezone
 
 class UsuarioManager(BaseUserManager):
   def create_user(self, email, password, **extra_fields):
@@ -28,11 +28,12 @@ class Usuario(AbstractUser):
     ESTACIONAMENTO = 'ESTACIONAMENTO', 'Estacionamento'
   
   tipo = models.CharField(max_length=50, choices=Tipo.choices)
-  username = None
-  first_name = None
-  last_name = None
+  username=None
   email = models.EmailField(unique=True)
-  
+  is_active = models.BooleanField(default=False)
+  is_admin = models.BooleanField(default=False)
+  last_login = models.DateTimeField(default=timezone.now)  
+
   objects = UsuarioManager()
  
   USERNAME_FIELD = 'email'
@@ -43,7 +44,7 @@ class Usuario(AbstractUser):
   
   class Meta:
         ordering = ['email']
-      
+
         
 class Feedback (models.Model):
   usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,12 +46,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <h1>ParkIn</h1>
+                        <a href="#">
+                            <h1>{{ nome }}</h1>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
                         </a>
                     </li>
@@ -77,36 +76,36 @@
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <p>Meus Resumos</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <img src="{% static 'assets/icons/park-icon.svg' %}" alt="Estacionamentos" class="park-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <p>Estacionamento</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <p>Notificações</p>
                         </a>
                     </li>
@@ -116,24 +115,24 @@
                 </li>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <img src="{% static 'assets/icons/help-icon.svg' %}" alt="Icone de Ajuda" class="help-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <p>Precisa de Ajuda?</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <img src="{% static 'assets/icons/help2-icon.svg' %}" alt="Icone de Ajuda 2" class="help2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <p>Como Funciona?</p>
                         </a>
                     </li>
@@ -143,13 +142,20 @@
                 </li>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/cadastro">
+                        <a href="/empresas/cadastro">
                             <img src="{% static 'assets/icons/signup2-icon.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/cadastro">
+                        <a href="/empresas/cadastro">
                             <p>Cadastro do Estacionamento</p>
+                        </a>
+                    </li>
+                </div>
+                <div class="menu-side-bar">
+                    <li>
+                        <a href="/empresas/logout">
+                            <p>Logout</p>
                         </a>
                     </li>
                 </div>
@@ -229,19 +235,41 @@
                 </div>
             </div>
         </div>
-
-
-
-
-        <ul>
-            <li></li>
-        </ul>
-        <ul>
-            <li></li>
-        </ul>
-        <ul>
-            <li></li>
-        </ul>
+        <div class="cont-grafico">
+            <div class="titulos">
+                <h1 class="titulo1">Gráfico em Tempo Real</h1>
+                <div class="subtitulo">
+                    <div class="titulo2">
+                        <h1>23</h1>
+                        <p>Vagas Disponíveis</p>
+                    </div>
+                    <div class="titulo3">
+                        <h1>59</h1>
+                        <p>Vagas Ocupadas</p>
+                    </div>
+                </div>
+                <div class="grafico">
+                    <img src="{% static 'assets/img/grafico.png' %}" alt="Imagem de Grafico" class="grafico-img">
+                </div>
+            </div>
+        </div>
+        <div class="setedias">
+            <div class="resultados">
+                <div class="primeirotitulo">
+                    <h1>Últimos 7 Dias
+                </div>
+                <div class="segundotitulo">
+                    <h1>832</h1>
+                    <p>Clientes Totais</p>
+                </div>
+                <div class="terceirotitulo">
+                    <h1>R$12.492</h1>
+                    <p>Possível Retorno</p>
+                </div>
+                <div class="barra"></div>
+                <img src="{% static 'assets/img/grafico2.png' %}" alt="Imagem de Grafico 2" class="grafico2-img">
+            </div>
+        </div>
     </div>
 </body>
 </html>

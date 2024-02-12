@@ -1,42 +1,71 @@
 from django.db import models
 from main.models import Usuario
-from django import forms
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
 
-class Estacionamento(models.Model):
-    nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
-    email = models.CharField(max_length=200, blank=False, unique = True, null=False, default = '')
-    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
-    senha = models.CharField(max_length=200, default = '')
-    cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')
+class EstacionamentoManager(BaseUserManager):
+    def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
+        if not email:
+            raise ValueError('O campo de e-mail é obrigatório.')
+        
+        novo_usuario = Usuario.objects.create(
+            tipo=Usuario.Tipo.ESTACIONAMENTO,
+            email=email,
+            password=make_password(password)
+        )  
+        estacionamento = self.model(
+            nome_fantasia=nome_fantasia,
+            email=email,
+            razao_social=razao_social,
+            password=make_password(password),
+            cnpj=cnpj,
+            usuario = novo_usuario
+        )
+        estacionamento.save()
+        return estacionamento
+
+class Estacionamento(AbstractBaseUser):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='estacionamento')
+    nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
+    email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
+    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
+    password = models.CharField(max_length=200, default = '')  
+    cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
+
+    objects = EstacionamentoManager()
+
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
-        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
-    
+        return self.nome_fantasia
+
     
 class Endereco(models.Model):
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
+    local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
     logradouro = models.CharField(max_length=200, blank=False, null=False)
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
-    
+
     
 class PerfilLocal(models.Model):
-    DIAS_CHOICES = [
-        ('segunda', 'Segunda-feira'),
-        ('terca', 'Terça-feira'),
-        ('quarta', 'Quarta-feira'),
-        ('quinta', 'Quinta-feira'),
-        ('sexta', 'Sexta-feira'),
-        ('sabado', 'Sábado'),
-        ('domingo', 'Domingo'),
-    ]
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
-    dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos')
-    hora_abre = models.TimeField
-    hora_fecha = models.TimeField
-    vagas_total = models.PositiveSmallIntegerField
-    vagas_pref = models.PositiveSmallIntegerField
-    vagas_cob = models.PositiveSmallIntegerField
-    vagas_disp = models.PositiveSmallIntegerField
-    descricao = models.CharField(max_length=1000, null=True, verbose_name='sobre')
+    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
+
+    segunda = models.BooleanField(default=False)
+    terca = models.BooleanField(default=False)
+    quarta = models.BooleanField(default=False)
+    quinta = models.BooleanField(default=False)
+    sexta = models.BooleanField(default=False)
+    sabado = models.BooleanField(default=False)
+    domingo = models.BooleanField(default=False)
+    
+    coberto = models.BooleanField(default=None)
+    valor = models.FloatField(default=0)
+    descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
+    hora_abre = models.TimeField(default='', blank = True)
+    hora_fecha = models.TimeField(default='', blank = True)
+    vagas_total = models.PositiveSmallIntegerField()
+    vagas_pref = models.PositiveSmallIntegerField()
+    vagas_cob = models.PositiveSmallIntegerField()
+    vagas_disp = models.PositiveSmallIntegerField()
+    

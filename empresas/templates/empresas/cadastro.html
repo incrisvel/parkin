@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Estacionamentos</title>
+    <title>PARKIN</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
 </head>
@@ -48,7 +48,7 @@
                     </li>
                     <li>
                         <a href="">
-                            <h1>ParkIn</h1>
+                            <h1>{{ nome }}</h1>
                         </a>
                     </li>
                     <li>
@@ -65,12 +65,12 @@
             <ul>
                 <div class="dashboard">
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -82,31 +82,31 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <p>Meus Resumos</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <img src="{% static 'assets/icons/park-icon.svg' %}" alt="Estacionamentos" class="park-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <p>Estacionamento</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <p>Notificações</p>
                         </a>
                     </li>
@@ -155,6 +155,110 @@
                 </div>
             </ul>
         </nav>
+    </div>
+    <div class="content2">
+        <div id="form-container">
+            <h2>Cadastro de Vaga de Garagem</h2>
+            <form id="garageForm" method="post">
+                {% csrf_token %}
+                <div class="row-container">
+                    <label for="valor">Valor:</label>
+                    {{form.valor}}
+
+                    <div class="checkbox-container">
+                        <label for="vagaCoberta"> Coberta:</label>
+                        {{form.coberto}}
+                    </div>
+
+                </div>
+
+                <label>Horarios:</label>
+                <div style="display: flex;">Abre às:{{form.hora_abre}}</div>
+                <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
+
+                <label>Dias Abertos:</label>
+                <div class="checkbox-group" style="flex-direction: column;">
+                    <div>
+                    {{form.segunda}}
+                    {{form.segunda.label}}
+
+                    </div>
+
+                    <div>
+                    {{form.terca}}
+                    {{form.terca.label}}
+                    </div>
+
+                    <div>
+                    {{form.quarta}}
+                    {{form.quarta.label}}
+                    </div>
+
+                    <div>
+                    {{form.quinta}}
+                    {{form.quinta.label}}
+                    </div>
+
+                    <div>
+                    {{form.sexta}}
+                    {{form.sexta.label}}
+                    </div>
+                    <div>
+                    {{form.sabado}}
+                    {{form.sabado.label}}
+                    </div>
+                    <div>
+                    {{form.domingo}}
+                    {{form.domingo.label}}
+                    </div>
+
+                </div>
+        
+                <!-- Campo de descrição -->
+                <label for="descricao">Descrição:</label>
+                {{form.descricao}}
+        
+                <label for="logradouro">Endereço:</label>
+                {{form2.local}}
+
+                <!-- Campos para endereço -->
+                <label for="logradouro">Logradouro:</label>
+                {{form2.logradouro}}
+        
+                <label for="numero">Número:</label>
+                {{form2.numero}}
+        
+                <label for="bairro">Bairro:</label>
+                {{form2.bairro}}
+        
+                <label for="cep">CEP:</label>
+                {{form2.cep}}
+        
+                {{form.vagas_total.label}}
+                {{form.vagas_total}}
+
+                {{form.vagas_pref.label}}
+                {{form.vagas_pref}}
+
+                {{form.vagas_cob.label}}
+                {{form.vagas_cob}}
+
+                {{form.vagas_disp.label}}
+                {{form.vagas_disp}}
+
+                
+                <input type="submit" id="submitBtn" value="Cadastrar">
+            </form>
+        </div>
+        <div>
+            {% for local in locais %}
+            {{local.valor}}
+            {{local.vagas}}
+            {{local.descricao}}
+            {{local.hora_abre}}
+            {{local.hora_fecha}}
+            {%endfor%}
+        </div>
     </div>
 </body>
 </html>
