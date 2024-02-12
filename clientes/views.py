@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
 from main.views import enviar_email
-<<<<<<< HEAD
-
-=======
 from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
 from projeto.decorators import cliente_required
@@ -10,7 +7,6 @@ from main.models import Usuario
 from django.contrib.auth import login
 from django.contrib.auth import login, logout
 from projeto.backend import EmailBackend
->>>>>>> dev-marco
 
 @csrf_protect
 def cadastrocliente(request):
