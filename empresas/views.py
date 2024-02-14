@@ -58,7 +58,7 @@ def entrarempresa(request):
 
         if estacionamento is not None:   
             usuario = Estacionamento.objects.get(email=email)
-            login(request, estacionamento)
+            login(request, estacionamento, backend='projeto.backend.EmailBackend')
             return redirect('/empresas/dashboard')
         else:
             return redirect('/empresas/entrar')

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+    'mapa',
+    'django.contrib.gis',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -87,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
         'TIME_ZONE': 'America/Sao_Paulo'
-    }
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [

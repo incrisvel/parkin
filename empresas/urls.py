@@ -3,6 +3,8 @@ from .views import resumos,  dashboard, cadastro, estacionamento, notificacao, h
 from django.contrib.auth import views as auth_views
 
 
+app_name = 'empresas'
+
 urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('resumos/', resumos, name='resumos'),
