@@ -31,7 +31,9 @@
               <input type="email" name="email" id="email" required>
               <label for="email">Email</label>
             </div>
+            {%if erro_email != ''%}
             <span style="color: red;">{{erro_email}}</span>
+            {%endif%}
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="password" name="senha" id="senha" required>
@@ -42,7 +44,9 @@
               <input type="password" name="senha2" id="senha2" required>
               <label for="senha">Confirme sua senha</label>
             </div>
+            {%if erro_senha != ''%}
             <span style="color: red;">{{erro_senha}}</span>
+            {%endif%}
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="date" name="data" id="data">
@@ -52,6 +56,9 @@
             <input type="checkbox" name="check" id="check">
             <a href="/"> Termos de consentimento</a>
           </div>
+          {%if erro_check != ''%}
+          <span style="color: red;">{{erro_check}}</span>
+          {%endif%}
           <div class="entrar">
             <p>Já possui uma conta?</p>
             <a href="/clientes/entrar/">Entrar</a>

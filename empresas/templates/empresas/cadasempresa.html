@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +36,9 @@
               <input type="email" name="email" id="email" required>
               <label for="email">Email</label>
             </div>
+            {%if erro_email != ''%}
+            <span style="color: red;">{{erro_email}}</span>
+            {%endif%}
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="password" name="senha" id="senha" required>
@@ -47,15 +49,24 @@
               <input type="password" name="senha2" id="senha2" required>
               <label for="senha">Confirme sua senha</label>
             </div>
+            {%if erro_senha != ''%}
+            <span style="color: red;">{{erro_senha}}</span>
+            {%endif%}
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00." maxlength="18" minlength="18">
+              <input type='text' name='cnpj' id="cnpj" maxlength="18">
               <label for="senha">CNPJ</label>
             </div>
+            {%if erro_cnpj != ''%}
+            <span style="color: red;">{{erro_cnpj}}</span>
+            {%endif%}
           <div class="check">
             <input type="checkbox" name="check" id="check">
             <a href="/"> Termos de consentimento</a>
           </div>
+          {%if erro_check != ''%}
+          <span style="color: red;">{{erro_check}}</span>
+          {%endif%}
           <div class="entrar">
             <p>Já possui uma conta?</p>
             <a href="/empresas/entrar/">Entrar</a>
@@ -70,6 +81,20 @@
       {%include 'main/footer.html'%}
     {%endblock%}
   </footer>
+  <script>
+    // Função para formatar CNPJ
+    function formatCNPJ(cnpj) {
+      cnpj = cnpj.replace(/\D/g, '');
+      return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+    }
+
+    // Adicionando evento de input para formatar CNPJ
+    document.getElementById('cnpj').addEventListener('input', function (event) {
+      var target = event.target;
+      var input = target.value.replace(/\D/g, '');
+      var formattedInput = formatCNPJ(input);
+      target.value = formattedInput;
+    });
+  </script>
 </body>
 </html>
-<body>

@@ -8,7 +8,6 @@ from django.contrib.auth import login
 from django.contrib.auth import login, logout
 from projeto.backend import EmailBackend
 
-@csrf_protect
 def cadastrocliente(request):
     erro_senha = ''
     erro_email = ''
@@ -20,20 +19,21 @@ def cadastrocliente(request):
         if Usuario.objects.filter(email=email).exists():
             erro_email = 'Esse email já existe!'
 
-        nome_usuario = request.POST.get('nome')
-        check = request.POST.get('check')
-        password = request.POST.get('senha')
-        confirme = request.POST.get('senha2')
-        data = request.POST.get('data')
-        
-        if password == confirme and check == 'on':
-            cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
-            cliente.save()
-            return redirect('/clientes/entrar')
-        if password != confirme:
-            erro_senha = 'A senha não corresponde.'
-        if check != 'on':
-            erro_check = 'Aceite os termos para avançar.'    
+        else:
+            nome_usuario = request.POST.get('nome')
+            check = request.POST.get('check')
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            data = request.POST.get('data')
+            if password == confirme and check == 'on':
+                enviar_email(email)
+                cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                cliente.save()
+                return redirect('/clientes/entrar')
+            if password != confirme:
+                erro_senha = 'A senha não corresponde.'
+            if check != 'on':
+                erro_check = 'Aceite os termos para avançar.'    
                 
     return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check})
 
