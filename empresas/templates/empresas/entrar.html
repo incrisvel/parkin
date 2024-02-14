@@ -26,18 +26,17 @@
           <h1>Estacionamento</h1>
         </div>
         <div class="login-dir">
-          <form action="" method="post">
+          <form action="{% url 'entrarempresa' %}" method="post">
+            {% csrf_token %} 
             <div class="login">
               <div class="titulos">
                 <h1>Entrar</h1>
                 <p>Bem vindo de volta!</p>
               </div>
-              {% csrf_token %}
-                {% if email_apparence == True %}
                   <div class="import1">
                     <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                     <div class="form">
-                      {{ form.email }}
+                      <input type="email" name="email" placeholder="E-mail" id="email ">
                     </div>
                   </div>
                   {%else%}
@@ -53,17 +52,9 @@
                 <div class="import3">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
                   <div class="form">
-                    {{ form.senha }}
+                    <input type="password" name="senha" placeholder="Senha" id="senha">
                   </div>
                 </div>
-              {%else%}
-              <div class="import4">
-                <img src="{% static 'assets/icons/senha.svg' %}">
-                <div class="form">
-                  {{ form.senha }}
-                </div>
-              </div>
-              {%endif%}
               <div class="botao">
                 <input type="submit" value="Entrar" id="button">
                 <div class="entrar">

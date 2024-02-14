@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 # projeto/settings.py
 
 from pathlib import Path
+import os  # Importa o módulo os para acessar variáveis de ambiente
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +24,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+if 'CODESPACE_NAME' in os.environ:
+    CSRF_TRUSTED_ORIGINS = [f'https://{os.getenv("CODESPACE_NAME")}-8000.{os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")}']
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',
+]
 
 # Application definition
 
@@ -35,6 +45,11 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+]
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Backend padrão para autenticação
 ]
 
 MIDDLEWARE = [
@@ -52,7 +67,7 @@ ROOT_URLCONF = 'projeto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,4 +123,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
 AUTH_USER_MODEL = 'main.Usuario'
+
