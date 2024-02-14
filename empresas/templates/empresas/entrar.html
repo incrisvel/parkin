@@ -39,16 +39,10 @@
                       <input type="email" name="email" placeholder="E-mail" id="email ">
                     </div>
                   </div>
-                  {%else%}
-                    <img src="{% static 'assets/icons/email.svg' %}">
                     <div class="form">
                       {{ form.email }}
                     </div>
-                    <label for="email">{{ form.email.label }}</label>
-                    <span>email inválido</span>
                   </div>
-              {%endif%}
-              {% if senha == confirme  %}
                 <div class="import3">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
                   <div class="form">
