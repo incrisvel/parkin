@@ -1,62 +1,55 @@
 from django.shortcuts import render, redirect
-from .forms import Usuario
-from main.forms import Entrar
 from main.views import enviar_email
+from .models import Cliente
+from django.views.decorators.csrf import csrf_protect
+from main.models import Usuario
+from django.contrib.auth import login
+from django.contrib.auth.hashers import check_password
 
-
+@csrf_protect
 def cadastrocliente(request):
-    check = 'on'
-    senha = ''
-    confirme = ''
-    email_apparence = True
+    erro_senha = ''
+    erro_email = ''
+    erro_nome = ''
+    erro_check = ''
+
     if request.method == 'POST':
-        form = Usuario(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            nome = form.cleaned_data['nome']
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            data = form.cleaned_data['data_nasc']
+        try:
+            usuario_aux = Cliente.objects.get(email=request.POST.get('email'), nome = request.POST.get('nome'))
+            if usuario_aux.email:
+                erro_email = 'Esse email já existe!'
+            if usuario_aux.nome:
+                erro_nome = 'Esse nome já existe'
+        except Cliente.DoesNotExist:
             check = request.POST.get('check')
-            confirme = request.POST.get('confirme')
-            if mail.find('@') >= 1:
-                email_formatado = mail.split('@')
-                if senha == confirme and check != None and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    enviar_email(mail)
-                    form.save()
-                    return redirect('/')
-                elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
-                    email_apparence = False
-            else:
-                email_apparence = False
-                Usuario(initial={'nome':nome, 'email': mail, 'data':data})
-    else:       
-        form = Usuario()
+            nome_usuario = request.POST.get('nome')
+            email = request.POST.get('email')
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            data = request.POST.get('data')
+            if password == confirme and check == 'on':
+                novoUsuario = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                novoUsuario.save()
+                return redirect('/clientes/entrar')
+            if password != confirme:
+                erro_senha = 'senha não corresponde'
+            if check != 'on':
+                erro_check = 'Aceite os termos para avançar'        
+    return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_nome':erro_nome, 'erro_check':erro_check})
 
-    context = {
-        'form' : form,
-        'check' : check,
-        'senha' : senha,
-        'confirme' : confirme,
-        'email_apparence' : email_apparence,
-    }
-
-    return render(request, 'clientes/cadascliente.html', context)
-
+@csrf_protect
 def entrarcliente(request):
-    email_apparence = True 
-    mail = ''
-    senha = ''
     if request.method == 'POST':
-        form = Entrar(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-    else:
-        form = Entrar(initial={'email' : mail})
-    context = {
-        'form' : form,
-        'email_apparence' : email_apparence
-    }
-    return render(request,'clientes/entrar.html', context)
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        usuario_aux = Cliente.objects.filter(email=email).first()
+        if email == usuario_aux.email and check_password(senha, usuario_aux.password):
+            login(request, usuario_aux)
+            print('Autenticado')
+            return redirect('/')
+
+        print('Não autenticado')
+        return redirect('/clientes/entrar')
+
+    return render(request, 'clientes/entrar.html')

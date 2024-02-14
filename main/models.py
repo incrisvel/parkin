@@ -29,21 +29,19 @@ class Usuario(AbstractUser):
   
   tipo = models.CharField(max_length=50, choices=Tipo.choices)
   username = None
-  first_name = None
-  last_name = None
   email = models.EmailField(unique=True)
-  
+
   objects = UsuarioManager()
  
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['tipo']
+  REQUIRED_FIELDS = ['tipo'], ['email']
     
   def __str__(self):
     return "{}".format(self.email)
   
   class Meta:
         ordering = ['email']
-      
+
         
 class Feedback (models.Model):
   usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
