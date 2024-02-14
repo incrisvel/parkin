@@ -19,10 +19,10 @@ def cadastrocempresa(request):
         email = request.POST.get('email')
         cnpj = request.POST.get('cnpj')
     
-        if Estacionamento.objects.filter(email=email).exists():
+        if  Usuario.objects.filter(email=email).exists():
             erro_email = 'Esse email já existe!'
         
-        elif Estacionamento.objects.filter(cnpj=cnpj).exists():
+        if Estacionamento.objects.filter(cnpj=cnpj).exists():
             erro_cnpj = 'Esse CNPJ já foi registrado!'
                 
         else:
@@ -92,7 +92,7 @@ def cadastro(request):
             form = Perfil(request.POST)
             form2 = Estacio(request.POST)
             form.proprietarios = request.user
-            form2.proprietarios = request.user
+            form2.perfil = form
             print(request.user)
             print(form.errors)
             print(form2.errors)
@@ -103,22 +103,23 @@ def cadastro(request):
                 estacio.proprietarios = request.user.email  
                 perfil.save() 
                 estacio.save() 
-                locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
-                endereco = Endereco.objects.filter(proprietarios=request.user.email)
+
             return redirect('/empresas/cadastro')
         else:   
-            locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
-            endereco = Endereco.objects.filter(proprietarios=request.user.email)
             form = Perfil()
             form2 = Estacio()
-        return render(request,'empresas/cadastro.html', {'nome':usuario.nome_fantasia, 'form':form, 'form2' : form2, 'locais':locais, 'endereco':endereco})
+        return render(request,'empresas/cadastro.html', {'nome':usuario.nome_fantasia, 'form':form, 'form2' : form2})
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def estacionamento(request):
+    usuario = Estacionamento.objects.get(email=request.user.email)
     if request.user.is_authenticated:
-        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia})
+        locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
+        endereco = Endereco.objects.filter(proprietarios=request.user.email)
+        print(endereco)
+        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'endereco':endereco})
     else:
         return redirect('/empresas/entrar')
 

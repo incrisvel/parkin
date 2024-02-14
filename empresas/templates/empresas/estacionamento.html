@@ -156,5 +156,12 @@
             </ul>
         </nav>
     </div>
+    {% for local in locais%}
+    <div class='principal'>
+        <img src="{% static 'img/imagemale2.jpg' %}">  
+        <p>{{enderco.local}}</p>    
+        <p>Preço: R${{local.valor}}</p> 
+    </div>
+    {%endfor%}
 </body>
 </html>

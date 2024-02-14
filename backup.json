@@ -495,38 +495,7 @@
             "model": "endereco"
         }
     },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 9,
-        "fields": {
-            "app_label": "empresas",
-            "model": "estacionamento"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 10,
-        "fields": {
-            "app_label": "empresas",
-            "model": "perfillocal"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 11,
-        "fields": {
-            "app_label": "clientes",
-            "model": "avaliacao"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 12,
-        "fields": {
-            "app_label": "clientes",
-            "model": "cliente"
-        }
-    },
+
     {
         "model": "sessions.session",
         "pk": "qwm3xd542souifa725f3q4nmxomzdvaw",

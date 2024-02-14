@@ -246,57 +246,9 @@
                 {{form.vagas_disp.label}}
                 {{form.vagas_disp}}
 
-                
+
                 <input type="submit" id="submitBtn" value="Cadastrar">
             </form>
         </div>
-        {% for local in locais %}
-        <div style="display: flex; border: 1px solid black;  margin: 50px 90px 50px 250px">
-            <img src="{% static 'img/imagemale2.jpg' %}" style="width: 200px; height: 300px; object-fit: fill">      
-            <div style="width: 100%; margin-top: 20px; margin-left:15px">
-                <h1>Nome do estacionamento?</h1>
-                <div style="display: flex; width: 100%; margin-top:10px">
-                    <p>Preço: R${{local.valor}}</p>
-                    <div style="margin-left: 20px;">
-                        <h3>Horarios:</h3>
-                        <p>Abre às {{local.hora_abre}}</p>
-                        <p>Fecha às {{local.hora_fecha}}</p>
-                    </div>
-                    <div style="margin-left: 20px;">
-                        <h3>Dias abertos:</h3>
-                        {% if local.segunda == 1 %}
-                        <p>Segunda ✓</p>
-                        {%endif%}
-                        {% if local.terca == 1 %}
-                        <p>Terça ✓</p>
-                        {% elif local.quarta == 1 %}
-                        <p>Quarta ✓</p>
-                        {% elif local.quinta == 1 %}
-                        <p>Quinta ✓</p>
-                        {% elif local.sexta == 1 %}
-                        <p>Sexta ✓</p>
-                        {% elif local.sabado == 1 %}
-                        <p>Sábado ✓</p>
-                        {% elif local.domingo == 1 %}
-                        <p>Domingo ✓</p>
-                        {%endif%}
-                    </div>
-                </div>
-                <div style="margin-top:10px">
-                    <p>Total de vagas: {{local.vagas_total}}</p>
-                    {%if locais.coberto == 1%}
-                    <p>- Possui vagas cobertas</p>
-                    {%else%}
-                    <p>- Não possui vagas cobertas</p>
-                    {%endif%}
-                </div>
-                <div>
-
-                </div>
-                <p>{{local.descricao}}</p>
-            </div>
-        </div>
-        {%endfor%}
-    </div>
 </body>
 </html>

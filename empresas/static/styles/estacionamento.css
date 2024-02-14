@@ -223,3 +223,18 @@
       .side-bar .menu-side-bar .notification-icon{
           margin-left: 16px;
       }
+
+      div.principal{
+        display: flex; 
+        flex-direction: column;
+        margin: 20px 90px 50px 350px;
+      }
+
+      div.principal img{
+        width: 300px;
+        border-radius: 10px;
+      }
+
+      div.principal p {
+        margin-top: 5px;
+      }
