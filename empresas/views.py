@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
-from .forms import Perfil, Estacionamento
+from .forms import Estacionamento
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
 from django.urls import reverse
@@ -82,7 +82,7 @@ def cadastro(request):
     if login == True:
         if request.method == 'POST':
             form = Perfil(request.POST)
-            form2 = Estacio(request.POST)
+            form2 = Estacionamento(request.POST)
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():
@@ -90,7 +90,7 @@ def cadastro(request):
                 form2.save()
         else:   
             form = Perfil()
-            form2 = Estacio()
+            form2 = Estacionamento()
         return render(request,'empresas/cadastro.html', {'nome':usuario_aux.nome_fantasia, 'form':form, 'form2' : form2})
     else:
         return redirect('/empresas/entrar')

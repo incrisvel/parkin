@@ -26,37 +26,36 @@
           <h1>Cliente</h1>
         </div>
         <div class="login-dir">
-          <form action="" method="post">
+          <form action="{% url 'entrarcliente' %}" method="post">
+            {% csrf_token %} 
             <div class="login">
               <div class="titulos">
                 <h1>Entrar</h1>
                 <p>Bem vindo de volta!</p>
               </div>
-              {% csrf_token %}
-                  <div class="import1">
-                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
-                    <div class="form">
-                      <input type="email" name="email" id="email">
-                    </div>
-                  </div>
-                  {%else%}
-                    <img src="{% static 'assets/icons/email.svg' %}">
-                    <div class="form">
-                      <input type="password" name="senha" id="senha">
-                    </div>
-                  </div>
-                  <div class="botao">
-                    <input type="submit" value="Entrar" id="button">
-                    <div class="entrar">
-                      <p>Não possui uma conta?</p>
-                      <a href="/clientes/cadastrar">Cadastrar-se</a>
-                    </div>
-              </div>
-              <div class="botoes">
-                <div class="b-estacionamento">
-                  <a href="/empresas/entrar" class="ativo">Estacionamento</a>
+              <div class="import1">
+                <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                <div class="form">
+                  <input type="email" name="email" placeholder="E-mail" id="email ">
                 </div>
               </div>
+            <div class="import3">
+              <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+              <div class="form">
+                <input type="password" name="senha" placeholder="Senha" id="senha">
+              </div>
+            </div>
+                <div class="botao">
+                   <input type="submit" value="Entrar" id="button">
+                   <div class="entrar">
+                     <p>Não possui uma conta?</p>
+                     <a href="/clientes/cadastrar">Cadastrar-se</a>
+                   </div>
+                  <div class="botoes">
+                     <div class="b-estacionamento">
+                       <a href="/empresas/entrar" class="ativo">Estacionamento</a>
+                     </div>
+                   </div>
             </form>
         </div>
       </div>
