@@ -11,10 +11,13 @@ const map = L.map("map", {
 });
 
 const cidadeLatitude =  -26.9187;
-const cidadeLongitude =  -49.066;
+const cidadeLongitude =  -49.0660;
 
-map.setView([cidadeLatitude, cidadeLongitude], 12); 
+const teatroLatitude = -26.9185;
+const teatroLongitude =  -49.0680;
+
+map.setView([cidadeLatitude, cidadeLongitude], 17); 
 
 
-L.marker([cidadeLatitude, cidadeLongitude]).addTo(map)
-  .bindPopup("Cidade específica"); // V
+L.marker([teatroLatitude, teatroLongitude]).addTo(map)
+  .bindPopup("Sua localização atual");
