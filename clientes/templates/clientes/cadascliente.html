@@ -1,101 +1,105 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'styles/cadastroprincipal.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/cadastrar-clientes.css' %}">
   <title>PARKIN</title>
 </head>
 <body>
-  <header>
-    <a href="/"><img src="{% static 'img/Logo.png' %}"></a>
-  </header>
   <main>
     <div class="centro">
-      <h1>Cadastrar-se</h1>
-      <div class="botoes">
-        <a href="/clientes/cadastrar/" class="ativo">Clientes</a>
-        <a href="/empresas/cadastrar/">Empresa</a>
+      <div class="conteudo-esq">
+        <div class="titulo-esq">
+          <h1>Cadastro</h1>
+          <p>Seu lugar é aqui. Fácil e rápido!</p>
+          <button class="saibamais">Saiba Mais</button>
+        </div>
+        <img class="detalhes-img" src="{% static 'assets/img/detalhes.png' %}">
       </div>
-      <div class="conteudo" id="empresa">
-        <form action="" method="post">
-          {% csrf_token %}
-          <div class="import">
-            <img src="{% static 'assets/img/user.png' %}">
-            {{ form.nome }}
-            <label for="nome">{{ form.nome.label }}</label>
-          </div>
-          {{ form.nome.errors }}
-          {% if email_apparence == True %}
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-            </div>
-            {{ form.email.errors }}
-          {%else%}
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-            </div>
-          <span>email inválido</span>
-          {%endif%}
-          {% if senha == confirme %}
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              {{ form.senha }} 
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha</label>
-            </div>
-          {%else%}
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              {{ form.senha }}
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha</label>
-            </div>
-            <span>senha incorreta</span>
-          {%endif%}
-          <div class="import">
-            <img src="{% static 'assets/img/calendar.png' %}">
-            <label for="id_data_nasc" id="data">{{ form.data_nasc.label }}</label>
-            {{ form.data_nasc }}
-          </div>
-          {% if check == None %}
-          <div class="check" style="background-color: rgba(255, 0, 0, 0.466 );">
-            <input type="checkbox" name="check" id="check">
-            <a href="/" style="color: rgb(255, 255, 255);"> Termos de consentimento</a>
-          </div>
-          {% else %}
-          <div class="check">
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          {%endif%}
-          <div class="entrar">
-            <p>Já possui uma conta?</p>
-            <a href="/clientes/entrar/">Entrar</a>
-          </div>
-          <input type="submit" value="Cadastrar" id="button">
-        </form>
+
+      <div class="conteudo-dir">
+        <div class="titulo-cliente">
+          <h1>Cliente</h1>
+        </div>
+        <div class="login-dir">
+          <form action="" method="post">
+            <div class="login">
+              <div class="titulos">
+                <h1>Cadastro</h1>
+                <p>Faça parte!</p>
+              </div>
+              {% csrf_token %}
+              <div class="import">
+                <img src="{% static 'assets/icons/user.svg' %}" class="email-img">
+                {{ form.nome }}
+              </div>
+              {{ form.nome.errors }}
+              {% if email_apparence == True %}
+                <div class="import">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  {{ form.email }}
+                </div>
+                {{ form.email.errors }}
+              {%else%}
+                <div class="import">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  {{ form.email }}
+                </div>
+              <span>email inválido</span>
+              {%endif%}
+              {% if senha == confirme %}
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  {{ form.senha }} 
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
+                </div>
+              {%else%}
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  {{ form.senha }}
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
+                </div>
+                <span>senha incorreta</span>
+              {%endif%}
+              <div class="import">
+                <img src="{% static 'assets/icons/calendar.svg' %}" class="email-img">
+                {{ form.data_nasc }}
+              </div>
+              {% if check == None %}
+                <input type="checkbox" name="check" class="check">Termos de consentimento
+              </div>
+              {% else %}
+              <div class="check">
+                <input type="checkbox" name="check" class="check">Termos de consentimento
+              </div>
+              {%endif%}
+              <div class="botao">
+                <input type="submit" value="Cadastrar" id="button">
+                <div class="entrar">
+                  <p>Já possui uma conta?</p>
+                  <a href="/clientes/entrar">Entrar</a>
+                </div>
+              </div>
+              <div class="botoes">
+                <div class="b-estacionamento">
+                  <a href="/empresas/cadastrar" class="ativo">Estacionamento</a>
+                </div>
+              </div>
+            </form>
+        </div>
       </div>
     </div>
   </main>
-  <footer>
-    {%block footer%}
-      {%include 'main/footer.html'%}
-    {%endblock%}
-  </footer>
 </body>
 
 </html>
