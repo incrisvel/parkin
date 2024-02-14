@@ -50,7 +50,7 @@ def entrarempresa(request):
         estacionamento = EmailBackend.authenticate(email=email, password=senha)
             
         if estacionamento is not None:   
-            login(request, estacionamento)
+            login(request, estacionamento, backend='projeto.backend.EmailBackend')
             return redirect('/empresas/dashboard')
         else:
             return redirect('/empresas/entrar')

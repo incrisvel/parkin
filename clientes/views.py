@@ -41,7 +41,7 @@ def cadastrocliente(request):
 @csrf_protect
 def entrarcliente(request):
     if request.user.is_authenticated:
-        return render(request, '/')
+        return render(request, 'main/index.html')
     
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -50,12 +50,12 @@ def entrarcliente(request):
         cliente = EmailBackend.authenticate(email=email, password=senha)
 
         if cliente is not None:   
-            login(request, cliente)
+            login(request, cliente, backend='projeto.backend.EmailBackend')
             print("Autenticado")
             return redirect('/')
         else:
             print("Não autenticado")
-            return redirect('/')
+            return redirect('/clientes/entrar')
         
     return render(request, 'clientes/entrar.html')
 

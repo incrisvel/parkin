@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
     'projeto.backend.EmailBackend',
 ]
 
@@ -89,11 +90,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         'TIME_ZONE': 'America/Sao_Paulo'
     },
-    'mapa': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-        'NAME': BASE_DIR / 'mapa_db.sqlite3',
-        'TIME_ZONE': 'America/Sao_Paulo'
-    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

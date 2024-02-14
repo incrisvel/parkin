@@ -5,6 +5,16 @@ const url =
 const layer = L.tileLayer(url, {
   attribution: copy,
 });
+
 const map = L.map("map", {
   layers: [layer],
 });
+
+const cidadeLatitude =  -26.9187;
+const cidadeLongitude =  -49.066;
+
+map.setView([cidadeLatitude, cidadeLongitude], 12); 
+
+
+L.marker([cidadeLatitude, cidadeLongitude]).addTo(map)
+  .bindPopup("Cidade específica"); // V
