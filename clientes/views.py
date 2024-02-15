@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db import transaction
 from main.views import enviar_email
 from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
@@ -19,22 +20,26 @@ def cadastrocliente(request):
         
         if Usuario.objects.filter(email=email).exists():
             erro_email = 'Esse email já existe!'
-
-        nome_usuario = request.POST.get('nome')
-        check = request.POST.get('check')
-        password = request.POST.get('senha')
-        confirme = request.POST.get('senha2')
-        data = request.POST.get('data')
+        else:
+            nome_usuario = request.POST.get('nome')
+            check = request.POST.get('check')
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            data = request.POST.get('data')
         
-        if password == confirme and check == 'on':
-            cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
-            cliente.save()
-            return redirect('/clientes/entrar')
-        if password != confirme:
-            erro_senha = 'A senha não corresponde.'
-        if check != 'on':
-            erro_check = 'Aceite os termos para avançar.'    
-                
+            if password != confirme:
+                erro_senha = 'As senhas não correspondem.'
+            elif check != 'on':
+                erro_check = 'Aceite os termos para avançar.'
+            else:
+                try:
+                    with transaction.atomic():
+                        cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                        cliente.save()
+                    return redirect('/clientes/entrar')
+                except Exception as e:
+                    erro_email = 'Ocorreu um erro ao salvar o usuário.'
+    
     return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check})
 
 
@@ -51,10 +56,8 @@ def entrarcliente(request):
 
         if cliente is not None:   
             login(request, cliente, backend='projeto.backend.EmailBackend')
-            print("Autenticado")
-            return redirect('/')
+            return redirect('/mapa/')
         else:
-            print("Não autenticado")
             return redirect('/clientes/entrar')
         
     return render(request, 'clientes/entrar.html')

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db import transaction
 from .forms import Perfil, Estacio
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal
@@ -19,22 +20,29 @@ def cadastrocempresa(request):
     
         if Usuario.objects.filter(email=email).exists():
             erro_email = 'Esse email já existe!'
-            
-        check = request.POST.get('check')
-        nome_fantasia = request.POST.get('nome')
-        razao_social = request.POST.get('razao')
-        password = request.POST.get('senha')
-        confirme = request.POST.get('senha2')
-        cnpj = request.POST.get('cnpj')
+        else:
+            check = request.POST.get('check')
+            nome_fantasia = request.POST.get('nome')
+            razao_social = request.POST.get('razao')
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            cnpj = request.POST.get('cnpj')
     
-        if password == confirme and check == 'on':
-            empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=password, razao_social=razao_social, cnpj=cnpj)
-            empresa.save()            
-            return redirect('/empresas/entrar')
-        if password != confirme:
-            erro_senha = 'A senha não corresponde.'      
-        if check != 'on':
-            erro_check = 'Aceite os termos para avançar.'    
+        
+            if password != confirme:
+                erro_senha = 'As senhas não correspondem.'
+            elif check != 'on':
+                erro_check = 'Aceite os termos para avançar.'
+            else:
+                try:
+                    with transaction.atomic():
+                        empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=password, razao_social=razao_social, cnpj=cnpj)
+                        empresa.save()
+                    return redirect('/empresas/entrar')
+                
+                except Exception as e:
+                    erro_email = 'Ocorreu um erro ao salvar o estacionamento. Por favor, tente novamente.'
+    
         
     return render(request, 'empresas/cadasempresa.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check})
 
