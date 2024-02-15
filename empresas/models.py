@@ -61,6 +61,10 @@ class PerfilLocal(models.Model):
     vagas_pref = models.PositiveSmallIntegerField()
     vagas_cob = models.PositiveSmallIntegerField()
     vagas_disp = models.PositiveSmallIntegerField()
+
+    class Meta:
+        verbose_name = "Perfil Local" 
+        verbose_name_plural = "Perfis Locais" 
     
 class Endereco(models.Model):
     proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
