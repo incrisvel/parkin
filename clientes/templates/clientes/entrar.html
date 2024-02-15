@@ -25,8 +25,9 @@
         <div class="titulo-cliente">
           <h1>Cliente</h1>
         </div>
+        
         <div class="login-dir">
-          <form action="{% url 'entrarcliente' %}" method="post">
+          <form action="{% url 'clientes:entrarcliente' %}" method="post">
             {% csrf_token %} 
             <div class="login">
               <div class="titulos">
@@ -55,8 +56,8 @@
                      <div class="b-estacionamento">
                        <a href="/empresas/entrar" class="ativo">Estacionamento</a>
                      </div>
-                   </div>
-            </form>
+                  </div>
+          </form>
         </div>
       </div>
     </div>

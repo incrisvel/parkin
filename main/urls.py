@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, fazer_logout
+from .views import index, fazer_logout, fazer_logout
 
 app_name = 'main'
 

@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'empresas',
     'clientes',
     'mapa',
-    'django.contrib.gis',
 ]
 
 AUTHENTICATION_BACKENDS = [

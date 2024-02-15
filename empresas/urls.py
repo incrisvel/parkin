@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import resumos,  dashboard, cadastro, estacionamento, notificacao, help, comofunciona, cadastrocempresa, entrarempresa, faleconosco
+from .views import resumos,  dashboard, cadastro, estacionamento, notificacao, help, comofunciona, cadastroempresa, entrarempresa, faleconosco
 from django.contrib.auth import views as auth_views
 
 
@@ -13,7 +13,7 @@ urlpatterns = [
     path('notificacoes/', notificacao, name='notificacoes'),
     path('ajuda/', help, name='ajuda'),
     path('comofunciona/', comofunciona, name='comofunciona'),
-    path('cadastrar/', cadastrocempresa, name='cadastrarempresa'),
+    path('cadastrar/', cadastroempresa, name='cadastroempresa'),
     path('entrar/', entrarempresa, name='entrarempresa'),
     path('faleconosco/', faleconosco, name='faleconosco'),
 ]

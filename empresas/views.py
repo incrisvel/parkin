@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from projeto.backend import EmailBackend
 
 @csrf_protect
-def cadastrocempresa(request):
+def cadastroempresa(request):
     erro_senha = ''
     erro_email = ''
     erro_check = ''
@@ -24,6 +24,7 @@ def cadastrocempresa(request):
             check = request.POST.get('check')
             nome_fantasia = request.POST.get('nome')
             razao_social = request.POST.get('razao')
+            email = request.POST.get('email')
             password = request.POST.get('senha')
             confirme = request.POST.get('senha2')
             cnpj = request.POST.get('cnpj')

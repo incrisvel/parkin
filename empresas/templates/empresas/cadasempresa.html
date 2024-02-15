@@ -26,7 +26,7 @@
           <h1>Empresa</h1>
         </div>
         <div class="login-dir">
-          <form action="" method="post">
+          <form action="{% url 'empresas:cadastroempresa' %}" method="post">
             <div class="login">
               <div class="titulos">
                 <h1>Cadastro</h1>
@@ -35,67 +35,42 @@
               {% csrf_token %}
                 <div class="import">
                   <img src="{% static 'assets/icons/user.svg' %}" class="email-img">
-                  {{ form.nome_fantasia }}
+                  <div class="form">
+                    <input type="text" name="nome" placeholder="Nome fantasia" id="email" required>
+                  </div>
                 </div>
-                {{ form.nome_fantasia.errors }}
-                {% if email_apparence == True %}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
-                    {{ form.email }}
-                  </div>
-                  {{ form.email.errors }}
-                {%else%}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
-                    {{ form.email }}
-                  </div>
-                  <span>email inválido</span>
-                {%endif%}
-                {% if senha == confirme %}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                    {{ form.senha }}
-                  </div>
-                  <div class="import">
-                    <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                    <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
-                  </div>
-                {%else%}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                    {{ form.senha }}
-                  </div>
-                  <div class="import">
-                    <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                    <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
-                  </div>
-                  <span>senha incorreta</span>
-                {%endif%}
                 <div class="import">
                   <img src="{% static 'assets/icons/company.svg' %}" class="senha-img">
-                  {{ form.razao_social }}
+                  <div class="form">
+                    <input type="text" name="razao" placeholder="Razão social" id="email" required>
+                  </div>
                 </div>
-                {% if cnpj == 14 %}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/cnpj.svg' %}" class="senha-img">
-                    {{ form.cnpj }}
+                <div class="import">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="email" name="email" placeholder="E-mail" id="email" required>
                   </div>
-                  {{ form.cnpj.errors }}
-                {%else%}
-                  <div class="import">
-                    <img src="{% static 'assets/icons/cnpj.svg' %}" class="senha-img">
-                    {{ form.cnpj }}
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha" placeholder="Senha" id="email" required>
                   </div>
-                  <span>CNPJ incorreto</span>
-                {%endif%}
-                {% if check == None %}
-                <input type="checkbox" name="check" class="check">Termos de consentimento
-              </div>
-              {% else %}
-              <div class="check">
-                <input type="checkbox" name="check" class="check">Termos de consentimento
-              </div>
-              {%endif%}
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha2" placeholder="Confirme a senha" id="email" required>
+                  </div>
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/cnpj.svg' %}" class="senha-img">
+                  <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" minlength="18">
+                </div>
+                <div class="check">
+                  <input type="checkbox" name="check" id="check">
+                  <p>Termos de consentimento</p>
+                </div>
               <div class="botao">
                 <input type="submit" value="Cadastrar" id="button">
                 <div class="entrar">
@@ -105,7 +80,7 @@
               </div>
               <div class="botoes">
                 <div class="b-estacionamento">
-                  <a href="/clientes/cadastrar" class="ativo">Cliente</a>
+                  <a href="/clientes/cadastrar" class="ativo">Clientes</a>
                 </div>
               </div>
           </form>

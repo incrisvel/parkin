@@ -20,13 +20,12 @@
         </div>
         <img class="detalhes-img" src="{% static 'assets/img/detalhes.png' %}">
       </div>
-
       <div class="conteudo-dir">
         <div class="titulo-cliente">
           <h1>Cliente</h1>
         </div>
         <div class="login-dir">
-          <form action="" method="post">
+          <form action="{% url 'clientes:cadastrocliente' %}" method="post">
             <div class="login">
               <div class="titulos">
                 <h1>Cadastro</h1>
@@ -35,54 +34,40 @@
               {% csrf_token %}
               <div class="import">
                 <img src="{% static 'assets/icons/user.svg' %}" class="email-img">
-                {{ form.nome }}
+                <div class="form">
+                  <input type="text" name="nome" placeholder="Nome" id="email">
+                </div>
               </div>
-              {{ form.nome.errors }}
-              {% if email_apparence == True %}
                 <div class="import">
                   <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
-                  {{ form.email }}
+                  <div class="form">
+                    <input type="email" name="email" placeholder="E-mail" id="email">
+                  </div>
                 </div>
-                {{ form.email.errors }}
-              {%else%}
-                <div class="import">
-                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
-                  {{ form.email }}
-                </div>
-              <span>email inválido</span>
-              {%endif%}
-              {% if senha == confirme %}
+                <span style="text-align:center; color: red;">{{erro_email}}</span>
                 <div class="import">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                  {{ form.senha }} 
+                  <div class="form">
+                    <input type="password" name="senha" placeholder="Senha" id="senha">
+                  </div>
                 </div>
                 <div class="import">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                  <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
+                  <div class="form">
+                    <input type="password" name="senha2" placeholder="Confirme a senha" id="senha">
+                  </div>
                 </div>
-              {%else%}
+                <span style="text-align:center; color:red;">{{erro_senha}}</span>
                 <div class="import">
-                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                  {{ form.senha }}
+                  <img src="{% static 'assets/icons/calendar.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="date" name="data" id="data">
+                  </div>
                 </div>
-                <div class="import">
-                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                  <input type="password" name="confirme" id="confirme" required placeholder="Confirme sua senha">
-                </div>
-                <span>senha incorreta</span>
-              {%endif%}
-              <div class="import">
-                <img src="{% static 'assets/icons/calendar.svg' %}" class="email-img">
-                {{ form.data_nasc }}
-              </div>
-              {% if check == None %}
-                <input type="checkbox" name="check" class="check">Termos de consentimento
-              </div>
-              {% else %}
               <div class="check">
-                <input type="checkbox" name="check" class="check">Termos de consentimento
+                <input type="checkbox" name="check" id="check">
+                <p>Termos de consentimento</p>
               </div>
-              {%endif%}
               <div class="botao">
                 <input type="submit" value="Cadastrar" id="button">
                 <div class="entrar">
@@ -95,7 +80,7 @@
                   <a href="/empresas/cadastrar" class="ativo">Estacionamento</a>
                 </div>
               </div>
-            </form>
+          </form>
         </div>
       </div>
     </div>

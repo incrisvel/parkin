@@ -173,7 +173,7 @@ input, textarea {
 }
 
 .entrar a:hover{
-    color: #221d09;
+    color: #FFDE59;
 }
 
 .titulos h1{
@@ -245,5 +245,24 @@ input, textarea {
     justify-content: center;
     color: #3333335d;
     margin-bottom: 10px;
+    font-size: 13px;
+}
 
+.check {
+    display: flex;
+    justify-content: center;
+    color: #3333335d;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+#data {
+    position: relative;
+    color: #3333335d;
+    width: auto;
+    margin-left: -70px;
+}
+
+#data::-webkit-calendar-picker-indicator {
+    display: none;
 }

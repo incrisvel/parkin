@@ -56,3 +56,4 @@ def entrarcliente(request):
             return redirect('/clientes/entrar')
         
     return render(request, 'clientes/entrar.html')
+
