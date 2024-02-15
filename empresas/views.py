@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import Perfil, Estacio
+from django.contrib.auth.decorators import permission_required
+from .forms import Perfil, Endereco
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
 from django.views.decorators.csrf import csrf_protect
@@ -91,9 +92,6 @@ def cadastro(request):
         if request.method == 'POST':
             form = Perfil(request.POST)
             form2 = Estacio(request.POST)
-            form.proprietarios = request.user
-            form2.perfil = form
-            print(request.user)
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():

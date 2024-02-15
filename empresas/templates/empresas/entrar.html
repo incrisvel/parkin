@@ -36,13 +36,17 @@
                   <div class="import1">
                     <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                     <div class="form">
-                      <input type="email" name="email" id="email">
+                      <input type="email" name="email" placeholder="E-mail" id="email ">
+                    </div>
+                  </div>
+                    <div class="form">
+                      {{ form.email }}
                     </div>
                   </div>
                 <div class="import3">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
                   <div class="form">
-                    <input type="password" name="senha" id="senha">
+                    <input type="password" name="senha" placeholder="Senha" id="senha">
                   </div>
                 </div>
               <div class="botao">
