@@ -26,11 +26,11 @@ class EstacionamentoManager(BaseUserManager):
 
 class Estacionamento(AbstractBaseUser):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='estacionamento')
-    nome_fantasia = models.CharField(max_length=200,  blank=False, null=False, verbose_name='Nome Fantasia')
-    email = models.EmailField(max_length=200, blank=False, null=False)
+    nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
+    email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
     password = models.CharField(max_length=200, default = '')  
-    cnpj = models.CharField(max_length=18,  blank=False, null=False, verbose_name='CNPJ')
+    cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
 
     objects = EstacionamentoManager()
 
@@ -40,6 +40,13 @@ class Estacionamento(AbstractBaseUser):
         return self.nome_fantasia
 
     
+class Endereco(models.Model):
+    local = models.CharField(max_length=200, blank=False, null=False)
+    bairro = models.CharField(max_length=200, blank=False, null=False)
+    logradouro = models.CharField(max_length=200, blank=False, null=False)
+    numero = models.PositiveSmallIntegerField(blank=False, null=False)
+    cep = models.CharField(max_length=10, verbose_name='CEP')
+
     
 class PerfilLocal(models.Model):
     proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
@@ -62,11 +69,3 @@ class PerfilLocal(models.Model):
     vagas_cob = models.PositiveSmallIntegerField()
     vagas_disp = models.PositiveSmallIntegerField()
     
-class Endereco(models.Model):
-    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
-
-    local = models.CharField(max_length=200, blank=False, null=False)
-    bairro = models.CharField(max_length=200, blank=False, null=False)
-    logradouro = models.CharField(max_length=200, blank=False, null=False)
-    numero = models.PositiveSmallIntegerField(blank=False, null=False)
-    cep = models.CharField(max_length=10, verbose_name='CEP')

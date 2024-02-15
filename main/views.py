@@ -3,11 +3,14 @@ import smtplib
 import email.message
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 @csrf_protect
 def index(request):
     return render(request,'main/index.html')
 
+@csrf_protect
 def enviar_email(mail):
     corpo_email = render_to_string('main/email.html')
 
@@ -28,3 +31,8 @@ def enviar_email(mail):
 @csrf_protect
 def a(request):
     return render(request, 'main/email.html')
+
+@login_required
+def fazer_logout(request):
+    logout(request)
+    return redirect('/')

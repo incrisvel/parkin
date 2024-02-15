@@ -54,10 +54,14 @@ Os integrantes reescreveram seu pitch pessoal.
 
 Foram traçadas novas metas para entregar no projeto, dadas as datas finais.
 
-## 06/02/2024
+## 06/02/2024 - 09/02/2024
 
-A equipe ensaiou e cronometrou a apresentação.
+A equipe ensaiou, cronometrou e gravou a apresentação. Ryan e Marco trabalharam na aparência das demais páginas do site.
 
-## 07/02/2024
+## 11/02/2024
 
-A equipe ensaiou e cronometrou a apresentação.
+Cristina integrou o banco de dados com a autenticação e cadastro de usuários.
+
+## 14/02/2024
+
+Ryan preparou e editou o vídeo da equipe.
