@@ -3,10 +3,8 @@ from django.db import transaction
 from main.views import enviar_email
 from .models import Cliente
 from django.views.decorators.csrf import csrf_protect
-from projeto.decorators import cliente_required
 from main.models import Usuario
 from django.contrib.auth import login
-from django.contrib.auth import login, logout
 from projeto.backend import EmailBackend
 
 @csrf_protect
@@ -45,9 +43,6 @@ def cadastrocliente(request):
 
 @csrf_protect
 def entrarcliente(request):
-    if request.user.is_authenticated:
-        return render(request, 'main/index.html')
-    
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
@@ -62,7 +57,3 @@ def entrarcliente(request):
         
     return render(request, 'clientes/entrar.html')
 
-@cliente_required
-def fazer_logout(request):
-    logout(request)
-    return redirect('/')

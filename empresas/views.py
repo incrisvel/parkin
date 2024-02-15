@@ -48,9 +48,6 @@ def cadastrocempresa(request):
 
 @csrf_protect
 def entrarempresa(request):
-    if request.user.is_authenticated:
-        return render(request, 'empresas/dashboard.html')
-    
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
@@ -71,11 +68,6 @@ def dashboard(request):
         return render(request, 'empresas/dashboard.html')
     else:
         return render(request, 'main/acesso_negado.html')
-
-@estacionamento_required
-def fazer_logout(request):
-    logout(request)
-    return redirect('/')
 
 @estacionamento_required
 def resumos(request):
