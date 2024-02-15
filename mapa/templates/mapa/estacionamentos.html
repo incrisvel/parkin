@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+  <head>
+    <title>Mapa</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/map.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/index.css' %}">
+  </head>
+<body>
+    <header>
+      <nav>
+          <ul>
+              <div class="logo">
+                  <li>
+                      <a href="/">
+                          <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                      </a>
+                  </li>
+                  <li>
+                      <h1>ParkIn</h1>
+                  </li>
+              </div>
+              <div class="l-c">
+                  <div class="login">
+                      {% if user.is_authenticated %}
+                          <li><a href="/logout" class="nav-link">Sair</a></li> 
+                      {% else %}
+                          <li>
+                              <a href="/clientes/entrar/">
+                                  Entrar
+                              </a>
+                          </li>
+                      </div>
+                      <div class="cadastro">
+                          <li>
+                              <a href="/clientes/cadastrar/">
+                                  Cadastrar-se
+                              </a>
+                          </li>
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="navbar">
+                  <li>
+                      <a href="">
+                          Início
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/estacionamentos">
+                          Estacionamentos
+                      </a>
+                  </li>
+                  <li>
+                      <a href="">
+                          Quem Somos
+                      </a>
+                  </li>
+                  <li>
+                      <a href="">
+                          Contato
+                      </a>
+                  </li>
+              </div>
+          </ul>
+      </nav>
+    </header>
+    <div class="conteudos">
+      <div class="estacionamentos">
+        
+      </div>
+    </div>
+    <div id="map">
+        <script
+            src="{% static 'js/map.js' %}"
+            defer
+          ></script>
+    </div>
+</body>
+</html>

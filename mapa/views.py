@@ -4,4 +4,4 @@ from django.views.generic.base import (
 )
 
 class MapaView(TemplateView):
-    template_name = "mapa/navegar.html"
+    template_name = "mapa/estacionamentos.html"
