@@ -156,12 +156,51 @@
             </ul>
         </nav>
     </div>
-    {% for local in locais%}
-    <div class='principal'>
-        <img src="{% static 'img/imagemale2.jpg' %}">  
-        <p>{{enderco.local}}</p>    
-        <p>Preço: R${{local.valor}}</p> 
-    </div>
-    {%endfor%}
+    <main>
+        {% for local in locais%}
+        <div class='principal'>
+            <div class='imagens'> 
+                <img src="{% static 'assets/img/imagemale2.jpg' %}">  
+            </div>
+            <h2>Nome do Estacionamento</h2>
+            <div class='vagas'>
+                <p>{{local.vagas_disp}} Vagas • {{local.vagas_cob}} Vagas cobertas • {{local.vagas_pref}} Vagas preferênciais</p> 
+            </div>
+            <div class='aberto'>
+                <h4>Dias Abertos:</h4>
+                {%if local.segunda == 1%}
+                <p>Segunda ✓</p>
+                {%endif%}
+                {%if local.terca == 1%}
+                <p>Terça ✓</p>
+                {%endif%}
+                {%if local.quarta == 1%}
+                <p>Quarta ✓</p>
+                {%endif%}
+                {%if local.quinta == 1%}
+                <p>Quinta ✓</p>
+                {%endif%}
+                {%if local.sexta == 1%}
+                <p>Sexta</p>
+                {%endif%}
+                {%if local.sabado == 1%}
+                <p>Sabado</p>
+                {%endif%}
+                {%if local.domingo == 1%}
+                <p>Domingo</p>
+                {%endif%}
+            </div>
+            <div class='descricao'>
+                <p>{{local.descricao}}</p>
+            </div>
+            <div class='endereco'>
+                <h4>Endereço:</h4>
+                <p>{{endereco.local}}, {{endereco.bairro}}, n°:{{endereco.numero}}</p>   
+                <p>CEP: {{endereco.cep}}</p>
+            </div>
+            <p>Preço: R${{local.valor}}</p> 
+        </div>
+        {%endfor%}
+    </main>
 </body>
 </html>

@@ -230,11 +230,50 @@
         margin: 20px 90px 50px 350px;
       }
 
-      div.principal img{
-        width: 300px;
+      div.principal div.imagens img{
+        width: 400px;
         border-radius: 10px;
       }
 
       div.principal p {
         margin-top: 5px;
+      }
+
+      div.vagas ul{
+        display: flex;
+      }
+
+      div.vagas ul li{
+        list-style: square;
+        margin-left: 20px;
+      }
+
+      div.vagas ul li:first-child{
+        margin-left: 0;
+      }
+
+      div.aberto{
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+      }
+
+      div.aberto p{
+        margin-top: 0;
+        margin-left: 10px;
+      }
+      
+      div.principal div:first-child{
+        border-top: none;
+        padding: 0px;
+      }
+
+      div.principal div.vagas{
+        border-top: none;
+        padding: 10px 0px
+      }
+
+      div.principal div{
+        border-top: 1px solid rgba(0, 0, 0, 0.123);
+        padding: 10px 0px;
       }

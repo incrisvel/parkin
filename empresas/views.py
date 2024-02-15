@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
-from .forms import Perfil, Endereco
+from .forms import Perfil, Enderec
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
 from django.views.decorators.csrf import csrf_protect
@@ -91,21 +91,21 @@ def cadastro(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = Perfil(request.POST)
-            form2 = Estacio(request.POST)
+            form2 = Enderec(request.POST)
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():
                 perfil = form.save(commit=False)  
-                estacio = form2.save(commit=False)  
+                endere = form2.save(commit=False)  
                 perfil.proprietarios = request.user.email  
-                estacio.proprietarios = request.user.email  
+                endere.proprietarios = request.user.email  
                 perfil.save() 
-                estacio.save() 
+                endere.save() 
 
             return redirect('/empresas/cadastro')
         else:   
             form = Perfil()
-            form2 = Estacio()
+            form2 = Enderec()
         return render(request,'empresas/cadastro.html', {'nome':usuario.nome_fantasia, 'form':form, 'form2' : form2})
     else:
         return redirect('/empresas/entrar')
@@ -115,8 +115,8 @@ def estacionamento(request):
     usuario = Estacionamento.objects.get(email=request.user.email)
     if request.user.is_authenticated:
         locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
-        endereco = Endereco.objects.filter(proprietarios=request.user.email)
-        print(endereco)
+        endereco = Endereco.objects.get(proprietarios=request.user.email)
+        print(endereco.local)
         return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'endereco':endereco})
     else:
         return redirect('/empresas/entrar')

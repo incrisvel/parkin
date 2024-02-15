@@ -25,33 +25,27 @@
           {% csrf_token %}
             <div class="import">
               <img src="{% static 'assets/img/user.png' %}">
-              <input type="text" name="nome" id="nome" required>
-              <label for="nome">Nome Fantasia</label>
+              <input type="text" placeholder='Nome Fantasia' name="nome" id="nome" required>
             </div>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              <input type="text" name="razao" id="razao" required>
-              <label for="razao">Razão Social</label>
+              <input type="text" placeholder='Razão Social' name="razao" id="razao" required>
             </div>
             <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
-              <input type="email" name="email" id="email" required>
-              <label for="email">Email</label>
+              <input type="email" placeholder='E-mail' name="email" id="email" required>
             </div>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="senha" id="senha" required>
-              <label for="senha">Senha</label>
+              <input type="password" placeholder='senha' name="senha" id="senha" required>
             </div>
             <div class="import">
+              <input type="password" placeholder='Confirme sua senha' name="senha2" id="senha2" required>
               <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="senha2" id="senha2" required>
-              <label for="senha">Confirme sua senha</label>
             </div>
             <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
               <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00." maxlength="18" minlength="18">
-              <label for="senha">CNPJ</label>
+              <img src="{% static 'assets/img/key.png' %}">          
             </div>
           <div class="check">
             <input type="checkbox" name="check" id="check">

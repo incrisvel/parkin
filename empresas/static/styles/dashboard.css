@@ -164,6 +164,10 @@
         margin-left: 16px;
     }
 
+    header nav ul .logo li .logo-img {
+        width: 50px;
+    }
+
     .side-bar li .p1 {
         color: #A1A7C4;
         font-size: 12px;

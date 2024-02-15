@@ -20,36 +20,28 @@
         </div>
         <img class="detalhes-img" src="{% static 'assets/img/detalhes.png' %}">
       </div>
-      <div class="conteudo" id="empresa">
+      <div class="conteudo-dir" id="empresa">
         <form action="" method="post">
           {% csrf_token %}
           <div class="import">
             <img src="{% static 'assets/img/user.png' %}">
-            <input type="text" name="nome" id="nome" required>
-            <label for="nome">Nome</label>
+            <input type="text" placeholder="Nome" name="nome" id="nome" required>
           </div>
-          <span style="color: red;">{{erro_nome}}</span>
             <div class="import">
               <img src="{% static 'assets/img/email.png' %}">
-              <input type="email" name="email" id="email" required>
-              <label for="email">Email</label>
+              <input type="email" placeholder='email' name="email" id="email" required>
             </div>
-            <span style="color: red;">{{erro_email}}</span>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="password" name="senha" id="senha" required>
-              <label for="senha">Senha</label>
             </div>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="password" name="senha2" id="senha2" required>
-              <label for="senha">Confirme sua senha</label>
             </div>
-            <span style="color: red;">{{erro_senha}}</span>
             <div class="import">
               <img src="{% static 'assets/img/key.png' %}">
               <input type="date" name="data" id="data">
-              <label for="data">Data de nascimento</label>
             </div>
           <div class="check">
             <input type="checkbox" name="check" id="check">
