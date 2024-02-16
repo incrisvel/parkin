@@ -46,17 +46,19 @@ def cadastrocliente(request):
 
 @csrf_protect
 def entrarcliente(request):
+    erro_email = False
+    erro_senha = False
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        
+
         cliente = EmailBackend.authenticate(email=email, password=senha)
 
-        if cliente is not None and Cliente.objects.filter(email=email).get:   
+        if cliente is not None and Cliente.objects.filter(email=email).exists():   
             login(request, cliente, backend='projeto.backend.EmailBackend')
             return redirect('/mapa/')
         else:
-            return redirect('/clientes/entrar')
-        
-    return render(request, 'clientes/entrar.html')
+            erro_email = True
+            erro_senha = True
+    return render(request, 'clientes/entrar.html', {'erro_email': erro_email, 'erro_senha':erro_senha})
 

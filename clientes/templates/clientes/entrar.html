@@ -34,17 +34,36 @@
                 <h1>Entrar</h1>
                 <p>Bem vindo de volta!</p>
               </div>
+              {%if erro_email == False%}
               <div class="import1">
                 <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                 <div class="form">
                   <input type="email" name="email" placeholder="E-mail" id="email ">
                 </div>
               </div>
+            {%else%}
+              <div class="import1" style="border: 1px solid #d50303;">
+                <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                <div class="form">
+                  <input type="email" name="email" placeholder="E-mail" id="email ">
+                </div>
+              </div>
+            {%endif%}
+            {%if erro_senha == False%}
             <div class="import3">
               <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
               <div class="form">
                 <input type="password" name="senha" placeholder="Senha" id="senha">
               </div>
+            </div>
+            {%else%}
+            <div class="import3"  style="border: 1px solid #d50303;">
+              <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+              <div class="form">
+                <input type="password" name="senha" placeholder="Senha" id="senha">
+              </div>
+            </div>
+            {%endif%}
             </div>
                 <div class="botao">
                    <input type="submit" value="Entrar" id="button">

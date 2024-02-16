@@ -48,6 +48,8 @@ def cadastrocempresa(request):
 
 @csrf_protect
 def entrarempresa(request):
+    erro_email = False
+    erro_senha = False
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
@@ -58,9 +60,10 @@ def entrarempresa(request):
             login(request, estacionamento, backend='projeto.backend.EmailBackend')
             return redirect('/empresas/dashboard')
         else:
-            return redirect('/empresas/entrar')
-        
-    return render(request, 'empresas/entrar.html')
+            erro_email = True
+            erro_senha = True
+    
+    return render(request, 'empresas/entrar.html', {'erro_email': erro_email, 'erro_senha':erro_senha})
 
 @estacionamento_required
 def dashboard(request):
