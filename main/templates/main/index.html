@@ -25,18 +25,22 @@
                 </div>
                 <div class="l-c">
                     <div class="login">
-                        <li>
-                            <a href="/clientes/entrar/">
-                                Entrar
-                            </a>
-                        </li>
-                    </div>
-                    <div class="cadastro">
-                        <li>
-                            <a href="/clientes/cadastrar/">
-                                Cadastrar-se
-                            </a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="navbar">

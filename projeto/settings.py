@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'empresas',
     'clientes',
     'mapa',
-    'django.contrib.gis',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -127,4 +126,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'main.Usuario'
-

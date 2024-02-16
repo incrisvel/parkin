@@ -7,4 +7,3 @@ urlpatterns = [
     path('cadastrar/', cadastrocliente, name='cadastrocliente'),
     path('entrar/', entrarcliente, name='entrarcliente')
 ]
-
