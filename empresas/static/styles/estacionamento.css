@@ -254,13 +254,11 @@
 
       div.aberto{
         display: flex;
-        flex-direction: row;
-        align-items: center ;
+        flex-direction: column;
       }
 
       div.aberto p{
         margin-top: 0;
-        margin-left: 10px;
       }
       
       div.principal div:first-child{
@@ -270,10 +268,23 @@
 
       div.principal div.vagas{
         border-top: none;
-        padding: 10px 0px
+        padding: 25px 0px
       }
 
       div.principal div{
         border-top: 1px solid rgba(0, 0, 0, 0.123);
         padding: 10px 0px;
+      }
+
+      div.baixo{
+        display: flex;
+        width: 100%;
+      }
+
+      div.escrito{
+        width: 70%;
+      }
+
+      div.preco{
+        width: 30%;
       }

@@ -20,6 +20,7 @@ def cadastrocempresa(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         cnpj = request.POST.get('cnpj')
+        email = email.lower()
     
         if  Usuario.objects.filter(email=email).exists():
             erro_email = True
@@ -53,6 +54,7 @@ def entrarempresa(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
+        email = email.lower()
        
         estacionamento = EmailBackend.authenticate(email=email, password=senha)
 
@@ -115,7 +117,6 @@ def estacionamento(request):
     if request.user.is_authenticated:
         locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
         endereco = Endereco.objects.get(proprietarios=request.user.email)
-        print(endereco.local)
         return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'endereco':endereco})
     else:
         return redirect('/empresas/entrar')

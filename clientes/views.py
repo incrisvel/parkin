@@ -17,7 +17,8 @@ def cadastrocliente(request):
 
     if request.method == 'POST':
         email = request.POST.get('email')
-        
+        email = email.lower()
+    
         if Usuario.objects.filter(email=email).exists():
             erro_email = True
         else:
@@ -51,6 +52,7 @@ def entrarcliente(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
+        email = email.lower()
 
         cliente = EmailBackend.authenticate(email=email, password=senha)
 

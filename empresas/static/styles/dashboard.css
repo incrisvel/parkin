@@ -461,6 +461,11 @@
         width: 218px;
         height: 44px;
     }
+
+    .side-bar .menu-side-bar:hover, .side-bar .menu-side-bar:hover p{
+        border-radius: 10px;
+        background: #1E5EFF;
+    }
     
     .side-bar .menu-side-bar p{
         color: #5A607F;
