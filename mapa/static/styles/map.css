@@ -1,9 +1,194 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
+* {
+  font-family: 'Inter', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
+.verdadeiro {
+  background-color: #FFDE59;
+  height: 800px;
+}
+
+header {
+  background-color: #FFDE59;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  position: relative;
+  z-index: 1;
+  padding: 12px 0;
+  align-items: center;
+
+}
+
+nav {
+  width: 90%;
+  height: 35px;
+  margin: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-right: 40px;
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  bottom: 8px;
+}
+
+.logo-img {
+  width: 50px;
+}
+
+ul .navbar li {
+  margin-left: 50px;
+  margin-top: 8px;
+}
+
+ul .navbar li a {
+  font-size: 15px;
+  color: #08092a;
+}
+
+.l-c {
+  position: absolute;
+  display: flex;
+  right: 80px;
+  margin-top: 8px;
+}
+
+.l-c .login li a{
+  margin-right: 30px;
+  color: #08092a;
+}
+
+.l-c .cadastro{
+  color: #08092a;
+}
+
+.l-c .cadastro li a {
+  padding: 8px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #08092a;
+}
+
+
+.conteudos {
+  width: 90%;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.estacionamentos {
+  width: 50%;
+}
+
+.titulos h1{
+  color: #333;
+  font-size: 35px;
+}
+
+.titulos span{
+  color: #333;
+  font-size: 15px;
+}
+
+.filtros {
+  display: flex;
+}
+
+.filtros ul {
+  display: block;
+  border: 1px solid #333;
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.filtros ul:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+
+.filtros ul:first-child {
+  display: block;
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: none;
+  color: #333;
+}
+
+.filtros ul li p{
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.filtros ul li {
+  font-size: 15px;
+}
+
+.estacionamentosinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.block a{
+  position: relative;
+  width: 95%;
+  display: block;
+  height: 140px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.289);
+}
+
+.img-est {
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.textos {
+  position: absolute;
+  margin-top: 20px;
+  width: 65%;
+  right: 0;
+}
+
+.textos h1{
+  font-size: 18px;
+}
+
+
 #map {
   height: 100%;
   width: 100%;
+  border-radius: 20px;
 }
+
+.mapa {
+  width: 50%;
+  height: 600px;
+}
+
+

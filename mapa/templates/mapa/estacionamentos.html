@@ -1,8 +1,9 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <title>Mapa</title>
+    <title>Estacionamentos</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -25,13 +26,13 @@
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/index.css' %}">
   </head>
-<body>
+<body class="verdadeiro">
     <header>
       <nav>
           <ul>
               <div class="logo">
                   <li>
-                      <a href="/">
+                      <a href="">
                           <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
                       </a>
                   </li>
@@ -61,7 +62,7 @@
               </div>
               <div class="navbar">
                   <li>
-                      <a href="">
+                      <a href="/">
                           Início
                       </a>
                   </li>
@@ -85,15 +86,89 @@
       </nav>
     </header>
     <div class="conteudos">
-      <div class="estacionamentos">
-        
-      </div>
-    </div>
-    <div id="map">
-        <script
-            src="{% static 'js/map.js' %}"
-            defer
-          ></script>
+        <div class="estacionamentos">
+            <div class="titulos">
+                <ul>
+                    <div class="titulo">
+                        <li>
+                            <span>3 Estacionamentos</span>
+                        </li>
+                    </div>
+                </ul>
+                <ul>
+                    <li>
+                        <h1>Estacionamentos Próximos</h1>
+                    </li>
+                </ul>
+                <div class="filtros">
+                    <ul>
+                        <li>
+                            <p>Estacionamentos próximos</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Preço
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Avaliação
+                        </li>
+                    </ul>
+                </div>
+                <div class="estacionamentosinfo">
+                    <div class="est">
+                        <div class="block">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div class="imagem">
+                                            <img src="{% static './img/estacionamento1.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping Neumarkt</h1>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""> 
+                                        <div class="imagem">
+                                            <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping Park Europeu</h1>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div class="imagem">
+                                            <img src="{% static 'img/estacionamento3.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping H</h1>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mapa">
+            <div id="map">
+                <script
+                    src="{% static 'js/map.js' %}"
+                    defer
+                ></script>
+            </div>
+        </div>
     </div>
 </body>
 </html>
