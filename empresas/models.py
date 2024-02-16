@@ -2,6 +2,7 @@ from django.db import models
 from main.models import Usuario
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from django.db.models import Avg
 
 class EstacionamentoManager(BaseUserManager):
     def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
@@ -41,6 +42,7 @@ class Estacionamento(AbstractBaseUser):
 
     
 class Endereco(models.Model):
+    estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='endereco')
     local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
     logradouro = models.CharField(max_length=200, blank=False, null=False)
@@ -49,18 +51,21 @@ class Endereco(models.Model):
 
     
 class PerfilLocal(models.Model):
-    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
+    DIAS_SEMANA = (
+        (1, 'Segunda-feira'),
+        (2, 'Terça-feira'),
+        (3, 'Quarta-feira'),
+        (4, 'Quinta-feira'),
+        (5, 'Sexta-feira'),
+        (6, 'Sábado'),
+        (7, 'Domingo'),
+    )
 
-    segunda = models.BooleanField(default=False)
-    terca = models.BooleanField(default=False)
-    quarta = models.BooleanField(default=False)
-    quinta = models.BooleanField(default=False)
-    sexta = models.BooleanField(default=False)
-    sabado = models.BooleanField(default=False)
-    domingo = models.BooleanField(default=False)
-    
+    estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
     coberto = models.BooleanField(default=None)
     valor = models.FloatField(default=0)
+    dias_aberto = models.CharField(max_length=7, choices=DIAS_SEMANA)
     descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
     hora_abre = models.TimeField(default='', blank = True)
     hora_fecha = models.TimeField(default='', blank = True)
@@ -68,4 +73,9 @@ class PerfilLocal(models.Model):
     vagas_pref = models.PositiveSmallIntegerField()
     vagas_cob = models.PositiveSmallIntegerField()
     vagas_disp = models.PositiveSmallIntegerField()
+
+    @property
+    def nota_media(self):
+        media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota_media']
+        return round(media, 1) if media else None
     

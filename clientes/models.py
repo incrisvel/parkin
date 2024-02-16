@@ -47,11 +47,7 @@ class Cliente(AbstractBaseUser):
     
         
 class Avaliacao(models.Model):
-    avaliador = models.ForeignKey(
-      Cliente, 
-      on_delete=models.CASCADE, 
-      related_name='cliente_avaliador', 
-      verbose_name='avaliador')
+    avaliador = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='cliente_avaliador', verbose_name='avaliador')
     avaliado = models.ForeignKey(
       Estacionamento,
       on_delete=models.CASCADE, 
@@ -64,6 +60,10 @@ class Avaliacao(models.Model):
 
     def __str__(self):
         return f'Avaliação de {self.avaliador} para {self.avaliado}'
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.avaliado.nota_media
         
     class Meta:
         ordering = ['data_envio']
