@@ -85,7 +85,7 @@ ul .navbar li a {
   width: 90%;
   display: flex;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .estacionamentos {
@@ -93,7 +93,7 @@ ul .navbar li a {
 }
 
 .titulos h1{
-  color: #333;
+  color: #08092a;
   font-size: 35px;
 }
 
@@ -177,6 +177,25 @@ ul .navbar li a {
 
 .textos h1{
   font-size: 18px;
+}
+
+.textos p{
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.textos span{
+  font-size: 14px;
+  color: #717171;
+  margin-top: 10px;
+}
+
+.avaliacao {
+  width: 50px;
+  margin-top: 8px;
 }
 
 
