@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/dashboard.css' %}">
+    <link rel="shortcut icon" href="">
 </head>
 <body>
     <header>
@@ -46,19 +47,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <h1>{{ nome }}</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/logout" style="color: #333;">
-                            <p style="margin-left: 15px;">Sair</p>
-                        </a>
+                        <div class="menuzin">
+                            <span class="menu-trigger">
+                                <h1>{{ nome }}</h1>
+                                <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
+                            </span>
+                            <ul class="menu-menu" >
+                                <li>Seu perfil</li>
+                                <li>Configurações</li>
+                                <a href="/logout" style="color: #333;"><li style="margin-top:12px; color:#cd0000;">Sair</li> </a>
+                            </ul>
+                        </div>
                     </li>
                 </div>
             </ul>
@@ -269,5 +268,24 @@
             </div>
         </div>
     </div>
+    <script>
+        var button = document.getElementsByClassName("menu-trigger")[0];
+        var container = document.getElementsByClassName("menu-menu")[0];
+        var setinha = document.getElementsByClassName("seta-icon")[0];
+        var menuAberto = false;
+        
+        button.addEventListener("click", function(){
+            if(!menuAberto){
+                container.style.display = "block";
+                setinha.style.transform = "rotate(180deg)";
+                menuAberto = true;
+            } else {
+                container.style.display = "none";
+                setinha.style.transform = "rotate(0deg)";
+                menuAberto = false;
+            }
+        });
+
+    </script>
 </body>
 </html>

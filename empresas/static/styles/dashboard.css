@@ -110,8 +110,8 @@
     header nav ul .user li .seta-icon{
         width: 24px;
         height: 24px;
-        margin-top: 3px;
-        margin-left: 20px;
+        margin-left: 5px;
+        transition: transform 0.3s ease; 
     }
 
     header nav ul li {
@@ -417,8 +417,8 @@
     header nav ul .user li .seta-icon{
         width: 24px;
         height: 24px;
-        margin-top: 3px;
-        margin-left: 20px;
+        margin-left: 5px;
+        transition: transform 0.3s ease; 
     }
     
     header nav ul li {
@@ -462,10 +462,6 @@
         height: 44px;
     }
 
-    .side-bar .menu-side-bar:hover, .side-bar .menu-side-bar:hover p{
-        border-radius: 10px;
-        background: #1E5EFF;
-    }
     
     .side-bar .menu-side-bar p{
         color: #5A607F;
@@ -735,3 +731,38 @@
         height: 1px;
     }
 }
+
+span.menu-trigger{
+    display: flex;
+    align-items: center;
+}
+
+ul.menu-menu{
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 150px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #00000052;
+    cursor: default;
+}
+
+ul.menu-menu li{
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+ul.menu-menu li{
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+ul.menu-menu li:hover{
+    text-decoration: underline;
+}
+
+ul.menu-menu li:first-child{
+    margin: 0;
+}
+
