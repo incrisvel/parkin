@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
 * {
     font-family: 'Inter', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
 
 @media only screen and (min-width: 1440px) {
 
@@ -110,8 +112,8 @@
     header nav ul .user li .seta-icon{
         width: 24px;
         height: 24px;
-        margin-top: 3px;
-        margin-left: 20px;
+        margin-left: 5px;
+        transition: transform 0.3s ease; 
     }
 
     header nav ul li {
@@ -306,6 +308,40 @@
         width: 43px;
         transform: translate(266px);
     }
+    
+    span.menu-trigger{
+        display: flex;
+        align-items: center;
+    }
+    
+    ul.menu-menu{
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        width: 150px;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #00000052;
+        cursor: default;
+    }
+    
+    ul.menu-menu li{
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    
+    ul.menu-menu li{
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    
+    ul.menu-menu li:hover{
+        text-decoration: underline;
+    }
+    
+    ul.menu-menu li:first-child{
+        margin: 0;
+    }
 }
 
 
@@ -413,8 +449,8 @@
     header nav ul .user li .seta-icon{
         width: 24px;
         height: 24px;
-        margin-top: 3px;
-        margin-left: 20px;
+        margin-left: 5px;
+        transition: transform 0.3s ease; 
     }
     
     header nav ul li {
@@ -626,5 +662,41 @@
         transform: translate(0, -40%);
         right: 0;
     }
+
+    span.menu-trigger{
+        display: flex;
+        align-items: center;
+    }
+    
+    ul.menu-menu{
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        width: 150px;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #00000052;
+        cursor: default;
+    }
+    
+    ul.menu-menu li{
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    
+    ul.menu-menu li{
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    
+    ul.menu-menu li:hover{
+        text-decoration: underline;
+    }
+    
+    ul.menu-menu li:first-child{
+        margin: 0;
+    }
     
 }
+
+

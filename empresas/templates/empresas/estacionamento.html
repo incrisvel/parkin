@@ -11,54 +11,9 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <div class="logo">
-                    <li>
-                        <a href="/empresas/dashboard">
-                            <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
-                        </a>
-                    </li>
-                    <li>
-                        <h1>ParkIn</h1>
-                    </li>
-                </div>
-                <div class="search">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
-                        </a>
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Pesquisar..."class="search-text">
-                    </li>
-                </div>
-                <div class="notification">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
-                        </a>
-                    </li>
-                </div>
-                <div class="user">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>{{ nome }}</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    {% block navbar %}
+        {% include 'empresas/navbar.html' %}
+    {% endblock %}
     </header>
     <div class="content1">
         <nav class="side-bar">

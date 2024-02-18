@@ -744,7 +744,7 @@ ul.menu-menu{
     width: 150px;
     padding: 20px;
     border-radius: 5px;
-    border: 1px solid #00000052;
+    border: 1px solid #0000002e;
     cursor: default;
 }
 
@@ -759,7 +759,7 @@ ul.menu-menu li{
 }
 
 ul.menu-menu li:hover{
-    text-decoration: underline;
+    background-color: #5A607F;
 }
 
 ul.menu-menu li:first-child{
