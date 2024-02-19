@@ -243,14 +243,6 @@ div.vagas ul{
 display: flex;
 }
 
-div.vagas ul li{
-list-style: square;
-margin-left: 20px;
-}
-
-div.vagas ul li:first-child{
-margin-left: 0;
-}
 
 div.aberto{
 display: flex;
@@ -261,7 +253,7 @@ div.aberto p{
 margin-top: 0;
 }
 
-div.principal div:first-child{
+div.principal div.baixo{
 border-top: none;
 padding: 0px;
 }
@@ -290,35 +282,37 @@ width: 30%;
 }
 
 span.menu-trigger{
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 ul.menu-menu{
-display: none;
-position: absolute;
-background-color: #ffffff;
-width: 150px;
-padding: 20px;
-border-radius: 5px;
-border: 1px solid #00000052;
-cursor: default;
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0000002e;
+    cursor: default;
+    margin-top: 3px;
 }
 
 ul.menu-menu li{
-font-size: 13px;
-margin-top: 12px;
-}
-
-ul.menu-menu li{
-font-size: 13px;
-margin-top: 12px;
+    font-size: 13px;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 ul.menu-menu li:hover{
-text-decoration: underline;
+    background-color: #0000002a;
 }
 
 ul.menu-menu li:first-child{
-margin: 0;
+    margin: 0;
+}
+
+a li.sair:hover{
+    background-color: #cd00003f;
 }

@@ -41,7 +41,7 @@ body {
     padding: 5px;
 }
 
-button {
+a {
     background-color: #fff;
     width: 100px;
     height: 30px;
@@ -54,7 +54,7 @@ button {
     font-size: 12px;
 }
 
-button:hover {
+a:hover {
     background-color: #eee
 }
 
@@ -158,6 +158,7 @@ button:hover {
     margin: auto;
     overflow: hidden;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .import4 {

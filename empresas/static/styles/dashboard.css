@@ -31,8 +31,7 @@
         width: 1810px;
         height: 1199px;
         right: 0;
-        opacity: 0.9;
-    }
+        opacity: 0.9;    }
 
     header nav ul {
         width: 100%;
@@ -741,9 +740,8 @@ ul.menu-menu{
     display: none;
     position: absolute;
     background-color: #ffffff;
-    width: 250px;
-    padding: 20px;
-    left: -50px;
+    width: 200px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #0000002e;
     cursor: default;
@@ -752,15 +750,19 @@ ul.menu-menu{
 
 ul.menu-menu li{
     font-size: 13px;
-    margin-top: 12px;
-    padding: 15px;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 ul.menu-menu li:hover{
-    background-color: #5A607F;
+    background-color: #0000002a;
 }
 
 ul.menu-menu li:first-child{
     margin: 0;
 }
 
+a li.sair:hover{
+    background-color: #cd00003f;
+}
