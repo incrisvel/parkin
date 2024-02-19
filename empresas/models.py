@@ -73,7 +73,7 @@ class PerfilLocal(models.Model):
         (4, 'Quinta-feira'),
         (5, 'Sexta-feira'),
         (6, 'Sábado'),
-        (7, 'Domingo'),
+        (7, 'Domingo')
     )
 
     estacionamento = models.OneToOneField(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
