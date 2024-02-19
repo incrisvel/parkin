@@ -91,18 +91,14 @@ def cadastro(request):
         if request.method == 'POST':
             form = Perfil(request.POST)
             form2 = Estacio(request.POST)
-            form.proprietarios = request.user
             print(request.user)
             print(form.errors)
             print(form2.errors)
             if form.is_valid() and form2.is_valid():
                 perfil = form.save(commit=False)  
                 endere = form2.save(commit=False)  
-                perfil.proprietarios = request.user.email  
-                endere.proprietarios = request.user.email  
                 perfil.save() 
                 endere.save() 
-
             return redirect('/empresas/cadastro')
         else:   
             form = Perfil()
@@ -115,9 +111,8 @@ def cadastro(request):
 def estacionamento(request):
     usuario = Estacionamento.objects.get(email=request.user.email)
     if request.user.is_authenticated:
-        locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
-        endereco = Endereco.objects.get(proprietarios=request.user.email)
-        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'endereco':endereco})
+        locais = PerfilLocal.objects.filter(estacionamento=request.user.id)
+        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais})
     else:
         return redirect('/empresas/entrar')
 

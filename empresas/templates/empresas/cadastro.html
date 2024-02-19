@@ -132,43 +132,13 @@
                 <div style="display: flex;">Abre às:{{form.hora_abre}}</div>
                 <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
 
-                <label>Dias Abertos:</label>
-                <div class="checkbox-group" style="flex-direction: column;">
-                    <div>
-                    {{form.segunda}}
-                    {{form.segunda.label}}
+                <label for="id_dias_aberto">Dias Abertos:</label> 
+                    <div class="checkbox-group" style="flex-direction: column;"> 
+                        {% for dias in form.dias_aberto %} 
+                        <p>{{ dias }} {{ dias.label }} </p>
+                        {% endfor %}
+                        </div> 
 
-                    </div>
-
-                    <div>
-                    {{form.terca}}
-                    {{form.terca.label}}
-                    </div>
-
-                    <div>
-                    {{form.quarta}}
-                    {{form.quarta.label}}
-                    </div>
-
-                    <div>
-                    {{form.quinta}}
-                    {{form.quinta.label}}
-                    </div>
-
-                    <div>
-                    {{form.sexta}}
-                    {{form.sexta.label}}
-                    </div>
-                    <div>
-                    {{form.sabado}}
-                    {{form.sabado.label}}
-                    </div>
-                    <div>
-                    {{form.domingo}}
-                    {{form.domingo.label}}
-                    </div>
-
-                </div>
         
                 <!-- Campo de descrição -->
                 <label for="descricao">Descrição:</label>

@@ -41,7 +41,7 @@ body {
     padding: 5px;
 }
 
-a {
+button {
     background-color: #fff;
     width: 100px;
     height: 30px;
@@ -54,7 +54,7 @@ a {
     font-size: 12px;
 }
 
-a:hover {
+button:hover {
     background-color: #eee
 }
 
