@@ -31,8 +31,8 @@ def enviar_email(mail):
     print('email enviado')
 
 @csrf_protect
-def a(request):
-    return render(request, 'main/email.html')
+def quemsomos(request):
+    return render(request, 'main/quem_somos.html')
 
 @login_required
 def fazer_logout(request):
