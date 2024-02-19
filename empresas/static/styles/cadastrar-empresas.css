@@ -1,0 +1,269 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0576e61e;
+
+}
+
+.centro {
+    position: relative;
+    border-radius: 25px;
+    width: 70%;
+    height: 600px;
+    margin: auto;
+    margin-top: 30px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
+}
+
+.conteudo-esq {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(10deg, #021B79, #02298A, #0575E6);
+    color: #fff;
+}
+
+.titulo-esq {
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 100px;
+    margin-top: 235px;
+}
+
+.titulo-esq h1{
+    padding: 5px;
+}
+.titulo-esq p{
+    padding: 5px;
+}
+
+button {
+    background-color: #fff;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 5px;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #eee
+}
+
+
+
+.conteudo-dir {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    right: 0;
+    background-color: #fff;
+}
+
+.login-dir {
+    position: absolute;
+    margin-left: 30px;
+    width: 80%;
+    height: 70%;
+}
+
+.login-dir img{
+    width: 20px;
+    border: none;
+    margin-right: 10px;
+}
+
+.detalhes-img {
+    display: block;
+    margin-top: 400px;
+    margin-left: -50px;
+}
+
+.titulo-cliente {
+    padding: 25px;
+    text-align: center;
+}
+
+.titulo-cliente h1{ 
+    color: #333;
+    font-size: 28px;
+}
+
+.botao {
+    text-align: center;
+}
+
+#button {
+    background-color: #0575E6;
+    bottom: 0;
+    width: 220px;
+    height: 43px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+#button:hover {
+    background-color: #02298A;
+}
+
+.import {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 220px;
+    height: 34px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    color: #eee;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.import, input::placeholder {
+    color: #3333335d;
+}
+
+
+.email {
+    position: absolute;
+}
+
+.form {
+    width: auto;
+    margin: auto;
+}
+
+.email-img {
+    margin-left: 15px;
+}
+
+input, textarea {
+    border: none;
+    outline: none;
+}
+
+.senha-img {
+    margin-left: 15px;
+}
+
+.login {
+    justify-content: center;
+}
+
+.entrar {
+    margin: 10px;
+}
+
+.entrar p{
+    color: #3333335d;
+}
+
+.entrar a{
+    color: #0576e683;
+}
+
+.entrar a:hover{
+    color: #0576e6;
+}
+
+.titulos h1{
+    color: #333;
+}
+
+
+.titulos {
+    margin-bottom: 20px;
+    position: relative;
+    left: 43px;
+    font-size: 14px;
+    color: #333;
+}
+
+.botoes {
+    display: flex;
+    margin: auto;
+    width: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 19px;
+}
+
+.ativo {
+    font-size: 13px;
+    color: #0576e683;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+  
+.ativo:focus,
+.ativo:hover {
+    color: #0576e6;
+}
+  
+.ativo:focus:after,
+.ativo:hover:after {
+    width: 100%;
+    left: 0%;
+}
+  
+.ativo:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #0576e6;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+
+
+.check {
+    display: flex;
+    justify-content: center;
+    color: #3333335d;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.check {
+    display: flex;
+    justify-content: center;
+    color: #3333335d;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+#data {
+    position: relative;
+    color: #3333335d;
+    width: auto;
+    margin-left: -70px;
+}
+
+#data::-webkit-calendar-picker-indicator {
+    display: none;
+}

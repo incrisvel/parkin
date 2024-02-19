@@ -5,6 +5,8 @@ from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 @csrf_protect
 def index(request):
@@ -27,6 +29,10 @@ def enviar_email(mail):
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     print('email enviado')
+
+@csrf_protect
+def quemsomos(request):
+    return render(request, 'main/quem_somos.html')
 
 @login_required
 def fazer_logout(request):

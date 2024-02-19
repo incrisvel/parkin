@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from projeto.backend import EmailBackend
 
 @csrf_protect
-def cadastrocempresa(request):
+def cadastroempresa(request):
     erro_senha = ''
     erro_email = ''
     erro_check = ''
@@ -24,6 +24,7 @@ def cadastrocempresa(request):
             check = request.POST.get('check')
             nome_fantasia = request.POST.get('nome')
             razao_social = request.POST.get('razao')
+            email = request.POST.get('email')
             password = request.POST.get('senha')
             confirme = request.POST.get('senha2')
             cnpj = request.POST.get('cnpj')
@@ -54,7 +55,7 @@ def entrarempresa(request):
        
         estacionamento = EmailBackend.authenticate(email=email, password=senha)
             
-        if estacionamento is not None:   
+        if estacionamento is not None and Estacionamento.objects.filter(email=email).exists():
             login(request, estacionamento, backend='projeto.backend.EmailBackend')
             return redirect('/empresas/dashboard')
         else:
@@ -64,14 +65,11 @@ def entrarempresa(request):
 
 @estacionamento_required
 def dashboard(request):
-    if request.user.is_authenticated:
-        return render(request, 'empresas/dashboard.html')
-    else:
-        return render(request, 'main/acesso_negado.html')
+    return render(request, 'empresas/dashboard.html')
 
 @estacionamento_required
 def resumos(request):
-        return render(request,'empresas/resumos.html', {'nome': request.user.nome_fantasia})
+        return render(request,'empresas/resumos.html')
 
     
 @estacionamento_required
@@ -95,41 +93,41 @@ def cadastro(request):
             locais = PerfilLocal.objects.filter(proprietarios=request.user.email)
             form = Perfil()
             form2 = Estacio()
-        return render(request,'empresas/cadastro.html', {'nome':request.user.nome_fantasia, 'form':form, 'form2' : form2, 'locais':locais})
+        return render(request,'empresas/cadastro.html', {'form':form, 'form2' : form2, 'locais':locais})
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def estacionamento(request):
     if request.user.is_authenticated:
-        return render(request,'empresas/estacionamento.html', {'nome':request.user.nome_fantasia})
+        return render(request,'empresas/estacionamento.html')
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def notificacao(request):
     if request.user.is_authenticated:
-        return render(request,'empresas/notificacoes.html', {'nome':request.user.nome_fantasia})
+        return render(request,'empresas/notificacoes.html')
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def help(request):
     if request.user.is_authenticated:
-        return render(request,'empresas/help.html', {'nome':request.user.nome_fantasia})
+        return render(request,'empresas/help.html')
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def comofunciona(request):
     if request.user.is_authenticated:
-        return render(request,'empresas/comofunciona.html', {'nome':request.user.nome_fantasia})
+        return render(request,'empresas/comofunciona.html')
     else:
         return redirect('/empresas/entrar')
 
 @estacionamento_required
 def faleconosco(request):
     if request.user.is_authenticated:
-        return render(request, 'empresas/fale_conosco.html', {'nome':request.user.nome_fantasia})
+        return render(request, 'empresas/fale_conosco.html')
     else:
         return redirect('/empresas/entrar')

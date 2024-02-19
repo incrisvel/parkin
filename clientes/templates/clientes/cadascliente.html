@@ -1,71 +1,90 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'styles/cadastroprincipal.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/cadastrar-clientes.css' %}">
   <title>PARKIN</title>
 </head>
 <body>
-  <header>
-    <a href="/"><img src="{% static 'img/Logo.png' %}"></a>
-  </header>
   <main>
     <div class="centro">
-      <h1>Cadastrar-se</h1>
-      <div class="botoes">
-        <a href="/clientes/cadastrar/" class="ativo">Clientes</a>
-        <a href="/empresas/cadastrar/">Empresa</a>
+      <div class="conteudo-esq">
+        <div class="titulo-esq">
+          <h1>Cadastro</h1>
+          <p>Seu lugar é aqui. Fácil e rápido!</p>
+          <button class="saibamais">Saiba Mais</button>
+        </div>
+        <img class="detalhes-img" src="{% static 'assets/img/detalhes.png' %}">
       </div>
-      <div class="conteudo" id="empresa">
-        <form action="" method="post">
-          {% csrf_token %}
-          <div class="import">
-            <img src="{% static 'assets/img/user.png' %}">
-            <input type="text" name="nome" id="nome" required>
-            <label for="nome">Nome</label>
-          </div>
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              <input type="email" name="email" id="email" required>
-              <label for="email">Email</label>
-            </div>
-            <span style="color: red;">{{erro_email}}</span>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="senha" id="senha" required>
-              <label for="senha">Senha</label>
-            </div>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="senha2" id="senha2" required>
-              <label for="senha">Confirme sua senha</label>
-            </div>
-            <span style="color: red;">{{erro_senha}}</span>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="date" name="data" id="data">
-              <label for="data">Data de nascimento</label>
-            </div>
-          <div class="check">
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          <div class="entrar">
-            <p>Já possui uma conta?</p>
-            <a href="/clientes/entrar/">Entrar</a>
-          </div>
-          <input type="submit" value="Cadastrar" id="button">
-        </form>
+      <div class="conteudo-dir">
+        <div class="titulo-cliente">
+          <h1>Cliente</h1>
+        </div>
+        <div class="login-dir">
+          <form action="{% url 'clientes:cadastrocliente' %}" method="post">
+            <div class="login">
+              <div class="titulos">
+                <h1>Cadastro</h1>
+                <p>Faça parte!</p>
+              </div>
+              {% csrf_token %}
+              <div class="import">
+                <img src="{% static 'assets/icons/user.svg' %}" class="email-img">
+                <div class="form">
+                  <input type="text" name="nome" placeholder="Nome" id="email">
+                </div>
+              </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="email" name="email" placeholder="E-mail" id="email">
+                  </div>
+                </div>
+                <span style="text-align:center; color: red;">{{erro_email}}</span>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha" placeholder="Senha" id="senha">
+                  </div>
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha2" placeholder="Confirme a senha" id="senha">
+                  </div>
+                </div>
+                <span style="text-align:center; color:red;">{{erro_senha}}</span>
+                <div class="import">
+                  <img src="{% static 'assets/icons/calendar.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="date" name="data" id="data">
+                  </div>
+                </div>
+              <div class="check">
+                <input type="checkbox" name="check" id="check">
+                <p>Termos de consentimento</p>
+              </div>
+              <div class="botao">
+                <input type="submit" value="Cadastrar" id="button">
+                <div class="entrar">
+                  <p>Já possui uma conta?</p>
+                  <a href="/clientes/entrar">Entrar</a>
+                </div>
+              </div>
+              <div class="botoes">
+                <div class="b-estacionamento">
+                  <a href="/empresas/cadastrar" class="ativo">Estacionamento</a>
+                </div>
+              </div>
+          </form>
+        </div>
       </div>
     </div>
   </main>
-  <footer>
-    {%block footer%}
-      {%include 'main/footer.html'%}
-    {%endblock%}
-  </footer>
 </body>
 
 </html>

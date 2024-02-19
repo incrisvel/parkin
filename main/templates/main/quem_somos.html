@@ -1,19 +1,75 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos</title>
-    <link rel="stylesheet" href="quem_somos.css">
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/quem_somos.css' %}">
+
 </head>
 <body>
-
-<div class="container">
     <header>
-        <h1>PARKIN</h1>
-        <p>Encontre o seu Lugar</p>
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Quem Somos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
     </header>
-
+<div class="conteudo1">
     <section class="historia">
         <h2>Nossa História</h2>
         <p>
@@ -30,7 +86,7 @@
             O "Parkin" não apenas simplificou a vida nas ruas congestionadas da cidade, mas também se tornou um exemplo de como a tecnologia, quando aplicada de forma realista, pode resolver problemas práticos e melhorar a eficiência de operações diárias, contribuindo para o sucesso sustentável dos negócios locais.
         </p>
     </section>
-
+</div>
     <section>
         <h2>Nossos Valores</h2>
         <ul>
@@ -48,42 +104,41 @@
     <section class="equipe">
                 
         <div class="membro">
-            <img src="img/01.jpg" alt="Foto do Membro 1">
+            <img src="{% static 'assets/img/01.jpg' %}" alt="Foto de Perfil" class="perfil-img">
             <h3>Cristina</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
         </div>
 
         <div class="membro">
-            <img src="img/02.jpg" alt="Foto do Membro 2">
-            <h4>Cristina</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
-        </div>
+                <img src="{% static 'assets/img/02.jpg' %}" alt="Foto de Perfil" class="perfil-img">
+                <h4>Cristina</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
+            </div>
 
-        <div class="membro">
-            <img src="img/03.jpg" alt="Foto do Membro 3">
-            <h4>Cristina</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
-        </div>
+            <div class="membro">
+                <img src="{% static 'assets/img/03.jpg' %}" alt="Foto de Perfil" class="perfil-img">
+                <h4>Cristina</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
+            </div>
 
-        <div class="membro">
-            <img src="img/04.jpg" alt="Foto do Membro 4">
-            <h4>Cristina</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
-        </div>
+            <div class="membro">
+                <img src="{% static 'assets/img/04.jpg' %}" alt="Foto de Perfil" class="perfil-img">
+                <h4>Cristina</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
+            </div>
 
-        <div class="membro">
-            <img src="img/05.jpg" alt="Foto do Membro 5">
-            <h4>Cristina</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
-        </div>
+            <div class="membro">
+                <img src="{% static 'assets/img/05.jpg' %}" alt="Foto de Perfil" class="perfil-img">
+                <h4>Cristina</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
+            </div>
 
-        <div class="membro">
-            <img src="img/06.jpg" alt="Foto do Membro 6">
-            <h4>Cristina</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
-        </div>
-    </section>
-</div>
-
+            <div class="membro">
+                <img src="{% static 'assets/img/06.jpg' %}" alt="Foto de Perfil" class="perfil-img">
+                <h4>Cristina</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis animi possimus accusantium quam fugit recusandae amet, voluptatum ad, sunt praesentium quo. Doloremque rem laborum ratione obcaecati eveniet. Necessitatibus, accusamus consequatur!</p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

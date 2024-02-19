@@ -1,51 +1,310 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <title>PARKIN</title>
+    <title>Início</title>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/index.css' %}">
 </head>
 <body>
     <header>
-        {%block navbar%}
-            {%include 'main/nav.html'%}
-        {%endblock%}
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Quem Somos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <div class="descricao">
-            <div id="principal" style="background-image: url({% static 'img/imagemale.jpg' %})">
-            </div>
-            <div class="secundaria">
-                <h3>
-                    Bem-vindo ao nosso sistema de gerenciamento de estacionamentos!
-                </h3>
-                <p>
-                    Procure vagas de estacionamento de maneira rápida, eficaz e segura.
-                </p>
-                <div style="position: absolute; width: 100%; height: 200px; background-color: rgb(8, 9, 44); top: 300px; left: 0; z-index: -1;"></div>
+    <div class="conteudo1">
+        <div class="text-banner">
+            <ul>
+                <li>
+                    <h1>Encontre o seu lugar</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h2>fácil e rápido!</h2>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>Aqui você encontrará as melhores funcionalidades, tanto para motoristas quanto para empresas</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a class="botao" href="/empresas/dashboard">Saiba Mais</a>
+                </li>
+            </ul>
+        </div>
+        <div class="banner">
+            <img src="{% static 'assets/img/banner1.png' %}" alt="Banner" class="banner-img">
+        </div>
+    </div>
+    <div class="conteudo2">
+        <div class="text1">
+            <ul>
+                <li>
+                    <h1>Nossos Estacionamentos</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>Temos mais de 100 estacionamentos cadastrados em todo o Brasil!</p>
+                </li>
+            </ul>
+            <img src="{% static 'assets/img/clienteslogo.png' %}" alt="Banner" class="clientes-img">
+        </div>
+        <div class="text2">
+            <ul>
+                <li>
+                    <h1>Aqui você encontrará os melhores
+                        <br>
+                        estacionamentos!
+                    </h1>
+                    <p>Como garantimos isso?</p>
+                </li>
+            </ul>
+            <div class="text-flex">
+                <div class="info1">
+                    <img src="{% static 'assets/icons/icone1.svg' %}" alt="Banner" class="iconetext">
+                    <ul>
+                        <li>
+                            <h2>Sistema de busca simplificado</h2>
+                            <p>Nosso sistema de busca inteligente garante ao motorista simplicidade na hora de escolher a sua vaga. Possuímos diversas funcionalidades que facilitam a vida dos motoristas.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info2">
+                    <img src="{% static 'assets/icons/icone2.svg' %}" alt="Banner" class="iconetext">
+                    <ul>
+                        <li>
+                            <h2>Gestão fácil para empresas</h2>
+                            <p>A fácil gestão que proporcionamos às empresas garantem aos mostoristas uma qualidade acima da média em estacionamentos que estão cadastrados no ParkIn.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info3">
+                    <img src="{% static 'assets/icons/icone3.svg' %}" alt="Banner" class="iconetext">
+                    <ul>
+                        <li>
+                            <h2>Unindo o últil ao agradável</h2>
+                            <p>Devido as nossas funcionalides feitas para os motoristas e os estacionamentos, nós conseguimos extrair o melhor de cada um, tornando a interação entre motoristas e estacionamentos mais simples.</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="descricao2">
-            <div style="background-image: url({% static 'img/imagemale2.jpg' %})" id="principal">
+    </div>
+    <div class="conteudo3">
+        <div class="text-flex1">
+            <div class ="p-img">
+                <img src="{% static 'assets/img/pessoas1.png' %}" alt="Banner" class="pessoas1-img">
             </div>
-            <div class="secundaria">
-                <h3 style="color: rgb(8, 9, 44);">
-                    Os usuários podem facilmente localizar estacionamentos cadastrados.
-                </h3>
-                <p style="color: rgb(8, 9, 44);">
-                    Com cadastro fácil de usuários, tanto clientes quanto proprietários.
-                </p>
-                <div style="position: absolute; width: 100%; height: 200px; background-color: rgb(255, 145, 47); top: 860px; left: 0; z-index: -1;"></div>
+            <div class ="p-text">
+                <ul>
+                    <li>
+                        <h1>Conheça as nossas funcionaliades para
+                            <br>
+                            os estacionamentos!
+                        </h1>
+                        <p>Nossa missão é proporcionar aos usuários do nosso sistema uma experiência única. Com base nisso, nós criamos um sistema onde cada estacionamento cadastrado será monitorado e atualizado em tempo real, para um melhor aproveitamento de todos. Algumas funcionalidades que nos diferenciam são: vagas em tempo real, monitoramento simplificado para empresas, suporte 24 horas, e criptografia de dados.</p>
+                        <a class="botao1" href="/clientes/entrar">Saiba Mais</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </main>
+    </div>
+    <div class="conteudo4">
+        <div class="c-cont">
+            <div class='text-flex2'>
+                <ul>
+                    <li>
+                        <h1>O ParkIn...</h1>
+                        <p>A cada dia que passa o ParkIn fica cada vez mais conhecido, e com isso, mais e mais pessoas economizam tempo e dinheiro com a nossa plataforma. Ficamos felizes com os resultados positivos.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class='dados'>
+                <img src="{% static 'assets/img/dados.png' %}" alt="Dados do Parkin" class="dados-img">
+            </div>
+        </div>
+    </div>
+    <div class="conteudo5">
+        <div class="text-flex1">
+            <div class ="p-img">
+                <img src="{% static 'assets/img/pessoas2.png' %}" alt="Banner" class="pessoas1-img">
+            </div>
+            <div class ="p-text1">
+                <ul>
+                    <li>
+                        <h1>Cadastre-se em nossa plataforma!
+                        </h1>
+                        <p>Venha fazer parte desse projeto conosco. Aqui você terá todo o suporte que precisa. O seu estacionamento está aqui, compartilhe com amigos e conhecidos a nossa plataforma, quanto mais pessoas participam, mais pessoas ganham.</p>
+                        <a class="botao1" href="/clientes/cadastrar/">Cadastrar-se</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="conteudo6">
+        <div class="c-cont">
+            <div class='text-n'>
+                <ul>
+                    <li>
+                        <h1>Nossa Missão</h1>
+                        <p>Nossa missão é proporcionar uma solução inovadora e eficiente para a gestão de estacionamentos, conectando os motoristas com vagas disponíveis em tempo real, enquanto oferecemos às empresas uma plataforma intuitiva para gerenciarem seus espaços de estacionamento de forma otimizada.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class='emp-img'>
+                <img src="{% static 'assets/img/empresas1.png' %}" alt="Dados do Parkin" class="empresas-img">
+            </div>
+        </div>
+    </div>
     <footer>
-        {%block footer%}
-            {%include 'main/footer.html'%}
-        {%endblock%}
+        <div class="conts">
+            <div class="cont-f1">
+                <div class="logo1">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="text3">
+                    <ul>
+                        <li>
+                            <p>Copyright © 2024 ParkIn ltd.</p>
+                            <p>All rights reserved</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cont-f2">
+                <div class="text4">
+                    <div class="titulo-f1">
+                        <ul>
+                            <li>
+                                <h1>Empresa</h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text5">
+                        <ul>
+                            <li>
+                                <a href="">Sobre nós</a>
+                                <a href="">Nossa Missão</a>
+                                <a href="">Como funciona?</a>
+                                <a href="">Estacionamentos</a>
+                                <a href="">Cadastrar</a>
+                                <a href="">Para empresas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cont-f3">
+                <div class="text6">
+                    <div class="titulo-f1">
+                        <ul>
+                            <li>
+                                <h1>Suporte</h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text7">
+                        <ul>
+                            <li>
+                                <a href="">Contato</a>
+                                <a href="">Nossa equipe</a>
+                                <a href="">feedback</a>
+                                <a href="">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cont-f4">
+                <div class="text8">
+                    <div class="titulo-f1">
+                        <ul>
+                            <li>
+                                <h1>Contatos</h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text9">
+                        <ul>
+                            <li>
+                                <a href="">parkin2123@gmail.com</a>
+                                <a href="">(47) 9 84087990</a>
+                                <a href="">(47) 9 99781506</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </footer>
 </body>
 </html>

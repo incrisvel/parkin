@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'empresas',
     'clientes',
     'mapa',
-    'django.contrib.gis',
     'multiselectfield',
 ]
 
@@ -128,4 +127,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'main.Usuario'
-
