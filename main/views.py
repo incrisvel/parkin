@@ -29,10 +29,6 @@ def enviar_email(mail):
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     print('email enviado')
 
-@csrf_protect
-def a(request):
-    return render(request, 'main/email.html')
-
 @login_required
 def fazer_logout(request):
     logout(request)

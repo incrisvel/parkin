@@ -471,30 +471,6 @@
             "model": "session"
         }
     },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 6,
-        "fields": {
-            "app_label": "main",
-            "model": "usuario"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 7,
-        "fields": {
-            "app_label": "main",
-            "model": "feedback"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 8,
-        "fields": {
-            "app_label": "empresas",
-            "model": "endereco"
-        }
-    },
 
     {
         "model": "sessions.session",

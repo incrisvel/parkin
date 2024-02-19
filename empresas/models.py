@@ -2,6 +2,10 @@ from django.db import models
 from main.models import Usuario
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from django.db.models import Avg
+from multiselectfield import MultiSelectField
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 class EstacionamentoManager(BaseUserManager):
     def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
@@ -29,8 +33,8 @@ class Estacionamento(AbstractBaseUser):
     nome_fantasia = models.CharField(max_length=200,  blank=False, null=False, verbose_name='Nome Fantasia')
     email = models.EmailField(max_length=200, blank=False, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
-    password = models.CharField(max_length=200, default = '')  
-    cnpj = models.CharField(max_length=18,  blank=False, null=False, verbose_name='CNPJ')
+    password = models.CharField(max_length=200)  
+    cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
 
     objects = EstacionamentoManager()
 
@@ -40,37 +44,54 @@ class Estacionamento(AbstractBaseUser):
         return self.nome_fantasia
 
     
-    
-class PerfilLocal(models.Model):
-    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
-
-    segunda = models.BooleanField(default=False)
-    terca = models.BooleanField(default=False)
-    quarta = models.BooleanField(default=False)
-    quinta = models.BooleanField(default=False)
-    sexta = models.BooleanField(default=False)
-    sabado = models.BooleanField(default=False)
-    domingo = models.BooleanField(default=False)
-    
-    coberto = models.BooleanField(default=None)
-    valor = models.FloatField(default=0)
-    descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
-    hora_abre = models.TimeField(default='', blank = True)
-    hora_fecha = models.TimeField(default='', blank = True)
-    vagas_total = models.PositiveSmallIntegerField()
-    vagas_pref = models.PositiveSmallIntegerField()
-    vagas_cob = models.PositiveSmallIntegerField()
-    vagas_disp = models.PositiveSmallIntegerField()
-
-    class Meta:
-        verbose_name = "Perfil Local" 
-        verbose_name_plural = "Perfis Locais" 
-    
 class Endereco(models.Model):
-    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
-
+    estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='endereco')
     local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
     logradouro = models.CharField(max_length=200, blank=False, null=False)
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
+    
+    def __str__(self):
+        return f'Endereço de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name = 'Endereço'
+
+    
+class PerfilLocal(models.Model):
+    DIAS_SEMANA = (
+        (1, 'Segunda-feira'),
+        (2, 'Terça-feira'),
+        (3, 'Quarta-feira'),
+        (4, 'Quinta-feira'),
+        (5, 'Sexta-feira'),
+        (6, 'Sábado'),
+        (7, 'Domingo'),
+    )
+
+    estacionamento = models.OneToOneField(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    proprietarios = models.CharField(max_length = 200, null = True, blank = True)
+    coberto = models.BooleanField(default = False)
+    valor = models.FloatField(validators=[MinValueValidator(0.0)], verbose_name='valor (R$/h)')
+    dias_aberto = MultiSelectField(choices=DIAS_SEMANA, max_choices=7, max_length=13)
+    descricao = models.TextField(max_length = 250, verbose_name='descrição')
+    hora_abre = models.TimeField(blank = True)
+    hora_fecha = models.TimeField(blank = True)
+    vagas_total = models.PositiveSmallIntegerField()
+    vagas_pref = models.PositiveSmallIntegerField()
+    vagas_cob = models.PositiveSmallIntegerField()
+    vagas_disp = models.PositiveSmallIntegerField()
+    nota_media = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(10.0)], verbose_name='nota média', null=True, blank=True, editable=False)
+
+    def update_nota_media(self):
+        media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota__avg']
+        self.nota_media = round(media, 1) if media else None
+        self.save()
+    
+    def __str__(self):
+        return f'Dados de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name_plural = 'Perfis de locais'
+    
