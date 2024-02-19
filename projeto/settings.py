@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'clientes',
     'mapa',
     'django.contrib.gis',
+    'multiselectfield',
 ]
 
 AUTHENTICATION_BACKENDS = [

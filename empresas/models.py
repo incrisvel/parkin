@@ -3,6 +3,15 @@ from main.models import Usuario
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.db.models import Avg
+from multiselectfield import MultiSelectField
+from django.core.validators import MinValueValidator, MaxValueValidator
+
+""" O que fiz (18/02/2024)
+
+- Tirar default = '';
+- Adicionar campo de seleção múltipla (settings.py);
+- Customizar feedback em main/models.py
+"""
 
 class EstacionamentoManager(BaseUserManager):
     def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
@@ -30,7 +39,7 @@ class Estacionamento(AbstractBaseUser):
     nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
     email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
-    password = models.CharField(max_length=200, default = '')  
+    password = models.CharField(max_length=200)  
     cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
 
     objects = EstacionamentoManager()
@@ -48,6 +57,12 @@ class Endereco(models.Model):
     logradouro = models.CharField(max_length=200, blank=False, null=False)
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
+    
+    def __str__(self):
+        return f'Endereço de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name = 'Endereço'
 
     
 class PerfilLocal(models.Model):
@@ -61,21 +76,28 @@ class PerfilLocal(models.Model):
         (7, 'Domingo'),
     )
 
-    estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
-    proprietarios = models.CharField(max_length = 200, default = '', null = True, blank = True)
-    coberto = models.BooleanField(default=None)
-    valor = models.FloatField(default=0)
-    dias_aberto = models.CharField(max_length=7, choices=DIAS_SEMANA)
-    descricao = models.TextField(max_length = 250, verbose_name='descrição', default='')
-    hora_abre = models.TimeField(default='', blank = True)
-    hora_fecha = models.TimeField(default='', blank = True)
+    estacionamento = models.OneToOneField(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    proprietarios = models.CharField(max_length = 200, null = True, blank = True)
+    coberto = models.BooleanField(default = False)
+    valor = models.FloatField(validators=[MinValueValidator(0.0)], verbose_name='valor (R$/h)')
+    dias_aberto = MultiSelectField(choices=DIAS_SEMANA, max_choices=7, max_length=13)
+    descricao = models.TextField(max_length = 250, verbose_name='descrição')
+    hora_abre = models.TimeField(blank = True)
+    hora_fecha = models.TimeField(blank = True)
     vagas_total = models.PositiveSmallIntegerField()
     vagas_pref = models.PositiveSmallIntegerField()
     vagas_cob = models.PositiveSmallIntegerField()
     vagas_disp = models.PositiveSmallIntegerField()
+    nota_media = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(10.0)], verbose_name='nota média', null=True, blank=True, editable=False)
 
-    @property
-    def nota_media(self):
-        media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota_media']
-        return round(media, 1) if media else None
+    def update_nota_media(self):
+        media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota__avg']
+        self.nota_media = round(media, 1) if media else None
+        self.save()
+    
+    def __str__(self):
+        return f'Dados de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name_plural = 'Perfis de locais'
     
