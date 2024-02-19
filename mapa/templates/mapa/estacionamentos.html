@@ -1,0 +1,176 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Estacionamentos</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/map.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/index.css' %}">
+  </head>
+<body class="verdadeiro">
+    <header>
+      <nav>
+          <ul>
+              <div class="logo">
+                  <li>
+                      <a href="">
+                          <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                      </a>
+                  </li>
+                  <li>
+                      <h1>ParkIn</h1>
+                  </li>
+              </div>
+              <div class="l-c">
+                  <div class="login">
+                      {% if user.is_authenticated %}
+                          <li><a href="/logout" class="nav-link">Sair</a></li> 
+                      {% else %}
+                          <li>
+                              <a href="/clientes/entrar/">
+                                  Entrar
+                              </a>
+                          </li>
+                      </div>
+                      <div class="cadastro">
+                          <li>
+                              <a href="/clientes/cadastrar/">
+                                  Cadastrar-se
+                              </a>
+                          </li>
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="navbar">
+                  <li>
+                      <a href="/">
+                          Início
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/estacionamentos">
+                          Estacionamentos
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/quemsomos">
+                          Quem Somos
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/contato">
+                          Contato
+                      </a>
+                  </li>
+              </div>
+          </ul>
+      </nav>
+    </header>
+    <div class="conteudos">
+        <div class="estacionamentos">
+            <div class="titulos">
+                <ul>
+                    <li>
+                        <h1>Estacionamentos Próximos</h1>
+                    </li>
+                </ul>
+                <div class="filtros">
+                    <ul>
+                        <li>
+                            <p>Estacionamentos próximos</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Preço
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Avaliação
+                        </li>
+                    </ul>
+                </div>
+                <div class="estacionamentosinfo">
+                    <div class="est">
+                        <div class="block">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div class="imagem">
+                                            <img src="{% static './img/estacionamento1.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping Neumarkt</h1>
+                                            <img src="{% static './icons/avaliacao.svg' %}" alt="Foto de estacionamento" class="avaliacao">
+                                            <p>33 Vagas disponíveis | Coberto | R$15,00/h</p>
+                                            <span> R. 7 de Setembro, 1213 - Centro</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href=""> 
+                                        <div class="imagem">
+                                            <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping Park Europeu</h1>
+                                            <img src="{% static './icons/avaliacao1.svg' %}" alt="Foto de estacionamento" class="avaliacao">
+                                            <p>48 Vagas disponíveis | P/Coberto | Grátis</p>
+                                            <span> Rodovia Paul Fritz Kuehnrich, 1600 - Itoupava Norte</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div class="imagem">
+                                            <img src="{% static 'img/estacionamento3.jpg' %}" alt="Foto de estacionamento" class="img-est">
+                                        </div>
+                                        <div class="textos">
+                                            <h1>Estacionamento Shopping H</h1>
+                                            <img src="{% static './icons/avaliacao2.svg' %}" alt="Foto de estacionamento" class="avaliacao">
+                                            <p>52 Vagas disponíveis | Coberto | R$10,00/h</p>
+                                            <span>R. XV de Novembro, 759 - Centro</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mapa">
+            <div id="map">
+                <script
+                    src="{% static 'js/map.js' %}"
+                    defer
+                ></script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

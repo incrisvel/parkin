@@ -56,9 +56,9 @@ def entrarcliente(request):
 
         cliente = EmailBackend.authenticate(email=email, password=senha)
 
-        if cliente is not None and Cliente.objects.filter(email=email).exists():   
+        if cliente is not None and Cliente.objects.filter(email=email).exists() and Cliente.objects.filter(email=email).exists():
             login(request, cliente, backend='projeto.backend.EmailBackend')
-            return redirect('/mapa/')
+            return redirect('/estacionamentos/')
         else:
             erro_email = True
             erro_senha = True

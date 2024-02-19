@@ -58,7 +58,7 @@ def entrarempresa(request):
        
         estacionamento = EmailBackend.authenticate(email=email, password=senha)
 
-        if estacionamento is not None and Estacionamento.objects.filter(email=email).exists():   
+        if estacionamento is not None and Estacionamento.objects.filter(email=email).exists() and Estacionamento.objects.filter(email=email).exists():
             login(request, estacionamento, backend='projeto.backend.EmailBackend')
             return redirect('/empresas/dashboard')
         else:
