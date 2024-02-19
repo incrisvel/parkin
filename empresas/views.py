@@ -97,6 +97,7 @@ def cadastro(request):
             if form.is_valid() and form2.is_valid():
                 perfil = form.save(commit=False)  
                 endere = form2.save(commit=False)  
+                perfil.proprietarios = request.user.email
                 perfil.save() 
                 endere.save() 
             return redirect('/empresas/cadastro')
