@@ -158,6 +158,7 @@ button:hover {
     margin: auto;
     overflow: hidden;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .import4 {

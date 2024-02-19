@@ -56,6 +56,23 @@ ul .navbar li a {
   color: #08092a;
 }
 
+ul .navbar li a::after{
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #000000;
+  width: 0;
+  transition: 0.3s;
+
+}
+
+ul .navbar li a:hover::after{
+  width: 100%;
+  left: 0;
+}
+
 .l-c {
   position: absolute;
   display: flex;
@@ -423,6 +440,11 @@ footer {
   font-size: 13px;
 }
 
+.text5 a:hover{
+  text-decoration: underline;
+}
+
+
 .cont-f3 {
   width: 200px;
   display: flex;
@@ -441,6 +463,10 @@ footer {
   font-size: 13px;
 }
 
+.text7 a:hover{
+  text-decoration: underline;
+}
+
 .cont-f4 {
   width: 200px;
   display: flex;
@@ -457,4 +483,8 @@ footer {
   margin-top: 15px;
   color: #FFDE59;
   font-size: 13px;
+}
+
+.text9 a:hover{
+  text-decoration: underline;
 }

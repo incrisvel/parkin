@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request,'main/index.html')
 
-@csrf_protect
 def enviar_email(mail):
     corpo_email = render_to_string('main/email.html')
 

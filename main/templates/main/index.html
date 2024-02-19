@@ -8,6 +8,7 @@
     <title>Início</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/index.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
 </head>
 <body>
     <header>
@@ -87,7 +88,7 @@
             </ul>
             <ul>
                 <li>
-                    <a class="botao" href="/empresas/dashboard">Saiba Mais</a>
+                    <a class="botao" onclick="scrollDown()">Saiba Mais</a>
                 </li>
             </ul>
         </div>
@@ -163,7 +164,7 @@
                             os estacionamentos!
                         </h1>
                         <p>Nossa missão é proporcionar aos usuários do nosso sistema uma experiência única. Com base nisso, nós criamos um sistema onde cada estacionamento cadastrado será monitorado e atualizado em tempo real, para um melhor aproveitamento de todos. Algumas funcionalidades que nos diferenciam são: vagas em tempo real, monitoramento simplificado para empresas, suporte 24 horas, e criptografia de dados.</p>
-                        <a class="botao1" href="/clientes/entrar">Saiba Mais</a>
+                        <a class="botao1" href="/clientes/entrar">Entrar</a>
                     </li>
                 </ul>
             </div>
@@ -306,5 +307,20 @@
         </div>
         </div>
     </footer>
+    <script>
+    function scrollDown() {
+        var scrollStep = window.innerHeight / 20; // Ajuste o valor conforme necessário
+        var destination = 750; // Defina a coordenada de destino conforme necessário
+        var scrollInterval = setInterval(function() {
+            var scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop >= destination || scrollTop + window.innerHeight >= document.documentElement.scrollHeight) {
+                clearInterval(scrollInterval);
+            } else {
+                window.scrollBy(0, scrollStep);
+            }
+        }, 3); // Ajuste o intervalo conforme necessário
+    }
+    </script>
 </body>
 </html>

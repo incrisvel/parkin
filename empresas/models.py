@@ -6,12 +6,6 @@ from django.db.models import Avg
 from multiselectfield import MultiSelectField
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-""" O que fiz (18/02/2024)
-
-- Tirar default = '';
-- Adicionar campo de seleção múltipla (settings.py);
-- Customizar feedback em main/models.py
-"""
 
 class EstacionamentoManager(BaseUserManager):
     def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
@@ -36,8 +30,8 @@ class EstacionamentoManager(BaseUserManager):
 
 class Estacionamento(AbstractBaseUser):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='estacionamento')
-    nome_fantasia = models.CharField(max_length=200, unique=True, blank=False, null=False, verbose_name='Nome Fantasia')
-    email = models.EmailField(unique=True, max_length=200, blank=False, null=False)
+    nome_fantasia = models.CharField(max_length=200,  blank=False, null=False, verbose_name='Nome Fantasia')
+    email = models.EmailField(max_length=200, blank=False, null=False)
     razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
     password = models.CharField(max_length=200)  
     cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
@@ -99,5 +93,4 @@ class PerfilLocal(models.Model):
         return f'Dados de "{self.estacionamento.nome_fantasia}"'
     
     class Meta:
-        verbose_name_plural = 'Perfis de locais'
-    
+        verbose_name_plural = 'Perfis de locais'    
