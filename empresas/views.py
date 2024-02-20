@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import Perfil, Estacio
 from django.contrib.auth.decorators import permission_required
-from .forms import Estacionamento
+from .forms import Estacionamento, EnderecoForm, PerfilForm
 from main.views import enviar_email
 from .models import Estacionamento, PerfilLocal, Endereco
 from django.views.decorators.csrf import csrf_protect
@@ -85,34 +84,42 @@ def resumos(request):
 @csrf_protect
 @estacionamento_required
 def cadastro(request):
-    usuario = Estacionamento.objects.get(email=request.user.email)
-    if request.user.is_authenticated:
-        usuario = Estacionamento.objects.get(email=request.user.email)
-        if request.method == 'POST':
-            form = Perfil(request.POST)
-            form2 = Estacio(request.POST)
-            print(request.user)
-            print(form.errors)
-            print(form2.errors)
-            if form.is_valid() and form2.is_valid():
-                perfil = form.save(commit=False)  
-                endere = form2.save(commit=False)  
-                perfil.save() 
-                endere.save() 
-            return redirect('/empresas/cadastro')
-        else:   
-            form = Perfil()
-            form2 = Estacio()
-        return render(request,'empresas/cadastro.html', {'nome':usuario.nome_fantasia, 'form':form, 'form2' : form2})
+    if request.method == 'POST':
+        form_perfil = PerfilForm(request.POST)
+        form_endereco = EnderecoForm(request.POST)
+        if form_perfil.is_valid() and form_endereco.is_valid():
+            perfil = form_perfil.save(commit=False)
+            perfil.estacionamento = request.user.estacionamento
+            perfil.save()
+
+            endereco = form_endereco.save(commit=False)
+            endereco.estacionamento = request.user.estacionamento
+            endereco.save()
+
+            return redirect('/empresas/dashboard')
     else:
-        return redirect('/empresas/entrar')
+        form_perfil = PerfilForm()
+        form_endereco = EnderecoForm()
+
+    return render(request, 'empresas/cadastro.html', {'form': form_perfil, 'form2': form_endereco})
+
 
 @estacionamento_required
 def estacionamento(request):
     usuario = Estacionamento.objects.get(email=request.user.email)
     if request.user.is_authenticated:
-        locais = PerfilLocal.objects.filter(estacionamento=request.user.id)
-        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais})
+        locais = PerfilLocal.objects.all()
+        enderecos = Endereco.objects.all()
+
+        dias_semana = {'1': 'Segunda-feira', '2': 'Terça-feira', '3': 'Quarta-feira', '4': 'Quinta-feira', '5': 'Sexta-feira', '6': 'Sábado', '7': 'Domingo'}
+
+        for local in locais:
+            # Convertendo os dias de funcionamento de códigos para nomes de dias
+            dias_abertos = [dias_semana[dia] for dia in local.dias_aberto]
+            local.dias_abertos = dias_abertos  # Substituindo os códigos pelos nomes dos dias
+
+
+        return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'enderecos':enderecos})
     else:
         return redirect('/empresas/entrar')
 

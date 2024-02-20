@@ -112,7 +112,7 @@
             </ul>
         </nav>
     </div>
-    <main>
+    <div class="content2">
         {% for local in locais%}
         <div class='principal'>
             <div class='imagens'> 
@@ -126,37 +126,21 @@
                     </div>
                     <div class='aberto'>
                         <h4>Dias de funcionamento:</h4>
-                        {%if local.segunda == 1%}
-                        <p>Segunda-feira ✓</p>
-                        {%endif%}
-                        {%if local.terca == 1%}
-                        <p>Terça-feira ✓</p>
-                        {%endif%}
-                        {%if local.quarta == 1%}
-                        <p>Quarta-feira ✓</p>
-                        {%endif%}
-                        {%if local.quinta == 1%}
-                        <p>Quinta-feira ✓</p>
-                        {%endif%}
-                        {%if local.sexta == 1%}
-                        <p>Sexta-feira</p>
-                        {%endif%}
-                        {%if local.sabado == 1%}
-                        <p>Sabado</p>
-                        {%endif%}
-                        {%if local.domingo == 1%}
-                        <p>Domingo</p>
-                        {%endif%}
-                    </div>
+                        {% for dia in local.dias_abertos %}
+                            <p>{{ dia }}</p>
+                        {% endfor %}
+                    </div>                  
                     <div class='descricao'>
                         <h4>Descriçao</h4>
                         <p>{{local.descricao}}</p>
                     </div>
-                    <div class='endereco'>
-                        <h4>Endereço:</h4>
-                        <p>{{endereco.local}}, {{endereco.bairro}}, n°:{{endereco.numero}}</p>   
-                        <p>CEP: {{endereco.cep}}</p>
-                    </div>
+                    {% for endereco in enderecos%}
+                        <div class='endereco'>
+                            <h4>Endereço:</h4>
+                            <p>{{endereco.local}}, {{endereco.bairro}}, n°:{{endereco.numero}}</p>   
+                            <p>CEP: {{endereco.cep}}</p>
+                        </div>
+                    {%endfor%}
                 </div>
                 <div class='preco'>
                     <p>Preço: R${{local.valor}}</p> 
@@ -164,6 +148,6 @@
             </div>
         </div>
         {%endfor%}
-    </main>
+    </div>
 </body>
 </html>
