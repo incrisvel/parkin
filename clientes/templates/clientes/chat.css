@@ -1,0 +1,171 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+}
+
+/* Estilos para a classe mytext */
+.mytext {
+    border: 0;
+    padding: 10px;
+    background: #ffffff
+}
+
+/* Estilos para a classe text */
+.text {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text > p:first-of-type {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: auto;
+    line-height: 13px;
+    font-size: 12px;
+}
+
+.text > p:last-of-type {
+    width: 100%;
+    text-align: right;
+    color: silver;
+    margin-bottom: -7px;
+    margin-top: auto;
+}
+
+/* Estilos para a classe text-l (texto à esquerda) */
+.text-l {
+    float: left;
+    padding-right: 10px;
+}
+
+/* Estilos para a classe text-r (texto à direita) */
+.text-r {
+    float: right;
+    padding-left: 10px;
+}
+
+/* Estilos para a classe avatar */
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    float: left;
+    padding-right: 10px;
+}
+
+/* Estilos para a classe macro */
+.macro {
+    margin-top: 5px;
+    width: 85%;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+}
+
+/* Estilos para a classe msj-rta (mensagem à direita) */
+.msj-rta {
+    float: right;
+    background: whitesmoke;
+}
+
+/* Estilos para a classe msj (mensagem à esquerda) */
+.msj {
+    float: left;
+    background: white;
+}
+
+/* Estilos para a classe frame */
+.frame {
+    background: #FFDE59;
+    height: 450px;
+    overflow: hidden;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.frame > div:last-of-type {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+/* Estilos para o ícone dentro da mensagem */
+body > div > div > div:nth-child(2) > span {
+    background: whitesmoke;
+    padding: 10px;
+    font-size: 21px;
+    border-radius: 50%;
+}
+
+/* Estilos adicionais para ajustar a posição da mensagem à direita */
+body > div > div > div.msj-rta.macro {
+    margin: auto;
+    margin-left: 1%;
+}
+
+/* Estilos para a lista não ordenada (ul) */
+ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 18px;
+    position: absolute;
+    bottom: 47px;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    overflow-y: scroll;
+}
+
+/* Estilos para adicionar seta antes das mensagens à esquerda */
+.msj:before {
+    width: 0;
+    height: 0;
+    content: "";
+    top: -5px;
+    left: -14px;
+    position: relative;
+    border-style: solid;
+    border-width: 0 13px 13px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+/* Estilos para adicionar seta após as mensagens à direita */
+.msj-rta:after {
+    width: 0;
+    height: 0;
+    content: "";
+    top: -5px;
+    left: 14px;
+    position: relative;
+    border-style: solid;
+    border-width: 13px 13px 0 0;
+    border-color: whitesmoke transparent transparent transparent;
+}
+
+/* Estilos para remover a borda do input quando está em foco */
+input:focus {
+    outline: none;
+}
+
+/* Estilos para os placeholders do input em diferentes navegadores */
+::-webkit-input-placeholder {
+    color: #d4d4d4;
+}
+
+::-moz-placeholder {
+    color: #d4d4d4;
+}
+
+:-ms-input-placeholder {
+    color: #d4d4d4;
+}
+
+:-moz-placeholder {
+    color: #d4d4d4;
+}
