@@ -87,16 +87,18 @@ def resumos(request):
 def cadastro(request):
     usuario = Estacionamento.objects.get(email=request.user.email)
     if request.user.is_authenticated:
-        usuario = Estacionamento.objects.get(email=request.user.email)
         if request.method == 'POST':
             form = Perfil(request.POST)
             form2 = Estacio(request.POST)
-            print(request.user)
+            print(request.user.id)
             print(form.errors)
+            print('------------')
             print(form2.errors)
+            form.estacionemento = request.user.id
+            form2.estacionemento = request.user.id
             if form.is_valid() and form2.is_valid():
                 perfil = form.save(commit=False)  
-                endere = form2.save(commit=False)  
+                endere = form2.save(commit=False)   
                 perfil.proprietarios = request.user.email
                 perfil.save() 
                 endere.save() 
