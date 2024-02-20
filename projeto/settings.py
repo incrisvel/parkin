@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 # projeto/settings.py
 
 from pathlib import Path
+import os  # Importa o módulo os para acessar variáveis de ambiente
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +24,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+if 'CODESPACE_NAME' in os.environ:
+    CSRF_TRUSTED_ORIGINS = [f'https://{os.getenv("CODESPACE_NAME")}-8000.{os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")}']
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',
+]
 
 # Application definition
 
@@ -35,6 +45,13 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+    'mapa',
+    'multiselectfield',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'projeto.backend.EmailBackend',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +69,7 @@ ROOT_URLCONF = 'projeto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,7 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'TIME_ZONE': 'America/Sao_Paulo'
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -89,12 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'pt-BR'
-
-TIME_ZONE = 'America/Sao_Paulo' 
-
+LANGUAGE_CODE = 'pt-br'
 USE_I18N = True
 
+TIME_ZONE = 'America/Sao_Paulo' 
 USE_TZ = True
 
 
@@ -107,5 +123,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 AUTH_USER_MODEL = 'main.Usuario'

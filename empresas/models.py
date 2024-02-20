@@ -1,42 +1,96 @@
 from django.db import models
 from main.models import Usuario
-from django import forms
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
+from django.db.models import Avg
+from multiselectfield import MultiSelectField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
-class Estacionamento(models.Model):
-    nome_fantasia = models.CharField(max_length=200, unique = True, blank=False, null=False, verbose_name = 'Nome')
-    email = models.CharField(max_length=200, blank=False, unique = True, null=False, default = '')
-    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name = 'Razão social')
-    senha = models.CharField(max_length=200, default = '')
-    cnpj = models.CharField(max_length=14, unique=True, blank=False, null=False, verbose_name = 'CNPJ')
+
+class EstacionamentoManager(BaseUserManager):
+    def create_user(self, nome_fantasia, email, razao_social, password, cnpj):
+        if not email:
+            raise ValueError('O campo de e-mail é obrigatório.')
+        
+        novo_usuario = Usuario.objects.create(
+            tipo=Usuario.Tipo.ESTACIONAMENTO,
+            email=email,
+            password=make_password(password)
+        )  
+        estacionamento = self.model(
+            nome_fantasia=nome_fantasia,
+            email=email,
+            razao_social=razao_social,
+            password=make_password(password),
+            cnpj=cnpj,
+            usuario = novo_usuario
+        )
+        estacionamento.save()
+        return estacionamento
+
+class Estacionamento(AbstractBaseUser):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='estacionamento')
+    nome_fantasia = models.CharField(max_length=200,  blank=False, null=False, verbose_name='Nome Fantasia')
+    email = models.EmailField(max_length=200, blank=False, null=False)
+    razao_social = models.CharField(max_length=200, blank=False, null=False, verbose_name='Razão Social')
+    password = models.CharField(max_length=200)  
+    cnpj = models.CharField(max_length=18, unique=True, blank=False, null=False, verbose_name='CNPJ')
+
+    objects = EstacionamentoManager()
+
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
-        return f"{self.nome_fantasia} - CNPJ: {self.cnpj}"
-    
+        return self.nome_fantasia
+
     
 class Endereco(models.Model):
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
+    estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='endereco')
+    local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
     logradouro = models.CharField(max_length=200, blank=False, null=False)
     numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
     
+    def __str__(self):
+        return f'Endereço de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name = 'Endereço'
+
     
 class PerfilLocal(models.Model):
-    DIAS_CHOICES = [
-        ('segunda', 'Segunda-feira'),
-        ('terca', 'Terça-feira'),
-        ('quarta', 'Quarta-feira'),
-        ('quinta', 'Quinta-feira'),
-        ('sexta', 'Sexta-feira'),
-        ('sabado', 'Sábado'),
-        ('domingo', 'Domingo'),
-    ]
-    local = models.OneToOneField(Estacionamento, on_delete=models.CASCADE)
-    dias_abertos = models.CharField(max_length=7,choices=DIAS_CHOICES, verbose_name='dias abertos')
-    hora_abre = models.TimeField
-    hora_fecha = models.TimeField
-    vagas_total = models.PositiveSmallIntegerField
-    vagas_pref = models.PositiveSmallIntegerField
-    vagas_cob = models.PositiveSmallIntegerField
-    vagas_disp = models.PositiveSmallIntegerField
-    descricao = models.CharField(max_length=1000, null=True, verbose_name='sobre')
+    DIAS_SEMANA = (
+        (1, 'Segunda-feira'),
+        (2, 'Terça-feira'),
+        (3, 'Quarta-feira'),
+        (4, 'Quinta-feira'),
+        (5, 'Sexta-feira'),
+        (6, 'Sábado'),
+        (7, 'Domingo')
+    )
+
+    estacionamento = models.OneToOneField(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    proprietarios = models.CharField(max_length = 200, null = True, blank = True)
+    coberto = models.BooleanField(default = False)
+    valor = models.FloatField(validators=[MinValueValidator(0.0)], verbose_name='valor (R$/h)')
+    dias_aberto = MultiSelectField(choices=DIAS_SEMANA, max_choices=7, max_length=13)
+    descricao = models.TextField(max_length = 250, verbose_name='descrição')
+    hora_abre = models.TimeField(blank = True)
+    hora_fecha = models.TimeField(blank = True)
+    vagas_total = models.PositiveSmallIntegerField()
+    vagas_pref = models.PositiveSmallIntegerField()
+    vagas_cob = models.PositiveSmallIntegerField()
+    vagas_disp = models.PositiveSmallIntegerField()
+    nota_media = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(10.0)], verbose_name='nota média', null=True, blank=True, editable=False)
+
+    def update_nota_media(self):
+        media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota__avg']
+        self.nota_media = round(media, 1) if media else None
+        self.save()
+    
+    def __str__(self):
+        return f'Dados de "{self.estacionamento.nome_fantasia}"'
+    
+    class Meta:
+        verbose_name_plural = 'Perfis de locais'    

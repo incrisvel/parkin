@@ -30,6 +30,42 @@ Foi iniciada a apresentação da equipe, tendo Ana, Arthur e Marco começado o P
 
 A equipe criou e apresentou o modelo .ppt do projeto para a turma.
 
-## 26/01/2024
+## 27/01/2024
 
-Cristina fez os modelos do banco de dados.
+Ana, Cristina e Marco reuniram-se virtualmente para discutir o andamento do projeto e o cronograma da equipe.
+
+## 29/01/2024
+
+Marco trabalhou na integração do banco de dados, feito por Cristina, com os formulários nos templates. Arthur e Bianca organizaram os produtos necessários para a apresentação do projeto. Ana e Ryan verificaram e testaram o banco de dados.
+
+## 30/01/2024
+
+Foi verificado o funcionamento do cadastro e login de usuários (autenticação).
+
+## 31/01/2024
+
+A equipe preparou a apresentação e Ryan renovou a tela de login.
+
+## 01/02/2024
+
+Os integrantes reescreveram seu pitch pessoal.
+
+## 05/02/2024
+
+Foram traçadas novas metas para entregar no projeto, dadas as datas finais.
+
+## 06/02/2024 - 09/02/2024
+
+A equipe ensaiou, cronometrou e gravou a apresentação. Ryan e Marco trabalharam na aparência das demais páginas do site.
+
+## 11/02/2024
+
+Cristina integrou o banco de dados com a autenticação e cadastro de usuários.
+
+## 14/02/2024
+
+Ryan preparou e editou o vídeo da equipe.
+
+## 15/02/2024 - 16/02/2024
+
+Foram realizados merges na dev, bem como a preparação para os passos finais do trabalho. Cristina, Marco e Ryan decidiram, presencialmente, a programação da semana seguinte.

@@ -1,117 +1,134 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="pt-BR">
 
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'styles/cadastroprincipal.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/styles/cadastrar-empresas.css' %}">
+  <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
   <title>PARKIN</title>
 </head>
 <body>
-  <header>
-    <a href="/"><img src="{% static 'img/Logo.png' %}"></a>
-  </header>
   <main>
     <div class="centro">
-      <h1>Cadastrar-se</h1>
-      <div class="botoes">
-        <a href="/clientes/cadastrar">Clientes</a>
-        <a href="/empresas/cadastrar" class="ativo">Empresa</a>
+      <div class="conteudo-esq">
+        <div class="titulo-esq">
+          <h1>Cadastro</h1>
+          <p>Seu lugar é aqui. Fácil e rápido!</p>
+          <button class="saibamais">Saiba Mais</button>
+        </div>
+        <img class="detalhes-img" src="{% static 'assets/img/detalhes1.png' %}">
       </div>
-      <div class="conteudo" id="empresa">
-        <form action="" method="post">
-          {% csrf_token %}
-          <div class="import">
-            <img src="{% static 'assets/img/user.png' %}">
-            {{ form.nome_fantasia }}
-            <label for="nome">{{ form.nome_fantasia.label }}</label>
-          </div>
-          {{ form.nome_fantasia.errors }}
-          {% if email_apparence == True %}
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-            </div>
-            {{ form.email.errors }}
-          {%else%}
-            <div class="import">
-              <img src="{% static 'assets/img/email.png' %}">
-              {{ form.email }}
-              <label for="email">{{ form.email.label }}</label>
-            </div>
-            <span>email inválido</span>
-          {%endif%}
-          {% if senha == confirme %}
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              {{ form.senha }}
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha</label>
-            </div>
-          {%else%}
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              {{ form.senha }}
-              <label for="senha">{{ form.senha.label }}</label>
-            </div>
-            <div class="import">
-              <img src="{% static 'assets/img/key.png' %}">
-              <input type="password" name="confirme" id="confirme" required>
-              <label for="confirme">Confirme a senha</label>
-            </div>
-            <span>senha incorreta</span>
-          {%endif%}
-          <div class="import">
-            <img src="{% static 'assets/img/respons.png' %}">
-            {{ form.razao_social }}
-            <label for="senha">{{ form.razao_social.label }}</label>
-          </div>
-          {% if cnpj == 14 %}
-            <div class="import">
-              <img src="{% static 'assets/img/wallet.png' %}">
-              {{ form.cnpj }}
-              <label for="cnpj">{{ form.cnpj.label }}</label>
-            </div>
-            {{ form.cnpj.errors }}
-          {%else%}
-            <div class="import">
-              <img src="{% static 'assets/img/wallet.png' %}">
-              {{ form.cnpj }}
-              <label for="cnpj">{{ form.cnpj.label }}</label>
-            </div>
-            <span>CNPJ incorreto</span>
-          {%endif%}
-          {% if check == None %}
-          <div class="check" style="background-color: rgba(255, 0, 0, 0.466 );">
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          {% else %}
-          <div class="check" >
-            <input type="checkbox" name="check" id="check">
-            <a href="/"> Termos de consentimento</a>
-          </div>
-          {%endif%}
-          <div class="entrar">
-            <p>Já possui uma conta?</p>
-            <a href="/empresas/entrar/">Entrar</a>
-          </div>
-          <input type="submit" value="Cadastrar" id="button">
-        </form>
+      <div class="conteudo-dir">
+        <div class="titulo-cliente">
+          <h1>Empresa</h1>
+        </div>
+        <div class="login-dir">
+          <form action="" method="post">
+            <div class="login">
+              <div class="titulos">
+                <h1>Cadastro</h1>
+                <p>Faça parte!</p>
+              </div>
+              {% csrf_token %}
+                <div class="import">
+                  <img src="{% static 'assets/icons/user.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="text" name="nome" placeholder="Nome fantasia" id="email" required>
+                  </div>
+                </div>
+                <div class="import">
+                  <img src="{% static 'assets/icons/company.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="text" name="razao" placeholder="Razão social" id="email" required>
+                  </div>
+                </div>
+                {% if erro_email == False%}
+                <div class="import">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="email" name="email" placeholder="E-mail" id="email" required>
+                  </div>
+                </div>
+                {% else %}
+                <div class="import" style="border: 1px solid #d50303;">
+                  <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
+                  <div class="form">
+                    <input type="email" name="email" placeholder="E-mail" id="email" required>
+                  </div>
+                </div>
+                {% endif %}
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha" placeholder="Senha" id="email" required>
+                  </div>
+                </div>
+                {%if erro_senha == False%}
+                <div class="import">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha2" placeholder="Confirme a senha" id="senha" required>
+                  </div>
+                </div>
+                {% else %}
+                <div class="import" style="border: 1px solid #d50303;">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form">
+                    <input type="password" name="senha2" placeholder="Confirme a senha" id="senha" required>
+                  </div>
+                </div>
+                {% endif %}
+                {%if erro_cnpj == False%}
+                <div class="import">
+                  <img src="{% static 'assets/icons/cnpj.svg' %}" class="senha-img">
+                  <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" minlength="18" required>
+                </div>
+                {% else %}
+                <div class="import" class="import" style="border: 1px solid #d50303;">
+                  <img src="{% static 'assets/icons/cnpj.svg' %}" class="senha-img">
+                  <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" minlength="18" required>
+                </div>
+                {% endif %}
+                <div class="check">
+                  <input type="checkbox" name="check" id="check">
+                  {%if erro_check == False%}
+                  <p>Termos de consentimento</p>
+                  {%else%}
+                  <p style = "color:#d50303">Termos de consentimento</p>
+                  {%endif%}
+                </div>
+              <div class="botao">
+                <input type="submit" value="Cadastrar" id="button">
+                <div class="entrar">
+                  <p>Já possui uma conta?</p>
+                  <a href="/empresas/entrar">Entrar</a>
+                </div>
+              </div>
+              <div class="botoes">
+                <div class="b-estacionamento">
+                  <a href="/clientes/cadastrar" class="ativo">Clientes</a>
+                </div>
+              </div>
+          </form>
+        </div>
       </div>
     </div>
   </main>
-  <footer>
-    {%block footer%}
-      {%include 'main/footer.html'%}
-    {%endblock%}
-  </footer>
+  <script>
+    function formatCNPJ(cnpj) {
+      cnpj = cnpj.replace(/\D/g, '');
+      return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+    }
+
+    document.getElementById('cnpj').addEventListener('input', function (event) {
+      var target = event.target;
+      var input = target.value.replace(/\D/g, '');
+      var formattedInput = formatCNPJ(input);
+      target.value = formattedInput;
+    });
+  </script>
 </body>
 </html>
-<body>

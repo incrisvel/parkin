@@ -1,62 +1,66 @@
 from django.shortcuts import render, redirect
-from .forms import Usuario
-from main.forms import Entrar
+from django.db import transaction
 from main.views import enviar_email
-
+from .models import Cliente
+from django.views.decorators.csrf import csrf_protect
+from main.models import Usuario
+from django.contrib.auth import login
+from projeto.backend import EmailBackend
+from datetime import datetime
 
 def cadastrocliente(request):
-    check = 'on'
-    senha = ''
-    confirme = ''
-    email_apparence = True
+    erro_senha = False
+    erro_email = False
+    erro_check = False
+    erro_idade = False
+
+
     if request.method == 'POST':
-        form = Usuario(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            nome = form.cleaned_data['nome']
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-            data = form.cleaned_data['data_nasc']
+        email = request.POST.get('email')
+        email = email.lower()
+    
+        if Usuario.objects.filter(email=email).exists():
+            erro_email = True
+        else:
+            nome_usuario = request.POST.get('nome')
             check = request.POST.get('check')
-            confirme = request.POST.get('confirme')
-            if mail.find('@') >= 1:
-                email_formatado = mail.split('@')
-                if senha == confirme and check != None and email_formatado[1] == 'gmail.com' or email_formatado[1] == 'hotmail.com' or email_formatado[1] == 'outlook.com':
-                    enviar_email(mail)
-                    form.save()
-                    return redirect('/')
-                elif email_formatado[1] != 'gmail.com' and email_formatado[1] != 'hotmail.com' and email_formatado[1] != 'outlook.com':
-                    email_apparence = False
-            else:
-                email_apparence = False
-                Usuario(initial={'nome':nome, 'email': mail, 'data':data})
-    else:       
-        form = Usuario()
+            password = request.POST.get('senha')
+            confirme = request.POST.get('senha2')
+            data = request.POST.get('data')
+            data_atual = datetime.now()
+            print(int(data[:4]))
+            idade = data_atual.year - int(data[:4])
+            if password == confirme and check == 'on':
+                enviar_email(email)
+                cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                cliente.save()
+                return redirect('/clientes/entrar')
+            if password != confirme:
+                erro_senha = True
+            if check == None:
+                erro_check = True
+            if idade < 18:
+                erro_idade = True
+                
+    return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check, 'erro_idade':erro_idade})
 
-    context = {
-        'form' : form,
-        'check' : check,
-        'senha' : senha,
-        'confirme' : confirme,
-        'email_apparence' : email_apparence,
-    }
 
-    return render(request, 'clientes/cadascliente.html', context)
-
+@csrf_protect
 def entrarcliente(request):
-    email_apparence = True 
-    mail = ''
-    senha = ''
+    erro_email = False
+    erro_senha = False
     if request.method == 'POST':
-        form = Entrar(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            mail = form.cleaned_data['email']
-            senha = form.cleaned_data['senha']
-    else:
-        form = Entrar(initial={'email' : mail})
-    context = {
-        'form' : form,
-        'email_apparence' : email_apparence
-    }
-    return render(request,'clientes/entrar.html', context)
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        email = email.lower()
+
+        cliente = EmailBackend.authenticate(email=email, password=senha)
+
+        if cliente is not None and Cliente.objects.filter(email=email).exists() and Cliente.objects.filter(email=email).exists():
+            login(request, cliente, backend='projeto.backend.EmailBackend')
+            return redirect('/estacionamentos/')
+        else:
+            erro_email = True
+            erro_senha = True
+    return render(request, 'clientes/entrar.html', {'erro_email': erro_email, 'erro_senha':erro_senha})
+

@@ -8,81 +8,37 @@
     <title>Meus Resumos</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/estacionamento.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <div class="logo">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/logo-icon.svg' %}" alt="Icone da Logo" class="logo-icon">
-                        </a>
-                    </li>
-                    <li>
-                        <h1>ParkIn</h1>
-                    </li>
-                </div>
-                <div class="search">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
-                        </a>
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Pesquisar..."class="search-text">
-                    </li>
-                </div>
-                <div class="notification">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
-                        </a>
-                    </li>
-                </div>
-                <div class="user">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>ParkIn</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    {% block navbar %}
+        {% include 'empresas/navbar.html' %}
+    {% endblock %}
     </header>
     <div class="content1">
         <nav class="side-bar">
             <ul>
                 <div class="dashboard">
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <p>Dashboard</p>
                         </a>
                     </li>
                 </div>
                 <div class="summary">
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <p>Meus Resumos</p>
                         </a>
                     </li>
@@ -101,12 +57,12 @@
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <p>Notificações</p>
                         </a>
                     </li>
@@ -116,24 +72,24 @@
                 </li>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <img src="{% static 'assets/icons/help-icon.svg' %}" alt="Icone de Ajuda" class="help-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <p>Precisa de Ajuda?</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <img src="{% static 'assets/icons/help2-icon.svg' %}" alt="Icone de Ajuda 2" class="help2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <p>Como Funciona?</p>
                         </a>
                     </li>
@@ -143,12 +99,12 @@
                 </li>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/cadastro">
+                        <a href="/empresas/cadastro">
                             <img src="{% static 'assets/icons/signup2-icon.svg' %}" alt="Icone de Cadastro 2" class="signup2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/cadastro">
+                        <a href="/empresas/cadastro">
                             <p>Cadastro do Estacionamento</p>
                         </a>
                     </li>
@@ -156,5 +112,58 @@
             </ul>
         </nav>
     </div>
+    <main>
+        {% for local in locais%}
+        <div class='principal'>
+            <div class='imagens'> 
+                <img src="{% static 'assets/img/imagemale2.jpg' %}">  
+            </div>
+            <div class='baixo'>
+                <div class='escrita'>
+                    <h2>Nome do Estacionamento</h2>
+                    <div class='vagas'>
+                        <p>{{local.vagas_disp}} Vagas • {{local.vagas_cob}} Vagas cobertas • {{local.vagas_pref}} Vagas preferênciais</p> 
+                    </div>
+                    <div class='aberto'>
+                        <h4>Dias de funcionamento:</h4>
+                        {%if local.segunda == 1%}
+                        <p>Segunda-feira ✓</p>
+                        {%endif%}
+                        {%if local.terca == 1%}
+                        <p>Terça-feira ✓</p>
+                        {%endif%}
+                        {%if local.quarta == 1%}
+                        <p>Quarta-feira ✓</p>
+                        {%endif%}
+                        {%if local.quinta == 1%}
+                        <p>Quinta-feira ✓</p>
+                        {%endif%}
+                        {%if local.sexta == 1%}
+                        <p>Sexta-feira</p>
+                        {%endif%}
+                        {%if local.sabado == 1%}
+                        <p>Sabado</p>
+                        {%endif%}
+                        {%if local.domingo == 1%}
+                        <p>Domingo</p>
+                        {%endif%}
+                    </div>
+                    <div class='descricao'>
+                        <h4>Descriçao</h4>
+                        <p>{{local.descricao}}</p>
+                    </div>
+                    <div class='endereco'>
+                        <h4>Endereço:</h4>
+                        <p>{{endereco.local}}, {{endereco.bairro}}, n°:{{endereco.numero}}</p>   
+                        <p>CEP: {{endereco.cep}}</p>
+                    </div>
+                </div>
+                <div class='preco'>
+                    <p>Preço: R${{local.valor}}</p> 
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </main>
 </body>
 </html>

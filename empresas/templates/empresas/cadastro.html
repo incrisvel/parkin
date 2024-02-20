@@ -5,72 +5,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Estacionamentos</title>
+    <title>PARKIN</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <div class="logo">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/logo-icon.svg' %}" alt="Icone da Logo" class="logo-icon">
-                        </a>
-                    </li>
-                    <li>
-                        <h1>ParkIn</h1>
-                    </li>
-                </div>
-                <div class="search">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
-                        </a>
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Pesquisar..."class="search-text">
-                    </li>
-                </div>
-                <div class="notification">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
-                        </a>
-                    </li>
-                </div>
-                <div class="user">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>ParkIn</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    {% block navbar %}
+        {% include 'empresas/navbar.html' %}
+    {% endblock %}
     </header>
     <div class="content1">
         <nav class="side-bar">
             <ul>
                 <div class="dashboard">
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard">
+                        <a href="/empresas/dashboard">
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -82,31 +38,31 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/resumos">
+                        <a href="/empresas/resumos">
                             <p>Meus Resumos</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <img src="{% static 'assets/icons/park-icon.svg' %}" alt="Estacionamentos" class="park-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/estacionamento">
+                        <a href="/empresas/estacionamento">
                             <p>Estacionamento</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Meus Resumos" class="notification-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/notificacoes">
+                        <a href="/empresas/notificacoes">
                             <p>Notificações</p>
                         </a>
                     </li>
@@ -116,24 +72,24 @@
                 </li>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <img src="{% static 'assets/icons/help-icon.svg' %}" alt="Icone de Ajuda" class="help-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/ajuda">
+                        <a href="/empresas/ajuda">
                             <p>Precisa de Ajuda?</p>
                         </a>
                     </li>
                 </div>
                 <div class="menu-side-bar">
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <img src="{% static 'assets/icons/help2-icon.svg' %}" alt="Icone de Ajuda 2" class="help2-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/comofunciona">
+                        <a href="/empresas/comofunciona">
                             <p>Como Funciona?</p>
                         </a>
                     </li>
@@ -156,5 +112,69 @@
             </ul>
         </nav>
     </div>
+    <div class="content2">
+        <div id="form-container">
+            <h2>Cadastro de Vaga de Garagem</h2>
+            <form id="garageForm" method="post">
+                {% csrf_token %}
+                <div class="row-container">
+                    <label for="valor">Valor:</label>
+                    {{form.valor}}
+
+                    <div class="checkbox-container">
+                        <label for="vagaCoberta"> Coberta:</label>
+                        {{form.coberto}}
+                    </div>
+
+                </div>
+
+                <label>Horarios:</label>
+                <div style="display: flex;">Abre às:{{form.hora_abre}}</div>
+                <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
+
+                <label for="id_dias_aberto">Dias Abertos:</label> 
+                    <div class="checkbox-group" style="flex-direction: column;"> 
+                        {% for dias in form.dias_aberto %} 
+                        <p>{{ dias }} {{ dias.label }} </p>
+                        {% endfor %}
+                        </div> 
+
+        
+                <!-- Campo de descrição -->
+                <label for="descricao">Descrição:</label>
+                {{form.descricao}}
+        
+                <label for="logradouro">Endereço:</label>
+                {{form2.local}}
+
+                <!-- Campos para endereço -->
+                <label for="logradouro">Logradouro:</label>
+                {{form2.logradouro}}
+        
+                <label for="numero">Número:</label>
+                {{form2.numero}}
+        
+                <label for="bairro">Bairro:</label>
+                {{form2.bairro}}
+        
+                <label for="cep">CEP:</label>
+                {{form2.cep}}
+        
+                {{form.vagas_total.label}}
+                {{form.vagas_total}}
+
+                {{form.vagas_pref.label}}
+                {{form.vagas_pref}}
+
+                {{form.vagas_cob.label}}
+                {{form.vagas_cob}}
+
+                {{form.vagas_disp.label}}
+                {{form.vagas_disp}}
+
+
+                <input type="submit" id="submitBtn" value="Cadastrar">
+            </form>
+        </div>
 </body>
 </html>
