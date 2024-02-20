@@ -100,32 +100,31 @@ ul .navbar li a:hover::after{
   width: 100%;
   height: 500px;
   background-color: #FFDE59;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .conteudo1 .text-banner {
   position: absolute;
-  width: 60%;
-  height: 450px;
+  width: 70%;
 }
 
 .conteudo1 .text-banner ul li h1{
   font-size: 45px;
   color: #333;
-  margin-top: 130px;
-  margin-left: 150px;
 }
 
 .conteudo1 .text-banner ul li h2{
   font-size: 45px;
-  margin-left: 150px;
   color: #08092a;
 }
 
 .conteudo1 .text-banner ul li p{
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 20px;
-  margin-left: 150px;
   color: #717171;
+  width: 450px;
 }
 
 
@@ -146,7 +145,6 @@ ul .navbar li a:hover::after{
 
 .botao {
   position: absolute;
-  margin-left: 150px;
   padding: 1.1em 2em;
   font-size: 11px;
   text-transform: uppercase;
@@ -315,6 +313,9 @@ ul .navbar li a:hover::after{
   position: relative;
   width: 80%;
   margin: auto;
+  height: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .c-cont .text-flex2{
@@ -322,7 +323,6 @@ ul .navbar li a:hover::after{
   left: 0;
   width: 50%;
   margin: auto;
-  margin-top: 90px;
 }
 
 .c-cont .text-flex2 h1{
@@ -338,7 +338,6 @@ ul .navbar li a:hover::after{
   right: 0;
   width: 50%;
   margin: auto;
-  margin-top: 60px;
 }
 
 .p-text1 {
@@ -397,6 +396,7 @@ footer {
   margin: auto;
   width: 80%;
   margin-top: 70px;
+  justify-content: space-between;
 }
 
 .logo1 {
@@ -425,7 +425,6 @@ footer {
   width: 200px;
   display: flex;
   flex-direction: column;
-  margin-left: 400px;
 }
 
 .titulo-f1 h1{
@@ -487,4 +486,87 @@ footer {
 
 .text9 a:hover{
   text-decoration: underline;
+}
+
+.coisas{
+  display: flex;
+}
+
+.tamanho{
+  height: 250px;
+  align-items: baseline;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  body{
+   max-width: 100%;
+  }
+
+  header{
+    width: 100%;
+  }
+  
+  .conteudo2 .clientes-img {
+    width: 900px;
+    margin-top: 20px;
+}
+  .dados-img{
+    width: 100%;
+  }
+
+  ul .navbar li a {
+    font-size: 13px;
+    color: #08092a;
+}
+
+.l-c .cadastro li a {
+  font-size: 13px;
+}
+
+.l-c .login li a {
+  font-size: 13px;
+
+}
+
+.cont-f4,  .cont-f3,  .cont-f2{
+    width: 150px;
+}
+
+.p-text h1 {
+  font-size: 25px;
+}
+
+.text-flex2 ul li p{
+  font-size: 14px;
+}
+
+.p-text p {
+  font-size: 15px;
+}
+
+.botao1 {
+  margin-top: 30px;
+  font-size: 10px;
+}
+
+.pessoas1-img {
+  width: 360px;
+}
+
+.conteudo1 .banner .banner-img {
+  width: 300px;
+}
+
+}
+
+@media only screen and (max-width: 960px) {
+
+  ul .navbar li:first-child{
+    margin-left: 0;
+  }
+
+
+  
+
 }
