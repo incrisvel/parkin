@@ -117,7 +117,12 @@
             <h2>Cadastro de Vaga de Garagem</h2>
             <form id="garageForm" method="post">
                 {% csrf_token %}
+
+                <label for="nome">Nome do Estacionamento:</label>
+                {{form.nome_estacionamento}}
+
                 <div class="row-container">
+
                     <label for="valor">Valor:</label>
                     {{form.valor}}
 

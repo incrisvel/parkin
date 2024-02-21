@@ -71,6 +71,7 @@ class PerfilLocal(models.Model):
     )
 
     estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    nome_estacionamento = models.CharField(max_length = 250, verbose_name='nome_estacionamento')
     proprietarios = models.CharField(max_length = 200, null = True, blank = True)
     coberto = models.BooleanField(default = False)
     valor = models.FloatField(validators=[MinValueValidator(0.0)], verbose_name='valor (R$/h)')

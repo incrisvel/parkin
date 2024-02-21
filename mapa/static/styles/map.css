@@ -190,12 +190,22 @@ ul .navbar li a {
 .textos span{
   font-size: 14px;
   color: #717171;
-  margin-top: 10px;
 }
 
-.avaliacao {
-  width: 50px;
+.avaliacao{
+  display: flex;
   margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.avaliacao img{
+  width: 17px;
+  margin-right: 5px;
+}
+
+.avaliacao p{
+  font-size: 14px;
+  color: #333;
 }
 
 

@@ -115,45 +115,22 @@
                         <div class="block">
                             <ul>
                                 <li>
-                                    <a href="">
-                                        <div class="imagem">
-                                            <img src="{% static './img/estacionamento1.jpg' %}" alt="Foto de estacionamento" class="img-est">
-                                        </div>
-                                        <div class="textos">
-                                            <h1>Estacionamento Shopping Neumarkt</h1>
-                                            <img src="{% static './icons/avaliacao.svg' %}" alt="Foto de estacionamento" class="avaliacao">
-                                            <p>33 Vagas disponíveis | Coberto | R$15,00/h</p>
-                                            <span> R. 7 de Setembro, 1213 - Centro</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
                                     <a href=""> 
                                         <div class="imagem">
                                             <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
                                         </div>
                                         <div class="textos">
-                                            <h1>Estacionamento Shopping Park Europeu</h1>
-                                            <img src="{% static './icons/avaliacao1.svg' %}" alt="Foto de estacionamento" class="avaliacao">
-                                            <p>48 Vagas disponíveis | P/Coberto | Grátis</p>
-                                            <span> Rodovia Paul Fritz Kuehnrich, 1600 - Itoupava Norte</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <div class="imagem">
-                                            <img src="{% static 'img/estacionamento3.jpg' %}" alt="Foto de estacionamento" class="img-est">
-                                        </div>
-                                        <div class="textos">
-                                            <h1>Estacionamento Shopping H</h1>
-                                            <img src="{% static './icons/avaliacao2.svg' %}" alt="Foto de estacionamento" class="avaliacao">
-                                            <p>52 Vagas disponíveis | Coberto | R$10,00/h</p>
-                                            <span>R. XV de Novembro, 759 - Centro</span>
+                                            {% for local in locais %}
+                                                <h1>{{local.nome_estacionamento}}</h1>
+                                                <div class="avaliacao">
+                                                    <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento"><span>{{local.nota_media}}</span>
+                                                </div>
+                                                <p>{{local.vagas_disp}} Vagas disponíveis | {{local.coberto}} | R${{local.valor}}/h</p>
+                                            {%endfor%}
+
+                                            {% for endereco in enderecos %}
+                                                <span>{{ endereco.local }}, {{ endereco.bairro }}</span>
+                                            {% endfor %}
                                         </div>
                                     </a>
                                 </li>

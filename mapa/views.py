@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic.base import (
-    TemplateView,
-)
+from empresas.models import Endereco, PerfilLocal
 
-class MapaView(TemplateView):
-    template_name = "mapa/estacionamentos.html"
+def estacionamentos(request):
+    enderecos = Endereco.objects.all()
+    locais = PerfilLocal.objects.all()
+
+    return render(request, "mapa/estacionamentos.html", {'enderecos': enderecos, 'locais': locais})
+
