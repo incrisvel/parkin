@@ -33,6 +33,11 @@ def enviar_email(mail):
 def quemsomos(request):
     return render(request, 'main/quem_somos.html')
 
+@login_required
+def fazer_logout(request):
+    logout(request)
+    return redirect ("/")
+
 
 
 

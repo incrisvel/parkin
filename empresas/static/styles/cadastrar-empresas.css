@@ -289,10 +289,10 @@ input, textarea {
     background-color: #fefefe;
     margin: auto; 
     margin-top: 5px;
-    padding: 20px;
     border: 1px solid #888;
     width: auto; 
     max-width: 700px;
+    padding: 50px;
     }
 
 .close {
@@ -328,3 +328,19 @@ input, textarea {
 .termos-erro:hover{
     text-decoration: underline;
     }
+
+.termo{
+    color: black;
+    font-size: 25px;
+}
+.texto{
+    color:black;
+    text-align: justify;
+    line-height: 1,5px;
+    text-indent: 25px;
+    
+}
+.ponto{
+    color: black;
+}
+    
