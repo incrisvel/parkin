@@ -132,8 +132,6 @@ ul .navbar li a:hover::after{
   position: absolute;
   right: 0;
   width: 50%;
-  height: 450px;
-  align-items: center;
 }
 
 .conteudo1 .banner .banner-img {
@@ -257,12 +255,23 @@ ul .navbar li a:hover::after{
   width: 80%;
 }
 
+.text-flex1a {
+  display: flex;
+  position: relative;
+  height: 400px;
+  margin: auto;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
 .pessoas1-img {
-  margin-top: 50px;
   width: 400px;
   position: absolute;
   left: -40px;
 }
+
+
 
 .p-text {
   width: 60%;
@@ -342,9 +351,12 @@ ul .navbar li a:hover::after{
 
 .p-text1 {
   width: 60%;
-  margin-top: 150px;
   position: absolute;
   right: 20px;
+}
+
+.p-img{
+  height: 300px;
 }
 
 .p-text1 h1{
@@ -374,6 +386,7 @@ ul .navbar li a:hover::after{
 }
 
 .text-n p{
+  font-size: 18px;
   color: #333;
 }
 
@@ -510,7 +523,8 @@ footer {
   .conteudo2 .clientes-img {
     width: 900px;
     margin-top: 20px;
-}
+  }
+
   .dados-img{
     width: 100%;
   }
@@ -566,7 +580,114 @@ footer {
     margin-left: 0;
   }
 
+  .conteudo1 .banner .banner-img {
+    width: 250px;
+  }
+
+  .conteudo1 .text-banner ul li h1{
+    font-size: 35px;
+    color: #333;
+  }
+  
+  .conteudo1 .text-banner ul li h2{
+    font-size: 35px;
+    color: #08092a;
+  }
+
+  .conteudo1 {
+    height: 350px;
+  }
+
+  ul .navbar li {
+    margin-left: 20px;
+  }
+
+  .conteudo2 .clientes-img {
+    width: 700px;
+  }
+
+  .conteudo1 .text-banner ul li p {
+    width: 350px;
+    font-size: 13px;
+  }
+
+  .botao{
+    font-size: 9px;
+  }
+
+  .l-c {
+    right: 60px;
+  }
+
+  .info2 h2, .info1 h2, .info3 h2 {
+    font-size: 17px;
+  }
+
+  .info2{
+    margin: 0px 40px 0px 40px;
+  }
+
+  .info1{
+    margin: 0px 40px 0px 100px;
+  }
 
   
+  .info3{
+    margin: 0px 100px 0px 40px;
+  }
+
+  .pessoas1-img {
+    width: 320px;
+  }
+
+  .p-text h1 {
+    font-size: 20px;
+  }
+
+  .conteudo2 .text2 p{
+    font-size: 12px;
+  }
+
+  .p-text{
+    margin-top: 90px;
+  }
+
+  .p-text p {
+    font-size: 14px;
+  }
+
+  .botao1 {
+    margin-top: 20px;
+  }
+
+  .conteudo4 {
+    margin-top: 0px;
+  }
+
+  .c-cont .text-flex2 h1 {
+    font-size: 28px;
+  }
+  
+  .text-flex2 ul li p {
+    font-size: 14px;
+  }
+
+  .text-flex1a {
+    display: flex;
+    position: relative;
+    height: 350px;
+    margin: auto;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-text1 h1 {
+    font-size: 25px;
+  }
+
+  .p-text1 p {
+    font-size: 14px;
+  }
 
 }
