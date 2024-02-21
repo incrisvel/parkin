@@ -690,4 +690,235 @@ footer {
     font-size: 14px;
   }
 
+  .cont-f4,  .cont-f3,  .cont-f2{
+    width: 120px;
+  }
+
+  .text5 a {
+    font-size: 11px;
+  }
+
+  .text7 a {
+    font-size: 11px;
+  }
+
+.text9 a {
+  font-size: 11px;
+
+  }
+
+  .text3 p {
+    font-size: 13px;
+  }
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  ul .navbar li a {
+    font-size: 11px;
+}
+
+.l-c {
+  right: 30px;
+}
+
+.l-c .login li a {
+  font-size: 11px;
+  margin-right: 10px;
+}
+
+.l-c .cadastro li a {
+  font-size: 11px;
+}
+
+.logo li h1{
+  font-size: 20px;
+}
+
+.logo-img {
+  width: 30px;
+}
+
+.logo{
+  bottom: initial;
+}
+
+.conteudo1 .banner .banner-img {
+  width: 200px;
+}
+
+.conteudo1 .text-banner ul li h1 {
+  font-size: 27px;
+}
+
+.conteudo1 .text-banner ul li h2 {
+  font-size: 27px;
+}
+
+.conteudo1 .text-banner ul li p {
+  width: 270px;
+  font-size: 11px;
+}
+
+.botao {
+  font-size: 8px;
+}
+
+
+.conteudo2 .text1 h1 {
+  font-size: 25px;
+}
+
+
+.conteudo2 .text1 p {
+  font-size: 13px;
+}
+
+
+.conteudo2 .clientes-img {
+  width: 520px;
+}
+
+
+.conteudo2 .text2 h1 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.iconetext{
+  width: 50px;
+}
+
+.info2 h2, .info1 h2, .info3 h2 {
+  font-size: 15px;
+}
+
+.conteudo2 .text2 p {
+  font-size: 11px;
+}
+
+
+.info2{
+  margin: 0px 20px 0px 20px;
+}
+
+.info1{
+  margin: 0px 20px 0px 100px;
+}
+
+.info3{
+  margin: 0px 100px 0px 20px;
+}
+
+.text-flex1 {
+  width: 90%;
+  height: 350px;
+}
+
+.pessoas1-img {
+  width: 250px;
+}
+
+.p-text {
+  margin-top: 50px;
+
+
+}
+
+.p-text h1 {
+  font-size: 17px;
+}
+
+.p-text p {
+  font-size: 13px;
+}
+
+.botao1 {
+  margin-top: 15px;
+}
+
+.c-cont .text-flex2 h1 {
+  font-size: 22px;
+}
+
+.text-flex2 ul li p {
+  font-size: 11px;
+}
+
+.conteudo4 {
+  height: 200px;
+}
+
+.c-cont {
+  height: 200px;
+
+}
+
+.p-text1 h1 {
+  font-size: 22px;
+}
+
+.p-text1 p {
+  font-size: 12px;
+}
+
+.conteudo6{
+  margin-top: 60px;
+  height: 200px
+}
+
+.text-n h1 {
+  font-size: 25px;
+}
+
+.text-n p {
+  font-size: 14px;
+
+}
+
+
+
+.emp-img {
+  margin-top: 150px;
+}
+
+.empresas-img{
+  width: 300px;
+
+}
+
+.logo1 h1 {
+  font-size: 25px;
+}
+
+
+.text3 {
+  margin-top: 15px;
+
+}
+
+.text3 p {
+  font-size: 11px;
+}
+
+
+.logo1 {
+  width: 175px;
+
+}
+
+.titulo-f1 h1 {
+  font-size: 20px;
+}
+
+footer{
+  height: 280px;
+}
+
+.conts{
+  margin-top: 50px;
+
+}
+
 }
