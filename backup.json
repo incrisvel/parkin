@@ -1,44 +1,5 @@
 [
     {
-        "model": "admin.logentry",
-        "pk": 1,
-        "fields": {
-            "action_time": "2024-01-30T19:13:31.658Z",
-            "user": 1,
-            "content_type": 11,
-            "object_id": "3",
-            "object_repr": "parkin",
-            "action_flag": 3,
-            "change_message": ""
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 2,
-        "fields": {
-            "action_time": "2024-01-30T19:13:44.067Z",
-            "user": 1,
-            "content_type": 11,
-            "object_id": "2",
-            "object_repr": "mara",
-            "action_flag": 3,
-            "change_message": ""
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 3,
-        "fields": {
-            "action_time": "2024-01-30T19:13:51.173Z",
-            "user": 1,
-            "content_type": 11,
-            "object_id": "1",
-            "object_repr": "marco",
-            "action_flag": 3,
-            "change_message": ""
-        }
-    },
-    {
         "model": "auth.permission",
         "pk": 1,
         "fields": {
@@ -294,72 +255,72 @@
         "model": "auth.permission",
         "pk": 29,
         "fields": {
-            "name": "Can add estacionamento",
+            "name": "Can add endereco",
             "content_type": 8,
-            "codename": "add_estacionamento"
+            "codename": "add_endereco"
         }
     },
     {
         "model": "auth.permission",
         "pk": 30,
         "fields": {
-            "name": "Can change estacionamento",
+            "name": "Can change endereco",
             "content_type": 8,
-            "codename": "change_estacionamento"
+            "codename": "change_endereco"
         }
     },
     {
         "model": "auth.permission",
         "pk": 31,
         "fields": {
-            "name": "Can delete estacionamento",
+            "name": "Can delete endereco",
             "content_type": 8,
-            "codename": "delete_estacionamento"
+            "codename": "delete_endereco"
         }
     },
     {
         "model": "auth.permission",
         "pk": 32,
         "fields": {
-            "name": "Can view estacionamento",
+            "name": "Can view endereco",
             "content_type": 8,
-            "codename": "view_estacionamento"
+            "codename": "view_endereco"
         }
     },
     {
         "model": "auth.permission",
         "pk": 33,
         "fields": {
-            "name": "Can add endereco",
+            "name": "Can add estacionamento",
             "content_type": 9,
-            "codename": "add_endereco"
+            "codename": "add_estacionamento"
         }
     },
     {
         "model": "auth.permission",
         "pk": 34,
         "fields": {
-            "name": "Can change endereco",
+            "name": "Can change estacionamento",
             "content_type": 9,
-            "codename": "change_endereco"
+            "codename": "change_estacionamento"
         }
     },
     {
         "model": "auth.permission",
         "pk": 35,
         "fields": {
-            "name": "Can delete endereco",
+            "name": "Can delete estacionamento",
             "content_type": 9,
-            "codename": "delete_endereco"
+            "codename": "delete_estacionamento"
         }
     },
     {
         "model": "auth.permission",
         "pk": 36,
         "fields": {
-            "name": "Can view endereco",
+            "name": "Can view estacionamento",
             "content_type": 9,
-            "codename": "view_endereco"
+            "codename": "view_estacionamento"
         }
     },
     {
@@ -402,72 +363,72 @@
         "model": "auth.permission",
         "pk": 41,
         "fields": {
-            "name": "Can add cliente",
+            "name": "Can add avaliação de usuários",
             "content_type": 11,
-            "codename": "add_cliente"
+            "codename": "add_avaliacao"
         }
     },
     {
         "model": "auth.permission",
         "pk": 42,
         "fields": {
-            "name": "Can change cliente",
+            "name": "Can change avaliação de usuários",
             "content_type": 11,
-            "codename": "change_cliente"
+            "codename": "change_avaliacao"
         }
     },
     {
         "model": "auth.permission",
         "pk": 43,
         "fields": {
-            "name": "Can delete cliente",
+            "name": "Can delete avaliação de usuários",
             "content_type": 11,
-            "codename": "delete_cliente"
+            "codename": "delete_avaliacao"
         }
     },
     {
         "model": "auth.permission",
         "pk": 44,
         "fields": {
-            "name": "Can view cliente",
+            "name": "Can view avaliação de usuários",
             "content_type": 11,
-            "codename": "view_cliente"
+            "codename": "view_avaliacao"
         }
     },
     {
         "model": "auth.permission",
         "pk": 45,
         "fields": {
-            "name": "Can add avalia��o de usu�rios",
+            "name": "Can add cliente",
             "content_type": 12,
-            "codename": "add_avaliacao"
+            "codename": "add_cliente"
         }
     },
     {
         "model": "auth.permission",
         "pk": 46,
         "fields": {
-            "name": "Can change avalia��o de usu�rios",
+            "name": "Can change cliente",
             "content_type": 12,
-            "codename": "change_avaliacao"
+            "codename": "change_cliente"
         }
     },
     {
         "model": "auth.permission",
         "pk": 47,
         "fields": {
-            "name": "Can delete avalia��o de usu�rios",
+            "name": "Can delete cliente",
             "content_type": 12,
-            "codename": "delete_avaliacao"
+            "codename": "delete_cliente"
         }
     },
     {
         "model": "auth.permission",
         "pk": 48,
         "fields": {
-            "name": "Can view avalia��o de usu�rios",
+            "name": "Can view cliente",
             "content_type": 12,
-            "codename": "view_avaliacao"
+            "codename": "view_cliente"
         }
     },
     {
@@ -531,7 +492,7 @@
         "pk": 8,
         "fields": {
             "app_label": "empresas",
-            "model": "estacionamento"
+            "model": "endereco"
         }
     },
     {
@@ -539,7 +500,7 @@
         "pk": 9,
         "fields": {
             "app_label": "empresas",
-            "model": "endereco"
+            "model": "estacionamento"
         }
     },
     {
@@ -555,7 +516,7 @@
         "pk": 11,
         "fields": {
             "app_label": "clientes",
-            "model": "cliente"
+            "model": "avaliacao"
         }
     },
     {
@@ -563,31 +524,97 @@
         "pk": 12,
         "fields": {
             "app_label": "clientes",
-            "model": "avaliacao"
+            "model": "cliente"
         }
     },
     {
         "model": "sessions.session",
-        "pk": "3vl7s462kq1ca25gcwic9d1hpqebf8c9",
+        "pk": "qwm3xd542souifa725f3q4nmxomzdvaw",
         "fields": {
-            "session_data": ".eJxVjMsOgjAURP-la9PQUvpw6Z5vaKa9F0ENTSisjP8uJCx0NcmcM_MWEds6xq3yEicSV6HE5bdLyE-eD0APzPcic5nXZUryUORJq-wL8et2un8HI-q4r1uEDOe64BqG4cE6pZA7aBCM99qFPchaDZ8y8aAa0_kWuiGbmIMXny_s9Tg4:1rUtXt:06dfhwYPNWDGz4dyBGaoH3tj2jPEpNDdiw1tK0t_i1U",
-            "expire_date": "2024-02-13T19:13:21.659Z"
+            "session_data": ".eJxVy0kOwjAMQNG7ZI2qpEmwwxKJc0R2YitlKuqwQtwdkLqA7X_6T5NpXVpeZ5nyUM3B9Gb325jKRe5feEzjWZax20p3utFwPW789zSa22cICSpbjqrgLUpJ3sWCCYNLZFELs_rordQUwCELBnUKEAH3FAP25vUGxEAyfw:1rZLo4:Xals23b1cm4FwM6vndZFyIgxOke0jXA6wGxQ4PuKdJU",
+            "expire_date": "2024-02-25T23:12:28.067-03:00"
         }
     },
     {
         "model": "main.usuario",
         "pk": 1,
         "fields": {
-            "password": "pbkdf2_sha256$720000$uJ0TYWwGQgsJ17errioPgP$zxDqiznEE/sCBKiyc/EyjEK5RcHQ0GScnqartxB0wlU=",
-            "last_login": "2024-01-30T19:13:21.416Z",
+            "password": "pbkdf2_sha256$600000$UMnVUeSvdXHGp8jQUNDu8r$E5CUuKx+ZDkZsWknek3vxv8AfF87w55wocdEzP8xmUA=",
             "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
             "is_staff": true,
-            "is_active": true,
-            "date_joined": "2024-01-27T22:01:02.804Z",
+            "date_joined": "2024-02-11T23:06:01.947-03:00",
             "tipo": "ADMIN",
             "email": "parkin@parkin.com",
+            "is_active": true,
+            "is_admin": false,
+            "last_login": "2024-02-11T23:06:01.948-03:00",
             "groups": [],
             "user_permissions": []
+        }
+    },
+    {
+        "model": "main.usuario",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$qrFgTc5N16gwPn4OJ1jMth$QJrkFKoVSzUzVUPlA8xetzsBkDlgZSLo/zsFDjqwx14=",
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "date_joined": "2024-02-11T23:07:58.888-03:00",
+            "tipo": "CLIENTE",
+            "email": "cliexemplo@gmail.com",
+            "is_active": false,
+            "is_admin": false,
+            "last_login": "2024-02-11T23:12:28.057-03:00",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "main.usuario",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$vfzAith3qFtEstuZJWwk83$fCQ9HTgDzhxQEsq6udXF2hh5W+GwleCTi5UeoeR47pg=",
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": false,
+            "date_joined": "2024-02-11T23:10:46.932-03:00",
+            "tipo": "ESTACIONAMENTO",
+            "email": "parkinexemplo@gmail.com",
+            "is_active": false,
+            "is_admin": false,
+            "last_login": "2024-02-11T23:11:15.149-03:00",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "empresas.estacionamento",
+        "pk": 1,
+        "fields": {
+            "last_login": null,
+            "usuario": 3,
+            "nome_fantasia": "Estacionamento ParkIn",
+            "email": "parkinexemplo@gmail.com",
+            "razao_social": "Estacionamento Exemplo",
+            "password": "pbkdf2_sha256$600000$L2599C4IkWVdAp4rFG8Jrg$J81Pf4cqTM8uH1HFF3wUhmqGka/CXI9jbSBknX1Scnc=",
+            "cnpj": "11.111.111/1111-11"
+        }
+    },
+    {
+        "model": "clientes.cliente",
+        "pk": 1,
+        "fields": {
+            "last_login": null,
+            "usuario": 2,
+            "nome": "Cliente Exemplo",
+            "email": "cliexemplo@gmail.com",
+            "password": "pbkdf2_sha256$600000$IVq1KLdeanQWKduhlntf5s$z52VAX18ooNHJiJATMdIujSjg8frHsOTLr7nA6CYqF8=",
+            "data_nascimento": "1982-12-31"
         }
     }
 ]

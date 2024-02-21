@@ -26,23 +26,27 @@
           <h1>Estacionamento</h1>
         </div>
         <div class="login-dir">
-          <form action="{% url 'entrarempresa' %}" method="post">
+          <form action="{% url 'empresas:entrarempresa' %}" method="post">
             {% csrf_token %} 
             <div class="login">
               <div class="titulos">
                 <h1>Entrar</h1>
-                <p>Bem vindo de Volta!</p>
+                <p>Bem vindo de volta!</p>
               </div>
                   <div class="import1">
                     <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                     <div class="form">
-                      <input type="email" name="email" id="email">
+                      <input type="email" name="email" placeholder="E-mail" id="email ">
+                    </div>
+                  </div>
+                    <div class="form">
+                      {{ form.email }}
                     </div>
                   </div>
                 <div class="import3">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
                   <div class="form">
-                    <input type="password" name="senha" id="senha">
+                    <input type="password" name="senha" placeholder="Senha" id="senha">
                   </div>
                 </div>
               <div class="botao">
@@ -57,7 +61,7 @@
                   <a href="/clientes/entrar" class="ativo">Cliente</a>
                 </div>
               </div>
-            </form>
+          </form>
         </div>
       </div>
     </div>

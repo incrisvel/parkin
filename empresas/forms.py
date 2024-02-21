@@ -40,4 +40,3 @@ class Estacio(forms.ModelForm):
     class Meta:
         model = Endereco
         fields = "__all__"
-

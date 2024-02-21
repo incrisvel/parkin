@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'clientes',
 ]
 
-
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',  # Backend padrão para autenticação
+    'django.contrib.auth.backends.ModelBackend',
+    'projeto.backend.EmailBackend',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'TIME_ZONE': 'America/Sao_Paulo'
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -104,12 +105,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'pt-BR'
-
-TIME_ZONE = 'America/Sao_Paulo' 
-
+LANGUAGE_CODE = 'pt-br'
 USE_I18N = True
 
+TIME_ZONE = 'America/Sao_Paulo' 
 USE_TZ = True
 
 
@@ -126,4 +125,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'main.Usuario'
-

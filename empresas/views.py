@@ -1,32 +1,28 @@
 from django.shortcuts import render, redirect
-from .forms import Empresas, Perfil, Estacio, Opcoes
-from main.forms import EntrarEstacionamento
+from django.contrib.auth.decorators import permission_required
+from .forms import Perfil, Estacio
 from main.views import enviar_email
-from .models import Estacionamento, Perfillocal, Endereco
+from .models import Estacionamento, PerfilLocal, Endereco
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_protect
-from clientes.models import Cliente
-from django.contrib.auth.hashers import check_password
-
-nome = ''
-
-def logado():
-    global login
-    if loginemp == False:
-        login = False
-    elif loginemp == None:
-        login = False
-    login = True
+from main.models import Usuario
+from projeto.decorators import estacionamento_required
+from django.contrib.auth import authenticate, login, logout
+from projeto.backend import EmailBackend
+from django.db import transaction
 
 @csrf_protect
-def cadastrocempresa(request):
+def cadastroempresa(request):
+    erro_senha = ''
+    erro_email = ''
+    erro_check = ''
+    
     if request.method == 'POST':
-        try:
-            usuario_aux = Estacionamento.objects.get(email=request.POST.get('email'))
-            if usuario_aux:
-                return redirect('/empresas/cadastrar')
-
-        except Estacionamento.DoesNotExist:
+        email = request.POST.get('email')
+    
+        if Usuario.objects.filter(email=email).exists():
+            erro_email = 'Esse email já existe!'
+        else:
             check = request.POST.get('check')
             nome_fantasia = request.POST.get('nome')
             razao_social = request.POST.get('razao')
@@ -34,100 +30,104 @@ def cadastrocempresa(request):
             password = request.POST.get('senha')
             confirme = request.POST.get('senha2')
             cnpj = request.POST.get('cnpj')
-            if password == confirme and check == 'on':
-                empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=password, razao_social=razao_social, cnpj=cnpj)
-                empresa.save()
-                usuario_aux = Estacionamento.objects.filter(email=email).first()
-                return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
-            return redirect('/empresas/cadastrar')
-    return render(request, 'empresas/cadasempresa.html')
+    
+        
+            if password != confirme:
+                erro_senha = 'As senhas não correspondem.'
+            elif check != 'on':
+                erro_check = 'Aceite os termos para avançar.'
+            else:
+                try:
+                    with transaction.atomic():
+                        empresa = Estacionamento.objects.create_user(nome_fantasia=nome_fantasia, email=email, password=password, razao_social=razao_social, cnpj=cnpj)
+                        empresa.save()
+                    return redirect('/empresas/entrar')
+                
+                except Exception as e:
+                    erro_email = 'Ocorreu um erro ao salvar o estacionamento. Por favor, tente novamente.'
+    
+        
+    return render(request, 'empresas/cadasempresa.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check})
 
 @csrf_protect
 def entrarempresa(request):
-    global usuario_aux, loginemp
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        usuario_aux = Estacionamento.objects.filter(email=email).first()
-        if email == usuario_aux.email and check_password(senha, usuario_aux.password):
-            loginemp = True
-            print('Autenticado')
-            return redirect(reverse('dashboard') + f'?nome_fantasia={usuario_aux.nome_fantasia}&')
-        print('Não autenticado')
-        return redirect('/empresas/entrar')
+       
+        estacionamento = EmailBackend.authenticate(email=email, password=senha)
+            
+        if estacionamento is not None:   
+            login(request, estacionamento, backend='projeto.backend.EmailBackend')
+            return redirect('/empresas/dashboard')
+        else:
+            return redirect('/empresas/entrar')
+        
     return render(request, 'empresas/entrar.html')
 
+@estacionamento_required
 def dashboard(request):
-    logado()
-    if login == True:
-        return render(request, 'empresas/dashboard.html', {'nome': usuario_aux.nome_fantasia})
+    if request.user.is_authenticated:
+        return render(request, 'empresas/dashboard.html')
     else:
-        return redirect('/empresas/entrar')
+        return render(request, 'main/acesso_negado.html')
 
-def fazer_logout(request):
-    loginemp == False
-    return redirect('/empresas/entrar')
-
+@estacionamento_required
 def resumos(request):
-    logado()
-    if login == True:
-        return render(request,'empresas/resumos.html', {'nome':nome})
-    else:
-        return redirect('/empresas/entrar')
+        return render(request,'empresas/resumos.html', {'nome': request.user.nome_fantasia})
 
+    
+@estacionamento_required
 def cadastro(request):
     if request.method == 'POST':
         form = Perfil(request.POST)
         form2 = Estacio(request.POST)
-        form3 = Opcoes(request.POST)
         print(form.errors)
         print(form2.errors)
-        print(form3.errors)
-        if form.is_valid() and form2.is_valid() and form3.is_valid:
+        if form.is_valid() and form2.is_valid():
             dias_abertos = form.cleaned_data['dias_abertos']
             hora_abre = form.cleaned_data['hora_abre']
             print(dias_abertos, hora_abre)
             form.save()
             form2.save()
-            form3.save()
+           
     else:   
         form = Perfil()
         form2 = Estacio()
-        form3 = Opcoes()
-    return render(request,'empresas/cadastro.html', {'nome':nome, 'form':form, 'form2' : form2, 'form3':form3})
+     
+    return render(request,'empresas/cadastro.html', {'form':form, 'form2' : form2})
 
+@estacionamento_required
 def estacionamento(request):
-    logado()
-    if login == True:
-        return render(request,'empresas/estacionamento.html', {'nome':nome})
+    if request.user.is_authenticated:
+        return render(request,'empresas/estacionamento.html', {'nome':request.user.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
-
+@estacionamento_required
 def notificacao(request):
-    logado()
-    if login == True:
-        return render(request,'empresas/notificacoes.html', {'nome':nome})
+    if request.user.is_authenticated:
+        return render(request,'empresas/notificacoes.html', {'nome':request.user.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
+@estacionamento_required
 def help(request):
-    logado()
-    if login == True:
-        return render(request,'empresas/help.html', {'nome':nome})
+    if request.user.is_authenticated:
+        return render(request,'empresas/help.html', {'nome':request.user.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
+@estacionamento_required
 def comofunciona(request):
-    logado()
-    if login == True:
-        return render(request,'empresas/comofunciona.html', {'nome':nome})
+    if request.user.is_authenticated:
+        return render(request,'empresas/comofunciona.html', {'nome':request.user.nome_fantasia})
     else:
         return redirect('/empresas/entrar')
 
+@estacionamento_required
 def faleconosco(request):
-    logado()
-    if login == True:
-        return render(request, 'empresas/fale_conosco.html', {'nome':nome})
+    if request.user.is_authenticated:
+        return render(request, 'empresas/fale_conosco.html', {'nome':request.user.nome_fantasia})
     else:
         return redirect('/empresas/entrar')

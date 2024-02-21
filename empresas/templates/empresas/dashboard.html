@@ -14,8 +14,8 @@
             <ul>
                 <div class="logo">
                     <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/logo-icon.svg' %}" alt="Icone da Logo" class="logo-icon">
+                        <a href="/empresas/dashboard">
+                            <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
                         </a>
                     </li>
                     <li>
@@ -47,12 +47,17 @@
                     </li>
                     <li>
                         <a href="#">
-                            <h1>{{ request.GET.nome_fantasia }}</h1>
+                            <h1>{{ nome }}</h1>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout" style="color: #333;">
+                            <p style="margin-left: 15px;">Sair</p>
                         </a>
                     </li>
                 </div>
