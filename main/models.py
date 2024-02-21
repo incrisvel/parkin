@@ -47,12 +47,12 @@ class Usuario(AbstractUser):
 
         
 class Feedback (models.Model):
-  usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+  autor = models.CharField(max_length = 200,blank = True)
   descricao = models.CharField(max_length=1000, null=False,blank=False, verbose_name='feedback')
   data_envio = models.DateTimeField(auto_now_add=True, verbose_name='data de envio')
 
   def __str__(self):
-        return f'Comentário de {self.usuario}: {self.descricao}'
+        return f'Comentário de {self.autor}: {self.descricao}'
         
   class Meta:
         ordering = ['data_envio']

@@ -56,6 +56,23 @@ ul .navbar li a {
   color: #08092a;
 }
 
+ul .navbar li a::after{
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #000000;
+  width: 0;
+  transition: 0.3s;
+
+}
+
+ul .navbar li a:hover::after{
+  width: 100%;
+  left: 0;
+}
+
 .l-c {
   position: absolute;
   display: flex;
@@ -83,32 +100,31 @@ ul .navbar li a {
   width: 100%;
   height: 500px;
   background-color: #FFDE59;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .conteudo1 .text-banner {
   position: absolute;
-  width: 60%;
-  height: 450px;
+  width: 70%;
 }
 
 .conteudo1 .text-banner ul li h1{
   font-size: 45px;
   color: #333;
-  margin-top: 130px;
-  margin-left: 150px;
 }
 
 .conteudo1 .text-banner ul li h2{
   font-size: 45px;
-  margin-left: 150px;
   color: #08092a;
 }
 
 .conteudo1 .text-banner ul li p{
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 20px;
-  margin-left: 150px;
   color: #717171;
+  width: 450px;
 }
 
 
@@ -116,8 +132,6 @@ ul .navbar li a {
   position: absolute;
   right: 0;
   width: 50%;
-  height: 450px;
-  align-items: center;
 }
 
 .conteudo1 .banner .banner-img {
@@ -129,7 +143,6 @@ ul .navbar li a {
 
 .botao {
   position: absolute;
-  margin-left: 150px;
   padding: 1.1em 2em;
   font-size: 11px;
   text-transform: uppercase;
@@ -242,12 +255,23 @@ ul .navbar li a {
   width: 80%;
 }
 
+.text-flex1a {
+  display: flex;
+  position: relative;
+  height: 400px;
+  margin: auto;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
 .pessoas1-img {
-  margin-top: 50px;
   width: 400px;
   position: absolute;
   left: -40px;
 }
+
+
 
 .p-text {
   width: 60%;
@@ -298,6 +322,9 @@ ul .navbar li a {
   position: relative;
   width: 80%;
   margin: auto;
+  height: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .c-cont .text-flex2{
@@ -305,7 +332,6 @@ ul .navbar li a {
   left: 0;
   width: 50%;
   margin: auto;
-  margin-top: 90px;
 }
 
 .c-cont .text-flex2 h1{
@@ -321,14 +347,16 @@ ul .navbar li a {
   right: 0;
   width: 50%;
   margin: auto;
-  margin-top: 60px;
 }
 
 .p-text1 {
   width: 60%;
-  margin-top: 150px;
   position: absolute;
   right: 20px;
+}
+
+.p-img{
+  height: 300px;
 }
 
 .p-text1 h1{
@@ -358,6 +386,7 @@ ul .navbar li a {
 }
 
 .text-n p{
+  font-size: 18px;
   color: #333;
 }
 
@@ -380,6 +409,7 @@ footer {
   margin: auto;
   width: 80%;
   margin-top: 70px;
+  justify-content: space-between;
 }
 
 .logo1 {
@@ -408,7 +438,6 @@ footer {
   width: 200px;
   display: flex;
   flex-direction: column;
-  margin-left: 400px;
 }
 
 .titulo-f1 h1{
@@ -422,6 +451,11 @@ footer {
   color: #FFDE59;
   font-size: 13px;
 }
+
+.text5 a:hover{
+  text-decoration: underline;
+}
+
 
 .cont-f3 {
   width: 200px;
@@ -441,6 +475,10 @@ footer {
   font-size: 13px;
 }
 
+.text7 a:hover{
+  text-decoration: underline;
+}
+
 .cont-f4 {
   width: 200px;
   display: flex;
@@ -457,4 +495,199 @@ footer {
   margin-top: 15px;
   color: #FFDE59;
   font-size: 13px;
+}
+
+.text9 a:hover{
+  text-decoration: underline;
+}
+
+.coisas{
+  display: flex;
+}
+
+.tamanho{
+  height: 250px;
+  align-items: baseline;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  body{
+   max-width: 100%;
+  }
+
+  header{
+    width: 100%;
+  }
+  
+  .conteudo2 .clientes-img {
+    width: 900px;
+    margin-top: 20px;
+  }
+
+  .dados-img{
+    width: 100%;
+  }
+
+  ul .navbar li a {
+    font-size: 13px;
+    color: #08092a;
+}
+
+.l-c .cadastro li a {
+  font-size: 13px;
+}
+
+.l-c .login li a {
+  font-size: 13px;
+
+}
+
+.cont-f4,  .cont-f3,  .cont-f2{
+    width: 150px;
+}
+
+.p-text h1 {
+  font-size: 25px;
+}
+
+.text-flex2 ul li p{
+  font-size: 14px;
+}
+
+.p-text p {
+  font-size: 15px;
+}
+
+.botao1 {
+  margin-top: 30px;
+  font-size: 10px;
+}
+
+.pessoas1-img {
+  width: 360px;
+}
+
+.conteudo1 .banner .banner-img {
+  width: 300px;
+}
+
+}
+
+@media only screen and (max-width: 960px) {
+
+  ul .navbar li:first-child{
+    margin-left: 0;
+  }
+
+  .conteudo1 .banner .banner-img {
+    width: 250px;
+  }
+
+  .conteudo1 .text-banner ul li h1{
+    font-size: 35px;
+    color: #333;
+  }
+  
+  .conteudo1 .text-banner ul li h2{
+    font-size: 35px;
+    color: #08092a;
+  }
+
+  .conteudo1 {
+    height: 350px;
+  }
+
+  ul .navbar li {
+    margin-left: 20px;
+  }
+
+  .conteudo2 .clientes-img {
+    width: 700px;
+  }
+
+  .conteudo1 .text-banner ul li p {
+    width: 350px;
+    font-size: 13px;
+  }
+
+  .botao{
+    font-size: 9px;
+  }
+
+  .l-c {
+    right: 60px;
+  }
+
+  .info2 h2, .info1 h2, .info3 h2 {
+    font-size: 17px;
+  }
+
+  .info2{
+    margin: 0px 40px 0px 40px;
+  }
+
+  .info1{
+    margin: 0px 40px 0px 100px;
+  }
+
+  
+  .info3{
+    margin: 0px 100px 0px 40px;
+  }
+
+  .pessoas1-img {
+    width: 320px;
+  }
+
+  .p-text h1 {
+    font-size: 20px;
+  }
+
+  .conteudo2 .text2 p{
+    font-size: 12px;
+  }
+
+  .p-text{
+    margin-top: 90px;
+  }
+
+  .p-text p {
+    font-size: 14px;
+  }
+
+  .botao1 {
+    margin-top: 20px;
+  }
+
+  .conteudo4 {
+    margin-top: 0px;
+  }
+
+  .c-cont .text-flex2 h1 {
+    font-size: 28px;
+  }
+  
+  .text-flex2 ul li p {
+    font-size: 14px;
+  }
+
+  .text-flex1a {
+    display: flex;
+    position: relative;
+    height: 350px;
+    margin: auto;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-text1 h1 {
+    font-size: 25px;
+  }
+
+  .p-text1 p {
+    font-size: 14px;
+  }
+
 }

@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+
 * {
     font-family: 'Inter', sans-serif;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
 
 body {
     background-color: #F5F6FA;
@@ -50,7 +50,6 @@ header nav ul .logo li h1 {
     color: #000;
     font-size: 21.7px;
     font-style: normal;
-    font-weight: 800;
     line-height: 31px;
 }
 
@@ -108,8 +107,8 @@ header nav ul .user li .user-img{
 header nav ul .user li .seta-icon{
     width: 24px;
     height: 24px;
-    margin-top: 3px;
-    margin-left: 20px;
+    margin-left: 5px;
+    transition: transform 0.3s ease; 
 }
 
 header nav ul li {
@@ -353,4 +352,40 @@ header nav ul li {
 
 .content2 .third-content h2{
     color: #1E5EFF;
+}
+
+span.menu-trigger{
+    display: flex;
+    align-items: center;
+}
+
+ul.menu-menu{
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0000002e;
+    cursor: default;
+    margin-top: 3px;
+}
+
+ul.menu-menu li{
+    font-size: 13px;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+ul.menu-menu li:hover{
+    background-color: #0000002a;
+}
+
+ul.menu-menu li:first-child{
+    margin: 0;
+}
+
+a li.sair:hover{
+    background-color: #cd00003f;
 }

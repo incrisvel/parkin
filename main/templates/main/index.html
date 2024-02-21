@@ -8,6 +8,7 @@
     <title>Início</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/index.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
 </head>
 <body>
     <header>
@@ -45,22 +46,22 @@
                 </div>
                 <div class="navbar">
                     <li>
-                        <a href="">
+                        <a href="/">
                             Início
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/estacionamentos">
                             Estacionamentos
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/quemsomos">
                             Quem Somos
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/contato">
                             Contato
                         </a>
                     </li>
@@ -87,7 +88,7 @@
             </ul>
             <ul>
                 <li>
-                    <a class="botao" href="/empresas/dashboard">Saiba Mais</a>
+                    <a class="botao" onclick="scrollDown()">Saiba Mais</a>
                 </li>
             </ul>
         </div>
@@ -163,7 +164,7 @@
                             os estacionamentos!
                         </h1>
                         <p>Nossa missão é proporcionar aos usuários do nosso sistema uma experiência única. Com base nisso, nós criamos um sistema onde cada estacionamento cadastrado será monitorado e atualizado em tempo real, para um melhor aproveitamento de todos. Algumas funcionalidades que nos diferenciam são: vagas em tempo real, monitoramento simplificado para empresas, suporte 24 horas, e criptografia de dados.</p>
-                        <a class="botao1" href="/clientes/entrar">Saiba Mais</a>
+                        <a class="botao1" href="/clientes/entrar">Entrar</a>
                     </li>
                 </ul>
             </div>
@@ -185,7 +186,7 @@
         </div>
     </div>
     <div class="conteudo5">
-        <div class="text-flex1">
+        <div class="text-flex1a">
             <div class ="p-img">
                 <img src="{% static 'assets/img/pessoas2.png' %}" alt="Banner" class="pessoas1-img">
             </div>
@@ -202,7 +203,7 @@
         </div>
     </div>
     <div class="conteudo6">
-        <div class="c-cont">
+        <div class="c-cont tamanho">
             <div class='text-n'>
                 <ul>
                     <li>
@@ -239,72 +240,89 @@
                     </ul>
                 </div>
             </div>
-            <div class="cont-f2">
-                <div class="text4">
-                    <div class="titulo-f1">
-                        <ul>
-                            <li>
-                                <h1>Empresa</h1>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="text5">
-                        <ul>
-                            <li>
-                                <a href="">Sobre nós</a>
-                                <a href="">Nossa Missão</a>
-                                <a href="">Como funciona?</a>
-                                <a href="">Estacionamentos</a>
-                                <a href="">Cadastrar</a>
-                                <a href="">Para empresas</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="cont-f3">
-                <div class="text6">
-                    <div class="titulo-f1">
-                        <ul>
-                            <li>
-                                <h1>Suporte</h1>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="text7">
-                        <ul>
-                            <li>
-                                <a href="">Contato</a>
-                                <a href="">Nossa equipe</a>
-                                <a href="">feedback</a>
-                                <a href="">FAQ</a>
-                            </li>
-                        </ul>
+            <div class="coisas">
+                <div class="cont-f2">
+                    <div class="text4">
+                        <div class="titulo-f1">
+                            <ul>
+                                <li>
+                                    <h1>Empresa</h1>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text5">
+                            <ul>
+                                <li>
+                                    <a href="">Sobre nós</a>
+                                    <a href="">Nossa Missão</a>
+                                    <a href="">Como funciona?</a>
+                                    <a href="">Estacionamentos</a>
+                                    <a href="">Cadastrar</a>
+                                    <a href="">Para empresas</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cont-f4">
-                <div class="text8">
-                    <div class="titulo-f1">
-                        <ul>
-                            <li>
-                                <h1>Contatos</h1>
-                            </li>
-                        </ul>
+                <div class="cont-f3">
+                    <div class="text6">
+                        <div class="titulo-f1">
+                            <ul>
+                                <li>
+                                    <h1>Suporte</h1>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text7">
+                            <ul>
+                                <li>
+                                    <a href="">Contato</a>
+                                    <a href="">Nossa equipe</a>
+                                    <a href="">feedback</a>
+                                    <a href="">FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="text9">
-                        <ul>
-                            <li>
-                                <a href="">parkin2123@gmail.com</a>
-                                <a href="">(47) 9 84087990</a>
-                                <a href="">(47) 9 99781506</a>
-                            </li>
-                        </ul>
+                </div>
+                <div class="cont-f4">
+                    <div class="text8">
+                        <div class="titulo-f1">
+                            <ul>
+                                <li>
+                                    <h1>Contatos</h1>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text9">
+                            <ul>
+                                <li>
+                                    <a href="">parkin2123@gmail.com</a>
+                                    <a href="">(47) 9 84087990</a>
+                                    <a href="">(47) 9 99781506</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </footer>
+    <script>
+    function scrollDown() {
+        var scrollStep = window.innerHeight / 20; // Ajuste o valor conforme necessário
+        var destination = 750; // Defina a coordenada de destino conforme necessário
+        var scrollInterval = setInterval(function() {
+            var scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop >= destination || scrollTop + window.innerHeight >= document.documentElement.scrollHeight) {
+                clearInterval(scrollInterval);
+            } else {
+                window.scrollBy(0, scrollStep);
+            }
+        }, 3); // Ajuste o intervalo conforme necessário
+    }
+    </script>
 </body>
 </html>

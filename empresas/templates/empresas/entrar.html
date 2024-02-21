@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
   <link rel="stylesheet" href="{% static '/styles/entrar-empresas.css' %}">
+  <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
   <title>PARKIN</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
         <div class="titulo-esq">
           <h1>Entrar</h1>
           <p>Seu lugar é aqui. Fácil e rápido!</p>
-          <button class="saibamais">Saiba Mais</button>
+          <button class="saibamais" href="/">Saiba Mais</button>
         </div>
         <img class="detalhes-img" src="{% static 'assets/img/detalhes1.png' %}">
       </div>
@@ -33,22 +34,38 @@
                 <h1>Entrar</h1>
                 <p>Bem vindo de volta!</p>
               </div>
+                {%if erro_email == False%}
                   <div class="import1">
                     <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                     <div class="form">
                       <input type="email" name="email" placeholder="E-mail" id="email ">
                     </div>
                   </div>
+                {%else%}
+                  <div class="import1" style="border: 1px solid #d50303;">
+                    <img src="{% static 'assets/icons/email.svg' %}" class="email-img">
                     <div class="form">
-                      {{ form.email }}
+                      <input type="email" name="email" placeholder="E-mail" id="email ">
                     </div>
                   </div>
+                {%endif%}
+                {%if erro_senha == False%}
                 <div class="import3">
                   <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
-                  <div class="form">
-                    <input type="password" name="senha" placeholder="Senha" id="senha">
+                  <div class="form" style="margin:0">
+                    <input type="password" name="senha" placeholder="Senha" id="senha" style="margin-left: 5px; margin-right:5px; width:140px">
                   </div>
+                  <img src="{% static 'assets/img/olho.png' %}" onclick="togglePasswordVisibility()" id="eye-icon" style="width:20px; height:20px; margin-right:5px; opacity:0.5; cursor:pointer">
                 </div>
+                {%else%}
+                <div class="import3"  style="border: 1px solid #d50303;">
+                  <img src="{% static 'assets/icons/senha.svg' %}" class="senha-img">
+                  <div class="form" style="margin:0">
+                    <input type="password" name="senha" placeholder="Senha" id="senha" style="margin-left: 5px; margin-right:5px; width:140px">
+                  </div>
+                  <img src="{% static 'assets/img/olho.png' %}" onclick="togglePasswordVisibility()" id="eye-icon" style="width:20px; height:20px; margin-right:5px; opacity:0.5; cursor:pointer">
+                </div>
+                {%endif%}
               <div class="botao">
                 <input type="submit" value="Entrar" id="button">
                 <div class="entrar">
@@ -66,8 +83,22 @@
       </div>
     </div>
   </main>
+  <script>
+    function togglePasswordVisibility() {
+      var senhaInput = document.getElementById("senha");
+      var eyeIcon = document.getElementById("eye-icon");
+
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        eyeIcon.src = "{% static 'assets/img/visivel.png' %}";
+      } else {
+        senhaInput.type = "password";
+        eyeIcon.src = "{% static 'assets/img/olho.png' %}";
+      }
+
+      senhaInput.focus();
+    }
+  </script>
 </body>
 
 </html>
-
-<body>

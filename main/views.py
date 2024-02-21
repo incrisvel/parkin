@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request,'main/index.html')
 
-@csrf_protect
 def enviar_email(mail):
     corpo_email = render_to_string('main/email.html')
 
@@ -30,9 +29,9 @@ def enviar_email(mail):
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
     print('email enviado')
 
-
-def a(request):
-    return render(request, 'main/email.html')
+@csrf_protect
+def quemsomos(request):
+    return render(request, 'main/quem_somos.html')
 
 
 

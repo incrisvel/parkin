@@ -65,3 +65,7 @@ Cristina integrou o banco de dados com a autenticação e cadastro de usuários.
 ## 14/02/2024
 
 Ryan preparou e editou o vídeo da equipe.
+
+## 15/02/2024 - 16/02/2024
+
+Foram realizados merges na dev, bem como a preparação para os passos finais do trabalho. Cristina, Marco e Ryan decidiram, presencialmente, a programação da semana seguinte.
