@@ -31,7 +31,7 @@ class Perfil(forms.ModelForm):
         model = PerfilLocal
         fields = "__all__"
         widgets = {
-            'valor': forms.FloatField(attrs={'placeholder': 'R$'}),
+            
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
             'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
             }
