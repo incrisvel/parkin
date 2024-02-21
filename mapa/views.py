@@ -2,8 +2,14 @@ from django.shortcuts import render
 from empresas.models import Endereco, PerfilLocal
 
 def estacionamentos(request):
-    enderecos = Endereco.objects.all()
     locais = PerfilLocal.objects.all()
+    enderecos = Endereco.objects.all()
 
-    return render(request, "mapa/estacionamentos.html", {'enderecos': enderecos, 'locais': locais})
 
+    coberto_choice = {True: 'Coberto', False: 'Não coberto'}
+
+    for local in locais:
+        coberto = coberto_choice[local.coberto]
+        local.coberto = coberto
+
+    return render(request, "mapa/estacionamentos.html", {'locais': locais, 'enderecos': enderecos})

@@ -114,26 +114,26 @@
                     <div class="est">
                         <div class="block">
                             <ul>
+                                {% for local in locais %}
                                 <li>
-                                    <a href=""> 
+                                    <!-- Exibição de informações do local -->
+                                    <a href="">
                                         <div class="imagem">
                                             <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
                                         </div>
                                         <div class="textos">
-                                            {% for local in locais %}
-                                                <h1>{{local.nome_estacionamento}}</h1>
-                                                <div class="avaliacao">
-                                                    <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento"><span>{{local.nota_media}}</span>
-                                                </div>
-                                                <p>{{local.vagas_disp}} Vagas disponíveis | {{local.coberto}} | R${{local.valor}}/h</p>
-                                            {%endfor%}
-
+                                            <h1>{{ local.nome_estacionamento }}</h1>
+                                            <div class="avaliacao">
+                                                <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento"><span>{{ local.nota_media }}</span>
+                                            </div>
+                                            <p>{{ local.vagas_disp }} Vagas disponíveis | {{ local.coberto }} | R${{ local.valor }}/h</p>
                                             {% for endereco in enderecos %}
                                                 <span>{{ endereco.local }}, {{ endereco.bairro }}</span>
                                             {% endfor %}
                                         </div>
                                     </a>
                                 </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
