@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .rating-container {
+            text-align: center;
+        }
+
+        .star {
+            cursor: pointer;
+            font-size: 30px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        #frontEndStars, #backEndStars, #standStars {
+            color: #ddd;
+        }
+
+        #frontEndStars:hover, #backEndStars:hover, #standStars:hover,
+        #frontEndStars:hover ~ .star, #backEndStars:hover ~ .star, #standStars:hover ~ .star {
+            color: #fdd835; /* Yellow color when hovered */
+        }
+
+        #reviewTitle {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        #reviewTextarea {
+            width: 300px;
+            height: 100px;
+            resize: none;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="rating-container">
+    <h1 id="reviewTitle">Avaliação de Clientes</h1>
+
+    <textarea id="reviewTextarea" maxlength="200" placeholder="Digite sua avaliação..."></textarea>
+
+    <h2>Front-End </h2>
+    <div id="frontEndStars" class="stars" data-rating="0">
+        <span class="star" onclick="rate('frontEnd', 1)">&#9733;</span>
+        <span class="star" onclick="rate('frontEnd', 2)">&#9733;</span>
+        <span class="star" onclick="rate('frontEnd', 3)">&#9733;</span>
+        <span class="star" onclick="rate('frontEnd', 4)">&#9733;</span>
+        <span class="star" onclick="rate('frontEnd', 5)">&#9733;</span>
+    </div>
+
+    <h2>Back-End </h2>
+    <div id="backEndStars" class="stars" data-rating="0">
+        <span class="star" onclick="rate('backEnd', 1)">&#9733;</span>
+        <span class="star" onclick="rate('backEnd', 2)">&#9733;</span>
+        <span class="star" onclick="rate('backEnd', 3)">&#9733;</span>
+        <span class="star" onclick="rate('backEnd', 4)">&#9733;</span>
+        <span class="star" onclick="rate('backEnd', 5)">&#9733;</span>
+    </div>
+
+    <h2> Nosso Stand </h2>
+    <div id="standStars" class="stars" data-rating="0">
+        <span class="star" onclick="rate('stand', 1)">&#9733;</span>
+        <span class="star" onclick="rate('stand', 2)">&#9733;</span>
+        <span class="star" onclick="rate('stand', 3)">&#9733;</span>
+        <span class="star" onclick="rate('stand', 4)">&#9733;</span>
+        <span class="star" onclick="rate('stand', 5)">&#9733;</span>
+    </div>
+
+    <button onclick="submitRating()">Enviar Avaliação</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function rate(category, rating) {
+        const stars = document.getElementById(`${category}Stars`);
+        stars.setAttribute('data-rating', rating);
+
+        const selectedStars = document.querySelectorAll(`#${category}Stars .star:nth-child(-n+${rating})`);
+        selectedStars.forEach(star => star.style.color = '#fdd835');
+
+        const unselectedStars = document.querySelectorAll(`#${category}Stars .star:nth-child(n+${rating + 1})`);
+        unselectedStars.forEach(star => star.style.color = '#ddd');
+    }
+
+    function submitRating() {
+        const frontEndRating = document.getElementById('frontEndStars').getAttribute('data-rating');
+        const backEndRating = document.getElementById('backEndStars').getAttribute('data-rating');
+        const standRating = document.getElementById('standStars').getAttribute('data-rating');
+        const reviewText = document.getElementById('reviewTextarea').value;
+
+        // Aqui você pode enviar as avaliações e o texto da avaliação para o back-end ou exibir a resposta na tela.
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `Avaliação Front-End: ${frontEndRating} estrelas<br>`;
+        resultDiv.innerHTML += `Avaliação Back-End: ${backEndRating} estrelas<br>`;
+        resultDiv.innerHTML += `Avaliação Nosso Stand: ${standRating} estrelas<br>`;
+        resultDiv.innerHTML += `Avaliação Texto: ${reviewText}<br>`;
+        resultDiv.innerHTML += 'Avaliação enviada com sucesso!';
+    }
+</script>
+
+</body>
+</html>
