@@ -124,7 +124,14 @@
                                         <div class="textos">
                                             <h1>{{ local.nome_estacionamento }}</h1>
                                             <div class="avaliacao">
-                                                <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento"><span>{{ local.nota_media }}</span>
+                                                <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento">
+                                                <span>                
+                                                    {% if local.naoqueronone == "Sem avaliação" %}
+                                                        Sem avaliação
+                                                    {% else %}
+                                                        {{ local.naoqueronone }}
+                                                    {% endif %}
+                                                </span>
                                             </div>
                                             <p>{{ local.vagas_disp }} vagas disponíveis | {{ local.coberto }} | R$ {{ local.valor }}/h</p>
                                             <span>{{ local.endereco.local }}, {{ local.endereco.bairro }}</span>

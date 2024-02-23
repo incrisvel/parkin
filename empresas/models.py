@@ -84,6 +84,11 @@ class PerfilLocal(models.Model):
     vagas_disp = models.PositiveSmallIntegerField()
     nota_media = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(10.0)], verbose_name='nota média', null=True, blank=True, editable=False)
 
+    def naoqueronone(self):
+        if self.nota_media is None:
+            return "Sem avaliação"
+        return str(self.nota_media)
+
     def update_nota_media(self):
         media = self.estacionamento_avaliado.aggregate(Avg('nota'))['nota__avg']
         self.nota_media = round(media, 1) if media else None
