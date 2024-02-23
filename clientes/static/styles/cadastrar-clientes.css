@@ -150,8 +150,6 @@ button:hover {
 input, textarea {
     border: none;
     outline: none;
-    margin-left: 5px;
-
 }
 
 .senha-img {
