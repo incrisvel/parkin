@@ -9,6 +9,7 @@ from main.models import Usuario
 from projeto.decorators import estacionamento_required
 from django.contrib.auth import authenticate, login, logout
 from projeto.backend import EmailBackend
+from django.db import transaction
 
 @csrf_protect
 def cadastrocempresa(request):

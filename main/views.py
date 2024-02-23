@@ -36,4 +36,8 @@ def quemsomos(request):
 @login_required
 def fazer_logout(request):
     logout(request)
-    return redirect('/')
+    return redirect ("/")
+
+
+
+

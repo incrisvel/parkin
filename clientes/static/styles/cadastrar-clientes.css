@@ -158,6 +158,9 @@ input, textarea {
 
 .login {
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .entrar {
@@ -181,12 +184,12 @@ input, textarea {
 }
 
 
+
 .titulos {
     margin-bottom: 20px;
-    position: relative;
-    left: 43px;
     font-size: 14px;
     color: #333;
+    width: 200px;
 }
 
 .botoes {
@@ -283,10 +286,10 @@ input, textarea {
     background-color: #fefefe;
     margin: auto; 
     margin-top: 5px;
-    padding: 20px;
     border: 1px solid #888;
     width: auto; 
     max-width: 700px;
+    padding: 50px;
     }
 
 .close {
@@ -322,4 +325,137 @@ input, textarea {
 .termos-erro:hover{
     text-decoration: underline;
     }
+.termo{
+    color: black;
+    font-size: 25px;
+}
+.texto{
+    color: black;
+    text-align: justify;
+    line-height: 1,5px;
+    text-indent: 25px;
+    
+}
+.ponto{
+    color: black;
+}
+@media only screen and (max-width:900px){
+    .conteudo-esq{
+        width: 50%;
+    }
+    .conteudo-dir {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        background-color: #fff;
+    }
+    .titulo-esq {
+        position: absolute;
+        color: #fff;
+        font-size: 14px;
+        margin-left: 56px;
+        margin-top: 235px;
+    }
+}
+@media only screen and (max-width:768px){
 
+    .import{
+        width: 230px;
+
+    }
+
+    .conteudo-esq{
+        width: 40%;
+    }
+
+    #button{
+        width: 230px;
+    }
+
+    .titulo-esq {
+        position: absolute;
+        color: #fff;
+        font-size: 14px;
+        margin-left: 20px;
+        margin-top: 235px;
+    }
+
+    .conteudo-dir {
+        position: absolute;
+        width: 60%;
+        height: 100%;
+        right: 0;
+        background-color: #fff;
+    }
+
+    button {
+        background-color: #fff;
+        width: 105px;
+        height: 35px;
+        border-radius: 20px;
+        margin-top: 15px;
+        margin-left: 5px;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        font-size: 13px;
+    }
+    
+    
+    .termos {
+        margin-left: 5px;
+        cursor: pointer;
+        color: #FFCC00;
+        font-size: 16px;
+    }
+
+    .detalhes-img {
+        display: block;
+        margin-top: 400px;
+        margin-left: -126px;
+
+    
+
+}
+
+   
+
+}
+
+
+@media only screen and (max-width:650px){
+
+    .centro {
+        position: relative;
+        border-radius: 25px;
+        width: 80%;
+        height: 600px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
+    }
+
+    .conteudo-dir {
+        position: absolute;
+        width: 100%;
+
+    }
+
+    .conteudo-esq {
+        display: none;
+    }
+
+
+    
+}
+
+
+@media only screen and (max-width:550px){
+
+
+    
+    
+}
