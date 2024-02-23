@@ -43,6 +43,10 @@
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
+    <ul>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#estacionamentos">Estacionamentos</a></li>
+    </ul>
     <li><a href="#implementações">Implementações</a></li>
     <li><a href="#contribuir">Contribuir</a></li>
     <li><a href="#licença">Licença</a></li>
@@ -146,7 +150,19 @@ Listar itens necessários para usar o software e como instalá-los.
 
 ## Uso
 
-Exemplos de como o projeto pode ser usado. Capturas de tela, demos, exemplos de código.
+A visão do ParkIn se estende tanto aos motoristas em busca de vagas quanto aos responsáveis pelos estabelecimentos. Vamos explorar funcionalidades implementadas para estes grupos.
+
+### Clientes
+
+1. Cadastro;
+2. Login;
+3. Visualização do mapa interativo.
+
+### Estacionamentos
+
+1. Cadastro;
+2. Login;
+3. Tela de dashboard.
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -156,8 +172,7 @@ Exemplos de como o projeto pode ser usado. Capturas de tela, demos, exemplos de 
 
 Uma lista das implementações a serem incorporadas:
 
-- [ ] Instalação de sensores
-- [ ] Avaliação dos usuários
+- [ ] Instalação de sensores (hardware)
 - [ ] Registro de atividade
 - [ ] Validação
     - [ ] CNPJ
@@ -173,7 +188,7 @@ Veja a página [open issues](https://github.com/incrisvel/parkin/issues) para um
 
 Contribuições são essenciais para a comunidade open source. **Todas as contribuições são altamente apreciadas.**
 
-Se você tem uma sugestão que poderia melhorar este projeto, por favor, crie um pull request. Não se esqueça de nos dar uma estrela! Obrigado!
+Se você tem uma sugestão que poderia melhorar este projeto, por favor, crie um pull request. Não se esqueça de nos dar uma estrela! A equipe ParkIn agradece.
 
   1.  Faça um fork do repositório
   2.  Crie uma branch para sua feature  (`git checkout -b feature/FeatureLegal`)
@@ -195,10 +210,9 @@ Este projeto é licenciado sob a GNU GENERAL PUBLIC LICENSE. Veja a [licença](L
 
 ## Contato
 
-
 Entre em contato com a equipe em parkin2123@gmail.com.
 
-Autores do projeto:
+Saiba mais sobre os autores do projeto:
 
 - [![Ana Alice Rodrigues][AAR.com]][AAR-url]
 - [![Arthur Henrique Erhardt][AHE.com]][AHE-url]
