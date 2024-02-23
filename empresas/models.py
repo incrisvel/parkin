@@ -48,8 +48,6 @@ class Endereco(models.Model):
     estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='endereco')
     local = models.CharField(max_length=200, blank=False, null=False)
     bairro = models.CharField(max_length=200, blank=False, null=False)
-    logradouro = models.CharField(max_length=200, blank=False, null=False)
-    numero = models.PositiveSmallIntegerField(blank=False, null=False)
     cep = models.CharField(max_length=10, verbose_name='CEP')
     
     def __str__(self):
@@ -71,6 +69,7 @@ class PerfilLocal(models.Model):
     )
 
     estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='dados_perfil')
+    endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
     nome_estacionamento = models.CharField(max_length = 250, verbose_name='nome_estacionamento')
     proprietarios = models.CharField(max_length = 200, null = True, blank = True)
     coberto = models.BooleanField(default = False)

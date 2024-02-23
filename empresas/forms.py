@@ -8,7 +8,7 @@ class PerfilForm(forms.ModelForm):
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
             'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
             }
-        exclude = ['estacionamento']
+        exclude = ['estacionamento', 'endereco']
 
 
 class EnderecoForm(forms.ModelForm):

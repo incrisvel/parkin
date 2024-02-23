@@ -85,16 +85,22 @@ def resumos(request):
 @estacionamento_required
 def cadastro(request):
     if request.method == 'POST':
-        form_perfil = PerfilForm(request.POST)
+
         form_endereco = EnderecoForm(request.POST)
+        form_perfil = PerfilForm(request.POST)
+        
         if form_perfil.is_valid() and form_endereco.is_valid():
-            perfil = form_perfil.save(commit=False)
-            perfil.estacionamento = request.user.estacionamento
-            perfil.save()
 
             endereco = form_endereco.save(commit=False)
             endereco.estacionamento = request.user.estacionamento
             endereco.save()
+
+            endereco_id = endereco.pk
+
+            perfil = form_perfil.save(commit=False)
+            perfil.estacionamento = request.user.estacionamento
+            perfil.endereco_id = endereco_id
+            perfil.save()
 
             return redirect('/empresas/dashboard')
     else:
@@ -114,9 +120,8 @@ def estacionamento(request):
         dias_semana = {'1': 'Segunda-feira', '2': 'Terça-feira', '3': 'Quarta-feira', '4': 'Quinta-feira', '5': 'Sexta-feira', '6': 'Sábado', '7': 'Domingo'}
 
         for local in locais:
-            # Convertendo os dias de funcionamento de códigos para nomes de dias
             dias_abertos = [dias_semana[dia] for dia in local.dias_aberto]
-            local.dias_abertos = dias_abertos  # Substituindo os códigos pelos nomes dos dias
+            local.dias_abertos = dias_abertos
 
 
         return render(request,'empresas/estacionamento.html', {'nome':usuario.nome_fantasia, 'locais':locais, 'enderecos':enderecos})

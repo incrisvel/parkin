@@ -126,10 +126,8 @@
                                             <div class="avaliacao">
                                                 <img src="{% static './icons/estrela.svg' %}" alt="Foto de estacionamento"><span>{{ local.nota_media }}</span>
                                             </div>
-                                            <p>{{ local.vagas_disp }} Vagas disponíveis | {{ local.coberto }} | R${{ local.valor }}/h</p>
-                                            {% for endereco in enderecos %}
-                                                <span>{{ endereco.local }}, {{ endereco.bairro }}</span>
-                                            {% endfor %}
+                                            <p>{{ local.vagas_disp }} vagas disponíveis | {{ local.coberto }} | R$ {{ local.valor }}/h</p>
+                                            <span>{{ local.endereco.local }}, {{ local.endereco.bairro }}</span>
                                         </div>
                                     </a>
                                 </li>
