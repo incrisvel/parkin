@@ -922,3 +922,30 @@ footer{
 }
 
 }
+
+
+@media only screen and (max-width: 768px){
+  .logo {
+    position: relative;
+    width: 100%; 
+    justify-content: center;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: none;
+  margin-right: 0;
+  position: absolute;
+  background-color: aqua;
+  flex-direction: column;
+  left: 0;
+}
+
+ul .navbar li:first-child {
+  margin-left: 20px;
+}
+
+.carpadi  ''
+
+}  
