@@ -4,16 +4,24 @@
 
 body {
     background-color: #ffd52b11;
+    height: 100vh;
+}
 
+main{
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
 }
 
 .centro {
-    position: relative;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
     border-radius: 25px;
     width: 70%;
     height: 600px;
-    margin: auto;
-    margin-top: 30px;
     overflow: hidden;
     box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
 }
@@ -427,15 +435,9 @@ input, textarea {
 @media only screen and (max-width:650px){
 
     .centro {
-        position: relative;
-        border-radius: 25px;
         width: 80%;
         height: 600px;
-        margin: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        overflow: hidden;
-        box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
+
     }
 
     .conteudo-dir {

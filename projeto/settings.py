@@ -22,8 +22,7 @@ SECRET_KEY = 'django-insecure-zf4rrzj@bdh*g@y*#ohc!od1yp0)#_h@_(50p#2z7$qdg-^8%=
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.1'] 
 
 if 'CODESPACE_NAME' in os.environ:
     CSRF_TRUSTED_ORIGINS = [f'https://{os.getenv("CODESPACE_NAME")}-8000.{os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")}']
