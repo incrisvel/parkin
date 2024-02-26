@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos</title>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/sobrenos.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="/">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sobrenos">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contato">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="fundo1">
+        <div class="conteudo1">
+            <section class="historia">
+                <h1>Conheça um pouco mais 
+                    <br>
+                    sobre nós.
+                </h1>
+                <p>
+                    Empenhados em trazer uma experiência única aos usuários, nós estamos comprometidos em fazer o nosso melhor para que todos possam se sentir sastifeitos com nosso projeto.
+                </p>
+            </section>
+            <section class="g-imagem">
+                <img src="{% static 'assets/img/grupo.png' %}" alt="Grupo de pessoas" class="grupo-img">
+            </section>
+        </div>
+    </div>
+    <div class="conteudo2">
+        <div class="titulo1">
+            <h1>
+                Nossos Valores
+            </h1>
+        </div>
+        <div class="valores">
+            <section class="valor1">
+                <h2>Inovação</h2>
+                <p>Somos apaixonados por inovar. Constantemente buscamos maneiras criativas de melhorar a experiência de estacionamento, utilizando tecnologias de ponta e soluções inteligentes para satisfazer nossos clientes.</p>
+            </section>
+            <section class="valor2">
+                <h2>Comprometimento</h2>
+                <p>Nosso compromisso é absoluto. Estamos dedicados a superar as expectativas, oferecendo serviços excepcionais e apoiando nossos clientes em todas as etapas, garantindo que suas necessidades sejam sempre atendidas.</p>
+            </section>
+            <section class="valor3">
+                <h2>Integridade</h2>
+                <p>Nossa conduta é baseada em integridade. Agimos com honestidade, transparência e ética em todos os aspectos do nosso trabalho, cultivando a confiança dos nossos clientes e estabelecendo relações sólidas e duradouras.</p>
+            </section>
+        </div>
+    </div>
+    <div class="conteudo3">
+        <div class="titulo2">
+            <h1>Nossa equipe</h1>
+        </div>
+        <div class="equipe">
+            <section class="pessoa">
+                <img src="{% static 'assets/img/01.jpg' %}" alt="Foto de Ryan" class="perfil-img">
+                <h2>Ryan</h2>
+                <p>Desenvolvimento Front-End</p>
+
+            </section>
+            
+            <section class="pessoa">
+                <img src="{% static 'assets/img/02.jpg' %}" alt="Foto de Cristina" class="perfil-img">
+                <h2>Cristina</h2>
+                <p>Desenvolvimento Back-End</p>
+
+            </section>
+
+            <section class="pessoa">
+                <img src="{% static 'assets/img/03.jpg' %}" alt="Foto de Marco" class="perfil-img">
+                <h2>Marco</h2>
+                <p>Desenvolvimento Front-End</p>
+
+            </section>
+
+            <section class="pessoa">
+                <img src="{% static 'assets/img/04.jpg' %}" alt="Foto de Ana Alice" class="perfil-img">
+                <h2>Ana Alice</h2>
+                <p>Desenvolvimento Back-End</p>
+
+            </section>
+
+            <section class="pessoa">
+                <img src="{% static 'assets/img/05.jpg' %}" alt="Foto de Arthur" class="perfil-img">
+                <h2>Arthur</h2>
+                <p>Desenvolvimento Front-End</p>
+
+            </section>
+
+            <section class="pessoa">
+                <img src="{% static 'assets/img/06.jpg' %}" alt="Foto de Bianca" class="perfil-img">
+                <h2>Bianca</h2>
+                <p>Desenvolvimento Back-end</p>
+
+            </section>
+        </div>
+    </div>
+</body>
+</html>

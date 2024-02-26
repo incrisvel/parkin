@@ -30,8 +30,16 @@ def enviar_email(mail):
     print('email enviado')
 
 @csrf_protect
-def quemsomos(request):
-    return render(request, 'main/quem_somos.html')
+def sobrenos(request):
+    return render(request, 'main/sobrenos.html')
+
+@csrf_protect
+def contato(request):
+    return render(request, 'main/contato.html')
+
+@csrf_protect
+def paraempresas(request):
+    return render(request, 'main/paraempresas.html')
 
 @login_required
 def fazer_logout(request):

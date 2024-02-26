@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/paraempresas.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
+</head>
+<body>
+    <div class="fundos">
+        <img src="{% static 'assets/icons/background.svg' %}" alt="fundo" class="fundo-img">
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="/">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sobrenos">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contato">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="conteudo1">
+        <div class="flex">
+            <div class="textos">
+                <h1>O sistema perfeito para sua empresa!</h1>
+                <p>Nosso aplicativo oferece uma solução abrangente para empresas que desejam otimizar a gestão de estacionamento em seus estabelecimentos. Com uma interface intuitiva, ajudamos as empresas a melhorar a eficiência, maximizar o uso de suas vagas e proporcionar uma experiência excepcional aos seus clientes.</p>
+            </div>
+            <div class="imagens">
+                <img src="{% static './assets/icons/empresas1.svg' %}" alt="" class="empresas-img">
+            </div>
+        </div>
+        <div class="conteudo2">
+            <div class="titulo1">
+                <h1>Fazendo a diferença para
+                    <br>
+                    o seu estacionamento!
+                </h1>
+            </div>
+            <div class="flex">
+                <div class="textos">
+                    <h1>Principais funcionalidades:</h1>
+                    <h2>Dashboard</h2>
+                    <p>Nosso aplicativo oferece um dashboard centralizado que fornece uma visão abrangente do status atual do estacionamento em todos os seus locais. Com dados em tempo real sobre ocupação, as empresas podem tomar decisões informadas para otimizar a disponibilidade de vagas.</p>
+                    <h2>Sensores</h2>
+                    <p>Nossa plataforma se integra a sensores que implantaríamos no estacionamento para fornecer informações precisas sobre a ocupação das vagas em tempo real. Isso permite uma gestão proativa do estacionamento, ajustando a disponibilidade de vagas conforme necessário.</p>
+                    <h2>Comunicação com Clientes</h2>
+                    <p>O aplicativo facilita a comunicação direta com os clientes, permitindo o envio de notificações sobre disponibilidade de vagas, direções para o estacionamento e atualizações importantes em tempo real. Isso melhora a experiência do cliente e reduz a frustração associada à busca por vagas.</p>
+                </div>
+                <div class="imagens">
+                    <img src="{% static './assets/icons/empresas2.svg' %}" alt="" class="empresas-img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteudo3">
+        <div class="flex">
+            <div class="imagens">
+                <img src="{% static './assets/icons/empresas3.svg' %}" alt="" class="empresas-img">
+            </div>
+            <div class="textos">
+                <h1>A sua melhor escolha!</h1>
+                <p>Nosso aplicativo é projetado para ser uma ferramenta poderosa que capacita as empresas a oferecer uma experiência de estacionamento superior, aumentar a eficiência operacional e impulsionar o crescimento do negócio.</p>
+            </div>
+        </div>
+    </div>
+</body>
