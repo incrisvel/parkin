@@ -28,7 +28,7 @@ header {
     position: absolute;
     width: 1091px;
     height: 1199px;
-    right: 0;
+    margin-right: 100px;
     opacity: 0.9;
 }
 

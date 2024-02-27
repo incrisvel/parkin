@@ -84,6 +84,8 @@ def resumos(request):
 @csrf_protect
 @estacionamento_required
 def cadastro(request):
+    usuario = Estacionamento.objects.get(email=request.user.email)
+
     if request.method == 'POST':
 
         form_endereco = EnderecoForm(request.POST)
@@ -107,7 +109,7 @@ def cadastro(request):
         form_perfil = PerfilForm()
         form_endereco = EnderecoForm()
 
-    return render(request, 'empresas/cadastro.html', {'form': form_perfil, 'form2': form_endereco})
+    return render(request, 'empresas/cadastro.html', {'form': form_perfil, 'form2': form_endereco, 'nome': usuario.nome_fantasia})
 
 
 @estacionamento_required

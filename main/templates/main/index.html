@@ -44,27 +44,31 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="navbar">
-                    <li>
-                        <a href="/">
-                            Início
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/estacionamentos">
-                            Estacionamentos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/sobrenos">
-                            Sobre nós
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contato">
-                            Contato
-                        </a>
-                    </li>
+                
+                <div class="side-menu">
+                    <img src="{% static 'assets/img/cardapio.png' %}" alt="Cardapio" class="cardapio" onclick="aumentarDiv()">
+                    <div class="navbar">
+                        <li>
+                            <a href="/">
+                                Início
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/estacionamentos">
+                                Estacionamentos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/sobrenos">
+                                Sobre nós
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contato">
+                                Contato
+                            </a>
+                        </li>
+                    </div>
                 </div>
             </ul>
         </nav>
@@ -308,18 +312,25 @@
     </footer>
     <script>
     function scrollDown() {
-        var scrollStep = window.innerHeight / 20; // Ajuste o valor conforme necessário
-        var destination = 750; // Defina a coordenada de destino conforme necessário
-        var scrollInterval = setInterval(function() {
-            var scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop >= destination || scrollTop + window.innerHeight >= document.documentElement.scrollHeight) {
-                clearInterval(scrollInterval);
-            } else {
-                window.scrollBy(0, scrollStep);
-            }
-        }, 3); // Ajuste o intervalo conforme necessário
+        
+        const ancora = document.getElementById("ancora");
+        ancora.scrollIntoView({ behavior: "smooth" });
     }
+
+    function aumentarDiv() {
+    var minhaDiv = document.getElementsByClassName('navbar')[0];
+    var DivGrande = document.getElementsByClassName('side-menu')[0];
+    var larguraAtual = minhaDiv.offsetWidth;
+    var novaLargura = 200; 
+
+    if (larguraAtual === novaLargura) {
+        minhaDiv.style.width = '0';
+        DivGrande.style.backgroundColor = "transparent"; // Define a cor como transparente quando a largura é 0
+    } else {
+        minhaDiv.style.width = novaLargura + 'px';
+        DivGrande.style.backgroundColor = "#fff";
+    }
+}
     </script>
 </body>
 </html>
