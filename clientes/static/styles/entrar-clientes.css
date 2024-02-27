@@ -2,29 +2,27 @@
     font-family: 'Inter', sans-serif;
 }
 
+
 body {
     background-color: #ffd52b11;
-    height: 100vh;
 }
 
 main{
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .centro {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
+    position: relative;
     border-radius: 25px;
+    margin: auto;
     width: 70%;
     height: 600px;
     overflow: hidden;
     box-shadow: 0px 0px 15px 1px rgba(21, 34, 50, 0.182);
 }
+
 
 .conteudo-esq {
     position: absolute;
@@ -254,7 +252,7 @@ input, textarea {
 
 .ativo {
     font-size: 13px;
-    color: #ffd52b86;
+    color: #ffd52bf2;
     font-family: inherit;
     font-weight: 800;
     cursor: pointer;
@@ -382,7 +380,6 @@ input, textarea {
     
     .centro {
         width: 80%;
-        height: 600px;
     }
 
 

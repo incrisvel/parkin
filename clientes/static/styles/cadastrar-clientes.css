@@ -2,24 +2,22 @@
     font-family: 'Inter', sans-serif;
 }
 
+
+
 body {
     background-color: #ffd52b11;
-    height: 100vh;
 }
 
 main{
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .centro {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
+    position: relative;
     border-radius: 25px;
+    margin: auto;
     width: 70%;
     height: 600px;
     overflow: hidden;
@@ -212,7 +210,7 @@ input, textarea {
 
 .ativo {
     font-size: 13px;
-    color: #ffd52b86;
+    color: #ffd52bf2;
     font-family: inherit;
     font-weight: 800;
     cursor: pointer;
@@ -290,15 +288,20 @@ input, textarea {
     background-color: rgba(0, 0, 0, 0.5); /* Fundo borrado com opacidade */
   }
 
-.modal-content {
+  .modal-content {
     background-color: #fefefe;
-    margin: auto; 
-    margin-top: 5px;
     border: 1px solid #888;
-    width: auto; 
-    max-width: 700px;
+    height: auto;
+    width: 75%; 
+    max-height: 90vh;
     padding: 50px;
-    }
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto; 
+}
 
 .close {
     color: #aaa;
@@ -436,7 +439,6 @@ input, textarea {
 
     .centro {
         width: 80%;
-        height: 600px;
 
     }
 
