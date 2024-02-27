@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos</title>
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/contato.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="/">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="/">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sobrenos">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contato">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="fundo">
+        <div class="conteudo1">
+            <div class="cont-esq">
+                <div class="titulo1">
+                    <h1>Contato</h1>
+                    <p>Como nós podemos te ajudar?</p>
+                </div>
+                <div class="contato">
+                    <div class="form">
+                        <p>Nome</p>
+                        <input type="text" name="nome">
+                    </div>
+                    <div class="form">
+                        <p>E-mail</p>
+                        <input type="text" name="nome">
+                    </div>
+                    <div class="form-msg">
+                        <p>Mensagem</p>
+                        <input type="text" name="nome">
+                    </div>
+                    <div class="form-sbt">
+                        <input type="submit" value="Enviar">
+                    </div>
+                </div>
+            </div>
+            <div class="cont-dir">
+                <div class="imagem">
+                    <img src="{% static './assets/icons/contactus.svg' %}" alt="Imagem de contato" class="contato-img">
+                </div>
+                <div class="info-contato">
+                    <div class="contato1">
+                        <img src="{% static './assets/icons/local.svg' %}" alt="Imagem de contato" class="contato-svg">
+                        <p>Blumenau - Santa Catarina</p>
+                    </div>
+                    <div class="contato1">
+                        <img src="{% static './assets/icons/telefone.svg' %}" alt="Imagem de contato" class="contato-svg">
+                        <p>(47) 9 8408-7990</p>
+                    </div>
+                    <div class="contato1">
+                        <img src="{% static './assets/icons/contatoemail.svg' %}" alt="Imagem de contato" class="contato-svg">
+                        <p>parkin123@gmail.com</p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Usuario, Feedback
 from clientes.models import Cliente, Avaliacao
-from empresas.models import Estacionamento, Endereco, PerfilLocal
+from empresas.models import Estacionamento, Endereco
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -31,4 +31,3 @@ admin.site.register(Avaliacao)
 
 admin.site.register(Estacionamento)
 admin.site.register(Endereco)
-admin.site.register(PerfilLocal)

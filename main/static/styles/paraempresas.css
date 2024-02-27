@@ -1,0 +1,227 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+  
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+  
+body {
+    background-color: #FFDE59;
+}
+  
+header {
+    background-color: #FFDE59;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    position: relative;
+    z-index: 1;
+    padding: 12px 0;
+    align-items: center;
+  
+}
+  
+nav {
+    width: 90%;
+    height: 35px;
+    margin: auto;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-right: 40px;
+}
+  
+.logo {
+    display: block;
+    position: absolute;
+    width: 190px;
+    display: flex;
+    align-items: center;
+    bottom: 8px;
+}
+ 
+.logo-img {
+    width: 50px;
+}
+  
+ul .navbar li {
+    margin-left: 50px;
+    margin-top: 8px;
+}
+  
+ul .navbar li a {
+    font-size: 15px;
+    color: #08092a;
+}
+  
+ul .navbar li a::after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #000000;
+    width: 0;
+    transition: 0.3s;
+  
+}
+  
+ul .navbar li a:hover::after{
+    width: 100%;
+    left: 0;
+}
+  
+.l-c {
+    position: absolute;
+    display: flex;
+    right: 80px;
+    margin-top: 8px;
+}
+  
+.l-c .login li a{
+    margin-right: 30px;
+    color: #08092a;
+}
+ 
+.l-c .cadastro{
+    color: #08092a;
+}
+ 
+.l-c .cadastro li a {
+    padding: 8px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #08092a;
+}
+
+.conteudo1 {
+    width: 80%;
+    margin: auto;
+}
+
+.conteudo1 .flex {
+    display: flex;
+}
+
+.conteudo1 .flex .textos{
+    width: 50%;
+    margin-top: 130px;
+}
+
+.conteudo1 .flex .textos h1{
+    color: #08092a;
+    font-size: 50px;
+}
+
+.conteudo1 .flex .textos p{
+    color: #333;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.conteudo1 .flex .imagens{
+    width: 50%;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.conteudo1 .flex .imagens .empresas-img{
+    width: 400px;
+}
+
+.conteudo2 {
+    width: 90%;
+    margin: auto;
+}
+
+.conteudo2 .flex {
+    display: flex;
+}
+
+.conteudo2 .flex .textos{
+    width: 50%;
+    margin-top: 70px;
+}
+
+.conteudo2 .flex .textos h1{
+    color: #08092a;
+    font-size: 25px;
+}
+
+.conteudo2 .flex .textos h2{
+    color: #08092a;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.conteudo2 .flex .textos p{
+    color: #333;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.conteudo2 .flex .imagens{
+    width: 50%;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.conteudo2 .flex .imagens .empresas-img{
+    width: 400px;
+    margin-top: 50px;
+}
+
+.conteudo2 .titulo1{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.conteudo2 .titulo1 h1{
+    font-size: 25px;
+    color: #08092a;
+}
+
+.fundo-img {
+    height: 1500px;
+    width: 100%;
+    margin-right: 35px;
+}
+
+.conteudo3 {
+    width: 80%;
+    margin: auto;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.conteudo3 .flex {
+    display: flex;
+}
+
+.conteudo3 .flex .textos{
+    width: 50%;
+    margin-top: 100px;
+}
+
+.conteudo3 .flex .textos h1{
+    color: #08092a;
+    font-size: 25px;
+}
+
+.conteudo3 .flex .textos p{
+    color: #333;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.conteudo3 .flex .imagens{
+    width: 50%;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.conteudo3 .flex .imagens .empresas-img{
+    width: 400px;
+}

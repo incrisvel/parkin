@@ -9,6 +9,7 @@ body {
     background-color: #F5F6FA;
 }
 
+
 header {
     background-color: #fff;
     width: 100%;
@@ -19,6 +20,7 @@ header {
     padding: 12px 0;
     box-shadow: 0px 1px 4px 0px rgba(21, 34, 50, 0.08);
 }
+
 .content1 {
     position: absolute;
     width: auto;
@@ -42,7 +44,6 @@ header nav ul .logo li h1 {
     color: #000;
     font-size: 21.7px;
     font-style: normal;
-    font-weight: 800;
     line-height: 31px;
 }
 
@@ -100,8 +101,8 @@ header nav ul .user li .user-img{
 header nav ul .user li .seta-icon{
     width: 24px;
     height: 24px;
-    margin-top: 3px;
-    margin-left: 20px;
+    margin-left: 5px;
+    transition: transform 0.3s ease; 
 }
 
 header nav ul li {
@@ -272,4 +273,40 @@ button {
 
 .social-icons a:hover i {
     color: #0056b3;
+}
+
+span.menu-trigger{
+    display: flex;
+    align-items: center;
+}
+
+ul.menu-menu{
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0000002e;
+    cursor: default;
+    margin-top: 3px;
+}
+
+ul.menu-menu li{
+    font-size: 13px;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+ul.menu-menu li:hover{
+    background-color: #0000002a;
+}
+
+ul.menu-menu li:first-child{
+    margin: 0;
+}
+
+a li.sair:hover{
+    background-color: #cd00003f;
 }

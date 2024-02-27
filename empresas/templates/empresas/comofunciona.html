@@ -8,76 +8,36 @@
     <title>Cadastro - Estacionamentos</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/comofunciona.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/dashboard.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <div class="logo">
-                    <li>
-                        <a href="/empresas/dashboard">
-                            <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
-                        </a>
-                    </li>
-                    <li>
-                        <h1>ParkIn</h1>
-                    </li>
-                </div>
-                <div class="search">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
-                        </a>
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Pesquisar..."class="search-text">
-                    </li>
-                </div>
-                <div class="notification">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
-                        </a>
-                    </li>
-                </div>
-                <div class="user">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>ParkIn</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    {% block navbar %}
+        {% include 'empresas/navbar.html' %}
+    {% endblock %}
     </header>
     <div class="content1">
         <nav class="side-bar">
             <ul>
-                <div class="dashboard">
+                <li>
+                    <img src="{% static 'assets/img/cardapio.png' %}" alt="Cardapio" class="cardapio" onclick="sidebar()">
+                </li>
+                <div class="dashboard" style="background: transparent;">
                     <li>
                         <a href="/empresas/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/empresas/dashboard">
-                            <p>Dashboard</p>
+                        <a href="/empresas/dashboard" >
+                            <p style="color: #5A607F;">Home</p>
                         </a>
                     </li>
                 </div>
                 <div class="summary">
                     <li>
-                        <a href="">
+                        <a href="/empresas/resumos">
                             <img src="{% static 'assets/icons/summary-icon.svg' %}" alt="Meus Resumos" class="summary-icon">
                         </a>
                     </li>
@@ -112,7 +72,7 @@
                     </li>
                 </div>
                 <li>
-                    <p class="p1">Outras Informações</p>
+                    <p class="p1"></p>
                 </li>
                 <div class="menu-side-bar">
                     <li>
@@ -139,7 +99,7 @@
                     </li>
                 </div>
                 <li>
-                    <p class="p2">Configurações</p>
+                    <p class="p2"></p>
                 </li>
                 <div class="menu-side-bar">
                     <li>
@@ -204,5 +164,23 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        function sidebar() {
+            var minhaDiv = document.getElementsByClassName('side-bar')[0];
+            var cardapio = document.getElementsByClassName('cardapio')[0];
+            var larguraAtual = minhaDiv.offsetWidth;
+            var novaLargura = 265; 
+    
+        if (larguraAtual === novaLargura) {
+            minhaDiv.style.width = '65px';
+            cardapio.style.transform = "rotate(0deg)";
+        } else {
+            minhaDiv.style.width = novaLargura + 'px';
+            cardapio.style.transform = "rotate(180deg)";
+            
+        }
+    }
+        </script>
 </body>
 </html>

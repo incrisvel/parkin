@@ -8,70 +8,30 @@
     <title>PARKIN</title>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
     <link rel="stylesheet" href="{% static '/styles/cadastro.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
+    <link rel="stylesheet" href="{% static '/styles/dashboard.css' %}">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <div class="logo">
-                    <li>
-                        <a href="/empresas/dashboard">
-                            <img src="{% static 'assets/img/logo2.png' %}" alt="Icone da Logo" class="logo-img">
-                        </a>
-                    </li>
-                    <li>
-                        <h1>ParkIn</h1>
-                    </li>
-                </div>
-                <div class="search">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
-                        </a>
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Pesquisar..."class="search-text">
-                    </li>
-                </div>
-                <div class="notification">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
-                        </a>
-                    </li>
-                </div>
-                <div class="user">
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <h1>{{ nome }}</h1>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
+    {% block navbar %}
+        {% include 'empresas/navbar.html' %}
+    {% endblock %}
     </header>
     <div class="content1">
         <nav class="side-bar">
             <ul>
-                <div class="dashboard">
+                <li>
+                    <img src="{% static 'assets/img/cardapio.png' %}" alt="Cardapio" class="cardapio" onclick="sidebar()">
+                </li>
+                <div class="dashboard" style="background: transparent;">
                     <li>
                         <a href="/empresas/dashboard">
                             <img src="{% static 'assets/icons/dashboard-icon2.svg' %}" alt="Icone do Dashboard" class="dashboard-icon">
                         </a>
                     </li>
                     <li>
-                        <a href="/empresas/dashboard">
-                            <p>Dashboard</p>
+                        <a href="/empresas/dashboard" >
+                            <p style="color: #5A607F;">Home</p>
                         </a>
                     </li>
                 </div>
@@ -112,7 +72,7 @@
                     </li>
                 </div>
                 <li>
-                    <p class="p1">Outras Informações</p>
+                    <p class="p1"></p>
                 </li>
                 <div class="menu-side-bar">
                     <li>
@@ -139,7 +99,7 @@
                     </li>
                 </div>
                 <li>
-                    <p class="p2">Configurações</p>
+                    <p class="p2"></p>
                 </li>
                 <div class="signup2">
                     <li>
@@ -161,7 +121,12 @@
             <h2>Cadastro de Vaga de Garagem</h2>
             <form id="garageForm" method="post">
                 {% csrf_token %}
+
+                <label for="nome">Nome do Estacionamento:</label>
+                {{form.nome_estacionamento}}
+
                 <div class="row-container">
+
                     <label for="valor">Valor:</label>
                     {{form.valor}}
 
@@ -176,43 +141,13 @@
                 <div style="display: flex;">Abre às:{{form.hora_abre}}</div>
                 <div style="display: flex;">Fecha às:{{form.hora_fecha}}</div>
 
-                <label>Dias Abertos:</label>
-                <div class="checkbox-group" style="flex-direction: column;">
-                    <div>
-                    {{form.segunda}}
-                    {{form.segunda.label}}
+                <label for="id_dias_aberto">Dias Abertos:</label> 
+                    <div class="checkbox-group" style="flex-direction: column;"> 
+                        {% for dias in form.dias_aberto %} 
+                        <p>{{ dias }} {{ dias.label }} </p>
+                        {% endfor %}
+                        </div> 
 
-                    </div>
-
-                    <div>
-                    {{form.terca}}
-                    {{form.terca.label}}
-                    </div>
-
-                    <div>
-                    {{form.quarta}}
-                    {{form.quarta.label}}
-                    </div>
-
-                    <div>
-                    {{form.quinta}}
-                    {{form.quinta.label}}
-                    </div>
-
-                    <div>
-                    {{form.sexta}}
-                    {{form.sexta.label}}
-                    </div>
-                    <div>
-                    {{form.sabado}}
-                    {{form.sabado.label}}
-                    </div>
-                    <div>
-                    {{form.domingo}}
-                    {{form.domingo.label}}
-                    </div>
-
-                </div>
         
                 <!-- Campo de descrição -->
                 <label for="descricao">Descrição:</label>
@@ -220,13 +155,6 @@
         
                 <label for="logradouro">Endereço:</label>
                 {{form2.local}}
-
-                <!-- Campos para endereço -->
-                <label for="logradouro">Logradouro:</label>
-                {{form2.logradouro}}
-        
-                <label for="numero">Número:</label>
-                {{form2.numero}}
         
                 <label for="bairro">Bairro:</label>
                 {{form2.bairro}}
@@ -246,19 +174,27 @@
                 {{form.vagas_disp.label}}
                 {{form.vagas_disp}}
 
-                
+
                 <input type="submit" id="submitBtn" value="Cadastrar">
             </form>
         </div>
-        <div>
-            {% for local in locais %}
-            {{local.valor}}
-            {{local.vagas}}
-            {{local.descricao}}
-            {{local.hora_abre}}
-            {{local.hora_fecha}}
-            {%endfor%}
-        </div>
-    </div>
+
+        <script>
+            function sidebar() {
+                var minhaDiv = document.getElementsByClassName('side-bar')[0];
+                var cardapio = document.getElementsByClassName('cardapio')[0];
+                var larguraAtual = minhaDiv.offsetWidth;
+                var novaLargura = 265; 
+        
+            if (larguraAtual === novaLargura) {
+                minhaDiv.style.width = '65px';
+                cardapio.style.transform = "rotate(0deg)";
+            } else {
+                minhaDiv.style.width = novaLargura + 'px';
+                cardapio.style.transform = "rotate(180deg)";
+                
+            }
+        }
+            </script>
 </body>
 </html>

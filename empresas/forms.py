@@ -1,16 +1,17 @@
 from django import forms
-from .models import PerfilLocal, Endereco
+from .models import Estacionamento, PerfilLocal, Endereco
 
-class Perfil(forms.ModelForm):
+class PerfilForm(forms.ModelForm):
     class Meta:
         model = PerfilLocal
-        fields = "__all__"
         widgets = {
             'hora_abre': forms.TimeInput(attrs={'type': 'time'}),
             'hora_fecha': forms.TimeInput(attrs={'type': 'time'}),
             }
+        exclude = ['estacionamento', 'endereco']
 
-class Estacio(forms.ModelForm):
+
+class EnderecoForm(forms.ModelForm):
     class Meta:
         model = Endereco
-        fields = "__all__"
+        exclude = ['estacionamento']

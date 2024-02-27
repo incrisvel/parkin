@@ -158,6 +158,7 @@ button:hover {
     margin: auto;
     overflow: hidden;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .import4 {
@@ -214,7 +215,7 @@ input, textarea {
 }
 
 .entrar a:hover{
-    color: #221d09;
+    color: #ffd900;
 }
 
 .titulos h1{

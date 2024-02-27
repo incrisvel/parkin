@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'main',
     'empresas',
     'clientes',
+    'mapa',
+    'multiselectfield',
 ]
 
 AUTHENTICATION_BACKENDS = [

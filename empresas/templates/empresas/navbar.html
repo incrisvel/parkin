@@ -1,0 +1,67 @@
+{% load static %}
+<nav>
+    <ul>
+        <div class="logo">
+            <li>
+                <a href="/empresas/dashboard">
+                    <img src="{% static 'assets/img/logo2.png' %}"  alt="Icone da Logo" class="logo-img">
+                </a>
+            </li>
+            <li>
+                <h1>ParkIn</h1>
+            </li>
+        </div>
+        <div class="search">
+            <li>
+                <label for="pesquisa" style="cursor:pointer;margin-bottom:0">
+                    <img src="{% static 'assets/icons/search-icon.svg' %}" alt="Icone de Pesquisa" class="search">
+                </label>
+            </li>
+            <li>
+                <input type="text" placeholder="Pesquisar..."class="search-text" id="pesquisa" style="margin-bottom:0;padding:0">
+            </li>
+        </div>
+        <div class="notification">
+            <li>
+                <a href="/empresas/notificacoes">
+                    <img src="{% static 'assets/icons/notification-icon.svg' %}" alt="Icone de Notificação" class="notification-icon">
+                </a>
+            </li>
+        </div>
+        <div class="user">
+            <li>
+                <div class="menuzin">
+                    <span class="menu-trigger">
+                        <img src="{% static 'assets/img/user-img.png' %}" alt="Foto do Usuario" class="user-img">
+                        <h1>{{ nome }}</h1>
+                        <img src="{% static 'assets/icons/seta-icon.svg' %}" alt="Icone de Seta" class="seta-icon">
+                    </span>
+                    <ul class="menu-menu" >
+                        <li>Seu perfil</li>
+                        <li>Configurações</li>
+                        <a href="/logout" style="color: #333;"><li style="margin-top:3px; color:#cd0000;" class="sair">Sair</li> </a>
+                    </ul>
+                </div>
+            </li>
+        </div>
+    </ul>
+</nav>
+<script>
+    var button = document.getElementsByClassName("menu-trigger")[0];
+    var container = document.getElementsByClassName("menu-menu")[0];
+    var setinha = document.getElementsByClassName("seta-icon")[0];
+    var menuAberto = false;
+    
+    button.addEventListener("click", function(){
+        if(!menuAberto){
+            container.style.display = "block";
+            setinha.style.transform = "rotate(180deg)";
+            menuAberto = true;
+        } else {
+            container.style.display = "none";
+            setinha.style.transform = "rotate(0deg)";
+            menuAberto = false;
+        }
+    });
+
+</script>

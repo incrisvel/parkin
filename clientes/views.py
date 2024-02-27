@@ -6,54 +6,61 @@ from django.views.decorators.csrf import csrf_protect
 from main.models import Usuario
 from django.contrib.auth import login
 from projeto.backend import EmailBackend
+from datetime import datetime
 
-@csrf_protect
 def cadastrocliente(request):
-    erro_senha = ''
-    erro_email = ''
-    erro_check = ''
+    erro_senha = False
+    erro_email = False
+    erro_check = False
+    erro_idade = False
+
 
     if request.method == 'POST':
         email = request.POST.get('email')
-        
+        email = email.lower()
+    
         if Usuario.objects.filter(email=email).exists():
-            erro_email = 'Esse email já existe!'
+            erro_email = True
         else:
             nome_usuario = request.POST.get('nome')
             check = request.POST.get('check')
             password = request.POST.get('senha')
             confirme = request.POST.get('senha2')
             data = request.POST.get('data')
-        
+            data_atual = datetime.now()
+            print(int(data[:4]))
+            idade = data_atual.year - int(data[:4])
+            if password == confirme and check == 'on':
+                enviar_email(email)
+                cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
+                cliente.save()
+                return redirect('/clientes/entrar')
             if password != confirme:
-                erro_senha = 'As senhas não correspondem.'
-            elif check != 'on':
-                erro_check = 'Aceite os termos para avançar.'
-            else:
-                try:
-                    with transaction.atomic():
-                        cliente = Cliente.objects.create_user(nome=nome_usuario, email=email, password=password, data_nascimento=data)
-                        cliente.save()
-                    return redirect('/clientes/entrar')
-                except Exception as e:
-                    erro_email = 'Ocorreu um erro ao salvar o usuário.'
-    
-    return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check})
+                erro_senha = True
+            if check == None:
+                erro_check = True
+            if idade < 18:
+                erro_idade = True
+                
+    return render(request, 'clientes/cadascliente.html', {'erro_email':erro_email, 'erro_senha':erro_senha, 'erro_check':erro_check, 'erro_idade':erro_idade})
 
 
 @csrf_protect
 def entrarcliente(request):
+    erro_email = False
+    erro_senha = False
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        
+        email = email.lower()
+
         cliente = EmailBackend.authenticate(email=email, password=senha)
 
-        if cliente is not None:   
+        if cliente is not None and Cliente.objects.filter(email=email).exists() and Cliente.objects.filter(email=email).exists():
             login(request, cliente, backend='projeto.backend.EmailBackend')
-            return redirect('/mapa/')
+            return redirect('/estacionamentos/')
         else:
-            return redirect('/clientes/entrar')
-        
-    return render(request, 'clientes/entrar.html')
+            erro_email = True
+            erro_senha = True
+    return render(request, 'clientes/entrar.html', {'erro_email': erro_email, 'erro_senha':erro_senha})
 
