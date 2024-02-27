@@ -1,0 +1,211 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/detalhes.css' %}">
+    <title>Detalhes do estacionamento</title>
+</head>
+
+<body class="verdadeiro">
+    <header>
+        <nav>
+            <ul>
+                <div class="logo">
+                    <li>
+                        <a href="">
+                            <img src="{% static 'assets/img/logo1.png' %}" alt="Icone da Logo" class="logo-img">
+                        </a>
+                    </li>
+                    <li>
+                        <h1>ParkIn</h1>
+                    </li>
+                </div>
+                <div class="l-c">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout" class="nav-link">Sair</a></li> 
+                        {% else %}
+                            <li>
+                                <a href="/clientes/entrar/">
+                                    Entrar
+                                </a>
+                            </li>
+                        </div>
+                        <div class="cadastro">
+                            <li>
+                                <a href="/clientes/cadastrar/">
+                                    Cadastrar-se
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navbar">
+                    <li>
+                        <a href="/">
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/estacionamentos">
+                            Estacionamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sobrenos">
+                            Sobre nós
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contato">
+                            Contato
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    {% for local in locais %}
+
+    <div class="conteudo1">
+        <div class="titulos">
+            <div class="titulo1">
+                <h1>{{ local.nome_estacionamento }}</h1>
+            </div>
+            <div class="textos">
+                <div class="texto1">
+                    <img src="{% static './icons/estrela1.svg' %}" alt="Foto de estacionamento">
+                    <p>                                                    
+                        {% if local.naoqueronone == "Sem avaliação" %}
+                            Sem avaliação
+                        {% else %}
+                            {{ local.naoqueronone }}
+                        {% endif %} - 
+                        <span>{{ local.endereco.local }}</span>
+                    </p>
+                </div>
+                <div class="texto2">
+                    <img src="{% static './icons/compartilhe.svg' %}" alt="Foto de estacionamento">
+                    <p>Compartilhe</p>
+                    <img src="{% static './icons/salve.svg' %}" alt="Foto de estacionamento">
+                    <p>Salve</p>
+                </div>
+            </div>
+        </div>
+        <div class="imagens-est">
+            <div class="grid-container">
+                <div class="grid-item main-image">
+                    <img src="{% static './img/est1.png' %}" alt="Foto de estacionamento" class="est-img">
+                </div>
+                <div class="grid-item">
+                    <img src="{% static './img/est2.png' %}" alt="Foto de estacionamento" class="est-img">
+                </div>
+                <div class="grid-item">
+                    <img src="{% static './img/est3.png' %}" alt="Foto de estacionamento" class="est-img">
+                </div>
+                <div class="grid-item">
+                    <img src="{% static './img/est4.png' %}" alt="Foto de estacionamento" class="est-img">
+                </div>
+                <div class="grid-item">
+                    <img src="{% static './img/est5.png' %}" alt="Foto de estacionamento" class="est-img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteudo2">
+        <div class="cont-esq">
+            <div class="titulos1">
+                <div class="titulo2">
+                    <h1>Informações do estacionamento</h1>
+                    <p>{{ local.vagas_disp }} vagas disponíveis · {{ local.coberto }} · {{ local.vagas_cob }} vagas cobertas · {{ local.vagas_pref }} vagas preferenciais</p>
+                </div>
+                <div class="linha"></div>
+                <div class="titulo3">
+                    <div class="cont">
+                        <img src="{% static './icons/4.svg' %}" alt="Icone" class="icons">
+                        <p>Local verificado</p>
+                    </div>
+                    <div class="cont">
+                        <img src="{% static './icons/3.svg' %}" alt="Icone" class="icons">
+                        <p>Estacionamento premium</p>
+                    </div>
+                    <div class="cont">
+                        <img src="{% static './icons/2.svg' %}" alt="Icone" class="icons">
+                        <p>Acesso simples</p>
+                    </div>
+                    <div class="cont">
+                        <img src="{% static './icons/1.svg' %}" alt="Icone" class="icons">
+                        <p>Aberto todos os dias</p>
+                    </div>
+                </div>
+                <div class="linha"></div>
+                <div class="titulo4">
+                    {{ local.descricao }}
+                </div>
+                <div class="linha"></div>
+                <div class="titulo5">
+                    <h1>O que o lugar oferece?</h1>
+                    <div class="flex-all">
+                        <div class="flex1">
+                            <div class="cont">
+                            <img src="{% static './icons/icone1.svg' %}" alt="Icone" class="icons">
+                            <p>Ambiente ventilado</p>
+                            </div>
+                            <div class="cont">
+                                <img src="{% static './icons/icone2.svg' %}" alt="Icone" class="icons">
+                                <p>Pet friendly</p>
+                            </div>
+                            <div class="cont">
+                                <img src="{% static './icons/icone3.svg' %}" alt="Icone" class="icons">
+                                <p>Sensores de incêndio</p>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                            <div class="cont">
+                                <img src="{% static './icons/icone4.svg' %}" alt="Icone" class="icons">
+                                <p>Espaço para bicicletas</p>
+                            </div>
+                            <div class="cont">
+                                <img src="{% static './icons/icone5.svg' %}" alt="Icone" class="icons">
+                                <p>Câmeras de segurança</p>
+                            </div>
+                            <div class="cont">
+                                <img src="{% static './icons/icone6.svg' %}" alt="Icone" class="icons">
+                                <p>Wifi gratuito</p>                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="u-linha"></div>
+    </div>
+    <div class="conteudo3">
+
+        <div class="card1">
+            <div class="titulo6">
+                <p>R$ {{ local.valor }}</p>/h
+            </div>
+            <div class="titulo7">
+                <h1>Horário de funcionamento</h1>
+                <p>{{ local.hora_abre }}h até {{ local.hora_fecha }}h</p>
+                <div class="linha2"></div>
+                <h1>Dias abertos</h1>
+                <div class="dias">
+                    {% for dia in local.dias_abertos %}
+                        <p>{{ dia }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</body>

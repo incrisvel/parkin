@@ -183,11 +183,6 @@ ul .navbar li a:hover::after{
     color: #08092a;
 }
 
-.fundos {
-    position: absolute;
-    opacity: 0.8;
-}
-
 .fundo-img {
     height: 1500px;
     width: 100%;

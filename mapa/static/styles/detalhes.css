@@ -1,0 +1,271 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+  
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+  
+.verdadeiro {
+    background-color: #FFDE59;
+}
+  
+header {
+    background-color: #FFDE59;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    position: relative;
+    z-index: 1;
+    padding: 12px 0;
+    align-items: center;
+  
+}
+  
+nav {
+    width: 90%;
+    height: 35px;
+    margin: auto;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-right: 40px;
+}
+  
+.logo {
+    display: block;
+    position: absolute;
+    width: 190px;
+    display: flex;
+    align-items: center;
+    bottom: 8px;
+}
+  
+.logo-img {
+    width: 50px;
+}
+  
+ul .navbar li {
+    margin-left: 50px;
+    margin-top: 8px;
+}
+  
+ul .navbar li a {
+    font-size: 15px;
+    color: #08092a;
+}
+  
+.l-c {
+    position: absolute;
+    display: flex;
+    right: 80px;
+    margin-top: 8px;
+}
+  
+.l-c .login li a{
+    margin-right: 30px;
+    color: #08092a;
+}
+  
+.l-c .cadastro{
+    color: #08092a;
+}
+  
+.l-c .cadastro li a {
+    padding: 8px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #08092a;
+}
+
+.conteudo1 {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.conteudo1 .titulos .titulo1{
+    font-size: 16px;
+}
+
+.conteudo1 .textos {
+    margin-top: 15px;
+    display: flex;
+
+}
+
+.conteudo1 .texto1 {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.conteudo1 .texto1 span{
+    color: #717171;
+}
+
+.conteudo1 .texto2 {
+    position: absolute;
+    display: flex;
+    right: 0;
+    gap: 7px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.imagens-est {
+    margin-top: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2.4fr 1fr 1fr;
+    gap: 10px;
+}
+.grid-item {
+    width: 100%;
+    height: 100%
+}
+.main-image {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+}
+.est-img {
+    width: 100%;
+    height: 100%;
+}
+
+.conteudo2 {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.conteudo2 .titulos1 .titulo2 h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.conteudo2 .titulos1 .titulo2 p{
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.conteudo2 .cont-esq .titulos1 .titulo3 {
+    align-items: center;
+}
+
+.conteudo2 .cont-esq .titulos1 .titulo3 .cont {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.linha {
+    background-color: #333;
+    width: 700px;
+    height: 1px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.conteudo2 .cont-esq .titulos1 .titulo3 .cont p{
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.conteudo2 .cont-esq .titulos1 .titulo4{
+    width: 700px;
+}
+
+.conteudo2 .cont-esq .titulos1 .titulo5 h1{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.flex-all {
+    display: flex;
+}
+
+.flex1 {
+    margin-right: 100px;
+
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.icons {
+    margin-right: 10px;
+}
+
+.conteudo3 .card1 {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 300px;
+    height: 400px;
+    top: 630px;
+    right: 150px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.307);
+
+}
+
+.conteudo3 .card1 .titulo6{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #717171;
+}
+
+.conteudo3 .card1 .titulo6 p{
+    font-size: 20px;
+}
+
+.conteudo3 .card1 .titulo7 {
+    margin: 20px;
+    margin-top: 10px;
+    border: 1px solid #717171;
+    border-radius: 20px;
+    height: auto;
+    text-align: center;
+}
+
+.conteudo3 .card1 .titulo7 h1{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.conteudo3 .card1 .titulo7 p{
+    color: #333;
+}
+
+.conteudo3 .card1 .titulo7 .linha2{
+    height: 1px;
+    background-color: #717171;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.conteudo3 .card1 .titulo7 .dias{
+    margin-bottom: 10px;
+}
+
+.u-linha {
+    background-color: #333;
+    height: 1px;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

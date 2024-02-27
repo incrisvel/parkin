@@ -116,8 +116,7 @@
                             <ul>
                                 {% for local in locais %}
                                 <li>
-                                    <!-- Exibição de informações do local -->
-                                    <a href="">
+                                    <a href="{% url 'estacionamentos:detalhe_estacionamento' local.pk %}">
                                         <div class="imagem">
                                             <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
                                         </div>
