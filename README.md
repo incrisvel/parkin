@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/incrisvel/parkin">
-    <img src="main/static/img/logo_branca.png" alt="Logo" width="200" height="180" >
+    <img src="main/static/assets/img/logo0.png" alt="Logo" width="230" height="200" >
   </a>
   
 
@@ -58,8 +58,6 @@
 
 ## Sobre o projeto
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 ParkIn é uma iniciativa dedicada a revolucionar a maneira como as pessoas encontram e utilizam estacionamentos urbanos. 
 
 Proporciona uma experiência personalizada para os usuários, além de uma plataforma robusta e intuitiva de gestão aos proprietários. 
@@ -91,7 +89,6 @@ Recursos utilizados no desenvolvimento:
 - Frameworks/bibliotecas
 
     [![Django][Django.com]][Django-url]
-    [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 - Controle de versão
 
@@ -122,27 +119,55 @@ Para ter uma cópia local siga estes passos simples.
 
 ### Pré-requisitos
 
-Listar itens necessários para usar o software e como instalá-los.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Para utilizar este software, é necessário ter os seguintes itens instalados:
+
+- Python 3.10.12
+- VSCode
+- Git
+
+Certifique-se de ter o pip instalado. Para verificar se você o tem, você pode abrir o terminal e digitar o seguinte comando:
+```sh
+pip --version
+```
 
 ### Instalação
 
 1. Clone o repositório
-   ```sh
-   git clone https://github.com/incrisvel/parkin.git
-   ```
+  ```sh
+  git clone https://github.com/incrisvel/parkin.git
+  ```
 2. Instale as bibliotecas
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Inicialize o banco de dados
-   ```sh
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
+  ```sh
+  pip install -r requirements.txt
+  ```
+3. (para Django 5.0) Acesse a biblioteca multiselectfield e, no arquivo fields.py (multiselectfield/db/fields.py), delete os seguintes trechos
+  ```python
+  def _get_flatchoices(self):
+    flat_choices = super(MultiSelectField, self)._get_flatchoices()
+
+    class MSFFlatchoices(list):
+        # Used to trick django.contrib.admin.utils.display_for_field into
+        # not treating the list of values as a dictionary key (which errors
+        # out)
+        def _bool_(self):
+            return False
+        _nonzero_ = _bool_
+    return MSFFlatchoices(flat_choices)
+  flatchoices = property(_get_flatchoices)
+  ```
+  ```python
+  try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ['^multiselectfield\.db.fields\.MultiSelectField'])
+  except ImportError:
+    pass
+  ```
+
+4. Inicialize o banco de dados
+  ```sh
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -154,15 +179,35 @@ A visão do ParkIn se estende tanto aos motoristas em busca de vagas quanto aos 
 
 ### Clientes
 
-1. Cadastro;
-2. Login;
-3. Visualização do mapa interativo.
+<details>
+  <summary>Clique para ver exemplos</summary>
+  <ol>
+    <li>
+      <p>Cadastro para clientes</p>
+      <img src="main/static/assets/img/usos/cadastro_cliente.png" alt="Cadastro para empresas">
+    </li>
+    <li>
+     <p>Mapa interativo</p>
+      <img src="main/static/assets/img/usos/mapa_estacionamentos.png" alt="Dashboard">
+    </li>
+  </ol>
+</details>
 
 ### Estacionamentos
 
-1. Cadastro;
-2. Login;
-3. Tela de dashboard.
+<details>
+  <summary>Clique para ver exemplos</summary>
+  <ol>
+    <li>
+      <p>Cadastro para empresas</p>
+      <img src="main/static/assets/img/usos/cadastro_empresa.png" alt="Cadastro para empresas">
+    </li>
+    <li>
+     <p>Dashboard</p>
+      <img src="main/static/assets/img/usos/dashboard.png" alt="Dashboard">
+    </li>
+  </ol>
+</details>
 
 <p align="right"><a href="#readme-top">Início</a></p>
 
@@ -210,7 +255,7 @@ Este projeto é licenciado sob a GNU GENERAL PUBLIC LICENSE. Veja a [licença](L
 
 ## Contato
 
-Entre em contato com a equipe em parkin2123@gmail.com.
+Veja mais sobre o nosso projeto em nosso [Linktree](https://linktr.ee/parkin_) ou envie um e-mail à equipe em parkin2123@gmail.com.
 
 Saiba mais sobre os autores do projeto:
 
@@ -233,8 +278,6 @@ Saiba mais sobre os autores do projeto:
 [license-shield]: https://img.shields.io/badge/license-GPL-yellow?style=for-the-badge
 [license-url]: https://github.com/incrisvel/parkin/tree/main?tab=GPL-3.0-1-ov-file#GPL-3.0-1-ov-file
 
-[product-screenshot]: images/screenshot.png
-
 [Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [Figma-url]: https://www.figma.com 
 [Canva.com]: https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white
@@ -253,8 +296,6 @@ Saiba mais sobre os autores do projeto:
 [Trello-url]: https://trello.com
 [SQLite.com]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
 [SQLite-url]: https://www.sqlite.org/index.html
-[Bootstrap.com]: https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
 [VSCode.com]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [VSCode-url]: https://code.visualstudio.com
 [Git.com]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white

@@ -54,9 +54,17 @@ Os integrantes reescreveram seu pitch pessoal.
 
 Foram traçadas novas metas para entregar no projeto, dadas as datas finais.
 
-## 06/02/2024 - 09/02/2024
+## 06/02/2024
 
-A equipe ensaiou, cronometrou e gravou a apresentação. Ryan e Marco trabalharam na aparência das demais páginas do site.
+A equipe ensaiou, cronometrou e gravou a apresentação. 
+
+## 07/02/2024
+
+A apresentação foi novamente ensaiada por todos.
+
+## 09/02/2024
+
+Ryan e Marco trabalharam na aparência das demais páginas do site.
 
 ## 11/02/2024
 
@@ -65,3 +73,27 @@ Cristina integrou o banco de dados com a autenticação e cadastro de usuários.
 ## 14/02/2024
 
 Ryan preparou e editou o vídeo da equipe.
+
+## 15/02/2024
+
+Foram realizados merges na dev, bem como a preparação para os passos finais do trabalho. Cristina, Marco e Ryan decidiram, presencialmente, a programação da semana seguinte.
+
+## 20/02/2024
+
+Cristina e Marco adicionaram a biblioteca de múltipla escolha para o modelo do perfil de estacionamento. Bianca organizou a impressão de folders promocionais do trabalho.
+
+## 21/02/2024
+
+Marco adicionou responsividade a páginas da tela inicial. Arthur e Cristina redigiram os termos de consentimento fictícios do aplicativo.
+
+## 23/02/2024
+
+Ryan começou a desenvolver o front-end da avaliação de estacionamentos por usuários. Ana verificou o formulário de avaliação.
+
+## 26/02/2024
+
+A apresentação foi ensaiada pela equipe e os materiais necessários para a apresentação foram reunidos. Bianca criou o design de postagens nas redes sociais.
+
+## 27/02/2024
+
+Foram resolvidos os merges finais das alterações de Arthur, Marco (responsividade) e Ryan (avaliações). Ana, Bianca e Arthur prepararam os itens para o estande da equipe.
