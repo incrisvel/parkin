@@ -95,10 +95,44 @@
                 <div class="check">
                   <input type="checkbox" name="check" id="check">
                   {%if erro_check == False%}
-                  <p>Termos de consentimento</p>
+                  <p class="termos" onclick="openModal()">Termos de consentimento</p>
                   {%else%}
-                  <p style = "color:#d50303">Termos de consentimento</p>
+                    <p class="termos-erro" onclick="openModal()">Termos de consentimento</p>
                   {%endif%}
+                  <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <div>
+                      <span class="close" onclick="closeModal()">&times;</span>
+                      </div>
+                      <div>
+                        <h1 class="termo">Termos de consentimento para Empresas</h1><br/>
+                        <p class ="texto">   A equipe por trás do ParkIn desenvolve tecnologias e serviços destinados a
+                          conectar empresas com usuários e expandir seus negócios. Estes termos regem o
+                          uso do ParkIn por empresas, exceto quando outros termos são expressamente
+                          declarados. Ao cadastrar-se e utilizar os serviços do ParkIn, a empresa concorda
+                          com os termos e condições estabelecidos neste documento. Vale ressaltar que a
+                          utilização do ParkIn não gera custos para as empresas. Em vez disso, os
+                          anunciantes pagam para promover seus produtos e serviços aos usuários da
+                          plataforma.</p><br/>
+                          <p class = "texto">A equipe do ParkIn utiliza os dados pessoais fornecidos pelas empresas para
+                            oferecer uma experiência personalizada e eficiente na plataforma. É importante
+                            ressaltar que não vendemos nem compartilhamos esses dados com terceiros sem o
+                            consentimento prévio da empresa. Os anunciantes informam os tipos de
+                            público-alvo desejados para seus anúncios, e o ParkIn utiliza essas informações
+                            para direcionar os anúncios de maneira mais eficaz. Relatórios de desempenho dos
+                            anúncios podem ser fornecidos às empresas para análise. Ademais:     </p><br>
+                            
+                              <p class = "ponto">● O estacionamento passará por uma avaliação, de equipe a ser determinada,
+                                para garantir a sua validade.<br/>
+                                ● A veracidade dos dados inseridos está por responsabilidade da empresa,
+                                sendo esta responsável pelas consequências da falsidade.<br/>
+                                ● A empresa concorda em ter seu estabelecimento apresentado no site.</p><br/>
+                                <p class = "texto">Ao clicar em "Aceitar" ou utilizar os serviços oferecidos pelo ParkIn, você
+                                  concorda integralmente com os termos e condições deste Termo de Consentimento,
+                                  e concorda em aderir a eles de forma voluntária e consciente.</p>
+                          </div>
+                    </div>
+                  </div>
                 </div>
               <div class="botao">
                 <input type="submit" value="Cadastrar" id="button">
@@ -129,6 +163,16 @@
       var formattedInput = formatCNPJ(input);
       target.value = formattedInput;
     });
+
+
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+  
   </script>
 </body>
 </html>

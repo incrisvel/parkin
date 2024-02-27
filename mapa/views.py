@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from empresas.models import PerfilLocal
 from .forms import AvaliacaoForm
+from django.contrib.auth.decorators import login_required
 
 
 

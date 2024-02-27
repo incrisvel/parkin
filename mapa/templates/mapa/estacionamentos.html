@@ -24,6 +24,8 @@
       crossorigin=""
     ></script>
     <link rel="stylesheet" href="{% static '/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/index.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/img/logo2.ico' %}">
   </head>
 <body class="verdadeiro">
     <header>
@@ -115,7 +117,7 @@
                             <ul>
                                 {% for local in locais %}
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'estacionamentos:detalhe_estacionamento' local.id %}">
                                         <div class="imagem">
                                             <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
                                         </div>
