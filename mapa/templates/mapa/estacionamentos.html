@@ -116,7 +116,7 @@
                             <ul>
                                 {% for local in locais %}
                                 <li>
-                                    <a href="{% url 'estacionamentos:detalhe_estacionamento' local.pk %}">
+                                    <a href="{% url 'estacionamentos:detalhe_estacionamento' local.id %}">
                                         <div class="imagem">
                                             <img src="{% static 'img/estacionamento2.jpg' %}" alt="Foto de estacionamento" class="img-est">
                                         </div>

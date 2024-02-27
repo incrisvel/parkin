@@ -213,8 +213,8 @@ ul .navbar li a {
     background-color: #fff;
     border-radius: 15px;
     width: 300px;
-    height: 400px;
-    top: 630px;
+    height: auto;
+    top: 650px;
     right: 150px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.307);
 
@@ -262,10 +262,40 @@ ul .navbar li a {
     margin-bottom: 10px;
 }
 
+.conteudo3 .card1 .titulo7 .avaliacao h2{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.conteudo3 .card1 .titulo7 .avaliacao button{
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #FFDE59;
+    border-radius: 20px;
+    color: #08092a;
+    cursor: pointer;
+    border: none;
+}
+
+.conteudo3 .card1 .titulo7 .avaliacao button:hover{
+    background-color: #ffcc00;
+}
 .u-linha {
     background-color: #333;
     height: 1px;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+input {
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid #08092a;
+    padding: 5px;
+    margin-top: 5px;
 }

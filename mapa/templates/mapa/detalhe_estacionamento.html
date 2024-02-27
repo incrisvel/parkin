@@ -69,24 +69,21 @@
             </ul>
         </nav>
     </header>
-
-    {% for local in locais %}
-
     <div class="conteudo1">
         <div class="titulos">
             <div class="titulo1">
-                <h1>{{ local.nome_estacionamento }}</h1>
+                <h1>{{ estacionamento.nome_estacionamento }}</h1>
             </div>
             <div class="textos">
                 <div class="texto1">
                     <img src="{% static './icons/estrela1.svg' %}" alt="Foto de estacionamento">
                     <p>                                                    
-                        {% if local.naoqueronone == "Sem avaliação" %}
+                        {% if estacionamento.naoqueronone == "Sem avaliação" %}
                             Sem avaliação
                         {% else %}
-                            {{ local.naoqueronone }}
+                            {{ estacionamento.naoqueronone }}
                         {% endif %} - 
-                        <span>{{ local.endereco.local }}</span>
+                        <span>{{ estacionamento.endereco.local }}</span>
                     </p>
                 </div>
                 <div class="texto2">
@@ -122,7 +119,7 @@
             <div class="titulos1">
                 <div class="titulo2">
                     <h1>Informações do estacionamento</h1>
-                    <p>{{ local.vagas_disp }} vagas disponíveis · {{ local.coberto }} · {{ local.vagas_cob }} vagas cobertas · {{ local.vagas_pref }} vagas preferenciais</p>
+                    <p>{{ estacionamento.vagas_disp }} vagas disponíveis · {{ estacionamento.coberto }} · {{ estacionamento.vagas_cob }} vagas cobertas · {{ estacionamento.vagas_pref }} vagas preferenciais</p>
                 </div>
                 <div class="linha"></div>
                 <div class="titulo3">
@@ -145,7 +142,7 @@
                 </div>
                 <div class="linha"></div>
                 <div class="titulo4">
-                    {{ local.descricao }}
+                    {{ estacionamento.descricao }}
                 </div>
                 <div class="linha"></div>
                 <div class="titulo5">
@@ -189,23 +186,29 @@
 
         <div class="card1">
             <div class="titulo6">
-                <p>R$ {{ local.valor }}</p>/h
+                <p>R$ {{ estacionamento.valor }}</p>/h
             </div>
             <div class="titulo7">
                 <h1>Horário de funcionamento</h1>
-                <p>{{ local.hora_abre }}h até {{ local.hora_fecha }}h</p>
+                <p>{{ estacionamento.hora_abre }}h até {{ estacionamento.hora_fecha }}h</p>
                 <div class="linha2"></div>
                 <h1>Dias abertos</h1>
                 <div class="dias">
-                    {% for dia in local.dias_abertos %}
+                    {% for dia in estacionamento.dias_abertos %}
                         <p>{{ dia }}</p>
                     {% endfor %}
                 </div>
+                <div class="linha2"></div>
+                <div class="avaliacao">
+                    <h2>Avalie este estacionamento:</h2>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <input type="text" name="critica" placeholder="Crítica">
+                        <input type="number" name="nota" placeholder="Nota (0 a 10)">
+                        <button type="submit">Enviar Avaliação</button>
+                    </form>
+                </div>
             </div>
         </div>
-
     </div>
-
-    {% endfor %}
-
 </body>
