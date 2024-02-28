@@ -28,7 +28,6 @@ def cadastrocliente(request):
             confirme = request.POST.get('senha2')
             data = request.POST.get('data')
             data_atual = datetime.now()
-            print(int(data[:4]))
             idade = data_atual.year - int(data[:4])
             if password == confirme and check == 'on':
                 enviar_email(email)

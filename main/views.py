@@ -27,7 +27,6 @@ def enviar_email(mail):
     s.starttls()
     s.login(msg['From'], password)
     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
-    print('email enviado')
 
 @csrf_protect
 def sobrenos(request):
